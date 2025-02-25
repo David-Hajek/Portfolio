@@ -1,12 +1,12 @@
 /*GLOBAL CSS STYLES WITH VARIABLES*/
 
 :root {
-    --primary-color: #247cff;
+    --primary-color: #ffffff;
     --secondary-color: #514bf2; 
-    --backround-color: #0c1047;
+    --backround-color: #04121d; 
     --text-color: #dbe9f5; 
 
-    --font-family: 'Inter', system-ui, sans-serif;
+    --font-family: 'DM Sans', system-ui, sans-serif;
     --base-font-size: 18px;
 }
 *{

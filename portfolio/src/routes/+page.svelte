@@ -6,7 +6,8 @@ onMount(() =>{
 </script>
 
 <h1>Welcome to my Svelte App!</h1>
-<p>This is the homepage of our SvelteKit application.</p>
+<p>This is the homepage of our TOMAS DITE application.</p>
 
 <style>
+        headerLocation{color: #ffffff; filter: blur(2px);}
 </style>
