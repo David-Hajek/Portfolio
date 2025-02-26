@@ -8,22 +8,22 @@ onMount(() =>{
 });
 
 </script>
- 
+<Canvas>
+  {#if import.meta.env.MODE === 'development'}
+    {#await import('@threlte/studio') then { Studio }}
+      <Studio>
+        <ThreeScene/>
+      </Studio>
+    {/await}
+  {:else}
+    <ThreeScene/>
+  {/if}
+
+</Canvas>
+
 <h1>Welcome to my Svelte App!</h1>
 <p>This is the homepage of our TOMAS DITE application.</p>
 
-<Canvas>
-    {#if import.meta.env.MODE === 'development'}
-      {#await import('@threlte/studio') then { Studio }}
-        <Studio>
-          <ThreeScene/>
-        </Studio>
-      {/await}
-    {:else}
-      <ThreeScene/>
-    {/if}
-
-</Canvas>
 
 <style>
         headerLocation{color: #ffffff; filter: blur(2px);}

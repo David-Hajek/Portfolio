@@ -19,7 +19,7 @@
   })
  
  
-  const gltf = useLoader(GLTFLoader).load('/models/domca.glb')
+  const gltf = useLoader(GLTFLoader).load('/models/test2.glb')
   
   interactivity()
   const scale = new Spring(1)
@@ -39,9 +39,9 @@
 {#if $gltf}
   <T is={$gltf.scene} 
   position.y = {-3}
-  scale = {[ 12, 12, 12 ]} rotation={[ -0.0145, 0.0169, -0.0128 ]} position={[ 2, -7.1, -0.4 ]} renderOrder={6}
-  
-  
+  scale = {[ 12, 12, 12 ]} rotation={[ -0.0145, 0.0443, -0.0124 ]} position={[ 2, 3.7373, -0.4 ]} renderOrder={6}
+  rotation.x = {0.1}
+  rotation.y = {rotation} matrixWorldAutoUpdate matrixAutoUpdate frustumCulled	
   />
 {/if}
 <T.PerspectiveCamera
@@ -75,7 +75,7 @@
   shadow.camera.right={5.1}
   shadow.mapSize.width={512}
 />
-<T.DirectionalLight position={[ 12.0803, 5.2133, -27.939 ]} intensity={10} target.position={[ -6.9, 0, 0 ]} scale={[ 0.1, 0.1, 0.1 ]} renderOrder={0} matrixWorldAutoUpdate color="#f5c66a" castShadow frustumCulled shadow.bias={13.7} shadow.normalBias={14.2} shadow.blurSamples={11.1} shadow.radius={6.5} shadow.camera.near={1.72} shadow.camera.top={0.3}>
+<T.DirectionalLight position={[ 12.0803, 5.2133, -27.939 ]} intensity={10} target.position={[ -6.9, 0, 0 ]} scale={[ 0.1, 0.1, 0.1 ]} renderOrder={0} matrixWorldAutoUpdate color="#f5c66a" castShadow frustumCulled shadow.bias={13.7} shadow.normalBias={14.2} shadow.blurSamples={11.1} shadow.radius={6.5} shadow.camera.near={1.72} shadow.camera.top={0.3} rotation={[ -0.2357, 0.1031, -0.3257 ]}>
   
 </T.DirectionalLight>
 
