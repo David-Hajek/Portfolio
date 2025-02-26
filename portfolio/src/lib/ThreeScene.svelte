@@ -1,51 +1,81 @@
 <script>
   import { T, useTask } from '@threlte/core'
-  import { interactivity } from '@threlte/extras'
+  import { interactivity, Environment } from '@threlte/extras'
   import { Spring } from 'svelte/motion'
   import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
   import { useLoader } from '@threlte/core'
-  const gltf = useLoader(GLTFLoader).load('/models/test.glb')
+  import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader.js'; // hdri
+	import { EquirectangularReflectionMapping} from 'three';
+	
 
+ 
+ 
+ const { load } = useLoader(RGBELoader)
+  const map = load('/hdri/kloppenheim_02_puresky_1k.hdr', {
+    transform(texture) {
+      texture.mapping = EquirectangularReflectionMapping;
+      return texture
+    }
+  })
+ 
+ 
+  const gltf = useLoader(GLTFLoader).load('/models/domca.glb')
+  
   interactivity()
   const scale = new Spring(1)
   let rotation = 0
   useTask((delta) => {
     rotation += delta
   })
+  
 </script>
+
+{#await map then texture}
+  <Environment
+    {texture}
+  />
+{/await}
+
 {#if $gltf}
-  <T is={$gltf.scene} />
+  <T is={$gltf.scene} 
+  position.y = {-3}
+  scale = {[ 12, 12, 12 ]} rotation={[ -0.0145, 0.0169, -0.0128 ]} position={[ 2, -7.1, -0.4 ]} renderOrder={6}
+  
+  
+  />
 {/if}
 <T.PerspectiveCamera
   makeDefault
-  position={[10, 10, 10]}
+  position={[ 10.3044, 0.2761, 16.9648 ]}
+  fov={31.75}
   oncreate={(ref) => {
-    ref.lookAt(0, 1, 0)
+    ref.lookAt(0, 6, 0)
   }}
+  rotation={[ 0.2953, 0.4881, -0.1208 ]}
+  filmGauge={139}
+  scale={[ 1, 1, 1 ]}
 />
 <T.DirectionalLight
-  position={[0, 10, 10]}
+  position={[ -11.6464, 8.8964, -7.0845 ]}
   castShadow
+  rotation={[ -4.0839, -0.1642, 1.8128 ]}
+  color="#f2c083"
+  intensity={8}
+  renderOrder={0}
+  frustumCulled
+  matrixAutoUpdate
+  scale={[ -1, -1, 1 ]}
+  target.position={[ 36.6, 0, 0 ]}
+  shadow.bias={5.9}
+  shadow.normalBias={18.6}
+  shadow.radius={-8.1}
+  shadow.blurSamples={7.4}
+  shadow.camera.near={2.42}
+  shadow.camera.far={2420}
+  shadow.camera.right={5.1}
+  shadow.mapSize.width={512}
 />
-<T.Mesh
-  rotation.y={rotation}
-  position.y={1}
-  scale={scale.current}
-  onpointerenter={() => {
-    scale.target = 1.5
-  }}
-  onpointerleave={() => {
-    scale.target = 1
-  }}
-  castShadow
->
-  <T.BoxGeometry args={[1, 2, 1]} />
-  <T.MeshStandardMaterial color="hotpink" />
-</T.Mesh>
-<T.Mesh
-  rotation.x={-Math.PI / 2}
-  receiveShadow
->
-  <T.CircleGeometry args={[4, 40]} />
-  <T.MeshStandardMaterial color="white" />
-</T.Mesh>
+<T.DirectionalLight position={[ 12.0803, 5.2133, -27.939 ]} intensity={10} target.position={[ -6.9, 0, 0 ]} scale={[ 0.1, 0.1, 0.1 ]} renderOrder={0} matrixWorldAutoUpdate color="#f5c66a" castShadow frustumCulled shadow.bias={13.7} shadow.normalBias={14.2} shadow.blurSamples={11.1} shadow.radius={6.5} shadow.camera.near={1.72} shadow.camera.top={0.3}>
+  
+</T.DirectionalLight>
+
