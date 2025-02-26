@@ -6,7 +6,7 @@
   import { useLoader } from '@threlte/core'
   import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader.js'; // hdri
 	import { EquirectangularReflectionMapping} from 'three';
-	
+	import Model from '$lib/test2.svelte'
 
  
  
@@ -18,7 +18,7 @@
     }
   })
  
- 
+
   const gltf = useLoader(GLTFLoader).load('/models/test2.glb')
   
   interactivity()
@@ -36,14 +36,13 @@
   />
 {/await}
 
-{#if $gltf}
-  <T is={$gltf.scene} 
-  position.y = {-3}
+
+<Model 
+position.y = {-3}
   scale = {[ 12, 12, 12 ]} rotation={[ -0.0145, 0.0443, -0.0124 ]} position={[ 2, 3.7373, -0.4 ]} renderOrder={6}
   rotation.x = {0.1}
   rotation.y = {rotation} matrixWorldAutoUpdate matrixAutoUpdate frustumCulled	
   />
-{/if}
 <T.PerspectiveCamera
   makeDefault
   position={[ 10.3044, 0.2761, 16.9648 ]}

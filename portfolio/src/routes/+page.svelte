@@ -1,6 +1,7 @@
 <script>
 import { Canvas } from '@threlte/core'
   import ThreeScene from '$lib/ThreeScene.svelte'
+  
 import { onMount } from 'svelte';
 import { Studio } from '@threlte/studio'
 onMount(() =>{
