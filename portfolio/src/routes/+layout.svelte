@@ -1,5 +1,5 @@
 <script>
-    import { page } from '$app/stores';
+    import { page } from '$app/stores'; /* this should in theory be able to work with the states the webpage is in */
 </script>
 
 <link rel="stylesheet" href="/styles/global.css" />
