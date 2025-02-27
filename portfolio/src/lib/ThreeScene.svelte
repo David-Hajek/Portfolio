@@ -1,6 +1,6 @@
-<script>
+<script lang="ts">
   import { T, useTask } from '@threlte/core'
-  import { interactivity, Environment } from '@threlte/extras'
+  import { interactivity, Environment, Grid, OrbitControls } from '@threlte/extras'
   import { Spring } from 'svelte/motion'
   import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
   import { useLoader } from '@threlte/core'
@@ -17,7 +17,7 @@
       return texture
     }
   })
- 
+  let color = '#ff3e00'
 
   const gltf = useLoader(GLTFLoader).load('/models/test2.glb')
   
@@ -27,7 +27,8 @@
   useTask((delta) => {
     rotation += delta
   })
-  
+  let maxAzimuthAngle: number = 0.1
+  let maxPolarAngle: number = Math.PI
 </script>
 
 {#await map then texture}
@@ -53,7 +54,12 @@ position.y = {-3}
   rotation={[ 0.2953, 0.4881, -0.1208 ]}
   filmGauge={139}
   scale={[ 1, 1, 1 ]}
-/>
+>
+<OrbitControls
+{ maxAzimuthAngle }
+{ maxPolarAngle }
+enableDamping />
+</T.PerspectiveCamera>
 <T.DirectionalLight
   position={[ -11.6464, 8.8964, -7.0845 ]}
   castShadow
@@ -78,3 +84,9 @@ position.y = {-3}
   
 </T.DirectionalLight>
 
+<Grid
+  sectionColor={color}
+  sectionThickness={1}
+  cellColor="#cccccc"
+  gridSize={40}
+/>
