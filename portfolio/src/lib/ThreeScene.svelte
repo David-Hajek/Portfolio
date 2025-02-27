@@ -27,8 +27,7 @@
   useTask((delta) => {
     rotation += delta
   })
-  let maxAzimuthAngle: number = 0.1
-  let maxPolarAngle: number = Math.PI
+  
 </script>
 
 {#await map then texture}
@@ -47,18 +46,26 @@ position.y = {-3}
 <T.PerspectiveCamera
   makeDefault
   position={[ 10.3044, 0.2761, 16.9648 ]}
-  fov={31.75}
+  fov={24.75}
   oncreate={(ref) => {
     ref.lookAt(0, 6, 0)
   }}
   rotation={[ 0.2953, 0.4881, -0.1208 ]}
-  filmGauge={139}
+  filmGauge={109}
   scale={[ 1, 1, 1 ]}
+  frustumCulled
+  matrixAutoUpdate
 >
 <OrbitControls
-{ maxAzimuthAngle }
-{ maxPolarAngle }
-enableDamping />
+maxDistance={50}
+      minPolarAngle={0.3 * Math.PI}
+      maxPolarAngle={0.5 * Math.PI}
+      minAzimuthAngle={0.3 * Math.PI}
+      maxAzimuthAngle={0.5 * Math.PI}
+      rotateSpeed={0.1}
+enableDamping >
+</OrbitControls>
+
 </T.PerspectiveCamera>
 <T.DirectionalLight
   position={[ -11.6464, 8.8964, -7.0845 ]}
