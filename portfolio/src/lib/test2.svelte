@@ -18,6 +18,9 @@ Command: npx @threlte/gltf@3.0.0 test2.glb --transform
   bind:ref
   dispose={false}
   {...props}
+  scale={[ 1.05, 1, 1 ]}
+  position={[ 0.4332, -1.1902, 0 ]}
+  rotation={[ -0.3396, 0.8856, 0.2602 ]}
 >
   {#await gltf}
     {@render fallback?.()}

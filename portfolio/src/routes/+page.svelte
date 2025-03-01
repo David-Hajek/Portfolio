@@ -9,6 +9,7 @@ onMount(() =>{
 });
 
 </script>
+<div style="width: 1880px; height: 600px;">
 <Canvas>
   {#if import.meta.env.MODE === 'development'}
     {#await import('@threlte/studio') then { Studio }}
@@ -21,7 +22,7 @@ onMount(() =>{
   {/if}
 
 </Canvas>
-
+</div>
 <h1>Welcome to my Svelte App!</h1>
 <p>This is the homepage of our TOMAS DITE application.</p>
 

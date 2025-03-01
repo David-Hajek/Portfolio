@@ -42,6 +42,7 @@
 		"@threlte/theatre": "^3.0.0",
 		"@threlte/xr": "^1.0.1",
 		"three": "^0.173.0",
-		"threlte": "^3.13.1"
+		"threlte": "^3.13.1",
+		"threlte-postprocessing": "^0.0.7"
 	}
 }
