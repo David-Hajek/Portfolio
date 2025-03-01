@@ -18,9 +18,13 @@ Command: npx @threlte/gltf@3.0.0 test2.glb --transform
   bind:ref
   dispose={false}
   {...props}
+<<<<<<< HEAD
   scale={[ 1.05, 1, 1 ]}
   position={[ 0.4332, -1.1902, 0 ]}
   rotation={[ -0.3396, 0.8856, 0.2602 ]}
+=======
+  position={[ 1.9889, 5.3239, -0.229 ]}
+>>>>>>> 0c39f0d2de8bd785fcf0679b69b2a38a8c8ea65f
 >
   {#await gltf}
     {@render fallback?.()}
@@ -29,6 +33,13 @@ Command: npx @threlte/gltf@3.0.0 test2.glb --transform
       geometry={gltf.nodes.reconstruction003.geometry}
       material={gltf.materials['Material.006']}
       position={[0, -0.9, 0]}
+      material.shadowSide={1}
+      material.side={1}
+      material.emissiveIntensity={3.1}
+      material.metalness={1}
+      material.roughness={1}
+      material.alphaHash
+      material.wireframe={false}
     />
   {:catch err}
     {@render error?.({ error: err })}

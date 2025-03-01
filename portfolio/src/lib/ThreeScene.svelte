@@ -1,6 +1,6 @@
 <script lang="ts">
   import { T, useTask } from '@threlte/core'
-  import { interactivity, Environment, OrbitControls, Suspense } from '@threlte/extras'
+  import { interactivity, Environment, Grid, OrbitControls } from '@threlte/extras'
   import { Spring } from 'svelte/motion'
   import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
   import { useLoader } from '@threlte/core'
@@ -20,7 +20,7 @@
       return texture
     }
   })
- 
+  let color = '#ff3e00'
 
  
   
