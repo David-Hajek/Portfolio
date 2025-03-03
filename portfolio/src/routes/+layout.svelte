@@ -1,10 +1,11 @@
 <script>
+    import '@fontsource-variable/hanken-grotesk';
     import { page } from '$app/stores'; /* this should in theory be able to work with the states the webpage is in */
 </script>
 
 <link rel="stylesheet" href="/styles/global.css" />
-
 <header>
+    
     <div class="header-container">
         <!-- left side -->
         <div class="left-info unblurred">
@@ -30,7 +31,6 @@
                 </li>
             </ul>
         </nav>
-
         <!-- right side -->
         <div class="right-info unblurred">
             <span> About Me</span>
@@ -52,15 +52,10 @@
 
 <style>
     
-    header { /* header styling */
-        position: relative;
-        background-image: linear-gradient(0deg, #04121d 0%, #172633 60%, #50aaf1 100%);
-        padding: 1rem 8rem;
-        overflow: hidden;   
-    }
-
+  
   
     .header-container {   /* aligns everything */
+        background-image: linear-gradient(0deg, #04121d 0%, #172633 60%, #50aaf1 100%);
         display: flex;
         justify-content: space-between;
         align-items: center;

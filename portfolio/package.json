@@ -32,6 +32,7 @@
 	},
 	"dependencies": {
 		"@dimforge/rapier3d-compat": "^0.14.0",
+		"@fontsource-variable/hanken-grotesk": "^5.2.5",
 		"@theatre/core": "^0.7.2",
 		"@theatre/studio": "^0.7.2",
 		"@threlte/core": "^8.0.1",

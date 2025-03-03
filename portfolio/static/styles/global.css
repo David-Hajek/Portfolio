@@ -1,12 +1,14 @@
 /*GLOBAL CSS STYLES WITH VARIABLES*/
 
+
 :root {
+    
     --primary-color: #ffffff;
     --secondary-color: #514bf2; 
     --backround-color: #04121d; 
     --text-color: #dbe9f5; 
 
-    --font-family: 'DM Sans', system-ui, sans-serif;
+    --font-family: 'Hanken Grotesk Variable', sans-serif;
     --base-font-size: 18px;
 }
 *{
@@ -37,4 +39,19 @@ a:hover{
     max-width: var(--max-width);
     margin: 0 auto;
     padding: var(--spacing-medium);
+}
+
+header{
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 80px;
+}
+
+header h4{
+    position:absolute;
+    left: 10%;
+    bottom: 1rem;
+    font-size: 1.6rem;
 }
