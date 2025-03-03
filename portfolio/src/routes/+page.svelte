@@ -1,51 +1,54 @@
 <script lang="ts">
-
-
   import { Canvas } from '@threlte/core';
   import ThreeScene from '$lib/ThreeScene.svelte';
-  import '@fontsource-variable/hanken-grotesk';
   import { onMount } from 'svelte';
-	import { fade } from 'svelte/transition';
-  import { reveal, type RevealOptions } from 'svelte-reveal';
+  import { fade } from 'svelte/transition';
+  import { reveal } from 'svelte-reveal';
+  import { onDestroy } from 'svelte';
 
   let showIntro = true;
   let fadeOutBackground = false;
+  let visible = false; 
+  let canvasContainer: HTMLDivElement; // sets the canvas container as a divelement from html
+
+  function handleIntersection(entries: IntersectionObserverEntry[]) { // this gets the intersectionObserverEntry from the svelte-intersection-observer
+    for (const entry of entries) {
+      visible = entry.isIntersecting; // is visible if the view is intersecting with the canvas
+    }
+  }
 
   onMount(() => {
     console.log("Home Page Loaded");
 
-    setTimeout(() => {
-      fadeOutBackground = true; 
-    }, 1000); 
+    setTimeout(() => fadeOutBackground = true, 1000); 
+    setTimeout(() => showIntro = false, 3500);
 
-    setTimeout(() => {
-      showIntro = false; 
-    }, 3500); 
+    if (canvasContainer) {
+      const observer = new IntersectionObserver(handleIntersection, {
+        root: null, 
+        threshold: 0.2 // the threshold that has to be passed in order for it to be displayed
+      });
+      observer.observe(canvasContainer);
+
+      onDestroy(() => observer.disconnect());
+    }
   });
 </script>
 
-<svelte:head>
-  <title>David - 3D Generalist</title>
-</svelte:head>
-
-
 {#if showIntro}
   <div class="intro" class:fade-out={fadeOutBackground}>
-    <h1 class="logo" >WELCOME</h1>
+    <h1 class="logo">WELCOME</h1>
   </div>
 {/if}
 
 <div class="main-content">
-  
-  <div class="canvas-container">
-    <Canvas 
-    dpr={0.65}
-    >
-      <ThreeScene />
-      
-    </Canvas>
+  <div bind:this={canvasContainer} class="canvas-container">
+    {#if visible}
+      <Canvas dpr={0.6}>
+        <ThreeScene />
+      </Canvas>
+    {/if}
   </div>
-  
   <h1 use:reveal={{ preset: "slide", delay: 5000 }}>TOMAS DITE</h1>
   <h1 use:reveal={{ preset: "slide", y: 50, x: 0 }}>TOMAS DITE</h1>
   <h1 use:reveal={{ preset: "slide", y: 50, x: 0 }}>TOMAS DITE</h1>
