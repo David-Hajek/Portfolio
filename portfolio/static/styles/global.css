@@ -35,9 +35,27 @@ a:hover{
 }
 
 .container{
+    top:0;
     width: 90%;
     max-width: var(--max-width);
     margin: 0 auto;
     padding: var(--spacing-medium);
 }
 
+html::-webkit-scrollbar {
+    width: 0.2rem
+}
+/* Track */
+::-webkit-scrollbar-track {
+    background: #000000;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #dadada;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #fafafa;
+  }

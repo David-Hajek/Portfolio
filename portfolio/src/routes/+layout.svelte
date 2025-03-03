@@ -1,15 +1,30 @@
-<script>
+<script lang="ts">
     import '@fontsource-variable/hanken-grotesk';
-    import { page } from '$app/stores'; /* this should in theory be able to work with the states the webpage is in */
+    import { page } from '$app/stores'; 
+
+    let y: number = 0;  // current user y height
+    let prevY: number = 0; // last logged y 
+    let isHeaderVisible: boolean = true; 
+
+    function handleScroll() {
+        if (y > prevY && isHeaderVisible) {
+            isHeaderVisible = false; 
+        } else if (y < prevY && !isHeaderVisible) {
+            isHeaderVisible = true; 
+        }
+        prevY = y; // updates the previous with the newest y position
+    }
 </script>
 
+<svelte:window on:scroll={handleScroll} bind:scrollY={y} /> <!-- binds the scroll to the variable y-->
+
 <link rel="stylesheet" href="/styles/global.css" />
-<header>
-    
+
+<header class={isHeaderVisible ? 'fade-in' : 'fade-out'}> <!-- depending on if the header is visible, switch between fadein/fadeout-->
     <div class="header-container">
         <!-- left side -->
         <div class="left-info unblurred">
-            <img src="/images/david-icon.png" class ="logo"/>
+            <img src="/images/david-icon.png" class="logo" />
             <span>3D GENERALIST</span>
             <span class="status">OPEN TO WORK ●</span>
         </div>
@@ -31,6 +46,7 @@
                 </li>
             </ul>
         </nav>
+
         <!-- right side -->
         <div class="right-info unblurred">
             <span> About Me</span>
@@ -45,25 +61,37 @@
 </main>
 
 <footer>
-    <p>↑
-    </p>
+    <p>↑</p>
     <p>Back to the top</p>
 </footer>
 
 <style>
-    
-  
-  
-    .header-container {   /* aligns everything */
-        
-        background-image: linear-gradient(0deg, #04121d 0%, #172633 60%, #50aaf1 100%);
+    header {
+        top: 0;
+        position: sticky;
+        z-index: 2;
+        opacity: 1;
+        transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out; /* header transformation settings for the fade in and fade out */
+    }
+
+    .fade-in { /* header fades in */
+        opacity: 1;
+        transform: translateY(0); 
+    }
+
+    .fade-out { /* header fades out */
+        opacity: 0;
+        transform: translateY(-100%); 
+    }
+
+    .header-container {
+        background-image: linear-gradient(0deg, #04121d00 0%, #17263318 60%, #50abf157 100%);
         display: flex;
         justify-content: space-between;
         align-items: center;
-        position: relative;
+        position: sticky;
     }
 
-  
     .left-info {
         color: white;
         font-weight: bold;
@@ -74,12 +102,11 @@
     }
 
     .status {
-        color: #32CD32; /* green color  - oepn to work' */
+        color: #32CD32;
         font-size: 12px;
     }
 
-
-    .right-info {     
+    .right-info {
         color: white;
         font-weight: bold;
         font-size: 14px;
@@ -88,21 +115,19 @@
         align-items: flex-end;
     }
 
-   
-    .nav-blur {  /* navigation styling */
+    .nav-blur {
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
         top: 0%;
         display: flex;
-        /*backdrop-filter: blur(8px); blurs the behind, save for later */ 
-        padding: 0.5rem 1.5rem;
+        padding: 2rem 1.5rem;
         border-radius: 8px;
         vertical-align: text-top;
         font-size: 20px;
     }
 
-    nav ul { /* the item decorations in the middle*/
+    nav ul {
         list-style: none;
         padding: 0;
         margin: 0;
@@ -110,20 +135,18 @@
         gap: 8rem;
     }
 
-    nav ul li a { /* decoration */
+    nav ul li a {
         text-decoration: none;
         color: white;
         font-weight: bold;
         transition: filter 0.3s ease-in-out;
     }
 
-    
-    .blurred { /* blurred state*/
-        filter: blur(3px);
+    .blurred {
+        filter: blur(1.8px);
     }
 
-    
-    .unblurred { /* unblurred state */
+    .unblurred {
         filter: blur(0px);
     }
 
@@ -137,8 +160,8 @@
         color: white;
         text-align: center;
         padding: 1rem;
-        position: fixed;
         bottom: 0;
+        position: sticky;
         width: 100%;
     }
 </style>

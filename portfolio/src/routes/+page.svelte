@@ -16,7 +16,7 @@
 
     setTimeout(() => {
       fadeOutBackground = true; 
-    }, 2500); 
+    }, 1000); 
 
     setTimeout(() => {
       showIntro = false; 
@@ -25,13 +25,13 @@
 </script>
 
 <svelte:head>
-  <title>TOMAS DITE</title>
+  <title>David - 3D Generalist</title>
 </svelte:head>
 
 
 {#if showIntro}
   <div class="intro" class:fade-out={fadeOutBackground}>
-    <h1 class="logo" >TOMAS DITE</h1>
+    <h1 class="logo" >WELCOME</h1>
   </div>
 {/if}
 
@@ -47,6 +47,10 @@
   </div>
   
   <h1 use:reveal={{ preset: "slide", delay: 5000 }}>TOMAS DITE</h1>
+  <h1 use:reveal={{ preset: "slide", y: 50, x: 0 }}>TOMAS DITE</h1>
+  <h1 use:reveal={{ preset: "slide", y: 50, x: 0 }}>TOMAS DITE</h1>
+  <h1 use:reveal={{ preset: "slide", y: 50, x: 0 }}>TOMAS DITE</h1>
+  <h1 use:reveal={{ preset: "slide", y: 50, x: 0 }}>TOMAS DITE</h1>
   <p>This is the homepage of our TOMAS DITE application.</p>
 </div>
 
@@ -56,8 +60,8 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background: black;
     display: flex;
     align-items: center;
@@ -72,7 +76,7 @@
 
   .logo {
     color: white;
-    font-size: 3rem;
+    font-size: 6rem;
     font-weight: bold;
     opacity: 0;
     transform: translateY(30px); 
@@ -98,7 +102,7 @@
 
   .canvas-container {
     
-    width: 100vw; 
+    width: 100%; 
     height: 600px;
     max-width: 1880px; 
     margin: 0 auto; 
