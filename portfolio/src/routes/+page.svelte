@@ -1,8 +1,12 @@
-<script>
+<script lang="ts">
+
+
   import { Canvas } from '@threlte/core';
   import ThreeScene from '$lib/ThreeScene.svelte';
   import '@fontsource-variable/hanken-grotesk';
   import { onMount } from 'svelte';
+	import { fade } from 'svelte/transition';
+  import { reveal, type RevealOptions } from 'svelte-reveal';
 
   let showIntro = true;
   let fadeOutBackground = false;
@@ -27,11 +31,12 @@
 
 {#if showIntro}
   <div class="intro" class:fade-out={fadeOutBackground}>
-    <h1 class="logo">TOMAS DITE</h1>
+    <h1 class="logo" >TOMAS DITE</h1>
   </div>
 {/if}
 
 <div class="main-content">
+  
   <div class="canvas-container">
     <Canvas 
     dpr={0.65}
@@ -40,7 +45,8 @@
       
     </Canvas>
   </div>
-  <h1>PORTFOLIO</h1>
+  
+  <h1 use:reveal={{ preset: "slide", delay: 5000 }}>TOMAS DITE</h1>
   <p>This is the homepage of our TOMAS DITE application.</p>
 </div>
 

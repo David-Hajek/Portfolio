@@ -55,6 +55,7 @@
   
   
     .header-container {   /* aligns everything */
+        
         background-image: linear-gradient(0deg, #04121d 0%, #172633 60%, #50aaf1 100%);
         display: flex;
         justify-content: space-between;
