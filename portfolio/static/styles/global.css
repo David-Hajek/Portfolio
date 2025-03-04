@@ -1,0 +1,61 @@
+/*GLOBAL CSS STYLES WITH VARIABLES*/
+
+
+:root {
+    
+    --primary-color: #ffffff;
+    --secondary-color: #514bf2; 
+    --backround-color: #04121d; 
+    --text-color: #ffffff; 
+
+    --font-family: 'Hanken Grotesk Variable', sans-serif;
+    --base-font-size: 18px;
+}
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: var(--font-family);
+    font-size: var(--base-font-size);
+    color: var(--text-color);
+    background-color: var(--backround-color);
+    line-height: 1.5;
+}
+h1,h2,h3,h4,h5,h6{
+    font-weight: bold;
+}
+a{
+    color:var(--primary-color);
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+}
+
+.container{
+    top:0;
+    width: 90%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--spacing-medium);
+}
+
+html::-webkit-scrollbar {
+    width: 0.2rem
+}
+/* Track */
+::-webkit-scrollbar-track {
+    background: #000000;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #dadada;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #fafafa;
+  }
