@@ -4,6 +4,7 @@
     onMount(() =>{
         console.log("Contacts loaded");
     });
+
 </script>
   
 
@@ -116,3 +117,4 @@
         transform: scale(2); 
     }
 </style>
+

@@ -45,7 +45,6 @@
 		"@threlte/xr": "^1.0.1",
 		"svelte-intersection-observer": "^1.0.0",
 		"three": "^0.173.0",
-		"threlte": "^3.13.1",
-		"threlte-postprocessing": "^0.0.7"
+		"threlte": "^3.13.1"
 	}
 }
