@@ -20,8 +20,10 @@ body{
     font-family: var(--font-family);
     font-size: var(--base-font-size);
     color: var(--text-color);
-    background-color: var(--backround-color);
+    
     line-height: 1.5;
+   /* background: linear-gradient(135deg, #000000, #09364b, #6b73ff); idk tbh */
+    background-color: var(--backround-color);
 }
 h1,h2,h3,h4,h5,h6{
     font-weight: bold;

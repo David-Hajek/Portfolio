@@ -72,6 +72,7 @@
         z-index: 2;
         opacity: 1;
         transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out; /* header transformation settings for the fade in and fade out */
+        
     }
 
     .fade-in { /* header fades in */
@@ -89,10 +90,11 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        position: sticky;
     }
 
     .left-info {
+        margin-top: 10px;
+        margin-left: 20px;
         color: white;
         font-weight: bold;
         font-size: 14px;
@@ -107,6 +109,8 @@
     }
 
     .right-info {
+        margin-top: 10px;
+        margin-right: 20px;
         color: white;
         font-weight: bold;
         font-size: 14px;

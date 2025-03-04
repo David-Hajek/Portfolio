@@ -5,9 +5,9 @@
   import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
   import { useLoader } from '@threlte/core'
   import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader.js'; // hdri
-  import { EffectComposer } from 'threlte-postprocessing'
+ import { EffectComposer } from 'threlte-postprocessing'
 	import { EquirectangularReflectionMapping} from 'three';
-  import { DepthOfFieldEffect, NoiseEffect, VignetteEffect, ChromaticAberrationEffect, ToneMappingEffect, BloomEffect,  } from 'threlte-postprocessing/effects'
+import { DepthOfFieldEffect, NoiseEffect, VignetteEffect, ChromaticAberrationEffect, ToneMappingEffect, BloomEffect,  } from 'threlte-postprocessing/effects'
   
 	//import Model from '$lib/test2.svelte'
  import Model from '$lib/test4.svelte'
