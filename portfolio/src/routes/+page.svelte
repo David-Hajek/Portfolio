@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { Canvas } from '@threlte/core';
-  import ThreeScene from '$lib/ThreeScene.svelte';
+import { Canvas } from '@threlte/core';
+import ThreeScene from '$lib/ThreeScene.svelte';
   import { onMount } from 'svelte';
   import { fade } from 'svelte/transition';
   import { reveal } from 'svelte-reveal';
@@ -37,14 +37,15 @@
 
 {#if showIntro}
   <div class="intro" class:fade-out={fadeOutBackground}>
-    <h1 class="logo">WELCOME</h1>
+    <h1 class="tracking-in-expand">WELCOME</h1>
   </div>
 {/if}
+
 
 <div class="main-content">
   <div bind:this={canvasContainer} class="canvas-container">
     {#if visible}
-      <Canvas dpr={0.6}>
+      <Canvas dpr={0.45}>
         <ThreeScene />
       </Canvas>
     {/if}
@@ -58,7 +59,14 @@
 </div>
 
 <style>
- 
+.shader-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
   .intro {
     position: fixed;
     top: 0;
@@ -129,4 +137,33 @@
   h1 {
     font-size: 140px;
   }
+  .tracking-in-expand {
+	-webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+	        animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}
+@-webkit-keyframes tracking-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes tracking-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 </style>
