@@ -11,8 +11,8 @@
 import { DepthOfFieldEffect, NoiseEffect, VignetteEffect, ChromaticAberrationEffect, ToneMappingEffect, BloomEffect,  } from 'threlte-postprocessing/effects'
 
   
-	//import Model from '$lib/test2.svelte'
- import Model from '$lib/test4.svelte'
+import Model from '$lib/test4.svelte'
+
  
  
  const { load } = useLoader(RGBELoader)

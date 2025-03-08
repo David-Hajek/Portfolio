@@ -1,7 +1,7 @@
 <script lang="ts">
     import '@fontsource-variable/hanken-grotesk';
     import { page } from '$app/stores'; 
-
+    import BlackHoleShader from '$lib/BlackHoleShader.svelte';
     let y: number = 0;  // current user y height
     let prevY: number = 0; // last logged y 
     let isHeaderVisible: boolean = true; 
@@ -55,7 +55,10 @@
         </div>
     </div>
 </header>
-
+<div class="shader-background">
+    <BlackHoleShader />
+    
+    </div>
 <main>
     <slot />
 </main>
@@ -66,7 +69,7 @@
 </footer>
 
 <style>
-    header {
+  header {
         top: 0;
         position: sticky;
         z-index: 2;
@@ -160,12 +163,15 @@
     }
 
     footer {
-        background-image: linear-gradient(180deg, #04121d 0%, #172633 60%, #50aaf1 100%);
+        background-image: linear-gradient(180deg, #04121d00 0%, #17263300 60%, #50aaf1 100%);
         color: white;
         text-align: center;
         padding: 1rem;
         bottom: 0;
         position: sticky;
         width: 100%;
+    }
+    .shader-background{
+        opacity: 0.3;
     }
 </style>
