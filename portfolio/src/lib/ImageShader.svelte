@@ -5,9 +5,9 @@
   
   // Props
   export let imageSrc;
-  export let exactWidth = undefined; // Optional prop for exact width
-  export let exactHeight = undefined; // Optional prop for exact height
-  export let minHeight = "400px"; // Default minimum height
+  export let exactWidth = undefined; // exact width
+  export let exactHeight = undefined; // for exact height
+  export let minHeight = "400px"; // default minimum height
   
   // DOM element references - using Svelte's bind:this instead of getElementById
   let imageContainer;
@@ -23,55 +23,51 @@
   let prevPosition = { x: 0.5, y: 0.5 };
   let mouseVelocity = 0;
   let animationFrameId;
-  let textureAspect = 1; // Store the image's aspect ratio
+  let textureAspect = 1; // store the image's aspect ratio
 
 
   function initializeScene(texture) {
-    // Check if DOM elements are available
-    if (!imageContainer || !imageElement) {
-      console.warn("ImageShader: DOM elements not ready yet");
-      return;
-    }
-
-    // Wait for image to load to get correct dimensions
-    if (!imageElement.complete) {
-      imageElement.onload = () => initializeScene(texture);
-      return;
-    }
-
-    // Store the image's natural aspect ratio
+ 
+    // stores the aspect ratio after the calculations of width/height
     textureAspect = texture.image.naturalWidth / texture.image.naturalHeight;
-
-    // Scene creation
+    console.log(textureAspect)
+    
     scene = new THREE.Scene();
 
-    // Get container dimensions - use exactWidth/exactHeight if provided
+    // get container dimensions - uses exact width/height if they are provided
     const containerWidth = exactWidth ? parseFloat(exactWidth) : imageContainer.offsetWidth;
     const containerHeight = exactHeight ? parseFloat(exactHeight) : (imageContainer.offsetHeight || parseFloat(minHeight));
     const containerAspect = containerWidth / containerHeight;
 
-    // Use OrthographicCamera instead of PerspectiveCamera to prevent distortion
+    // camera 
     const frustumSize = 2;
     const aspectRatio = containerWidth / containerHeight;
     camera = new THREE.PerspectiveCamera(
-      80,
+      70,
       aspectRatio,
       0.01,
       10
     );
-    camera.position.z = 1.3;
+    if(exactWidth>exactHeight){ // handles the weird shenanigans that the horizontal images cause
+    
+      camera.position.z = 0.535;
+    }
+    else{
+      camera.position.z = 1;
+    }
+   
 
     // Uniforms
     let shaderUniforms = {
-      u_mouse: { type: "v2", value: new THREE.Vector2() },
-      u_prevMouse: { type: "v2", value: new THREE.Vector2() },
-      u_aberrationIntensity: { type: "f", value: 1 },
-      u_texture: { type: "t", value: texture }
+      u_mouse: { value: new THREE.Vector2() },
+      u_prevMouse: { value: new THREE.Vector2() },
+      u_aberrationIntensity: { value: 1 },
+      u_texture: { value: texture }
     };
 
-    // Creating a plane mesh with materials, preserving aspect ratio
-    // Create a plane with correct aspect ratio
-    const planeWidth = 1.5;
+    // creating a plane mesh with materials, preserving aspect ratio
+    // create a plane with correct aspect ratio
+    const planeWidth = 1;
     const planeHeight = planeWidth / textureAspect;
     
     planeMesh = new THREE.Mesh(
@@ -83,10 +79,10 @@
       })
     );
     
-    // Adjust plane scale to maintain aspect ratio
+    // adjust plane scale to maintain aspect ratio
     adjustPlaneScale();
 
-    // Add mesh to scene
+    // add mesh to scene
     scene.add(planeMesh);
 
     // Render
@@ -98,9 +94,9 @@
     canvas.style.position = 'absolute';
     canvas.style.top = '0';
     canvas.style.left = '0';
-    canvas.style.width = '100%';
-    canvas.style.height = '100%';
-    canvas.style.display = 'block'; // Changed from 'absolute' which is not a valid display value
+    canvas.style.width = containerWidth;
+    canvas.style.height = containerHeight;
+    canvas.style.display = 'block'; 
     
     // Make sure imageContainer exists before appending
     if (imageContainer) {
@@ -115,7 +111,7 @@
     mousePosition.x += (targetMousePosition.x - mousePosition.x) * easeFactor;
     mousePosition.y += (targetMousePosition.y - mousePosition.y) * easeFactor;
 
-    // Check if planeMesh exists before accessing
+    // check if planeMesh exists before accessing
     if (!planeMesh || !planeMesh.material) return;
     
     planeMesh.material.uniforms.u_mouse.value.set(
@@ -127,7 +123,7 @@
       prevPosition.x,
       1.0 - prevPosition.y
     );
-    // Calculate mouse movement velocity for aberration intensity
+    // calculate mouse movement velocity for aberration intensity
     const dx = mousePosition.x - prevPosition.x;
     const dy = mousePosition.y - prevPosition.y;
     const movementDistance = Math.sqrt(dx * dx + dy * dy);
@@ -192,55 +188,31 @@
     targetMousePosition = { ...prevPosition };
   }
 
-  // Svelte lifecycle methods
-  // Adjust plane scale to maintain aspect ratio
+  // adjust plane scale to maintain aspect ratio
   function adjustPlaneScale() {
     if (!planeMesh || !imageElement || !imageContainer) return;
     
-    // Get current container aspect ratio - use exactWidth/exactHeight if provided
+    // get current container aspect ratio - use exactWidth/exactHeight if provided
     const containerWidth = exactWidth ? parseFloat(exactWidth) : imageContainer.offsetWidth;
     const containerHeight = exactHeight ? parseFloat(exactHeight) : imageContainer.offsetHeight;
     
-    // Ensure we have valid dimensions
+    // ensure we have valid dimensions
     if (!containerWidth || !containerHeight) return;
     
     const containerAspect = containerWidth / containerHeight;
     
-    // Scale the plane to fit the container while preserving image aspect ratio
+    // scale the plane to fit the container while preserving image aspect ratio
     if (textureAspect > containerAspect) {
-      // Image is wider than container - fit to width
+      // omage is wider than container - fit to width
       planeMesh.scale.x = 1;
       planeMesh.scale.y = containerAspect / textureAspect;
     } else {
-      // Image is taller than container - fit to height
+      // image is taller than container - fit to height
       planeMesh.scale.x = textureAspect / containerAspect;
       planeMesh.scale.y = 1;
     }
   }
   
-  // Resize handler
-  function handleResize() {
-    if (renderer && camera && planeMesh && imageContainer && imageElement) {
-      // Use exactWidth/exactHeight if provided, otherwise use container dimensions
-      const width = exactWidth ? parseFloat(exactWidth) : imageContainer.offsetWidth;
-      const height = exactHeight ? parseFloat(exactHeight) : imageContainer.offsetHeight;
-      
-      // Ensure we have valid dimensions
-      if (!width || !height) return;
-      
-      const aspectRatio = width / height;
-      
-      // Update perspective camera with new aspect ratio
-      camera.aspect = aspectRatio;
-      camera.updateProjectionMatrix();
-      
-      renderer.setSize(width, height);
-      
-      // Adjust plane scale to maintain aspect ratio
-      adjustPlaneScale();
-    }
-  }
-
   onMount(() => {
     // Wait for next tick to ensure DOM elements are bound
     setTimeout(() => {
@@ -263,21 +235,20 @@
         }
       });
       
-      // Add resize listener
-      window.addEventListener('resize', handleResize);
+      
     }, 0);
   });
 
   onDestroy(() => {
-    // Clean up event listeners and animation to prevent memory leaks
+    // clean up event listeners and animation to prevent memory leaks
     if (imageContainer) {
       imageContainer.removeEventListener("mousemove", handleMouseMove);
       imageContainer.removeEventListener("mouseenter", handleMouseEnter);
       imageContainer.removeEventListener("mouseleave", handleMouseLeave);
     }
 
-    // Remove resize listener
-    window.removeEventListener('resize', handleResize);
+    // remove resize listener
+    
 
     if (animationFrameId) {
       cancelAnimationFrame(animationFrameId);
@@ -302,12 +273,4 @@
     display: block;
   }
 
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    opacity: 0; /* Hide the original image */
-    position: relative;
-    display: block;
-  }
 </style>

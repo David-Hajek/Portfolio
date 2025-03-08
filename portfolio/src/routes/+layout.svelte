@@ -56,7 +56,7 @@
     </div>
 </header>
 <div class="shader-background">
-    <BlackHoleShader />
+    
     
     </div>
 <main>
@@ -173,5 +173,6 @@
     }
     .shader-background{
         opacity: 0.3;
+        z-index: -9999;
     }
 </style>

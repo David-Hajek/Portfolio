@@ -6,7 +6,7 @@
     import { fade } from 'svelte/transition';
     import { reveal } from 'svelte-reveal';
     import { onDestroy } from 'svelte';
-    
+    import BlackHoleShader from '$lib/BlackHoleShader.svelte';
     let showIntro = true;
     let fadeOutBackground = false;
     let visible = false; 
@@ -22,7 +22,7 @@
       console.log("Home Page Loaded");
   
       setTimeout(() => fadeOutBackground = true, 1000); 
-      setTimeout(() => showIntro = false, 3500);
+      setTimeout(() => showIntro = false, 2000);
   
       if (canvasContainer) {
         const observer = new IntersectionObserver(handleIntersection, {
@@ -45,12 +45,12 @@
   
   <div class="landing-page">
     <h1> Welcome to my piece of the internet</h1>
-    <div style="width: 400px; height: 300px;">
-    <ImageShader imageSrc="images/landing.jpg"  exactWidth={587} exactHeight={883}></ImageShader>
-  </div>
-    <ImageShader imageSrc="images/test2front.jpg" ></ImageShader>
     
+    <ImageShader imageSrc="images/landing.jpg"  exactWidth={587} exactHeight={883}></ImageShader>
 
+    <ImageShader imageSrc="images/test2front.jpg" exactWidth={1920/2} exactHeight={1443/2} ></ImageShader>
+    
+    <BlackHoleShader />
     <div bind:this={canvasContainer} class="canvas-container">
       {#if visible}
       <ThreeScene/>
@@ -99,7 +99,7 @@
       font-weight: bold;
       opacity: 0;
       transform: translateY(30px); 
-      animation: fadeInAndMove 2s ease-out forwards; 
+      animation: fadeInAndMove 1s ease-out forwards; 
     }
   
     @keyframes fadeInAndMove {
