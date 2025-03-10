@@ -97,6 +97,7 @@
     canvas.style.width = containerWidth;
     canvas.style.height = containerHeight;
     canvas.style.display = 'block'; 
+    canvas.style.borderRadius = '2rem';
     
     // Make sure imageContainer exists before appending
     if (imageContainer) {
@@ -271,6 +272,10 @@
     min-height: 400px;
     overflow: hidden;
     display: block;
+  }
+
+  img{
+    opacity: 0;
   }
 
 </style>

@@ -24,7 +24,7 @@ void main() {
     float pixelDistanceToMouse = length(pixelToMouseDirection);
     float strength = smoothstep(0.5, 0.1, pixelDistanceToMouse);
 
-    vec2 uvOffset = strength * - mouseDirection * 0.2;
+    vec2 uvOffset = strength * - mouseDirection * 0.35;
     vec2 uv = vUv - uvOffset;
 
     vec4 colorR = texture2D(u_texture, uv + vec2(strength * u_aberrationIntensity * 0.01, 0.0));

@@ -168,7 +168,7 @@
         text-align: center;
         padding: 1rem;
         bottom: 0;
-        position: sticky;
+        position: flex;
         width: 100%;
     }
     .shader-background{

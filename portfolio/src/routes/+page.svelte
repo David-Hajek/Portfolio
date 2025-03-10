@@ -44,12 +44,14 @@
   
   
   <div class="landing-page">
-    <h1> Welcome to my piece of the internet</h1>
-    
-    <ImageShader imageSrc="images/landing.jpg"  exactWidth={587} exactHeight={883}></ImageShader>
-
+    <h1 id="landing-text"> Welcome to my piece of the internet</h1>
+    <div class ="landing-image">
+    <ImageShader imageSrc="images/landing.jpg"  exactWidth={507} exactHeight={803} ></ImageShader>
+  </div>
+  </div>
     <ImageShader imageSrc="images/test2front.jpg" exactWidth={1920/2} exactHeight={1443/2} ></ImageShader>
-    
+  
+
     <BlackHoleShader />
     <div bind:this={canvasContainer} class="canvas-container">
       {#if visible}
@@ -62,7 +64,7 @@
     <h1 use:reveal={{ preset: "slide", y: 50, x: 0 }}>TOMAS DITE</h1>
     <h1 use:reveal={{ preset: "slide", y: 50, x: 0 }}>TOMAS DITE</h1>
     <p>This is the homepage of our TOMAS DITE application.</p>
-  </div>
+  
   
   <style>
   .shader-background {
@@ -91,7 +93,8 @@
       opacity: 0;
     }
     .landing-image{
-      width: 50%;
+      grid-column: 12 / 13;
+      
     }
     .logo {
       color: white;
@@ -114,12 +117,11 @@
     }
     
     .landing-page {
+    width: 100%;
+    height: 100vh;
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Two equal columns */
-    gap: 2rem; /* Adds spacing between elements */
-    align-items: center; /* Aligns content vertically */
-    justify-content: center;
-    padding: 2rem;
+    grid-template-columns: repeat(12, 1fr);
+
   
   }
     .main-content {
@@ -128,7 +130,6 @@
     }
   
     .canvas-container {
-      
       width: 100%; 
       height: 600px;
       max-width: 1880px; 
@@ -150,9 +151,6 @@
       }
     }
   
-    h1 {
-      font-size: 72px;
-    }
     .tracking-in-expand {
     -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
             animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
@@ -182,6 +180,9 @@
     }
   }
   
-  
+  #landing-text{
+    font-size: 72px;
+    grid-column: 1 / 11; /*I absolutely love this*/
+  }
   </style>
   
