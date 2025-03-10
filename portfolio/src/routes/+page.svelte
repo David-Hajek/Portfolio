@@ -44,10 +44,20 @@
   
   
   <div class="landing-page">
-    <h1 id="landing-text"> Welcome to my piece of the internet</h1>
+    <div id="glass-landing">
+    <div style="grid-column: 1 / 11; "> <!-- this is probably the ugliest and only solution I had to implement to fix a problem with a library-->
+      <h1 id="landing-text" use:reveal={{ preset: "slide", delay: 1000 }}> Welcome to my piece of the internet</h1>
+    </div>
+    <div style="grid-column: 1 / 12; padding: 1rem">
+      <h1 id="sub-text" use:reveal={{ preset: "slide", delay: 1500 }}>Let's create content that is truly</h1>
+    </div>
+    <div style="grid-column: 1 / 12; padding: 1rem; transform:translateY(-50px)">
+      <h1 id="memorable" use:reveal={{ preset: "slide", delay: 2000 }}> Memorable</h1>
+    </div>
     <div class ="landing-image">
-    <ImageShader imageSrc="images/landing.jpg"  exactWidth={507} exactHeight={803} ></ImageShader>
-  </div>
+      <ImageShader imageSrc="images/landing.jpg"  exactWidth={507} exactHeight={803} ></ImageShader>
+    </div>
+</div>
   </div>
     <ImageShader imageSrc="images/test2front.jpg" exactWidth={1920/2} exactHeight={1443/2} ></ImageShader>
   
@@ -55,7 +65,9 @@
     <BlackHoleShader />
     <div bind:this={canvasContainer} class="canvas-container">
       {#if visible}
+      <Canvas dpr={0.6}>
       <ThreeScene/>
+    </Canvas>
       {/if}
     </div>
     <h1 use:reveal={{ preset: "slide", delay: 5000 }}>TOMAS DITE</h1>
@@ -92,10 +104,7 @@
     .fade-out {
       opacity: 0;
     }
-    .landing-image{
-      grid-column: 12 / 13;
-      
-    }
+   
     .logo {
       color: white;
       font-size: 6rem;
@@ -116,14 +125,7 @@
       }
     }
     
-    .landing-page {
-    width: 100%;
-    height: 100vh;
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-
-  
-  }
+ 
     .main-content {
       opacity: 1;
       transition: opacity 1s ease-in-out;
@@ -183,6 +185,39 @@
   #landing-text{
     font-size: 72px;
     grid-column: 1 / 11; /*I absolutely love this*/
+    padding: 1rem;
+  }
+   .landing-page {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    transform: translateY(-3vh);
+  
+  }
+  #glass-landing {
+    display: grid;
+    width: 100%;
+    height: 95vh;
+    background: rgba( 52, 68, 104, 0.25 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 6px );
+-webkit-backdrop-filter: blur( 6px );
+border-radius: 10px;
+grid-column: 1 / 13;
+  }
+  .landing-image{
+      grid-column: 13 / 13;
+      padding: 1rem;
+      transform: translateY(-35vh);
+    }
+  #memorable{
+    grid-column: 1 / 12;
+  }
+  #sub-text{
+    width: 100%;
+    height: 100%;
+    grid-column: 1 / 12;
+    align-items: end;
   }
   </style>
-  
