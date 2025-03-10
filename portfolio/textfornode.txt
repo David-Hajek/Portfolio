@@ -1,0 +1,30 @@
+
+home
+
+"node_modules/vite-plugin-glsl": {
+			"version": "1.3.3",
+			"resolved": "https://registry.npmjs.org/vite-plugin-glsl/-/vite-plugin-glsl-1.3.3.tgz",
+			"integrity": "sha512-ZN1PjwPN9MTqt75SAZHcNr9A4IFtxFxZsPwApVuhhnSSeDPk6ezD8LUmcoTQtZwerNT3vWiwv3+zSspT+8yInQ==",
+			"license": "MIT",
+			"dependencies": {
+				"@rollup/pluginutils": "^5.1.4"
+			},
+			"engines": {
+				"node": ">= 20.17.0",
+				"npm": ">= 10.8.3"
+			},
+
+school
+
+	"node_modules/vite-plugin-glsl": {
+			"version": "1.3.3",
+			"resolved": "https://registry.npmjs.org/vite-plugin-glsl/-/vite-plugin-glsl-1.3.3.tgz",
+			"integrity": "sha512-ZN1PjwPN9MTqt75SAZHcNr9A4IFtxFxZsPwApVuhhnSSeDPk6ezD8LUmcoTQtZwerNT3vWiwv3+zSspT+8yInQ==",
+			"license": "MIT",
+			"dependencies": {
+				"@rollup/pluginutils": "^5.1.4"
+			},
+			"engines": {
+				"node": ">= 22.2.0",
+				"npm": ">= 10.7.0"
+			},
