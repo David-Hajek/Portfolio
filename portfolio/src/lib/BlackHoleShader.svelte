@@ -94,13 +94,13 @@
         if (renderer) {
             renderer.dispose();
     
-            // Remove renderer canvas from the DOM
+            // remove renderer canvas from the DOM
             if (renderer.domElement && renderer.domElement.parentNode) {
                 renderer.domElement.parentNode.removeChild(renderer.domElement);
             }
         }
     
-        // Dispose of Three.js objects
+        // dispose of Three.js objects
         scene.traverse((object) => {
             if (object.isMesh) {
                 object.geometry.dispose();
