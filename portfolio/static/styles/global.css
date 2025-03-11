@@ -62,3 +62,6 @@ html::-webkit-scrollbar {
   ::-webkit-scrollbar-thumb:hover {
     background: #fafafa;
   }
+  html {
+    scroll-behavior: smooth;
+  }

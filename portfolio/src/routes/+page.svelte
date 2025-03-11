@@ -44,20 +44,23 @@
   
   
   <div class="landing-page">
-    <div id="glass-landing">
+    <div id="glass-landing"></div>
     <div style="grid-column: 1 / 11; "> <!-- this is probably the ugliest and only solution I had to implement to fix a problem with a library-->
-      <h1 id="landing-text" use:reveal={{ preset: "slide", delay: 1000 }}> Welcome to my piece of the internet</h1>
+      <h1 id="landing-text" use:reveal={{ preset: "slide", delay: 1000 }}> Welcome to My Creative Space</h1>
     </div>
-    <div style="grid-column: 1 / 12; padding: 1rem">
+    <div class ="scale-in-hor-center"></div>
+    <div style="grid-column: 1 / 12; padding: 1rem ">
       <h1 id="sub-text" use:reveal={{ preset: "slide", delay: 1500 }}>Let's create content that is truly</h1>
     </div>
-    <div style="grid-column: 1 / 12; padding: 1rem; transform:translateY(-50px)">
-      <h1 id="memorable" use:reveal={{ preset: "slide", delay: 2000 }}> Memorable</h1>
+    <div style="grid-column: 1 / 12; padding: 1rem;">
+      <h1 id="memorable" use:reveal={{ preset: "slide", delay: 2000 }}> Memorable.</h1>
     </div>
+    <h1 id="second-text">I specialize in 3D Visuals, helping you bring your ideas to life through impactful and unique visuals.</h1>
+    <h1 id="third-text">Whether you're looking to refresh your brand or create stunning content, I'm here to make your vision a reality.</h1>
     <div class ="landing-image">
       <ImageShader imageSrc="images/landing.jpg"  exactWidth={507} exactHeight={803} ></ImageShader>
     </div>
-</div>
+
   </div>
     <ImageShader imageSrc="images/test2front.jpg" exactWidth={1920/2} exactHeight={1443/2} ></ImageShader>
   
@@ -104,15 +107,7 @@
     .fade-out {
       opacity: 0;
     }
-   
-    .logo {
-      color: white;
-      font-size: 6rem;
-      font-weight: bold;
-      opacity: 0;
-      transform: translateY(30px); 
-      animation: fadeInAndMove 1s ease-out forwards; 
-    }
+ 
   
     @keyframes fadeInAndMove {
       from {
@@ -124,12 +119,15 @@
         transform: translateY(0); 
       }
     }
-    
+    @keyframes expandLine {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%; 
+  }
+}
  
-    .main-content {
-      opacity: 1;
-      transition: opacity 1s ease-in-out;
-    }
   
     .canvas-container {
       width: 100%; 
@@ -139,12 +137,19 @@
       display: flex;
     }
   
-    /* resizing for tablets */
-    @media (max-width: 768px) {
+      /* resizing for tablets */
+      @media (max-width: 768px) {
       .canvas-container {
         height: 400px;
       }
-    }
+      .landing-page {
+      height: auto;
+     padding: 1rem;
+     }
+    .landing-image {
+     height: 300px; /* Reduce the height for smaller screens */
+     }
+    } 
   
     /* resizing for phones */
     @media (max-width: 480px) {
@@ -169,21 +174,35 @@
       opacity: 1;
     }
   }
-  @keyframes tracking-in-expand {
-    0% {
-      letter-spacing: -0.5em;
-      opacity: 0;
-    }
-    40% {
-      opacity: 0.6;
-    }
-    100% {
-      opacity: 1;
-    }
+
+@-webkit-keyframes scale-in-hor-center {
+  0% {
+    -webkit-transform: scaleX(0);
+            transform: scaleX(0);
+    opacity: 1;
   }
+  100% {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+    opacity: 1;
+  }
+}
+@keyframes scale-in-hor-center {
+  0% {
+    -webkit-transform: scaleX(0);
+            transform: scaleX(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scaleX(0.98);
+            transform: scaleX(0.98);
+    opacity: 1;
+  }
+}
+
   
   #landing-text{
-    font-size: 72px;
+    font-size: 4rem;
     grid-column: 1 / 11; /*I absolutely love this*/
     padding: 1rem;
   }
@@ -192,32 +211,57 @@
     height: 100vh;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 200px 50px 50px 100px 50px 1fr;
     transform: translateY(-3vh);
   
   }
   #glass-landing {
-    display: grid;
-    width: 100%;
-    height: 95vh;
-    background: rgba( 52, 68, 104, 0.25 );
-box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    z-index: -5;
+    position: absolute;
+    width: 98vw;
+    height: 90vh;
+    background: rgba(28, 29, 32, 0.685);
 backdrop-filter: blur( 6px );
--webkit-backdrop-filter: blur( 6px );
+
 border-radius: 10px;
-grid-column: 1 / 13;
+
   }
   .landing-image{
-      grid-column: 13 / 13;
+    
+      grid-column: 12 / 12;
+      grid-row: 1/3;
       padding: 1rem;
-      transform: translateY(-35vh);
     }
   #memorable{
+    font-size: 2.7rem;
     grid-column: 1 / 12;
   }
   #sub-text{
+    font-size: 2.5rem;
     width: 100%;
     height: 100%;
     grid-column: 1 / 12;
     align-items: end;
   }
+  #second-text{
+    grid-column: 1 / 12;
+    font-size: 1.5rem;
+    padding: 1rem;
+  }
+  #third-text{
+    grid-column: 1 / 12;
+    font-size: 1.5rem;
+    padding: 1rem;
+  }
+  .scale-in-hor-center {
+    align-self: center;
+    padding-left: 3rem;
+    height: 6px;
+    background-color: aliceblue;
+    grid-column: 1 / 12;
+    border-radius: 6px;
+    animation-delay: 20000ms;
+	-webkit-animation: scale-in-hor-center 3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both 2000ms;
+	        animation: scale-in-hor-center 3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both 2000ms;
+}
   </style>
