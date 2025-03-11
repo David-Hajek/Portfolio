@@ -56,7 +56,7 @@
       <h1 id="memorable" use:reveal={{ preset: "slide", delay: 3250 }}> Memorable.</h1>
     </div>
     <div style="grid-column: 1 / 12;">
-    <h2 id="second-text" use:reveal={{ preset: "slide", delay: 3500 }}>I specialize in 3D Visuals, helping you bring your ideas to life through impactful and unique visuals.</h2>
+    <h2 id="second-text" use:reveal={{ preset: "slide", delay: 3500 }}>I specialize in 3D visuals, transforming ideas into striking, immersive experiences.</h2>
   </div>
   <div style="grid-column: 1 / 12;">
     <h2 id="third-text" use:reveal={{ preset: "slide", delay: 3500 }}>Whether you're looking to refresh your brand or create stunning content, I'm here to make your vision a reality.</h2>

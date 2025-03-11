@@ -73,41 +73,26 @@
             <span class="status">OPEN TO WORK ●</span>
         </div>
 
-        <!-- Hamburger button for mobile -->
-        <button 
-            class="menu-toggle" 
-            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'} 
-            on:click={toggleMobileMenu}
-            aria-expanded={isMobileMenuOpen}
-        >
-            <span class={`hamburger ${isMobileMenuOpen ? 'active' : ''}`}>
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </span>
-        </button>
-
         <!-- center nav - desktop -->
         <nav class="nav-blur desktop-nav">
             <ul>
                 <li>
-                    <a href="/" class="{$page.url.pathname === '/' ? 'nav-link unblurred' : 'nav-link blurred'}">HOME</a>
+                    <a href="/" class="{$page.url.pathname === '/' ? 'nav-link' : 'nav-link '}">HOME</a>
                 </li>
                 <li>
-                    <a href="/personal" class="{$page.url.pathname === '/personal' ? 'nav-link unblurred' : 'nav-link blurred'}">PERSONAL</a>
+                    <a href="/personal" class="{$page.url.pathname === '/personal' ? 'nav-link' : 'nav-link '}">PERSONAL</a>
                 </li>
                 <li>
-                    <a href="/commercial" class="{$page.url.pathname === '/commercial' ? 'nav-link unblurred' : 'nav-link blurred'}">COMMERCIAL</a>
+                    <a href="/commercial" class="{$page.url.pathname === '/commercial' ? 'nav-link' : 'nav-link'}">COMMERCIAL</a>
                 </li>
                 <li>
-                    <a href="/about_me" class="{$page.url.pathname === '/about_me' ? 'nav-link unblurred' : 'nav-link blurred'}">ABOUT ME</a>
+                    <a href="/about_me" class="{$page.url.pathname === '/about_me' ? 'nav-link' : 'nav-link'}">ABOUT ME</a>
                 </li>
             </ul>
         </nav>
 
         <!-- right side -->
-        <div class="right-info unblurred">
-            <span>About Me</span>
+        <div class="right-info">
             <span>Czech Republic</span>
             <span>Near Prague</span>
         </div>
@@ -185,6 +170,18 @@
         </div>
     </div>
 </footer>
+<button 
+    class="menu-toggle" 
+    aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'} 
+    on:click={toggleMobileMenu}
+    aria-expanded={isMobileMenuOpen}
+>
+    <span class={`hamburger ${isMobileMenuOpen ? 'active' : ''}`}>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </span>
+</button>
 <style>
     :global(html) {
         scroll-behavior: smooth;
@@ -618,7 +615,10 @@
         }
         
         .desktop-nav {
-            display: none;
+        position: absolute;
+       	left: 50%;
+        transform: translateX(-50%);
+        width: auto;
         }
         
         .menu-toggle {
@@ -629,6 +629,16 @@
             gap: 1rem;
         }
     }
+ .desktop-nav {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .desktop-nav {
+                display: none;
+            }
+        }
+        
     
     /* Animation durations for mobile menu */
     @media (prefers-reduced-motion: no-preference) {

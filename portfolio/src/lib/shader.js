@@ -12,7 +12,9 @@ uniform float uTime;
 uniform vec2 uMouse;
 
 void main() {
-    vec2 uv = (2.0 * gl_FragCoord.xy - uResolution.xy) / min(uResolution.x, uResolution.y);
+    vec2 uv = gl_FragCoord.xy / uResolution;  // Normalize between 0 and 1
+    uv = uv * 2.0 - 1.0; // Convert to range (-1,1)
+    uv *= vec2(uResolution.x / uResolution.y, 1.0); // Proper aspect ratio handling
     
     // Define a looping period in seconds
     float loopDuration = 60.0; // loop time
@@ -29,7 +31,7 @@ void main() {
     vec3 baseColor = vec3(0.6, 0.6, 0.7); // metallic color +-
 
     float metallic = sin(uv.x * 4.0) * sin(uv.y * 4.0) * 0.1 + 0.9; 
-    float highlight = pow(intensity * metallic, 1.5) * 0.7; // randomizes the colors 
+    float highlight = intensity * metallic; // randomizes the colors 
 
     vec3 tint = vec3(
         0.9 + 0.1 * sin(uv.x * 2.0 + loopTime * 0.7),

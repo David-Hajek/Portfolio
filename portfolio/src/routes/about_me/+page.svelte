@@ -1,6 +1,7 @@
 <script>
     import { onMount } from 'svelte';
     import { reveal } from 'svelte-reveal';
+    import BlackHoleShader from '$lib/BlackHoleShader.svelte';
     onMount(() =>{
         console.log("Contacts loaded");
     });
@@ -39,7 +40,7 @@
         <p class="workedwithtext">KRYSTOF JEZEK, APPARENTLY STUDIOS</p>
     </div>
 </div>
-
+<BlackHoleShader></BlackHoleShader>
 <style>
   
     .glassmorphism {
