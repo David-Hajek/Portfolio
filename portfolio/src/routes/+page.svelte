@@ -62,7 +62,7 @@
     <h2 id="third-text" use:reveal={{ preset: "slide", delay: 3500 }}>Whether you're looking to refresh your brand or create stunning content, I'm here to make your vision a reality.</h2>
   </div>
     <div class ="landing-image">
-      <ImageShader imageSrc="images/landing.jpg"  exactWidth={507} exactHeight={803} ></ImageShader>
+      <ImageShader imageSrc="images/landing.jpg"  exactWidth={450} exactHeight={750} ></ImageShader>
     </div>
 
   </div>
@@ -149,13 +149,12 @@
     z-index: -5;
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 89vh;
     left: 0;
     top: 0;
     background: var(--bg-glass);
     backdrop-filter: blur(var(--glass-blur));
     -webkit-backdrop-filter: blur(var(--glass-blur));
-    border-radius: clamp(10px, 2vw, 20px);
     border: 1px solid var(--glass-border);
     box-shadow: 0 8px 32px 0 var(--glass-shadow);
   }
@@ -292,7 +291,8 @@
     }
     
     .landing-image {
-      position: relative;
+      display: relative;
+      position: static;
       width: 100%;
       right: 0;
       top: 0;
@@ -303,6 +303,12 @@
     #landing-text, #sub-text, #memorable, #second-text, #third-text, .scale-in-hor-center {
       width: 100%;
     }
+    #glass-landing {
+    z-index: -5;
+    position: absolute;
+    width: 100%;
+    height: 150vh;
+  }
     
     .canvas-container {
       height: clamp(200px, 40vh, 400px);

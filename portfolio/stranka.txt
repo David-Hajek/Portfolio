@@ -1,0 +1,944 @@
+<script lang="ts">
+  import { Canvas } from '@threlte/core';
+  import ThreeScene from '$lib/ThreeScene.svelte';
+  import ImageShader from '$lib/ImageShader.svelte';
+    import { onMount } from 'svelte';
+    import { fade } from 'svelte/transition';
+    import { reveal } from 'svelte-reveal';
+    import { onDestroy } from 'svelte';
+    import BlackHoleShader from '$lib/BlackHoleShader.svelte';
+    let showIntro = true;
+    let fadeOutBackground = false;
+    let visible = false; 
+    let canvasContainer: HTMLDivElement; // sets the canvas container as a divelement from html
+    
+    // Skills data for the about section
+    const skills = [
+        { name: "3D Modeling", level: 90 },
+        { name: "Animation", level: 85 },
+        { name: "Visual Design", level: 88 },
+        { name: "Web Development", level: 75 },
+        { name: "Video Editing", level: 82 }
+    ];
+    
+    // Portfolio projects data
+    const projects = [
+        { 
+            title: "3D Visual Experience", 
+            description: "Immersive 3D environment created for brand storytelling", 
+            image: "images/test2front.jpg" 
+        },
+        { 
+            title: "Interactive Installation", 
+            description: "Physical-digital experience merging art and technology", 
+            image: "images/landing.jpg" 
+        },
+        { 
+            title: "Brand Identity", 
+            description: "Complete visual identity with 3D elements for emerging tech company", 
+            image: "images/test2front.jpg" 
+        }
+    ];
+    
+    // Form handling
+    let name = '';
+    let email = '';
+    let message = '';
+    let formSubmitted = false;
+    
+    function handleSubmit() {
+        // Here you would normally handle the form submission to a server
+        console.log({ name, email, message });
+        formSubmitted = true;
+        setTimeout(() => formSubmitted = false, 3000);
+        // Reset form
+        name = '';
+        email = '';
+        message = '';
+    }
+  
+    function handleIntersection(entries: IntersectionObserverEntry[]) { // this gets the intersectionObserverEntry from the svelte-intersection-observer
+      for (const entry of entries) {
+        visible = entry.isIntersecting; // is visible if the view is intersecting with the canvas
+      }
+    }
+  
+    onMount(() => {
+      console.log("Home Page Loaded");
+  
+      setTimeout(() => fadeOutBackground = true, 1000); 
+      setTimeout(() => showIntro = false, 2000);
+  
+      if (canvasContainer) {
+        const observer = new IntersectionObserver(handleIntersection, {
+          root: null, 
+          threshold: 0.2 // the threshold that has to be passed in order for it to be displayed
+        });
+        observer.observe(canvasContainer);
+  
+        onDestroy(() => observer.disconnect());
+      }
+    });
+  </script>
+  
+  {#if showIntro}
+    <div class="intro" class:fade-out={fadeOutBackground}>
+      <h1 class="tracking-in-expand">WELCOME</h1>
+    </div>
+  {/if}
+  
+  
+  <div class="landing-page">
+    <div id="glass-landing"></div>
+    <div style="grid-column: 1 / 11; "> <!-- this is probably the ugliest and only solution I had to implement to fix a problem with a library-->
+      <h1 id="landing-text" use:reveal={{ preset: "slide", delay: 1000 }}> Welcome to My Creative Space</h1>
+    </div>
+    <div class ="scale-in-hor-center"></div>
+    <div style="grid-column: 1 / 12;">
+      <h1 id="sub-text" use:reveal={{ preset: "slide", delay: 2500 }}>Let's create content that is truly</h1>
+    </div>
+    <div style="grid-column: 1 / 12;">
+      <h1 id="memorable" use:reveal={{ preset: "slide", delay: 3250 }}> Memorable.</h1>
+    </div>
+    <div style="grid-column: 1 / 12;">
+    <h2 id="second-text" use:reveal={{ preset: "slide", delay: 3500 }}>I specialize in 3D visuals, transforming ideas into striking, immersive experiences.</h2>
+  </div>
+  <div style="grid-column: 1 / 12;">
+    <h2 id="third-text" use:reveal={{ preset: "slide", delay: 3500 }}>Whether you're looking to refresh your brand or create stunning content, I'm here to make your vision a reality.</h2>
+  </div>
+    <div class ="landing-image">
+      <ImageShader imageSrc="images/landing.jpg"  exactWidth={507} exactHeight={803} ></ImageShader>
+    </div>
+
+  </div>
+    <ImageShader imageSrc="images/test2front.jpg" exactWidth={1920/2} exactHeight={1443/2} ></ImageShader>
+  
+
+    <BlackHoleShader />
+    <div bind:this={canvasContainer} class="canvas-container">
+      {#if visible}
+      <Canvas dpr={0.6}>
+      <ThreeScene/>
+    </Canvas>
+      {/if}
+    </div>
+
+    <!-- About Section with glass morphism and animated skill bars -->
+    <section class="about-section" id="about">
+      <div class="glass-container">
+        <h2 class="section-title" use:reveal={{ preset: "slide" }}>About Me</h2>
+        <div class="about-content">
+          <div class="about-text">
+            <p use:reveal={{ preset: "slide", delay: 200 }}>
+              I'm a creative professional specializing in 3D visualization and digital design. With over 5 years of experience,
+              I blend technical expertise with artistic vision to create memorable digital experiences.
+            </p>
+            <p use:reveal={{ preset: "slide", delay: 400 }}>
+              My approach combines cutting-edge technology with timeless design principles, resulting in work that's both
+              innovative and accessible. I believe in creating not just visually striking content, but meaningful experiences
+              that connect with audiences.
+            </p>
+          </div>
+          <div class="skills-container">
+            <h3 use:reveal={{ preset: "slide", delay: 600 }}>Skills</h3>
+            {#each skills as skill, i}
+              <div class="skill-item" use:reveal={{ preset: "slide", delay: 700 + (i * 100) }}>
+                <span class="skill-name">{skill.name}</span>
+                <div class="skill-bar-bg">
+                  <div class="skill-bar-fill" style="width: {skill.level}%" data-level="{skill.level}%"></div>
+                </div>
+              </div>
+            {/each}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Section with glass cards -->
+    <section class="portfolio-section" id="portfolio">
+      <h2 class="section-title" use:reveal={{ preset: "slide" }}>My Work</h2>
+      <div class="portfolio-grid">
+        {#each projects as project, i}
+          <div class="portfolio-card" use:reveal={{ preset: "slide", delay: 200 + (i * 150) }}>
+            <div class="card-glass">
+              <div class="card-image-container">
+                <img src={project.image} alt={project.title} class="card-image" />
+              </div>
+              <div class="card-content">
+                <h3 class="card-title">{project.title}</h3>
+                <p class="card-description">{project.description}</p>
+                <button class="card-button">View Project</button>
+              </div>
+            </div>
+          </div>
+        {/each}
+      </div>
+    </section>
+
+    <!-- Contact Section with interactive form -->
+    <section class="contact-section" id="contact">
+      <div class="glass-container">
+        <h2 class="section-title" use:reveal={{ preset: "slide" }}>Get In Touch</h2>
+        <div class="contact-content">
+          <div class="contact-info" use:reveal={{ preset: "slide", delay: 200 }}>
+            <p>Interested in working together? Let's create something amazing.</p>
+            <div class="contact-details">
+              <div class="contact-item">
+                <span class="contact-label">Email:</span>
+                <span class="contact-value">hello@tomasdite.com</span>
+              </div>
+              <div class="contact-item">
+                <span class="contact-label">Location:</span>
+                <span class="contact-value">Dublin, Ireland</span>
+              </div>
+            </div>
+          </div>
+          <div class="contact-form-container" use:reveal={{ preset: "slide", delay: 400 }}>
+            {#if formSubmitted}
+              <div class="form-success-message">
+                <p>Thanks for your message! I'll get back to you soon.</p>
+              </div>
+            {:else}
+              <form class="contact-form" on:submit|preventDefault={handleSubmit}>
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input type="text" id="name" bind:value={name} required />
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" bind:value={email} required />
+                </div>
+                <div class="form-group">
+                  <label for="message">Message</label>
+                  <textarea id="message" bind:value={message} rows="5" required></textarea>
+                </div>
+                <button type="submit" class="submit-button">Send Message</button>
+              </form>
+            {/if}
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <h1 use:reveal={{ preset: "slide", delay: 5000 }}>TOMAS DITE</h1>
+    <h1 use:reveal={{ preset: "slide", y: 50, x: 0 }}>TOMAS DITE</h1>
+    <h1 use:reveal={{ preset: "slide", y: 50, x: 0 }}>TOMAS DITE</h1>
+    <h1 use:reveal={{ preset: "slide", y: 50, x: 0 }}>TOMAS DITE</h1>
+    <h1 use:reveal={{ preset: "slide", y: 50, x: 0 }}>TOMAS DITE</h1>
+    <p>This is the homepage of our TOMAS DITE application.</p>
+  
+  
+  <style>
+  /* Base styles with CSS variables for theming */
+  :root {
+    --text-primary: #ffffff;
+    --text-secondary: #e0e0e0;
+    --bg-glass: rgba(28, 29, 32, 0.5);
+    --glass-blur: 12px;
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-shadow: rgba(0, 0, 0, 0.2);
+    --accent-color: aliceblue;
+    --transition-speed: 0.3s;
+    --spacing-unit: clamp(0.5rem, 1vw, 1.5rem);
+  }
+
+  /* Global transitions for smooth interactions */
+  * {
+    transition: transform var(--transition-speed) ease, 
+                opacity var(--transition-speed) ease,
+                background-color var(--transition-speed) ease;
+  }
+
+
+  .intro {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: opacity 1s ease-in-out;
+  }
+
+  .fade-out {
+    opacity: 0;
+  }
+
+  /* updated Canvas Container with smooth scaling */
+  .canvas-container {
+    width: 100%; 
+    height: clamp(300px, 50vh, 600px);
+    max-width: 100%; 
+    margin: 0 auto; 
+    display: flex;
+    transition: height 0.5s ease-in-out;
+  }
+
+  /* Enhanced landing page with absolute positioning */
+  .landing-page {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    padding: var(--spacing-unit);
+    transform: translateY(0);
+  }
+
+  /* Enhanced glass effect */
+  #glass-landing {
+    z-index: -5;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: var(--bg-glass);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border-radius: clamp(10px, 2vw, 20px);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px 0 var(--glass-shadow);
+  }
+  
+  /* Responsive typography for all text elements */
+  #landing-text {
+    font-size: clamp(2rem, 5vw, 4.5rem);
+    width: 55%;
+    padding: var(--spacing-unit);
+    max-width: 20ch;
+    line-height: 1.2;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    margin-bottom: var(--spacing-unit);
+    font-weight: 700;
+  }
+
+  #memorable {
+    font-size: clamp(1.8rem, 4vw, 3.5rem);
+    padding: var(--spacing-unit);
+    width: 55%;
+    text-decoration: underline;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  
+  #memorable:hover {
+    text-shadow: 0 0 15px var(--accent-color);
+    letter-spacing: 0.05em;
+  }
+
+  #sub-text {
+    padding: var(--spacing-unit);
+    font-size: clamp(1.5rem, 3.5vw, 3rem);
+    width: 55%;
+    align-items: end;
+    margin-top: calc(var(--spacing-unit) * 2);
+  }
+
+  #second-text, #third-text {
+    font-kerning: auto;
+    text-align: left;
+    max-width: 60ch;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    width: 55%;
+    font-size: clamp(1rem, 1.8vw, 1.5rem);
+    padding: var(--spacing-unit);
+    line-height: 1.6;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+  }
+  
+  #second-text:hover, #third-text:hover {
+    opacity: 1;
+  }
+
+  /* Responsive image container with absolute positioning */
+  .landing-image {
+    position: absolute;
+    right: var(--spacing-unit);
+    top: var(--spacing-unit);
+    width: 40%;
+    height: clamp(300px, 50vh, 600px);
+    padding: var(--spacing-unit);
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    z-index: 1;
+    transform: scale(1);
+    transition: transform 0.5s ease;
+  }
+  
+  .landing-image:hover {
+    transform: scale(1.02);
+  }
+
+  /* Enhanced animations */
+  .tracking-in-expand {
+    -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+  }
+
+  @keyframes tracking-in-expand {
+    0% {
+      letter-spacing: -0.5em;
+      opacity: 0;
+    }
+    40% {
+      opacity: 0.6;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .scale-in-hor-center {
+    align-self: flex-end;
+    margin-left: var(--spacing-unit);
+    height: 6px;
+    background: linear-gradient(90deg, var(--accent-color) 0%, rgba(255,255,255,0.5) 100%);
+    width: 55%;
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(240, 248, 255, 0.3);
+    animation: scale-in-hor-center 3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both 2000ms;
+  }
+
+  @keyframes scale-in-hor-center {
+    0% {
+      transform: scaleX(0);
+      opacity: 1;
+    }
+    100% {
+      transform: scaleX(0.98);
+      opacity: 1;
+    }
+  }
+  
+  /* Media Queries for Responsive Design */
+  @media (max-width: 1024px) {
+    .landing-image {
+      width: 45%;
+      height: clamp(250px, 40vh, 400px);
+    }
+    
+    #landing-text, #sub-text, #memorable, #second-text, #third-text, .scale-in-hor-center {
+      width: 50%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    :root {
+      --spacing-unit: clamp(0.5rem, 2vw, 1rem);
+    }
+    
+    .landing-image {
+      position: relative;
+      width: 100%;
+      right: 0;
+      top: 0;
+      height: clamp(200px, 30vh, 300px);
+      margin-bottom: var(--spacing-unit);
+    }
+    
+    #landing-text, #sub-text, #memorable, #second-text, #third-text, .scale-in-hor-center {
+      width: 100%;
+    }
+    
+    .canvas-container {
+      height: clamp(200px, 40vh, 400px);
+    }
+    
+    #landing-text {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+    }
+    
+    #memorable {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+    }
+    
+    #sub-text {
+      font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .canvas-container {
+      height: clamp(150px, 30vh, 250px);
+    }
+    
+    #second-text, #third-text {
+      font-size: clamp(0.9rem, 4vw, 1.2rem);
+    }
+  }
+
+  /* About Section Styles */
+  .about-section, .contact-section {
+    padding: calc(var(--spacing-unit) * 3) var(--spacing-unit);
+    margin: calc(var(--spacing-unit) * 4) 0;
+    position: relative;
+  }
+
+  .glass-container {
+    background: var(--bg-glass);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border-radius: clamp(10px, 2vw, 20px);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px 0 var(--glass-shadow);
+    padding: calc(var(--spacing-unit) * 2);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .glass-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.3);
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: calc(var(--spacing-unit) * 2);
+    position: relative;
+    display: inline-block;
+  }
+
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-color) 0%, rgba(255,255,255,0.2) 100%);
+    border-radius: 4px;
+    transition: width 0.4s ease;
+  }
+
+  .section-title:hover::after {
+    width: 100%;
+  }
+
+  .about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: calc(var(--spacing-unit) * 2);
+    align-items: center;
+  }
+
+  .about-text p {
+    font-size: clamp(1rem, 1.6vw, 1.3rem);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-unit);
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+  }
+
+  .about-text p:hover {
+    opacity: 1;
+  }
+
+  .skills-container {
+    padding: var(--spacing-unit);
+  }
+
+  .skills-container h3 {
+    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+    margin-bottom: calc(var(--spacing-unit) * 1.5);
+  }
+
+  .skill-item {
+    margin-bottom: calc(var(--spacing-unit) * 1.2);
+  }
+
+  .skill-name {
+    display: block;
+    font-size: clamp(0.9rem, 1.4vw, 1.1rem);
+    margin-bottom: calc(var(--spacing-unit) * 0.5);
+    font-weight: 600;
+  }
+
+  .skill-bar-bg {
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .skill-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-color) 0%, rgba(240, 248, 255, 0.5) 100%);
+    border-radius: 5px;
+    position: relative;
+    width: 0;
+    animation: skill-fill 1.5s ease forwards;
+    box-shadow: 0 0 8px rgba(240, 248, 255, 0.3);
+  }
+
+  .skill-bar-fill::after {
+    content: attr(data-level);
+    position: absolute;
+    right: 5px;
+    top: -20px;
+    font-size: 0.8rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .skill-bar-fill:hover::after {
+    opacity: 1;
+  }
+
+  @keyframes skill-fill {
+    0% { width: 0; }
+    100% { width: var(--width, 0); }
+  }
+
+  /* Portfolio Section Styles */
+  .portfolio-section {
+    padding: calc(var(--spacing-unit) * 3) var(--spacing-unit);
+    margin: calc(var(--spacing-unit) * 4) 0;
+  }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: calc(var(--spacing-unit) * 2);
+    margin-top: calc(var(--spacing-unit) * 3);
+  }
+
+  .portfolio-card {
+    height: 100%;
+    transition: transform 0.4s ease;
+    perspective: 1000px;
+  }
+
+  .portfolio-card:hover {
+    transform: translateY(-10px);
+  }
+
+  .card-glass {
+    height: 100%;
+    background: var(--bg-glass);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border-radius: clamp(8px, 1.5vw, 15px);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px 0 var(--glass-shadow);
+    overflow: hidden;
+    transition: transform 0.6s, box-shadow 0.4s ease;
+    transform-style: preserve-3d;
+  }
+
+  .portfolio-card:hover .card-glass {
+    box-shadow: 0 15px 35px 0 rgba(0, 0, 0, 0.3);
+    transform: rotateY(5deg);
+  }
+
+  .card-image-container {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+  }
+
+  .card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    filter: brightness(0.9);
+  }
+
+  .portfolio-card:hover .card-image {
+    transform: scale(1.05);
+    filter: brightness(1);
+  }
+
+  .card-content {
+    padding: calc(var(--spacing-unit) * 1.5);
+  }
+
+  .card-title {
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    margin-bottom: calc(var(--spacing-unit) * 0.75);
+    position: relative;
+    display: inline-block;
+  }
+
+  .card-title::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-color) 0%, rgba(255,255,255,0.3) 100%);
+    transition: width 0.3s ease;
+  }
+
+  .portfolio-card:hover .card-title::after {
+    width: 100%;
+  }
+
+  .card-description {
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
+    line-height: 1.5;
+    margin-bottom: calc(var(--spacing-unit) * 1.5);
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+  }
+
+  .portfolio-card:hover .card-description {
+    opacity: 1;
+  }
+
+  .card-button {
+    background: rgba(240, 248, 255, 0.1);
+    border: 1px solid rgba(240, 248, 255, 0.2);
+    padding: calc(var(--spacing-unit) * 0.75) calc(var(--spacing-unit) * 1.5);
+    border-radius: 5px;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color: rgba(240, 248, 255, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.5s ease, height 0.5s ease;
+    z-index: -1;
+  }
+
+  .card-button:hover {
+    background: rgba(240, 248, 255, 0.15);
+    border-color: var(--accent-color);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .card-button:hover::before {
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Contact Section Styles */
+  .contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: calc(var(--spacing-unit) * 3);
+    align-items: center;
+  }
+
+  .contact-info {
+    padding-right: calc(var(--spacing-unit) * 2);
+  }
+
+  .contact-info p {
+    font-size: clamp(1rem, 1.6vw, 1.3rem);
+    line-height: 1.6;
+    margin-bottom: calc(var(--spacing-unit) * 2);
+    opacity: 0.9;
+  }
+
+  .contact-details {
+    margin-top: calc(var(--spacing-unit) * 2);
+  }
+
+  .contact-item {
+    display: flex;
+    margin-bottom: calc(var(--spacing-unit) * 1.5);
+    align-items: center;
+    transition: transform 0.3s ease;
+  }
+
+  .contact-item:hover {
+    transform: translateX(5px);
+  }
+
+  .contact-label {
+    font-weight: 600;
+    font-size: clamp(0.9rem, 1.4vw, 1.1rem);
+    margin-right: calc(var(--spacing-unit) * 0.75);
+    opacity: 0.8;
+  }
+
+  .contact-value {
+    font-size: clamp(0.9rem, 1.4vw, 1.1rem);
+    position: relative;
+    transition: color 0.3s ease;
+  }
+
+  .contact-value::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+  }
+
+  .contact-item:hover .contact-value::after {
+    width: 100%;
+  }
+
+  .contact-form-container {
+    position: relative;
+    transition: transform 0.4s ease;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing-unit) * 1.5);
+  }
+
+  .form-group {
+    position: relative;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: clamp(0.9rem, 1.4vw, 1.1rem);
+    margin-bottom: calc(var(--spacing-unit) * 0.5);
+    font-weight: 500;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+  }
+
+  .form-group:focus-within label {
+    opacity: 1;
+    color: var(--accent-color);
+  }
+
+  .form-group input, 
+  .form-group textarea {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    padding: calc(var(--spacing-unit) * 0.75);
+    color: var(--text-primary);
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
+    transition: all 0.3s ease;
+  }
+
+  .form-group input:focus, 
+  .form-group textarea:focus {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--accent-color);
+    outline: none;
+    box-shadow: 0 0 8px rgba(240, 248, 255, 0.2);
+  }
+
+  .form-group input:hover, 
+  .form-group textarea:hover {
+    background: rgba(255, 255, 255, 0.09);
+  }
+
+  .submit-button {
+    background: rgba(240, 248, 255, 0.1);
+    border: 1px solid rgba(240, 248, 255, 0.2);
+    padding: calc(var(--spacing-unit) * 1) calc(var(--spacing-unit) * 2);
+    border-radius: 5px;
+    color: var(--text-primary);
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    align-self: flex-start;
+    margin-top: calc(var(--spacing-unit) * 1);
+  }
+
+  .submit-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color: rgba(240, 248, 255, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+    z-index: -1;
+  }
+
+  .submit-button:hover {
+    background: rgba(240, 248, 255, 0.15);
+    border-color: var(--accent-color);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .submit-button:hover::before {
+    width: 400px;
+    height: 400px;
+  }
+
+  .form-success-message {
+    background: rgba(240, 248, 255, 0.1);
+    border: 1px solid var(--accent-color);
+    border-radius: 8px;
+    padding: calc(var(--spacing-unit) * 2);
+    text-align: center;
+    animation: success-message 0.5s ease forwards;
+  }
+
+  @keyframes success-message {
+    0% {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .form-success-message p {
+    font-size: clamp(1rem, 1.6vw, 1.2rem);
+    line-height: 1.6;
+  }
+
+  /* Responsive Adjustments for About, Portfolio, and Contact Sections */
+  @media (max-width: 1024px) {
+    .portfolio-grid {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+  }
+
+  @media (max-width: 768px) {
+    .about-content,
+    .contact-content {
+      grid-template-columns: 1fr;
+      gap: calc(var(--spacing-unit) * 2);
+    }
+
+    .portfolio-grid {
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+
+    .contact-info {
+      padding-right: 0;
+    }
+
+    .glass-container {
+      padding: calc(var(--spacing-unit) * 1.5);
+    }
+  }
+</style>
