@@ -448,6 +448,7 @@
         padding: 1rem;
         z-index: 1001;
         font-size: 18px;
+        mix-blend-mode:difference
     }
 
     /* Active link styling */

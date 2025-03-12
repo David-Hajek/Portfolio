@@ -66,17 +66,68 @@
     </div>
 
   </div>
-    <ImageShader imageSrc="images/test2front.jpg" exactWidth={1920/2} exactHeight={1443/2} ></ImageShader>
+  <div class="landing-page white-section">
+    <div id="glass-landingWhite"></div>
+    <div class="skills-container">
+      <div class="skills-header">
+        <h1 class="skills-title" use:reveal={{ preset: "slide", delay: 300 }}>Skills & Expertise</h1>
+        <div class="accent-line" use:reveal={{ preset: "slide", delay: 500 }}></div>
+        <p class="skills-intro" use:reveal={{ preset: "slide", delay: 700 }}>
+          Bringing creative concepts to life through technical excellence and artistic vision. 
+          My diverse toolkit allows me to craft immersive digital experiences.
+        </p>
+      </div>
+      
+      <div class="skills-grid">
+        <div class="skill-card" use:reveal={{ preset: "slide", delay: 900 }}>
+          <div class="skill-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" fill="#333"><path d="M0 0h24v24H0z" fill="none"/><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
+          </div>
+          <h3>3D Modeling</h3>
+          <p>Creating detailed and accurate 3D models for various applications including visualization, animation, and product design.</p>
+        </div>
+        
+        <div class="skill-card" use:reveal={{ preset: "slide", delay: 1100 }}>
+          <div class="skill-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" fill="#333"><path d="M0 0h24v24H0z" fill="none"/><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+          </div>
+          <h3>Visual Design</h3>
+          <p>Crafting compelling visual narratives through thoughtful composition, color theory, and design principles.</p>
+        </div>
+        
+        <div class="skill-card" use:reveal={{ preset: "slide", delay: 1300 }}>
+          <div class="skill-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" fill="#333"><path d="M0 0h24v24H0z" fill="none"/><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg>
+          </div>
+          <h3>Motion Graphics</h3>
+          <p>Bringing static designs to life through fluid animations and transitions that enhance user engagement.</p>
+        </div>
+        
+        <div class="skill-card" use:reveal={{ preset: "slide", delay: 1500 }}>
+          <div class="skill-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" fill="#333"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+          </div>
+          <h3>Audio-Visual Integration</h3>
+          <p>Synchronizing sound and visuals to create immersive multimedia experiences that captivate audiences.</p>
+        </div>
+      </div>
+      
+      <div class="skills-cta" use:reveal={{ preset: "slide", delay: 1700 }}>
+        <p>Looking to bring your creative vision to life? Let's collaborate on your next project.</p>
+      </div>
+    </div>
+  </div>
+   <!-- <ImageShader imageSrc="images/test2front.jpg" exactWidth={1920/2} exactHeight={1443/2} ></ImageShader>-->
   
-
-    <BlackHoleShader />
+   <BlackHoleShader />
+    <!--
     <div bind:this={canvasContainer} class="canvas-container">
       {#if visible}
       <Canvas dpr={0.6}>
       <ThreeScene/>
     </Canvas>
       {/if}
-    </div>
+    </div>-->
     <h1 use:reveal={{ preset: "slide", delay: 5000 }}>TOMAS DITE</h1>
     <h1 use:reveal={{ preset: "slide", y: 50, x: 0 }}>TOMAS DITE</h1>
     <h1 use:reveal={{ preset: "slide", y: 50, x: 0 }}>TOMAS DITE</h1>
@@ -91,6 +142,7 @@
     --text-primary: #ffffff;
     --text-secondary: #e0e0e0;
     --bg-glass: rgba(28, 29, 32, 0.5);
+    --bg-glassWhite: rgba(255, 255, 255, 0.212);
     --glass-blur: 12px;
     --glass-border: rgba(255, 255, 255, 0.1);
     --glass-shadow: rgba(0, 0, 0, 0.2);
@@ -138,7 +190,7 @@
   /* Enhanced landing page with absolute positioning */
   .landing-page {
     width: 100%;
-    min-height: 100vh;
+    min-height: 89vh;
     position: relative;
     padding: var(--spacing-unit);
     transform: translateY(0);
@@ -158,6 +210,19 @@
     border: 1px solid var(--glass-border);
     box-shadow: 0 8px 32px 0 var(--glass-shadow);
   }
+  #glass-landingWhite {
+    z-index: -5;
+    position: absolute;
+    width: 100%;
+    height: 89vh;
+    left: 0;
+    top: 0;
+    background: var(--bg-glassWhite);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px 0 var(--glass-shadow);
+  }
   
   /* Responsive typography for all text elements */
   #landing-text {
@@ -170,6 +235,7 @@
     overflow-wrap: break-word;
     margin-bottom: var(--spacing-unit);
     font-weight: 700;
+    mix-blend-mode:difference
   }
 
   #memorable {
@@ -179,6 +245,7 @@
     text-decoration: underline;
     position: relative;
     transition: all 0.3s ease;
+    mix-blend-mode:difference
   }
   
   #memorable:hover {
@@ -192,6 +259,7 @@
     width: 55%;
     align-items: end;
     margin-top: calc(var(--spacing-unit) * 2);
+    mix-blend-mode:difference
   }
 
   #second-text, #third-text {
@@ -206,6 +274,7 @@
     line-height: 1.6;
     opacity: 0.9;
     transition: opacity 0.3s ease;
+    mix-blend-mode:difference
   }
   
   #second-text:hover, #third-text:hover {
@@ -334,6 +403,125 @@
     
     #second-text, #third-text {
       font-size: clamp(0.9rem, 4vw, 1.2rem);
+    }
+  }
+  /* White Section Styling */
+  .white-section {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    color: #191919;
+    position: relative;
+  }
+  
+  .skills-container {
+    grid-column: 2 / 12;
+    display: flex;
+    flex-direction: column;
+    padding: calc(var(--spacing-unit) * 2) 0;
+    z-index: 1;
+  }
+  
+  .skills-header {
+    margin-bottom: calc(var(--spacing-unit) * 3);
+  }
+  
+  .skills-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    color: #191919;
+    margin-bottom: var(--spacing-unit);
+  }
+  
+  .accent-line {
+    height: 4px;
+    width: 120px;
+    background: linear-gradient(90deg, #191919 0%, rgba(25,25,25,0.5) 100%);
+    border-radius: 4px;
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+  
+  .skills-intro {
+    font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+    line-height: 1.6;
+    max-width: 800px;
+    color: #333;
+  }
+  
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: calc(var(--spacing-unit) * 2);
+    margin-bottom: calc(var(--spacing-unit) * 3);
+  }
+  
+  .skill-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 10px;
+    padding: calc(var(--spacing-unit) * 2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  .skill-icon {
+    background: rgba(240, 248, 255, 0.8);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--spacing-unit);
+  }
+  
+  .skill-card h3 {
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    margin-bottom: var(--spacing-unit);
+    color: #191919;
+    font-weight: 600;
+  }
+  
+  .skill-card p {
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+    line-height: 1.6;
+    color: #444;
+  }
+  
+  .skills-cta {
+    font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+    font-weight: 500;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: calc(var(--spacing-unit) * 2);
+    background: rgba(240, 248, 255, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  /* Responsive adjustments for the white section */
+  @media (max-width: 1024px) {
+    .skills-container {
+      grid-column: 1 / 13;
+      padding: var(--spacing-unit);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .skills-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .skills-cta {
+      padding: var(--spacing-unit);
     }
   }
 </style>
