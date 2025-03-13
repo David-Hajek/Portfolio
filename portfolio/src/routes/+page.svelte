@@ -62,7 +62,7 @@
     <h2 id="third-text" use:reveal={{ preset: "slide", delay: 3500 }}>Whether you're looking to refresh your brand or create stunning content, I'm here to make your vision a reality.</h2>
   </div>
     <div class ="landing-image">
-      <ImageShader imageSrc="images/landing.jpg"  exactWidth={450} exactHeight={750} ></ImageShader>
+      <ImageShader imageSrc="images/landing.jpg"></ImageShader>
     </div>
 
   </div>
@@ -286,14 +286,17 @@
     right: var(--spacing-unit);
     top: var(--spacing-unit);
     width: 40%;
-    height: clamp(300px, 50vh, 600px);
-    padding: var(--spacing-unit);
-    display: flex;
-    justify-content: center;
-    align-items: start;
+    height: auto;
+    aspect-ratio: 3/5;
+    max-height: 80vh;
+    min-height: 300px;
+    overflow: hidden;
     z-index: 1;
     transform: scale(1);
-    transition: transform 0.5s ease;
+    transition: transform 0.5s ease, width 0.3s ease-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   .landing-image:hover {
@@ -344,7 +347,12 @@
   @media (max-width: 1024px) {
     .landing-image {
       width: 45%;
-      height: clamp(250px, 40vh, 400px);
+      aspect-ratio: 3/5;
+      min-height: 250px;
+      max-height: 65vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     
     #landing-text, #sub-text, #memorable, #second-text, #third-text, .scale-in-hor-center {
@@ -358,12 +366,17 @@
     }
     
     .landing-image {
-      display: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       position: static;
       width: 100%;
       right: 0;
       top: 0;
-      height: clamp(200px, 30vh, 300px);
+      aspect-ratio: 16/9;
+      height: auto;
+      min-height: 200px;
+      max-height: 40vh;
       margin-bottom: var(--spacing-unit);
     }
     
