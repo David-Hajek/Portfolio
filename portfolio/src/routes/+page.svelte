@@ -213,7 +213,7 @@
     z-index: -5;
     position: absolute;
     width: 100%;
-    height: 100vh;
+    height: 90vh;
     left: 0;
     top: 0;
     background: var(--bg-glassWhite);
