@@ -119,7 +119,7 @@
   </div>
    <!-- <ImageShader imageSrc="images/test2front.jpg" exactWidth={1920/2} exactHeight={1443/2} ></ImageShader>-->
   
-   <BlackHoleShader />
+ 
     <!--
     <div bind:this={canvasContainer} class="canvas-container">
       {#if visible}
@@ -134,7 +134,7 @@
     <h1 use:reveal={{ preset: "slide", y: 50, x: 0 }}>TOMAS DITE</h1>
     <h1 use:reveal={{ preset: "slide", y: 50, x: 0 }}>TOMAS DITE</h1>
     <p>This is the homepage of our TOMAS DITE application.</p>
-  
+    <BlackHoleShader />
   
   <style>
   /* Base styles with CSS variables for theming */
@@ -193,7 +193,6 @@
     min-height: 89vh;
     position: relative;
     padding: var(--spacing-unit);
-    transform: translateY(0);
   }
 
   /* Enhanced glass effect */
@@ -214,7 +213,7 @@
     z-index: -5;
     position: absolute;
     width: 100%;
-    height: 89vh;
+    height: 100vh;
     left: 0;
     top: 0;
     background: var(--bg-glassWhite);
@@ -222,6 +221,7 @@
     -webkit-backdrop-filter: blur(var(--glass-blur));
     border: 1px solid var(--glass-border);
     box-shadow: 0 8px 32px 0 var(--glass-shadow);
+    padding-right: 50px;
   }
   
   /* Responsive typography for all text elements */
@@ -411,6 +411,7 @@
     grid-template-columns: repeat(12, 1fr);
     color: #191919;
     position: relative;
+
   }
   
   .skills-container {
