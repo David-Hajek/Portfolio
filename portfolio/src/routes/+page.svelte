@@ -100,15 +100,15 @@
             <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" fill="#333"><path d="M0 0h24v24H0z" fill="none"/><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg>
           </div>
           <h3>Motion Graphics</h3>
-          <p>Bringing static designs to life through fluid animations and transitions that enhance user engagement.</p>
+          <p>Another sub text</p>
         </div>
         
         <div class="skill-card" use:reveal={{ preset: "slide", delay: 1500 }}>
           <div class="skill-icon">
             <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" fill="#333"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
           </div>
-          <h3>Audio-Visual Integration</h3>
-          <p>Synchronizing sound and visuals to create immersive multimedia experiences that captivate audiences.</p>
+          <h3>4</h3>
+          <p>this is the sub text</p>
         </div>
       </div>
       
@@ -142,7 +142,7 @@
     --text-primary: #ffffff;
     --text-secondary: #e0e0e0;
     --bg-glass: rgba(28, 29, 32, 0.5);
-    --bg-glassWhite: rgba(255, 255, 255, 0.212);
+    --bg-glassWhite: rgba(255, 255, 255, 0.733);
     --glass-blur: 12px;
     --glass-border: rgba(255, 255, 255, 0.1);
     --glass-shadow: rgba(0, 0, 0, 0.2);
@@ -204,8 +204,8 @@
     left: 0;
     top: 0;
     background: var(--bg-glass);
-    backdrop-filter: blur(var(--glass-blur));
-    -webkit-backdrop-filter: blur(var(--glass-blur));
+    backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+        background-color: rgba(17, 25, 40, 0.75);
     border: 1px solid var(--glass-border);
     box-shadow: 0 8px 32px 0 var(--glass-shadow);
   }
@@ -218,7 +218,6 @@
     top: 0;
     background: var(--bg-glassWhite);
     backdrop-filter: blur(var(--glass-blur));
-    -webkit-backdrop-filter: blur(var(--glass-blur));
     border: 1px solid var(--glass-border);
     box-shadow: 0 8px 32px 0 var(--glass-shadow);
     border-radius: 20px;
@@ -303,7 +302,6 @@
 
   /* Enhanced animations */
   .tracking-in-expand {
-    -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
     animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
   }
 
@@ -418,7 +416,7 @@
   }
   
   .skills-container {
-    grid-column: 2 / 12;
+    grid-column: 1 / 12;
     display: flex;
     flex-direction: column;
     padding: calc(var(--spacing-unit) * 3) calc(var(--spacing-unit) * 2);
@@ -461,7 +459,6 @@
   .skill-card {
     background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
     border-radius: 10px;
     padding: calc(var(--spacing-unit) * 2);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
@@ -506,7 +503,6 @@
     padding: calc(var(--spacing-unit) * 2);
     background: rgba(240, 248, 255, 0.6);
     backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.3);
   }

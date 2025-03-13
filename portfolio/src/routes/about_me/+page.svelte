@@ -42,43 +42,78 @@
 </div>
 <BlackHoleShader></BlackHoleShader>
 <style>
-  
     .glassmorphism {
-        backdrop-filter: blur(8px) saturate(100%);
-    -webkit-backdrop-filter: blur(8px) saturate(100%);
-    background-color: rgba(17, 25, 40, 0.5);
-    border-radius: 3rem; 
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        padding: 20px;
+        backdrop-filter: blur(16px) saturate(180%);
+        background-color: rgba(17, 25, 40, 0.75);
+        border-radius: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.125);
+        padding: 3rem;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        margin: 2rem auto;
+        max-width: 1200px;
     }
 
     .about {
-        transform: translateX(-30%);
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
     }
 
     .workedwith {
-        transform: translateX(-58%);
-        text-align: left;
+        font-size: 2rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
     }
 
-    h1 { color: #ffffff; }
-    p { font-size: 28px; }
-    a { color: #ff0000; filter: blur(2px); }
-    a:hover { filter: blur(0px); }
+    h1 { 
+        color: #ffffff;
+        margin: 0;
+        padding: 0;
+    }
 
-    .profile { 
-        border-radius: 25px;
+    p { 
+        font-size: 1.2rem;
+        line-height: 1.8;
+        color: rgba(255, 255, 255, 0.9);
+        margin: 0;
+        padding: 0;
+    }
+
+    a { 
+        color: #4a9eff;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    a:hover { 
+        color: #66b2ff;
+        text-shadow: 0 0 8px rgba(102, 178, 255, 0.5);
+    }
+
+    .profile {
+        border-radius: 1.5rem;
+        width: 100%;
+        max-width: 300px;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        transition: transform 0.3s ease;
+    }
+
+    .profile:hover {
+        transform: scale(1.02);
     }
 
     .contacts {
         text-align: left;
+        margin-top: 1.5rem;
     }
 
     .right-side {
-        transform: translateX(65%);
         font-kerning: auto;
         text-align: left;
-        max-width: 50ch;
+        max-width: 60ch;
         line-height: 1.6;
         word-wrap: break-word;
         overflow-wrap: break-word;
@@ -86,36 +121,57 @@
 
     .container {
         display: grid;
-        flex-wrap: wrap;
-        gap: 7%;
-        justify-content: left;
-        margin-top: 2.5rem;
-        grid-row: span 3;
-        grid-template-areas: 
-            "profile about abouttext"
-            "contacts workedwith abouttext"
-            "contacts2 workedwith workedwithtext";
-        grid-template-columns: 1fr 3fr;
+        grid-template-columns: 1fr 2fr;
+        gap: 3rem;
+        align-items: start;
+    }
+
+    .contacts2 {
+        margin-top: 2rem;
+    }
+
+    .contacts2 ul {
+        padding: 0;
+        margin: 0;
+        display: flex;
+        gap: 1.5rem;
     }
 
     li {
         list-style: none;
         display: inline-block;
-        justify-content: left;
-        margin-right: 11%;
-        margin-top: 10%;
     }
 
     .images {
-        height: 50px;
-        width: 50px;
-        -webkit-transition-property: all; 
-        -webkit-transition-duration: 0.3s; 
-        -webkit-transition-timing-function: ease; 
+        height: 40px;
+        width: 40px;
+        transition: all 0.3s ease;
+        filter: brightness(0.9);
     }
 
-    .images:hover { 
-        transform: scale(2); 
+    .images:hover {
+        transform: translateY(-5px);
+        filter: brightness(1.2);
+    }
+
+    @media (max-width: 768px) {
+        .container {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .right-side {
+            transform: none;
+        }
+
+        .about, .workedwith {
+            transform: none;
+        }
+
+        .glassmorphism {
+            margin: 1rem;
+            padding: 1.5rem;
+        }
     }
 </style>
 
