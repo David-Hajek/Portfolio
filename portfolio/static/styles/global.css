@@ -65,3 +65,18 @@ html::-webkit-scrollbar {
   html {
     scroll-behavior: smooth;
   }
+
+body {
+    cursor: none;
+}
+
+.custom-cursor {
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    mix-blend-mode: difference;
+    z-index: 9999;
+}

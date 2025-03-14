@@ -140,6 +140,12 @@
           <img src="/images/mira-logo.png" alt="Mira Logo" class="logo" />
           <img src="/images/devomi-logo.png" alt="Mira Logo" class="logo" />
         </div>
+        <div class="logos-slide">
+          <img src="/images/apparently-logo.png" alt="Apparently Logo" class="logo" />
+          <img src="/images/krystof-logo.png" alt="Krystof Logo" class="logo" />
+          <img src="/images/mira-logo.png" alt="Mira Logo" class="logo" />
+          <img src="/images/devomi-logo.png" alt="Mira Logo" class="logo" />
+        </div>
         
   </div>
 

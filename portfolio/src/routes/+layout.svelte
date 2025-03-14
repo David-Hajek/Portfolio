@@ -6,6 +6,7 @@
     import { fly, fade } from 'svelte/transition';
     import { spring } from 'svelte/motion';
     import { quintOut } from 'svelte/easing';
+    import CustomCursor from '$lib/CustomCursor.svelte';
 
     let y: number = 0;  // current user y height
     let prevY: number = 0; // last logged y 
@@ -61,6 +62,7 @@
 </script>
 
 <svelte:window on:scroll={handleScroll} bind:scrollY={y} bind:innerWidth bind:innerHeight /> <!-- binds the scroll to the variable y-->
+<CustomCursor />
 
 <link rel="stylesheet" href="/styles/global.css" />
 <header class={isHeaderVisible ? 'fade-in' : 'fade-out'}>
