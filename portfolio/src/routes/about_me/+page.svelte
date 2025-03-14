@@ -37,7 +37,8 @@
         <p>David Hájek is a self-taught 3D artist from the Czech Republic, currently pursuing a bachelor's degree in Ireland. 
         With a deep passion for storytelling through visuals, he focuses on crafting immersive scenes, and expressive characters that connect with the viewer.</p>
         <h1 class="workedwith">WORKED WITH</h1>
-        <p class="workedwithtext">KRYSTOF JEZEK, APPARENTLY STUDIOS</p>
+        <p class="workedwithtext">KRYSTOF JEZEK, APPARENTLY STUDIOS, 
+            MIRA LUMIÈRE</p>
     </div>
 </div>
 <BlackHoleShader></BlackHoleShader>
