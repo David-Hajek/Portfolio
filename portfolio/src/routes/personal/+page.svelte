@@ -65,8 +65,8 @@
             title: "wow this is amazing",
             description: "more to come",
             images: [
-                { url: "/images/-/-.jpg", alt: "Project Two Main" },
-                { url: "/images/-/-.jpg", alt: "Project Two Main" }
+                { url: "/images/legarde/david-hajek-legardcinema.jpg", alt: "Project Two Main" },
+                { url: "/images/legarde/david-hajek-legardcinema.jpg", alt: "Project Two Main" }
             ],
             isRight: false
         }
