@@ -43,29 +43,43 @@
   {/if}
   
   
-  <div class="landing-page">
-    <div id="glass-landing"></div>
-    <div style="grid-column: 1 / 11; "> <!-- this is probably the ugliest and only solution I had to implement to fix a problem with a library-->
-      <h1 id="landing-text" use:reveal={{ preset: "slide", delay: 1000 }}> Welcome to My Creative Space</h1>
-    </div>
-    <div class ="scale-in-hor-center"></div>
-    <div style="grid-column: 1 / 12;">
-      <h1 id="sub-text" use:reveal={{ preset: "slide", delay: 2500 }}>Let's create content that is truly</h1>
-    </div>
-    <div style="grid-column: 1 / 12;">
-      <h1 id="memorable" use:reveal={{ preset: "slide", delay: 3250 }}> Memorable.</h1>
-    </div>
-    <div style="grid-column: 1 / 12;">
-    <h2 id="second-text" use:reveal={{ preset: "slide", delay: 3500 }}>I specialize in 3D visuals, transforming ideas into striking, immersive experiences.</h2>
-  </div>
-  <div style="grid-column: 1 / 12;">
-    <h2 id="third-text" use:reveal={{ preset: "slide", delay: 3500 }}>Whether you're looking to refresh your brand or create stunning content, I'm here to make your vision a reality.</h2>
-  </div>
-    <div class ="landing-image">
-      <ImageShader imageSrc="images/landing.jpg"></ImageShader>
-    </div>
+<div class="landing-page">
+  <div id="glass-landing"></div>
+  <div class="hero-container">
+    <div class="hero-content">
+      <div class="hero-text">
+        <div class="identity" use:reveal={{ preset: "slide", delay: 0, threshold: 0.01 }}>
+          <span class="greeting">Hi, I'm</span>
+          <h1 class="name">David</h1>
+        </div>
 
+        <h2 class="profession" use:reveal={{ preset: "slide", delay: 1700 }}>
+          3D Artist & Visual Designer
+        </h2>
+
+        <div class="tagline" use:reveal={{ preset: "slide", delay: 1900 }}>
+          Transforming creative concepts into stunning digital experiences
+        </div>
+
+        <div class="description" use:reveal={{ preset: "slide", delay: 2200 }}>
+          <p>I specialize in creating immersive 3D visuals and compelling digital art that helps brands and businesses stand out in the digital space.</p>
+          <p>With expertise in 3D modeling, animation, and visual design, I bring ideas to life through technical excellence and artistic vision.</p>
+        </div>
+
+        <div class="hero-cta" use:reveal={{ preset: "slide", delay: 2600 }}>
+          <a href="/personal" class="primary-btn">View My Work</a>
+          <a href="/about_me" class="secondary-btn">Let's Talk</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="image-container">
+          <ImageShader imageSrc="images/landing.jpg"></ImageShader>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
   <div class="landing-page white-section">
     <div id="glass-landingWhite"></div>
     <div class="skills-container">
@@ -678,6 +692,169 @@
 
   p{
     text-align: left;
+  }
+
+  /* Hero Section Styles */
+  .hero-container {
+    width: 100%;
+    min-height: 89vh;
+    align-items: center;
+    padding: 4rem 0;
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 1fr 40%;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .hero-text {
+    position: relative;
+    z-index: 2;
+  }
+
+  .identity {
+    margin-bottom: 1.5rem;
+  }
+
+  .greeting {
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    color: var(--text-secondary);
+    display: block;
+    margin-bottom: 0.5rem;
+    mix-blend-mode: difference;
+    text-align: left;
+  }
+
+  .name {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin: 0;
+    mix-blend-mode: difference;
+  }
+
+  .profession {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    mix-blend-mode: difference;
+  }
+
+  .tagline {
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    line-height: 1.4;
+    max-width: 600px;
+    text-align: left;
+    mix-blend-mode: difference;
+  }
+
+  .description {
+    margin-bottom: 3rem;
+    mix-blend-mode: difference;
+  }
+
+  .description p {
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    max-width: 600px;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .primary-btn, .secondary-btn {
+    padding: 1rem 2rem;
+    font-size: clamp(1rem, 1.5vw, 1.1rem);
+    font-weight: 500;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .primary-btn {
+    background: var(--text-primary);
+    color: #191919;
+  }
+
+  .secondary-btn {
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--text-primary);
+  }
+
+  .primary-btn:hover, .secondary-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .hero-visual {
+    position: relative;
+    height: 100%;
+  }
+
+  .image-container {
+    width: 110%;
+    height: 110%;
+    min-height: 500px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 24px;
+  }
+
+  @media (max-width: 1024px) {
+    .hero-content {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .hero-visual {
+      order: -1;
+    }
+
+    .image-container {
+      min-height: 400px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-container {
+      padding: 3rem 0;
+    }
+
+    .hero-content {
+      padding: 0 1.5rem;
+      gap: 2rem;
+    }
+
+    .hero-cta {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .primary-btn, .secondary-btn {
+      text-align: center;
+    }
+
+    .image-container {
+      min-height: 300px;
+    }
   }
  
 </style>
