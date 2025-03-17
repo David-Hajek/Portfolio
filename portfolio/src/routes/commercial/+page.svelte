@@ -9,6 +9,7 @@
         description: string;
         problem?: string;
         solution?: string;
+        outcome?: string;
         images: {
             url: string;
             alt: string;
@@ -24,6 +25,7 @@
             description: "A set of clothing simulations I created for the latest untitled project",
             problem: "I was tasked with the creation of realistic animation of clothing on a character, I knew that the default tools of Blender would not suffice for the creation and simulation of the cloth. The challenge for me was to find a method to reliably create smooth and realistic simulations within the limited time we had.",
             solution: "I have learned the tool Marvelous Designer in order to execute realistic cloth animations, I first created a pipeline which I could follow to easily add multiple animations and simulate them.",
+            outcome: "The resulting simulations were highly realistic and efficient to produce. The pipeline I created reduced the production time significantly, allowing us to meet our deadlines while maintaining high quality. The clothing animations added a new level of realism to the character movements.",
             images: [
                 { url: "/images/dominic/domca1.jpg", alt: "Project One Main" },
                 { url: "/images/dominic/domca2.jpg", alt: "Project One Detail"},
@@ -173,6 +175,12 @@
                                     <div class="ps-block solution">
                                         <h3>Solution</h3>
                                         <p>{project.solution}</p>
+                                    </div>
+                                {/if}
+                                {#if project.outcome}
+                                    <div class="ps-block outcome">
+                                        <h3>Outcome</h3>
+                                        <p>{project.outcome}</p>
                                     </div>
                                 {/if}
                             </div>
@@ -491,6 +499,18 @@
 
     .ps-block.solution h3 {
         background: linear-gradient(to right, #ffffff, #65cf9c);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .ps-block.outcome {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(65, 105, 225, 0.1));
+        border-left-color: rgba(65, 105, 225, 0.6);
+    }
+
+    .ps-block.outcome h3 {
+        background: linear-gradient(to right, #ffffff, #6495ED);
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;

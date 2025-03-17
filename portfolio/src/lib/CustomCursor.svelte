@@ -11,11 +11,11 @@
             cursorY = e.clientY - 10;
             cursor.style.left = `${cursorX}px`;
             cursor.style.top = `${cursorY}px`;
-            
+
             // Check if the element under cursor is clickable
             const target = e.target as HTMLElement;
             isClickable = target.matches('a, button, [role="button"], input, select, textarea') || 
-                        window.getComputedStyle(target).cursor === 'pointer';
+                        target.closest('a, button, [role="button"], input, select, textarea') !== null;
         }
     }
 
@@ -41,15 +41,17 @@
         z-index: 9999;
         left: 0;
         top: 0;
+        transition: transform 0.2s ease;
     }
 
     .clickable {
-        transform: scale(0);
+        transform: scale(1.5);
     }
 
-    
-
     :global(a, button, [role="button"], input, select, textarea) {
-        cursor: pointer !important;
+        cursor: none !important;
+    }
+    :global(body) {
+        cursor: none !important;
     }
 </style>

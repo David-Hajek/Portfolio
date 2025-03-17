@@ -69,51 +69,64 @@
   <div class="landing-page white-section">
     <div id="glass-landingWhite"></div>
     <div class="skills-container">
-      <div class="skills-header">
-        <h1 class="skills-title" use:reveal={{ preset: "slide", delay: 300 }}>Skills & Expertise</h1>
-        <div class="accent-line" use:reveal={{ preset: "slide", delay: 500 }}></div>
-        <p class="skills-intro" use:reveal={{ preset: "slide", delay: 700 }}>
-          Bringing creative concepts to life through technical excellence and artistic vision. 
-          My diverse toolkit allows me to craft immersive digital experiences.
-        </p>
-      </div>
-      
-      <div class="skills-grid">
-        <div class="skill-card" use:reveal={{ preset: "slide", delay: 900 }}>
-          <div class="skill-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" fill="#333"><path d="M0 0h24v24H0z" fill="none"/><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
-          </div>
-          <h3>3D Modeling</h3>
-          <p>Creating detailed and accurate 3D models for various applications including visualization, animation, and product design.</p>
-        </div>
+      <div class="skills-content">
+        <h1 class="skills-title" use:reveal={{ preset: "slide", delay: 300 }}>Skills</h1>
+        <div class="accent-bar" use:reveal={{ preset: "slide", delay: 500 }}></div>
         
-        <div class="skill-card" use:reveal={{ preset: "slide", delay: 1100 }}>
-          <div class="skill-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" fill="#333"><path d="M0 0h24v24H0z" fill="none"/><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+        <div class="skills-grid">
+          <div class="skill-card" use:reveal={{ preset: "slide", delay: 900 }}>
+            <div class="skill-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" fill="#333"><path d="M0 0h24v24H0z" fill="none"/><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
+            </div>
+            <h3>3D Modeling</h3>
+            <p>Creating detailed and accurate 3D models for various applications including visualization, animation, and product design.</p>
           </div>
-          <h3>Visual Design</h3>
-          <p>Crafting compelling visual narratives through thoughtful composition, color theory, and design principles.</p>
-        </div>
-        
-        <div class="skill-card" use:reveal={{ preset: "slide", delay: 1300 }}>
-          <div class="skill-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" fill="#333"><path d="M0 0h24v24H0z" fill="none"/><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg>
+
+          <div class="skill-card" use:reveal={{ preset: "slide", delay: 1100 }}>
+            <div class="skill-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" fill="#333"><path d="M0 0h24v24H0z" fill="none"/><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+            </div>
+            <h3>Texturing</h3>
+            <p>Using various tools, such as Substance Painter/Designer combined with 3DCoat helps me create the perfect textures for my projects</p>
           </div>
-          <h3>Game Art</h3>
-          <p>Looking to expand your library of assets in the gaming sphere? I got it covered</p>
-        </div>
-        
-        <div class="skill-card" use:reveal={{ preset: "slide", delay: 1500 }}>
-          <div class="skill-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" fill="#333"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+
+          <div class="skill-card" use:reveal={{ preset: "slide", delay: 1300 }}>
+            <div class="skill-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" fill="#333"><path d="M0 0h24v24H0z" fill="none"/><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg>
+            </div>
+            <h3>Game Assets </h3>
+            <p>Looking to expand your library of assets in the gaming sphere? I got it covered</p>
           </div>
-          <h3>4</h3>
-          <p>this is the sub text</p>
+
+          <div class="skill-card" use:reveal={{ preset: "slide", delay: 1500 }}>
+            <div class="skill-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" fill="#333"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+            </div>
+            <h3>Post-Processing</h3>
+            <p>Using tools such as Photoshop, Davinci Resolve and BLender's built in compositor, I am able to easily adjust the scene after everything is put into place</p>
+          </div>
+
+          <div class="skill-card" use:reveal={{ preset: "slide", delay: 1500 }}>
+            <div class="skill-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" fill="#333"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+            </div>
+            <h3>Animation</h3>
+            <p>Bringing static designs to life with fluid motion and engaging animations.</p>
+          </div>
+          
+          <div class="skill-card" use:reveal={{ preset: "slide", delay: 1500 }}>
+            <div class="skill-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" fill="#333"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+            </div>
+            <h3>Animation</h3>
+            <p>Bringing static designs to life with fluid motion and engaging animations.</p>
+          </div>
         </div>
-      </div>
-      
-      <div class="skills-cta" use:reveal={{ preset: "slide", delay: 1700 }}>
-        <p>Looking to bring your creative vision to life? Let's collaborate on your next project.</p>
+
+        <div class="skills-cta" use:reveal={{ preset: "slide", delay: 1700 }}>
+          <p>Looking to bring your creative vision to life? Let's collaborate on your next project.</p>
+          <a href="/contact" class="cta-button">Get in Touch</a>
+        </div>
       </div>
     </div>
   </div>
@@ -245,7 +258,7 @@
     z-index: -5;
     position: absolute;
     width: 100%;
-    height: 90vh;
+    height: 100vh;
     left: 0;
     top: 0;
     background: var(--bg-glassWhite);
@@ -266,7 +279,7 @@
     overflow-wrap: break-word;
     margin-bottom: var(--spacing-unit);
     font-weight: 700;
-    mix-blend-mode:difference
+    
   }
 
   #memorable {
@@ -276,7 +289,6 @@
     text-decoration: underline;
     position: relative;
     transition: all 0.3s ease;
-    mix-blend-mode:difference
   }
   
   #memorable:hover {
@@ -290,7 +302,7 @@
     width: 55%;
     align-items: end;
     margin-top: calc(var(--spacing-unit) * 2);
-    mix-blend-mode:difference
+
   }
 
   #second-text, #third-text {
@@ -305,7 +317,7 @@
     line-height: 1.6;
     opacity: 0.9;
     transition: opacity 0.3s ease;
-    mix-blend-mode:difference
+
   }
   
   #second-text:hover, #third-text:hover {
@@ -460,124 +472,153 @@
     overflow: hidden;  */
   }
   
+.skills-container {
+  grid-column: 2 / 12;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8rem 0;
+  z-index: 1;
+}
+
+.skills-content {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.skills-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  color: #191919;
+  text-align: left;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.accent-bar {
+  height: 4px;
+  background: linear-gradient(90deg, #191919 0%, rgba(25,25,25,0.5) 100%);
+  border-radius: 4px;
+  margin: 1.5rem auto 2.5rem;
+}
+
+
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+  padding: 0 1rem;
+}
+
+.skill-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  text-align: center;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.skill-icon {
+  background: rgba(240, 248, 255, 0.8);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.skill-card:hover .skill-icon {
+  transform: scale(1.1);
+  background: aliceblue;
+}
+
+.skill-card h3 {
+  font-size: clamp(1.3rem, 2vw, 1.6rem);
+  margin-bottom: 1rem;
+  color: #191919;
+  font-weight: 600;
+}
+
+.skill-card p {
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  line-height: 1.6;
+  color: #444;
+}
+
+.skills-cta {
+  font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+  font-weight: 500;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem;
+  background: rgba(240, 248, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.cta-button {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 1rem 2rem;
+  background: #191919;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  background: #333;
+}
+
+@media (max-width: 1024px) {
   .skills-container {
-    grid-column: 1 / 12;
-    display: flex;
-    flex-direction: column;
-    padding: calc(var(--spacing-unit) * 3) calc(var(--spacing-unit) * 2);
-    z-index: 1;
-  }
-  
-  .skills-header {
-    margin-bottom: calc(var(--spacing-unit) * 3);
-  }
-  
-  .skills-title {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 700;
-    color: #191919;
-    margin-bottom: var(--spacing-unit);
-  }
-  
-  .accent-line {
-    height: 4px;
-    width: 120px;
-    background: linear-gradient(90deg, #191919 0%, rgba(25,25,25,0.5) 100%);
-    border-radius: 4px;
-    margin-bottom: calc(var(--spacing-unit) * 2);
-  }
-  
-  .skills-intro {
-    font-size: clamp(1.1rem, 1.8vw, 1.4rem);
-    line-height: 1.6;
-    max-width: 800px;
-    color: #333;
+    grid-column: 1 / 13;
+    padding: 6rem 1rem;
   }
   
   .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: calc(var(--spacing-unit) * 2);
-    margin-bottom: calc(var(--spacing-unit) * 3);
+    gap: 1.5rem;
   }
-  
-  .skill-card {
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(8px);
-    border-radius: 10px;
-    padding: calc(var(--spacing-unit) * 2);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .skills-container {
+    padding: 4rem 1rem;
   }
-  
-  .skill-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
-  
-  .skill-icon {
-    background: rgba(240, 248, 255, 0.8);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: var(--spacing-unit);
-  }
-  
-  .skill-card h3 {
-    font-size: clamp(1.2rem, 2vw, 1.5rem);
-    margin-bottom: var(--spacing-unit);
-    color: #191919;
-    font-weight: 600;
-  }
-  
-  .skill-card p {
-    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
-    line-height: 1.6;
-    color: #444;
-  }
-  
+
   .skills-cta {
-    font-size: clamp(1.1rem, 1.8vw, 1.3rem);
-    font-weight: 500;
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: calc(var(--spacing-unit) * 2);
-    background: rgba(240, 248, 255, 0.6);
-    backdrop-filter: blur(10px);
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 2rem 1rem;
   }
-  
-  /* Responsive adjustments for the white section */
-  @media (max-width: 1024px) {
-    .skills-container {
-      grid-column: 1 / 13;
-      padding: var(--spacing-unit);
-    }
-  }
-  
-  
-  @media (max-width: 768px) {
-    .white-section {
-      width: 95%;
-    }
-    
-    .skills-container {
-      padding: var(--spacing-unit);
-    }
-    
-    .skills-grid {
-      grid-template-columns: 1fr;
-    }
-    
-    .skills-cta {
-      padding: var(--spacing-unit);
-    }
-  }
+}
   .logo {
       height: 100px;
       margin: 0 50px;
@@ -635,6 +676,8 @@
       }
   }
 
-  /* Pause animation on hover */
+  p{
+    text-align: left;
+  }
  
 </style>

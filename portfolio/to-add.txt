@@ -1,4 +1,5 @@
 Homepage
+-Revamp landing page?
 -Add a section I am currently active as this and that at the start https://v6.usestate.org/
 -Add who I worked for/ who I am working for, show the positions I was in.https://uxdesignerstockholm.se/
 -Add more proof to what I can do
