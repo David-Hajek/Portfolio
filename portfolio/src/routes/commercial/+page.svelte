@@ -38,11 +38,16 @@
         },
         {
             id: 2,
-            title: "UNCLAIMED TERRITORY",
-            description: "I was always fascinated with nature and wanted to create something bright and hopeful, this was a very fun and challenging piece, as I needed to balance performance with quality and light, alot of the lighting issues were solved using blender's native light nodes. This piece also includes a gif, showcasing my workflow and my approach to solving various problems that may arise.",
+            title: "A Witch Cries, So Comes the End",
+            description: "TOMAS DITE",
+            problem: "I was tasked with the creation of realistic animation of clothing on a character, I knew that the default tools of Blender would not suffice for the creation and simulation of the cloth. The challenge for me was to find a method to reliably create smooth and realistic simulations within the limited time we had.",
+            solution: "I have learned the tool Marvelous Designer in order to execute realistic cloth animations, I first created a pipeline which I could follow to easily add multiple animations and simulate them.",
+            outcome: "The resulting simulations were highly realistic and efficient to produce. The pipeline I created reduced",
             images: [
-                { url: "/images/enviroknight/david-hajek-forestfinal.jpg", alt: "Project Two Main" , width: "130%"},
-                { url: "/images/enviroknight/david-hajek-ezgif-com-animated-gif-maker.gif", alt: "Project Two Main", width: "130%" }
+                { url: "/images/commercial/mira/mansionpost.png", alt: "Project Two Main"},
+                { url: "/images/commercial/mira/frontmansion2.png", alt: "Project Two Main"},
+                { url: "/images/commercial/mira/rooftopFinal.png", alt: "Project Two Main"},
+                { url: "/images/commercial/mira/street.png", alt: "Project Two Main"},
             ],
             isRight: true
         },
