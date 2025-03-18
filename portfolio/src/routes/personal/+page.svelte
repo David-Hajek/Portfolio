@@ -35,8 +35,8 @@
             title: "UNCLAIMED TERRITORY",
             description: "I was always fascinated with nature and wanted to create something bright and hopeful, this was a very fun and challenging piece, as I needed to balance performance with quality and light, alot of the lighting issues were solved using blender's native light nodes. This piece also includes a gif, showcasing my workflow and my approach to solving various problems that may arise.",
             images: [
-                { url: "/images/enviroknight/david-hajek-forestfinal.jpg", alt: "Project Two Main" , width: "130%"},
-                { url: "/images/enviroknight/david-hajek-ezgif-com-animated-gif-maker.gif", alt: "Project Two Main", width: "130%" }
+                { url: "/images/enviroknight/david-hajek-forestfinal.jpg", alt: "Project Two Main" },
+                { url: "/images/enviroknight/david-hajek-ezgif-com-animated-gif-maker.gif", alt: "Project Two Main"}
             ],
             isRight: true
         },
@@ -65,8 +65,32 @@
             title: "wow this is amazing",
             description: "more to come",
             images: [
-                { url: "/images/legarde/david-hajek-legardcinema.jpg", alt: "Project Two Main" },
-                { url: "/images/legarde/david-hajek-legardcinema.jpg", alt: "Project Two Main" }
+                { url: "/images/bms/david-hajek-bms-final.jpg", alt: "Project Two Main" },
+                { url: "/images/bms/david-hajek-topviewrend-final.jpg", alt: "Project Two Main" },
+                { url: "/images/bms/david-hajek-bms22-final.jpg", alt: "Project Two Main" },
+                { url: "/images/bms/david-hajek-bms222-final.jpg", alt: "Project Two Main" }
+            ],
+            isRight: false
+        },
+        {
+            id: 6,
+            title: "wow this is amazing",
+            description: "more to come",
+            images: [
+                { url: "/images/pyro/david-hajek-workshopart.jpg", alt: "Project Two Main" },
+                { url: "/images/pyro/david-hajek-pyrophoto.jpg", alt: "Project Two Main" },
+                { url: "/images/pyro/david-hajek-ws2.jpg", alt: "Project Two Main" },
+                { url: "/images/pyro/david-hajek-workshop.jpg", alt: "Project Two Main" }
+            ],
+            isRight: true
+        },
+        {
+            id: 7,
+            title: "wow this is amazing",
+            description: "more to come",
+            images: [
+                { url: "/images/sunshower/david-hajek-heahtcliff-sunshower-min-1.jpg", alt: "Project Two Main" },
+                { url: "/images/sunshower/david-hajek-basemesh-min.jpg", alt: "Project Two Main" }
             ],
             isRight: false
         }
