@@ -90,6 +90,9 @@
                 <li>
                     <a href="/about_me" class="{$page.url.pathname === '/about_me' ? 'nav-link active' : 'nav-link'}" data-sveltekit-preload-data>ABOUT ME</a>
                 </li>
+                <li>
+                    <a href="/contact" class="{$page.url.pathname === '/contact' ? 'nav-link active' : 'nav-link'}" data-sveltekit-preload-data>CONTACT</a>
+                </li>
             </ul>
         </nav>
 
@@ -143,6 +146,15 @@
                     ABOUT ME
                 </a>
             </li>
+            <li>
+                <a 
+                    href="/contact" 
+                    class:active={$page.url.pathname === '/contact'} 
+                    on:click={() => toggleMobileMenu()}
+                >
+                    CONTACT
+                </a>
+            </li>
         </ul>
     </nav>
     <!-- Overlay for mobile menu background -->
@@ -189,13 +201,27 @@
         scroll-behavior: smooth;
     }
 
+    :global(body) {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .wrapper {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
     header {
         top: 0;
         position: sticky;
         z-index: 10;
         opacity: 1;
         transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
-        width: 100%;
+        width: 100;
         background-color: rgba(4, 18, 29, 0.7);
         backdrop-filter: blur(10px) saturate(180%);
         -webkit-backdrop-filter: blur(10px) saturate(180%);
@@ -539,8 +565,9 @@
     }
 
     main {
-
+        flex: 1;
         text-align: center;
+        width: 100%;
     }
 
     footer {
@@ -548,10 +575,8 @@
         color: white;
         text-align: center;
         padding: 3rem 1rem 1rem;
-        bottom: 0;
-        position: relative;
         width: 100%;
-        margin-top: 4rem;
+        margin-top: auto;
     }
     
     .footer-content {

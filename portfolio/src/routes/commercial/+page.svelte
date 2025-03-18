@@ -15,6 +15,7 @@
             alt: string;
             width?: string; // Optional width override
         }[];
+        videoUrl?: string;
         isRight: boolean;
     }
 
@@ -43,6 +44,7 @@
             problem: "I was tasked with the creation of realistic animation of clothing on a character, I knew that the default tools of Blender would not suffice for the creation and simulation of the cloth. The challenge for me was to find a method to reliably create smooth and realistic simulations within the limited time we had.",
             solution: "I have learned the tool Marvelous Designer in order to execute realistic cloth animations, I first created a pipeline which I could follow to easily add multiple animations and simulate them.",
             outcome: "The resulting simulations were highly realistic and efficient to produce. The pipeline I created reduced",
+            videoUrl: "https://www.youtube.com/embed/LM-yDnRP4PI",
             images: [
                 { url: "/images/commercial/mira/mansionpost.png", alt: "Project Two Main"},
                 { url: "/images/commercial/mira/frontmansion2.png", alt: "Project Two Main"},
@@ -145,6 +147,17 @@
                 class:right={project.isRight}
                 bind:this={sections[i]}>
                 <div class="content-column images">
+                    {#if project.videoUrl}
+                        <div class="video-wrapper">
+                            <iframe
+                                src={project.videoUrl}
+                                title={project.title}
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen
+                            ></iframe>
+                        </div>
+                    {/if}
                     {#each project.images as image}
                         <div 
                             class="image-wrapper" 
@@ -544,5 +557,25 @@
         .ps-block p {
             font-size: 1rem;
         }
+    }
+
+    .video-wrapper {
+        position: relative;
+        width: 100%;
+        padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+        margin-bottom: 40px;
+        border-radius: 12px;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.05);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    }
+
+    .video-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
     }
 </style>

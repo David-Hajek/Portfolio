@@ -11,6 +11,7 @@
     let fadeOutBackground = false;
     let visible = false; 
     let canvasContainer: HTMLDivElement; // sets the canvas container as a divelement from html
+
   
     function handleIntersection(entries: IntersectionObserverEntry[]) { // this gets the intersectionObserverEntry from the svelte-intersection-observer
       for (const entry of entries) {
@@ -68,7 +69,7 @@
 
         <div class="hero-cta" use:reveal={{ preset: "slide", delay: 2600 }}>
           <a href="/personal" class="primary-btn">View My Work</a>
-          <a href="/about_me" class="secondary-btn">Let's Talk</a>
+          <a href="/contact" class="secondary-btn">Let's Talk</a>
         </div>
       </div>
 
@@ -79,6 +80,36 @@
       </div>
     </div>
   </div>
+</div>
+<div class="logos">
+  <div class="logos-slide">
+      <!-- First set of logos - Client companies -->
+      <img src="/images/apparently-logo.png" alt="Apparently Logo" class="logo" />
+      <img src="/images/krystof-logo.png" alt="Krystof Logo" class="logo" />
+      <img src="/images/mira-logo.png" alt="Mira Logo" class="logo" />
+      <img src="/images/devomi-logo.png" alt="Devomi Logo" class="logo" />
+    </div>
+      <!-- Second set of logos - For continuous scrolling animation -->
+      <div class="logos-slide">
+      <img src="/images/apparently-logo.png" alt="Apparently Logo" class="logo" />
+      <img src="/images/krystof-logo.png" alt="Krystof Logo" class="logo" />
+      <img src="/images/mira-logo.png" alt="Mira Logo" class="logo" />
+      <img src="/images/devomi-logo.png" alt="Devomi Logo" class="logo" />
+    </div>
+    <!-- Third set of logos - For continuous scrolling animation -->
+    <div class="logos-slide">
+      <img src="/images/apparently-logo.png" alt="Apparently Logo" class="logo" />
+      <img src="/images/krystof-logo.png" alt="Krystof Logo" class="logo" />
+      <img src="/images/mira-logo.png" alt="Mira Logo" class="logo" />
+      <img src="/images/devomi-logo.png" alt="Devomi Logo" class="logo" />
+    </div>
+    <!-- Fourth set of logos - For continuous scrolling animation -->
+    <div class="logos-slide">
+      <img src="/images/apparently-logo.png" alt="Apparently Logo" class="logo" />
+      <img src="/images/krystof-logo.png" alt="Krystof Logo" class="logo" />
+      <img src="/images/mira-logo.png" alt="Mira Logo" class="logo" />
+      <img src="/images/devomi-logo.png" alt="Devomi Logo" class="logo" />
+</div>
 </div>
   <div class="landing-page white-section">
     <div id="glass-landingWhite"></div>
@@ -128,71 +159,15 @@
             <p>Bringing static designs to life with fluid motion and engaging animations.</p>
           </div>
           
-          <div class="skill-card" use:reveal={{ preset: "slide", delay: 1500 }}>
-            <div class="skill-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" fill="#333"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
-            </div>
-            <h3>Animation</h3>
-            <p>Bringing static designs to life with fluid motion and engaging animations.</p>
-          </div>
         </div>
-
-        <div class="skills-cta" use:reveal={{ preset: "slide", delay: 1700 }}>
-          <p>Looking to bring your creative vision to life? Let's collaborate on your next project.</p>
-          <a href="/contact" class="cta-button">Get in Touch</a>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="logos">
-      <div class="logos-slide">
-          <!-- First set of logos -->
-          <img src="/images/apparently-logo.png" alt="Apparently Logo" class="logo" />
-          <img src="/images/krystof-logo.png" alt="Krystof Logo" class="logo" />
-          <img src="/images/mira-logo.png" alt="Mira Logo" class="logo" />
-          <img src="/images/devomi-logo.png" alt="Mira Logo" class="logo" />
-        </div>
-          <!-- second set of logos -->
-          <div class="logos-slide">
-          <img src="/images/apparently-logo.png" alt="Apparently Logo" class="logo" />
-          <img src="/images/krystof-logo.png" alt="Krystof Logo" class="logo" />
-          <img src="/images/mira-logo.png" alt="Mira Logo" class="logo" />
-          <img src="/images/devomi-logo.png" alt="Mira Logo" class="logo" />
-        </div>
-        <!-- second set of logos -->
-        <div class="logos-slide">
-          <img src="/images/apparently-logo.png" alt="Apparently Logo" class="logo" />
-          <img src="/images/krystof-logo.png" alt="Krystof Logo" class="logo" />
-          <img src="/images/mira-logo.png" alt="Mira Logo" class="logo" />
-          <img src="/images/devomi-logo.png" alt="Mira Logo" class="logo" />
-        </div>
-        <div class="logos-slide">
-          <img src="/images/apparently-logo.png" alt="Apparently Logo" class="logo" />
-          <img src="/images/krystof-logo.png" alt="Krystof Logo" class="logo" />
-          <img src="/images/mira-logo.png" alt="Mira Logo" class="logo" />
-          <img src="/images/devomi-logo.png" alt="Mira Logo" class="logo" />
-        </div>
-        
-  </div>
 
-   <!-- <ImageShader imageSrc="images/test2front.jpg" exactWidth={1920/2} exactHeight={1443/2} ></ImageShader>-->
   
  
-    <!--
-    <div bind:this={canvasContainer} class="canvas-container">
-      {#if visible}
-      <Canvas dpr={0.6}>
-      <ThreeScene/>
-    </Canvas>
-      {/if}
-    </div>-->
-    <h1 use:reveal={{ preset: "slide", delay: 5000 }}>TOMAS DITE</h1>
-    <h1 use:reveal={{ preset: "slide", y: 50, x: 0 }}>TOMAS DITE</h1>
-    <h1 use:reveal={{ preset: "slide", y: 50, x: 0 }}>TOMAS DITE</h1>
-    <h1 use:reveal={{ preset: "slide", y: 50, x: 0 }}>TOMAS DITE</h1>
-    <h1 use:reveal={{ preset: "slide", y: 50, x: 0 }}>TOMAS DITE</h1>
-    <p>This is the homepage of our TOMAS DITE application.</p>
+
     <BlackHoleShader />
   
   <style>
@@ -218,6 +193,7 @@
   }
 
 
+
   .intro {
     position: fixed;
     top: 0;
@@ -236,15 +212,6 @@
     opacity: 0;
   }
 
-  /* updated Canvas Container with smooth scaling */
-  .canvas-container {
-    width: 100%; 
-    height: clamp(300px, 50vh, 600px);
-    max-width: 100%; 
-    margin: 0 auto; 
-    display: flex;
-    transition: height 0.5s ease-in-out;
-  }
 
   /* Enhanced landing page with absolute positioning */
   .landing-page {
@@ -259,12 +226,11 @@
     z-index: -5;
     position: absolute;
     width: 100%;
-    height: 89vh;
+    height: 100%;
     left: 0;
     top: 0;
-    background: var(--bg-glass);
+    background-color: rgba(17, 25, 40, 0.75);
     backdrop-filter: blur(var(--glass-blur)) saturate(180%);
-        background-color: rgba(17, 25, 40, 0.75);
     border: 1px solid var(--glass-border);
     box-shadow: 0 8px 32px 0 var(--glass-shadow);
   }
@@ -272,94 +238,22 @@
     z-index: -5;
     position: absolute;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     left: 0;
     top: 0;
     background: var(--bg-glassWhite);
-    backdrop-filter: blur(var(--glass-blur));
+    border-radius: 20px;
     border: 1px solid var(--glass-border);
     box-shadow: 0 8px 32px 0 var(--glass-shadow);
-    border-radius: 20px;
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
   }
   
-  /* Responsive typography for all text elements */
-  #landing-text {
-    font-size: clamp(2rem, 5vw, 4.5rem);
-    width: 55%;
-    padding: var(--spacing-unit);
-    max-width: 20ch;
-    line-height: 1.2;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    margin-bottom: var(--spacing-unit);
-    font-weight: 700;
-    
-  }
-
-  #memorable {
-    font-size: clamp(1.8rem, 4vw, 3.5rem);
-    padding: var(--spacing-unit);
-    width: 55%;
-    text-decoration: underline;
-    position: relative;
-    transition: all 0.3s ease;
-  }
   
-  #memorable:hover {
-    text-shadow: 0 0 15px var(--accent-color);
-    letter-spacing: 0.05em;
-  }
-
-  #sub-text {
-    padding: var(--spacing-unit);
-    font-size: clamp(1.5rem, 3.5vw, 3rem);
-    width: 55%;
-    align-items: end;
-    margin-top: calc(var(--spacing-unit) * 2);
-
-  }
-
-  #second-text, #third-text {
-    font-kerning: auto;
-    text-align: left;
-    max-width: 60ch;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    width: 55%;
-    font-size: clamp(1rem, 1.8vw, 1.5rem);
-    padding: var(--spacing-unit);
-    line-height: 1.6;
-    opacity: 0.9;
-    transition: opacity 0.3s ease;
-
-  }
   
-  #second-text:hover, #third-text:hover {
-    opacity: 1;
-  }
-
-  /* Responsive image container with absolute positioning */
-  .landing-image {
-    position: absolute;
-    right: var(--spacing-unit);
-    top: var(--spacing-unit);
-    width: 40%;
-    height: auto;
-    aspect-ratio: 3/5;
-    max-height: 80vh;
-    min-height: 300px;
-    overflow: hidden;
-    z-index: 1;
-    transform: scale(1);
-    transition: transform 0.5s ease, width 0.3s ease-out;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+ 
   
-  .landing-image:hover {
-    transform: scale(1.02);
-  }
+
 
   /* Enhanced animations */
   .tracking-in-expand {
@@ -379,17 +273,6 @@
     }
   }
 
-  .scale-in-hor-center {
-    align-self: flex-end;
-    margin-left: var(--spacing-unit);
-    height: 6px;
-    background: linear-gradient(90deg, var(--accent-color) 0%, rgba(255,255,255,0.5) 100%);
-    width: 55%;
-    border-radius: 6px;
-    box-shadow: 0 0 10px rgba(240, 248, 255, 0.3);
-    animation: scale-in-hor-center 3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both 2000ms;
-  }
-
   @keyframes scale-in-hor-center {
     0% {
       transform: scaleX(0);
@@ -401,90 +284,9 @@
     }
   }
   
-  /* Media Queries for Responsive Design */
-  @media (max-width: 1024px) {
-    .landing-image {
-      width: 45%;
-      aspect-ratio: 3/5;
-      min-height: 250px;
-      max-height: 65vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    
-    #landing-text, #sub-text, #memorable, #second-text, #third-text, .scale-in-hor-center {
-      width: 50%;
-    }
-  }
+  
 
-  @media (max-width: 768px) {
-    :root {
-      --spacing-unit: clamp(0.5rem, 2vw, 1rem);
-    }
-    
-    .landing-image {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: static;
-      width: 100%;
-      right: 0;
-      top: 0;
-      aspect-ratio: 16/9;
-      height: auto;
-      min-height: 200px;
-      max-height: 40vh;
-      margin-bottom: var(--spacing-unit);
-    }
-    
-    #landing-text, #sub-text, #memorable, #second-text, #third-text, .scale-in-hor-center {
-      width: 100%;
-    }
-    #glass-landing {
-    z-index: -5;
-    position: absolute;
-    width: 100%;
-    height: 150vh;
-  }
-    
-    .canvas-container {
-      height: clamp(200px, 40vh, 400px);
-    }
-    
-    #landing-text {
-      font-size: clamp(1.8rem, 4vw, 2.5rem);
-    }
-    
-    #memorable {
-      font-size: clamp(1.5rem, 3vw, 2rem);
-    }
-    
-    #sub-text {
-      font-size: clamp(1.2rem, 2.5vw, 1.8rem);
-    }
-  }
-
-  @media (max-width: 480px) {
-    .canvas-container {
-      height: clamp(150px, 30vh, 250px);
-    }
-    
-    #second-text, #third-text {
-      font-size: clamp(0.9rem, 4vw, 1.2rem);
-    }
-  }
-  /* White Section Styling */
-  .white-section {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    color: #191919;
-    position: relative;
-   /* width: 95%;  
-    margin: 0 auto;  
-    border-radius: 10px;  
-    overflow: hidden;  */
-  }
+ 
   
 .skills-container {
   grid-column: 2 / 12;
@@ -577,62 +379,7 @@
   color: #444;
 }
 
-.skills-cta {
-  font-size: clamp(1.1rem, 1.8vw, 1.3rem);
-  font-weight: 500;
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 3rem;
-  background: rgba(240, 248, 255, 0.6);
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-}
 
-.cta-button {
-  display: inline-block;
-  margin-top: 1.5rem;
-  padding: 1rem 2rem;
-  background: #191919;
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-
-.cta-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  background: #333;
-}
-
-@media (max-width: 1024px) {
-  .skills-container {
-    grid-column: 1 / 13;
-    padding: 6rem 1rem;
-  }
-  
-  .skills-grid {
-    gap: 1.5rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .skills-container {
-    padding: 4rem 1rem;
-  }
-
-  .skills-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .skills-cta {
-    padding: 2rem 1rem;
-  }
-}
   .logo {
       height: 100px;
       margin: 0 50px;
@@ -810,8 +557,8 @@
   }
 
   .image-container {
-    width: 110%;
-    height: 110%;
+    width: 100%;
+    height: 100%;
     min-height: 500px;
     position: relative;
     overflow: hidden;
@@ -831,6 +578,16 @@
     .image-container {
       min-height: 400px;
     }
+    .skills-container {
+    grid-column: 1 / 13;
+    padding: 6rem 1rem;
+  }
+  
+  .skills-grid {
+    gap: 1.5rem;
+  }
+
+  
   }
 
   @media (max-width: 768px) {
@@ -855,6 +612,59 @@
     .image-container {
       min-height: 300px;
     }
+    :root {
+      --spacing-unit: clamp(0.5rem, 2vw, 1rem);
+    }
+    #glass-landing {
+    z-index: -5;
+    position: absolute;
+    width: 100%;
+    height: 150vh;
+    }
+    .contact-container {
+      padding: 3rem 1rem;
+    }
+
+    .contact-form-wrapper {
+      padding: 1.5rem;
+    }
+
+    .contact-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+    }
+
+    .contact-description p {
+      font-size: clamp(1rem, 1.5vw, 1.2rem);
+    }
+    .contact-container {
+      padding: 4rem 1.5rem;
+    }
+    .skills-container {
+    padding: 4rem 1rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+ 
   }
  
+  /* White Section Styling */
+  .white-section {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    color: #191919;
+    position: relative;
+   /* width: 95%;  
+    margin: 0 auto;  
+    border-radius: 10px;  
+    overflow: hidden;  */
+  }
+ 
+ 
+
+
+
 </style>
