@@ -64,6 +64,10 @@
 <svelte:window on:scroll={handleScroll} bind:scrollY={y} bind:innerWidth bind:innerHeight /> <!-- binds the scroll to the variable y-->
 <CustomCursor />
 
+<svelte:head>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</svelte:head>
+
 <link rel="stylesheet" href="/styles/global.css" />
 <header class={isHeaderVisible ? 'fade-in' : 'fade-out'}>
     {#if mounted}
@@ -86,6 +90,9 @@
                 </li>
                 <li>
                     <a href="/commercial" class="{$page.url.pathname === '/commercial' ? 'nav-link active' : 'nav-link'}" data-sveltekit-preload-data>COMMERCIAL</a>
+                </li>
+                <li>
+                    <a href="/retro" class="{$page.url.pathname === '/retro' ? 'nav-link active' : 'nav-link'}" data-sveltekit-preload-data>RETRO</a>
                 </li>
                 <li>
                     <a href="/about_me" class="{$page.url.pathname === '/about_me' ? 'nav-link active' : 'nav-link'}" data-sveltekit-preload-data>ABOUT ME</a>
@@ -135,6 +142,15 @@
                     on:click={() => toggleMobileMenu()}
                 >
                     COMMERCIAL
+                </a>
+            </li>
+            <li>
+                <a 
+                    href="/retro" 
+                    class:active={$page.url.pathname === '/retro'} 
+                    on:click={() => toggleMobileMenu()}
+                >
+                    RETRO
                 </a>
             </li>
             <li>
@@ -721,4 +737,20 @@
         }
     }
     
+
+
+  .nav-link[href="/retro"]:hover,
+  .nav-link[href="/retro"].active {
+    color: #50aaf1;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    .mobile-nav ul li a[href="/retro"] {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 1.2em;
+      letter-spacing: 1px;
+    }
+  }
 </style>

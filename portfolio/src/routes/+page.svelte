@@ -118,47 +118,36 @@
         <h1 class="skills-title" use:reveal={{ preset: "slide", delay: 300 }}>Skills</h1>
         <div class="accent-bar" use:reveal={{ preset: "slide", delay: 500 }}></div>
         
-        <div class="skills-grid">
-          <div class="skill-card" use:reveal={{ preset: "slide", delay: 900 }}>
-            <div class="skill-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" fill="#333"><path d="M0 0h24v24H0z" fill="none"/><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
+        <div class="skills-section">
+          <div class="section-container" use:reveal={{ preset: "slide", delay: 900 }}>
+            <div class="bubble-container">
+              <span class="bubble">3D Modeling</span>
+              <span class="bubble">Texturing</span>
+              <span class="bubble">Animation</span>
+              <span class="bubble">UV Mapping</span>
+              <span class="bubble">Rigging</span>
+              <span class="bubble">Sculpting</span>
             </div>
-            <h3>3D Modeling</h3>
-            <p>Creating detailed and accurate 3D models for various applications including visualization, animation, and product design.</p>
           </div>
 
-          <div class="skill-card" use:reveal={{ preset: "slide", delay: 1100 }}>
-            <div class="skill-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" fill="#333"><path d="M0 0h24v24H0z" fill="none"/><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+          <div class="section-container" use:reveal={{ preset: "slide", delay: 1100 }}>
+            <h2 class="section-title">Technology</h2>
+            <div class="accent-bar"></div>
+            <div class="bubble-container">
+              <span class="bubble">Blender</span>
+              <span class="bubble">Substance Painter</span>
+              <span class="bubble">Substance Designer</span>
+              <span class="bubble">3DCoat</span>
+              <span class="bubble">Zbrush</span>
+              <span class="bubble">Photoshop</span>
+              <span class="bubble">Illustrator</span>
+              <span class="bubble">Indesign</span>
+              <span class="bubble">Premiere Pro</span>
+              <span class="bubble">Davinci Resolve</span>
+              <span class="bubble">Houdini</span>
+              <span class="bubble"> maja 3ds max after effects blesky renderer za 50 tisic na mesic</span>
             </div>
-            <h3>Texturing</h3>
-            <p>Using various tools, such as Substance Painter/Designer combined with 3DCoat helps me create the perfect textures for my projects</p>
           </div>
-
-          <div class="skill-card" use:reveal={{ preset: "slide", delay: 1300 }}>
-            <div class="skill-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" fill="#333"><path d="M0 0h24v24H0z" fill="none"/><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg>
-            </div>
-            <h3>Game Assets </h3>
-            <p>Looking to expand your library of assets in the gaming sphere? I got it covered</p>
-          </div>
-
-          <div class="skill-card" use:reveal={{ preset: "slide", delay: 1500 }}>
-            <div class="skill-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" fill="#333"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
-            </div>
-            <h3>Post-Processing</h3>
-            <p>Using tools such as Photoshop, Davinci Resolve and BLender's built in compositor, I am able to easily adjust the scene after everything is put into place</p>
-          </div>
-
-          <div class="skill-card" use:reveal={{ preset: "slide", delay: 1500 }}>
-            <div class="skill-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" fill="#333"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
-            </div>
-            <h3>Animation</h3>
-            <p>Bringing static designs to life with fluid motion and engaging animations.</p>
-          </div>
-          
         </div>
         </div>
       </div>
@@ -322,61 +311,70 @@
 
 
 
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-bottom: 4rem;
+.skills-section {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  margin: 2rem auto;
+  max-width: 1200px;
   padding: 0 1rem;
 }
 
-.skill-card {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(8px);
-  border-radius: 16px;
-  padding: 2.5rem 2rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-  transition: all 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-  text-align: center;
+.section-container {
+  width: 100%;
 }
 
-.skill-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+.section-title {
+  font-size: clamp(2rem, 3vw, 2.5rem);
+  color: #191919;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.accent-bar {
+  height: 4px;
+  background: linear-gradient(90deg, #191919 0%, rgba(25,25,25,0.5) 100%);
+  border-radius: 4px;
+  margin: 1.5rem 0 2.5rem;
+  width: 100%;
+}
+
+.bubble-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.bubble {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  color: #444;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.bubble:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
   background: rgba(255, 255, 255, 0.8);
 }
 
-.skill-icon {
-  background: rgba(240, 248, 255, 0.8);
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1.5rem;
-  transition: all 0.3s ease;
-}
+@media (max-width: 768px) {
+  .skills-section {
+    gap: 3rem;
+  }
 
-.skill-card:hover .skill-icon {
-  transform: scale(1.1);
-  background: aliceblue;
-}
+  .bubble-container {
+    gap: 0.8rem;
+  }
 
-.skill-card h3 {
-  font-size: clamp(1.3rem, 2vw, 1.6rem);
-  margin-bottom: 1rem;
-  color: #191919;
-  font-weight: 600;
-}
-
-.skill-card p {
-  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
-  line-height: 1.6;
-  color: #444;
+  .bubble {
+    padding: 0.6rem 1.2rem;
+  }
 }
 
 
@@ -643,9 +641,8 @@
     padding: 4rem 1rem;
   }
 
-  .skills-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+  .skills-section {
+    gap: 2rem;
   }
 
  
