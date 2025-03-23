@@ -2,6 +2,7 @@
     import { onMount } from 'svelte';
     import { fade, scale } from 'svelte/transition';
     import { cubicOut } from 'svelte/easing';
+   
 
     interface Project {
         id: number;
@@ -145,6 +146,7 @@
     });
 </script>
 
+
 <div class="container" in:fade={{ duration: 300, delay: 300 }}>
     <header class="page-header">
         <h1>Personal Projects</h1>
@@ -252,10 +254,17 @@
         position: relative;
         gap: 40px;
         margin-bottom: 100px;
+        border-radius: 24px;
+        padding: 30px;
+        background: linear-gradient(to left, rgba(32, 64, 96, 0.9), rgba(8, 15, 30, 0.2));
+        box-shadow: -8px 0 30px rgba(32, 64, 96, 0.15);
+        transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     .project-section.right {
         flex-direction: row-reverse;
+        background: linear-gradient(to right, rgba(32, 64, 96, 0.9), rgba(8, 15, 30, 0.2));
+        box-shadow: 8px 0 30px rgba(32, 64, 96, 0.15);
     }
 
     .content-column {
@@ -326,15 +335,17 @@
 
     .text-content {
         padding: 40px;
-        opacity: 1;
         transform: translateY(20px);
-        transition: all 0.5s ease;
+        transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     .text-content.active {
         opacity: 1;
         transform: translateY(0);
     }
+    
+    
+ 
 
     h2 {
         font-size: 2.5rem;

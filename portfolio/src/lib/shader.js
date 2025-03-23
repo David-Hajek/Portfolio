@@ -17,7 +17,7 @@ void main() {
     uv *= vec2(uResolution.x / uResolution.y, 1.0); // Proper aspect ratio handling
     
     // Define a looping period in seconds
-    float loopDuration = 60.0; // loop time
+    float loopDuration = 150.0; // loop time
     float loopTime = mod(uTime, loopDuration) / loopDuration * 6.28318; // normalize the time
 
     // Slower, more subtle wave effect

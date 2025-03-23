@@ -3,6 +3,8 @@
     import * as THREE from 'three';
     import { vertexShader, fragmentShader } from '$lib/shader.js';
     
+    export let pixelRatio = 0.5;
+    
     let container;
     let camera, scene, renderer;
     let uniforms;
@@ -48,7 +50,7 @@
         scene.add(mesh);
     
         renderer = new THREE.WebGLRenderer({ antialias: true });
-        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setPixelRatio(pixelRatio);
         container.appendChild(renderer.domElement);
     
         onWindowResize();

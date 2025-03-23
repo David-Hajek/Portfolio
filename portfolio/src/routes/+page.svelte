@@ -21,7 +21,7 @@
   
     onMount(() => {
       console.log("Home Page Loaded");
-  
+      
       setTimeout(() => fadeOutBackground = true, 1000); 
       setTimeout(() => showIntro = false, 2000);
   
@@ -44,7 +44,7 @@
   {/if}
   
   
-<div class="landing-page">
+<div class="landing-page dark-section">
   <div id="glass-landing"></div>
   <div class="hero-container">
     <div class="hero-content">
@@ -111,6 +111,78 @@
       <img src="/images/devomi-logo.png" alt="Devomi Logo" class="logo" />
 </div>
 </div>
+
+<!-- Featured Work Section -->
+<div class="landing-page white-section">
+  <div id="glass-landingWhite"></div>
+  <div class="featured-container">
+    <div class="featured-content">
+      <h1 class="section-title" use:reveal={{ preset: "slide", delay: 300 }}>Featured Work</h1>
+      <div class="accent-bar" use:reveal={{ preset: "slide", delay: 500 }}></div>
+      <div class="featured-grid" use:reveal={{ preset: "slide", delay: 700 }}>
+        <a href="/project/visualization" class="featured-item">
+          <div class="featured-image-container">
+            <img src="/images/featured-1.jpg" alt="3D Visualization Project" />
+            <div class="featured-overlay">
+              <h3>3D Visualization</h3>
+              <p>dobry den</p>
+              <span class="view-details">View Project →</span>
+            </div>
+          </div>
+        </a>
+        <a href="/project/character" class="featured-item">
+          <div class="featured-image-container">
+            <img src="/images/featured-2.jpg" alt="Character Design Project" />
+            <div class="featured-overlay">
+              <h3>Character Design</h3>
+              <p>Game Character Concept</p>
+              <span class="view-details">View Project →</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Testimonials Section -->
+<div class="landing-page dark-section">
+  <div id="glass-landing"></div>
+  <div class="testimonials-container">
+    <div class="testimonials-content">
+      <h1 class="section-title" use:reveal={{ preset: "slide", delay: 300 }}>What Clients Say</h1>
+      <div class="accent-bar" use:reveal={{ preset: "slide", delay: 500 }}></div>
+      <div class="testimonials-grid" use:reveal={{ preset: "slide", delay: 700 }}>
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <svg class="quote-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+            </svg>
+            <p class="testimonial-text">""Working with David was a real pleasure. He is quick to respond to any requests and very accommodating, making co-operating smooth and effective. Can always be trusted to deliver!""</p>
+            <div class="testimonial-author">
+              <strong>Mira Lumière</strong>
+              <span>Shit office Representative</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <svg class="quote-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+            </svg>
+            <p class="testimonial-text">"miluju okurky"</p>
+            <div class="testimonial-author">
+              <strong>tomas dite</strong>
+              <span>reditel</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
   <div class="landing-page white-section">
     <div id="glass-landingWhite"></div>
     <div class="skills-container">
@@ -231,7 +303,6 @@
     left: 0;
     top: 0;
     background: var(--bg-glassWhite);
-    border-radius: 20px;
     border: 1px solid var(--glass-border);
     box-shadow: 0 8px 32px 0 var(--glass-shadow);
     backdrop-filter: blur(var(--glass-blur));
@@ -580,12 +651,7 @@
     grid-column: 1 / 13;
     padding: 6rem 1rem;
   }
-  
-  .skills-grid {
-    gap: 1.5rem;
-  }
 
-  
   }
 
   @media (max-width: 768px) {
@@ -619,24 +685,7 @@
     width: 100%;
     height: 150vh;
     }
-    .contact-container {
-      padding: 3rem 1rem;
-    }
-
-    .contact-form-wrapper {
-      padding: 1.5rem;
-    }
-
-    .contact-title {
-      font-size: clamp(2rem, 4vw, 3rem);
-    }
-
-    .contact-description p {
-      font-size: clamp(1rem, 1.5vw, 1.2rem);
-    }
-    .contact-container {
-      padding: 4rem 1.5rem;
-    }
+    
     .skills-container {
     padding: 4rem 1rem;
   }
@@ -664,4 +713,207 @@
 
 
 
+.featured-container, .testimonials-container {
+  grid-column: 2 / 12;
+  display: flex;
+  justify-content: center;
+  padding: 8rem 0;
+  z-index: 1;
+}
+
+.featured-content, .testimonials-content {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.featured-item {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.featured-image-container {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 16/9;
+}
+
+.featured-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.featured-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+  color: white;
+  transform: translateY(20%);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.featured-overlay h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.featured-overlay p {
+  font-size: 1rem;
+  opacity: 0.9;
+  margin-bottom: 1rem;
+}
+
+.view-details {
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: all 0.3s ease 0.1s;
+}
+
+.featured-item:hover {
+  transform: translateY(-5px);
+}
+
+.featured-item:hover .featured-image-container img {
+  transform: scale(1.05);
+}
+
+.featured-item:hover .featured-overlay {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.featured-item:hover .view-details {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.testimonial-card {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.quote-icon {
+  width: 40px;
+  height: 40px;
+  color: rgba(25, 25, 25, 0.1);
+  margin-bottom: 1.5rem;
+}
+
+.testimonial-text {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #444;
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+.testimonial-author {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.testimonial-author strong {
+  color: #191919;
+  font-size: 1.1rem;
+}
+
+.testimonial-author span {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 1024px) {
+  .featured-container, .testimonials-container {
+    grid-column: 1 / 13;
+    padding: 6rem 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .featured-container, .testimonials-container {
+    padding: 4rem 1rem;
+  }
+
+  .featured-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dark-section {
+  position: relative;
+  color: var(--text-primary);
+  background-color: rgba(255,255,255,0.01);
+}
+
+.dark-section .section-title,
+.dark-section .testimonial-author strong {
+  color: var(--text-primary);
+}
+
+.dark-section .testimonial-text,
+.dark-section .testimonial-author span {
+  color: var(--text-secondary);
+}
+
+.dark-section .testimonial-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.dark-section .testimonial-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+.quote-icon {
+  color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-section .accent-bar {
+  background: var(--text-primary);
+}
 </style>
+
