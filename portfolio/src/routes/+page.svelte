@@ -11,6 +11,9 @@
     let fadeOutBackground = false;
     let visible = false; 
     let canvasContainer: HTMLDivElement; // sets the canvas container as a divelement from html
+    let scrollY;
+    let innerHeight;
+    let documentHeight;
 
   
     function handleIntersection(entries: IntersectionObserverEntry[]) { // this gets the intersectionObserverEntry from the svelte-intersection-observer
@@ -162,7 +165,7 @@
             <div class="testimonial-author">
               <strong>Mira Lumière</strong>
               <span>Director @ Yoimira Entertainment</span>
-              <img src="/images/mira-logo.png" alt="Mira Logo" class="logo" style="opacity:0.5" />
+              <img src="/images/mira-logo.png" alt="Mira Logo" class="logo-testamonial" style="opacity:0.5" />
             </div>
           </div>
         </div>
@@ -172,11 +175,11 @@
             <svg class="quote-icon" viewBox="0 0 24 24" fill="currentColor">
               <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
             </svg>
-            <p class="testimonial-text">"miluju okurky"</p>
+            <p class="testimonial-text">"placeholder"</p>
             <div class="testimonial-author">
-              <strong>tomas dite</strong>
-              <span>reditel</span>
-              <img src="/images/devomi-logo.png" alt="Mira Logo" class="logo" style="opacity:0.5" />
+              <strong>Krystof Jezek</strong>
+              <span>Motion Director @ Krystof Jezek</span>
+              <img src="/images/krystof-logo.png" alt="Krystof Logo" class="logo-testamonial" style="opacity:0.5" />
             </div>
           </div>
         </div>
@@ -247,6 +250,7 @@
     --accent-color: aliceblue;
     --transition-speed: 0.3s;
     --spacing-unit: clamp(0.5rem, 1vw, 1.5rem);
+    --max-width-glass: 1447px;
   }
 
   /* Global transitions for smooth interactions */
@@ -293,7 +297,7 @@
     height: 100%;
     left: 0;
     top: 0;
-    background-color: rgba(17, 25, 40, 0.75);
+    background-color: rgba(1, 11, 29, 0.774);
     backdrop-filter: blur(var(--glass-blur)) saturate(180%);
     border: 1px solid var(--glass-border);
     box-shadow: 0 8px 32px 0 var(--glass-shadow);
@@ -361,7 +365,7 @@
 }
 
 .skills-content {
-  max-width: 1200px;
+  max-width: var(--max-width-glass);
   width: 100%;
   margin: 0 auto;
   text-align: center;
@@ -390,7 +394,7 @@
   flex-direction: column;
   gap: 4rem;
   margin: 2rem auto;
-  max-width: 1200px;
+  max-width: var(--max-width-glass);
   padding: 0 1rem;
 }
 
@@ -452,60 +456,63 @@
 }
 
 
-  .logo {
-      height: 100px;
-      margin: 0 50px;
-      object-fit: contain;
-  }
-
-  /* Carousel Styles */
   .logos {
-     overflow: hidden;
-     padding: 1vh 0;
-     background-color: #191919;
-     white-space: nowrap;
-     position: relative;
+      overflow: hidden;
+      padding: 3rem 0;
+      background: var(--bg-glass);
+      white-space: nowrap;
+      position: relative;
+      backdrop-filter: blur(50px);
   }
 
-  .logos::after{
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0%;
-    width: 250px;
-    height: 100%;
-    background: linear-gradient(to right, rgba(255,255,255,0), rgb(255, 255, 255));
-    content: "";
-    z-index: 2;
+  .logos::before,
+  .logos::after {
+      position: absolute;
+      top: 0;
+      width: 250px;
+      height: 100%;
+      content: "";
+      z-index: 2;
   }
-  .logos::before{
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0%;
-    width: 250px;
-    height: 100%;
-    background: linear-gradient(to left, rgba(255,255,255,0), rgb(255, 255, 255));
-    content: "";
-    z-index: 2;
+
+  .logos::before {
+      left: 0;
+      background: linear-gradient(to left, transparent, var(--bg-glass));
   }
-  .logos-slide img {
-      height: 80px;
-      margin: 0 50px;
+
+  .logos::after {
+      right: 0;
+      background: linear-gradient(to right, transparent, var(--bg-glass));
   }
-  .logos-slide{
-    display: inline-block;
-      animation: 15s slide infinite linear;
+
+  .logos-slide {
+      display: inline-block;
+      animation: 20s slide infinite linear;
   }
-  .logos:hover .logos-slide{
-    animation-play-state: paused;
+
+  .logos:hover .logos-slide {
+      animation-play-state: paused;
   }
+
+  .logo {
+      height: 90px;
+      margin: 0 4rem;
+      opacity: 0.7;
+      transition: all 0.3s ease;
+    
+  }
+
+  .logo:hover {
+      opacity: 1;
+      transform: scale(1.1);
+  }
+
   @keyframes slide {
-      from{
-        transform: translateX(0);
+      from {
+          transform: translateX(0);
       }
-      to{
-        transform: translateX(-100%);
+      to {
+          transform: translateX(-100%);
       }
   }
 
@@ -523,7 +530,7 @@
 
   .hero-content {
     width: 100%;
-    max-width: 1400px;
+    max-width: var(--max-width-glass);
     margin: 0 auto;
     padding: 0 2rem;
     display: grid;
@@ -725,7 +732,7 @@
 }
 
 .featured-content, .testimonials-content {
-  max-width: 1200px;
+  max-width: var(--max-width-glass);
   width: 100%;
   margin: 0 auto;
   text-align: center;
@@ -818,6 +825,10 @@
   margin-top: 3rem;
 }
 
+.logo-testamonial{
+  height: 100px;
+  object-fit: contain;
+}
 .testimonial-card {
   background: rgba(255, 255, 255, 0.9);
   border-radius: 20px;
@@ -881,6 +892,10 @@
 
   .testimonials-grid {
     grid-template-columns: 1fr;
+  }
+  .testimonial-card{
+    min-width: 0px;
+  
   }
 }
 

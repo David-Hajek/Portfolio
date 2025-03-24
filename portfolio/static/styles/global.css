@@ -10,6 +10,7 @@
 
     --font-family: 'Hanken Grotesk Variable', sans-serif;
     --base-font-size: 18px;
+    
 }
 *{
     margin:0;
@@ -46,7 +47,7 @@ a:hover{
 }
 
 html::-webkit-scrollbar {
-    width: 0.2rem
+    width: 0.3rem
 }
 /* Track */
 ::-webkit-scrollbar-track {

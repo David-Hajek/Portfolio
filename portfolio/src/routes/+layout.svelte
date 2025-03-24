@@ -1,11 +1,8 @@
 <script lang="ts">
     import '@fontsource-variable/hanken-grotesk';
     import { page } from '$app/stores'; 
-    import { onMount } from 'svelte';
-    import BlackHoleShader from '$lib/BlackHoleShader.svelte';
+    import { onMount } from 'svelte';;
     import { fly, fade } from 'svelte/transition';
-    import { spring } from 'svelte/motion';
-    import { quintOut } from 'svelte/easing';
     import CustomCursor from '$lib/CustomCursor.svelte';
 
     let y: number = 0;  // current user y height
@@ -15,6 +12,14 @@
     let mounted: boolean = false;
     let innerWidth: number;
     let innerHeight: number;
+    let scrollProgress = 0;
+
+    function calculateScrollProgress() {
+        const docElement = document.documentElement;
+        const windowHeight = docElement.clientHeight;
+        const docHeight = docElement.scrollHeight - windowHeight;
+        scrollProgress = (y / docHeight) * 100;
+    }
 
     onMount(() => {
         mounted = true;
@@ -61,7 +66,15 @@
     }
 </script>
 
-<svelte:window on:scroll={handleScroll} bind:scrollY={y} bind:innerWidth bind:innerHeight /> <!-- binds the scroll to the variable y-->
+<svelte:window 
+    on:scroll={() => {
+        handleScroll();
+        calculateScrollProgress();
+    }} 
+    bind:scrollY={y} 
+    bind:innerWidth 
+    bind:innerHeight 
+/> <!-- binds the scroll to the variable y-->
 <CustomCursor />
 
 <svelte:head>
@@ -111,6 +124,10 @@
     </div>
     {/if}
 </header>
+
+<div class="scroll-progress-bar">
+    <div class="progress" style="width: {scrollProgress}%" />
+</div>
 
 <!-- Mobile menu navigation -->
 {#if mounted}
@@ -238,11 +255,28 @@
         opacity: 1;
         transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
         width: 100;
-        background-color: rgba(4, 18, 29, 0.7);
-        backdrop-filter: blur(10px) saturate(180%);
-        -webkit-backdrop-filter: blur(10px) saturate(180%);
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-        border-bottom: 1px solid rgba(80, 170, 241, 0.1);
+        background-color: rgba(4, 18, 29, 0.85);
+        backdrop-filter: blur(12px) saturate(180%);
+        -webkit-backdrop-filter: blur(12px) saturate(180%);
+        border-bottom: 1px solid rgba(80, 170, 241, 0.15);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .scroll-progress-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: rgba(80, 170, 241, 0.1);
+        z-index: 1002;
+    }
+
+    .scroll-progress-bar .progress {
+        height: 100%;
+        background: linear-gradient(90deg, #50aaf1, #82c6ff);
+        transition: width 0.2s ease-out;
+        box-shadow: 0 0 10px rgba(80, 170, 241, 0.5);
     }
 
     .fade-in {
@@ -529,18 +563,19 @@
     }
     
     .nav-link {
+        position: relative;
+        padding: 0.5rem 1rem;
         color: white;
         text-decoration: none;
         font-weight: 500;
-        padding-left: 0.5rem;
         border-radius: 4px;
-        transition: all 0.3s ease;
-        position: relative;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
     
     .nav-link:hover {
         color: #50aaf1;
         transform: translateY(-2px);
+        text-shadow: 0 0 15px rgba(80, 170, 241, 0.4);
     }
     
     .nav-link::after {
