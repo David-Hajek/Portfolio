@@ -64,7 +64,7 @@
 
         <div class="description" use:reveal={{ preset: "slide", delay: 2200 }}>
           <p>I specialize in creating immersive 3D visuals and compelling digital art that helps brands and businesses stand out in the digital space.</p>
-          <p>With expertise in 3D modeling, animation, and visual design, I bring ideas to life through technical excellence and artistic vision.</p>
+          <p>With expertise in the 3D sphere, I bring ideas to life through technical excellence and artistic vision.</p>
         </div>
 
         <div class="hero-cta" use:reveal={{ preset: "slide", delay: 2600 }}>
@@ -77,6 +77,40 @@
         <div class="image-container">
           <ImageShader imageSrc="images/landing.jpg"></ImageShader>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Featured Work Section -->
+<div class="landing-page white-section">
+  <div id="glass-landingWhite"></div>
+  <div class="featured-container">
+    <div class="featured-content">
+      <h1 class="section-title" use:reveal={{ preset: "slide", delay: 300 }}>Featured Work</h1>
+      <div class="accent-bar" use:reveal={{ preset: "slide", delay: 500 }}></div>
+      <div class="featured-grid" use:reveal={{ preset: "slide", delay: 700 }}>
+        <a href="/project/visualization" class="featured-item">
+          <div class="featured-image-container">
+            <img src="/images/featured-1.jpg" alt="3D Visualization Project" />
+            <div class="featured-overlay">
+              <h3>3D Visualization</h3>
+              <p>dobry den</p>
+              <span class="view-details">View Project →</span>
+            </div>
+          </div>
+        </a>
+        <a href="/project/character" class="featured-item">
+          <div class="featured-image-container">
+            <img src="/images/featured-2.jpg" alt="Character Design Project" />
+            <div class="featured-overlay">
+              <h3>Character Design</h3>
+              <p>Game Character Concept</p>
+              <span class="view-details">View Project →</span>
+            </div>
+          </div>
+        </a>
       </div>
     </div>
   </div>
@@ -111,46 +145,12 @@
       <img src="/images/devomi-logo.png" alt="Devomi Logo" class="logo" />
 </div>
 </div>
-
-<!-- Featured Work Section -->
-<div class="landing-page white-section">
-  <div id="glass-landingWhite"></div>
-  <div class="featured-container">
-    <div class="featured-content">
-      <h1 class="section-title" use:reveal={{ preset: "slide", delay: 300 }}>Featured Work</h1>
-      <div class="accent-bar" use:reveal={{ preset: "slide", delay: 500 }}></div>
-      <div class="featured-grid" use:reveal={{ preset: "slide", delay: 700 }}>
-        <a href="/project/visualization" class="featured-item">
-          <div class="featured-image-container">
-            <img src="/images/featured-1.jpg" alt="3D Visualization Project" />
-            <div class="featured-overlay">
-              <h3>3D Visualization</h3>
-              <p>dobry den</p>
-              <span class="view-details">View Project →</span>
-            </div>
-          </div>
-        </a>
-        <a href="/project/character" class="featured-item">
-          <div class="featured-image-container">
-            <img src="/images/featured-2.jpg" alt="Character Design Project" />
-            <div class="featured-overlay">
-              <h3>Character Design</h3>
-              <p>Game Character Concept</p>
-              <span class="view-details">View Project →</span>
-            </div>
-          </div>
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- Testimonials Section -->
 <div class="landing-page dark-section">
   <div id="glass-landing"></div>
   <div class="testimonials-container">
     <div class="testimonials-content">
-      <h1 class="section-title" use:reveal={{ preset: "slide", delay: 300 }}>What Clients Say</h1>
+      <h1 class="section-title" use:reveal={{ preset: "slide", delay: 300 }}>Client Testimonials</h1>
       <div class="accent-bar" use:reveal={{ preset: "slide", delay: 500 }}></div>
       <div class="testimonials-grid" use:reveal={{ preset: "slide", delay: 700 }}>
         <div class="testimonial-card">
@@ -158,10 +158,11 @@
             <svg class="quote-icon" viewBox="0 0 24 24" fill="currentColor">
               <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
             </svg>
-            <p class="testimonial-text">""Working with David was a real pleasure. He is quick to respond to any requests and very accommodating, making co-operating smooth and effective. Can always be trusted to deliver!""</p>
+            <p class="testimonial-text">"Working with David was a real pleasure. He is quick to respond to any requests and very accommodating, making co-operating smooth and effective. Can always be trusted to deliver!"</p>
             <div class="testimonial-author">
               <strong>Mira Lumière</strong>
-              <span>Shit office Representative</span>
+              <span>Director @ Yoimira Entertainment</span>
+              <img src="/images/mira-logo.png" alt="Mira Logo" class="logo" style="opacity:0.5" />
             </div>
           </div>
         </div>
@@ -175,9 +176,11 @@
             <div class="testimonial-author">
               <strong>tomas dite</strong>
               <span>reditel</span>
+              <img src="/images/devomi-logo.png" alt="Mira Logo" class="logo" style="opacity:0.5" />
             </div>
           </div>
         </div>
+        
       </div>
     </div>
   </div>

@@ -532,7 +532,7 @@
         color: white;
         text-decoration: none;
         font-weight: 500;
-        padding: 0.5rem 1rem;
+        padding-left: 0.5rem;
         border-radius: 4px;
         transition: all 0.3s ease;
         position: relative;
