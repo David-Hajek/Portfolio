@@ -272,7 +272,7 @@
           <a 
             href="/commercial" 
             class="section-item"
-            on:mousemove={(e) => handleMouseMove(e, '/images/commercial-preview.gif')}
+            on:mousemove={(e) => handleMouseMove(e, '/images/gifs/personal.gif')}
             on:mouseleave={handleMouseLeave}
           >
             <h2>Commercial</h2>
@@ -282,7 +282,7 @@
           <a 
             href="/retro" 
             class="section-item"
-            on:mousemove={(e) => handleMouseMove(e, '/images/retro-preview.gif')}
+            on:mousemove={(e) => handleMouseMove(e, '/images/gifs/retro.gif')}
             on:mouseleave={handleMouseLeave}
           >
             <h2>Retro</h2>
@@ -1110,8 +1110,7 @@
 
 .cursor-preview {
   position: fixed;
-  width: 350px;
-  height: 350px;
+  width: 15%;
   pointer-events: none;
   z-index: 1000;
   transform: translate(-35%, -85%);

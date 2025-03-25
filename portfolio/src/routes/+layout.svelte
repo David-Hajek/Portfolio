@@ -208,12 +208,61 @@
 </main>
 <footer>
     <div class="footer-content">
-        <button class="back-to-top" on:click={scrollToTop}>
-            <span class="arrow">↑</span>
-            <span>Back to the top</span>
-        </button>
-        <div class="footer-info">
-            <p>&copy; {new Date().getFullYear()} | David Portfolio</p>
+        <div class="footer-grid">
+            <div class="footer-column left">
+                    <h3>Connect</h3>
+                    <a href="mailto:david@example.com" class="footer-link email-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        <span>david@example.com</span>
+                    </a>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/david-h%C3%A1jek-98901b292/" target="_blank" class="social-link">
+                            <img src="/images/linkedin.png" alt="LinkedIn" class="footer-icon" />
+                        </a>
+                        <a href="https://www.artstation.com/naden" target="_blank" class="social-link">
+                            <img src="/images/artstation.png" alt="ArtStation" class="footer-icon" />
+                        </a>
+                        <a href="https://mhaace.itch.io/" target="_blank" class="social-link">
+                            <img src="/images/itch.png" alt="Itch.io" class="footer-icon" />
+                        </a>
+                        <a href="https://www.instagram.com/dejvid.hajek/?hl=en" target="_blank" class="social-link">
+                            <img src="/images/instagram.png" alt="Instagram" class="footer-icon" />
+                        </a>
+                    </div>
+                </div>
+            
+            
+            <div class="footer-column center">
+                <div class="back-to-top-container">
+                    <button class="back-to-top" on:click={scrollToTop}>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="19" x2="12" y2="5"></line>
+                            <polyline points="5 12 12 5 19 12"></polyline>
+                        </svg>
+                        Back to top
+                    </button>
+                </div>
+            </div>
+
+            <div class="footer-column right">
+                <h3>Quick Links</h3>
+                <nav class="footer-nav">
+                    <ul>
+                        <li><a href="/" class="footer-link">Home</a></li>
+                        <li><a href="/personal" class="footer-link">Personal</a></li>
+                        <li><a href="/commercial" class="footer-link">Commercial</a></li>
+                        <li><a href="/retro" class="footer-link">Retro</a></li>
+                        <li><a href="/about_me" class="footer-link">About Me</a></li>
+                        <li><a href="/contact" class="footer-link">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; {new Date().getFullYear()} David Hajek Portfolio | All Rights Reserved</p>
+            <p class="credits">Designed & Developed with &lt3 by David</p>
         </div>
     </div>
 </footer>
@@ -609,75 +658,200 @@
     }
 
     footer {
-    
         z-index: 10;
         transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
-        width: 100;
-        background-color: rgba(4, 18, 29, 0.733);
+        width: 100%;
+        background-color: rgba(4, 18, 29, 0.9);
         backdrop-filter: blur(12px) saturate(180%);
         -webkit-backdrop-filter: blur(12px) saturate(180%);
-        border-bottom: 1px solid rgba(80, 170, 241, 0.15);
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        background-image: linear-gradient(180deg, #04121d00 0%, #17263334 10%, #50aaf1 100%);
-        text-align: center;
-        padding: 3rem 1rem 1rem;
-        width: 100%;
+        border-top: 1px solid rgba(80, 170, 241, 0.25);
+        box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.2);
+        background-image: linear-gradient(180deg, #04121d 0%, #172633 50%, rgba(80, 170, 241, 0.2) 100%);
+        color: white;
+        padding: 4rem 2rem 1rem;
         margin-top: auto;
+        position: relative;
     }
     
     .footer-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 1.5rem;
-        max-width: 1200px;
+        max-width: 1400px;
+        margin: 0 auto;
+        width: 100%;
+    }
+    
+    .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        align-items: start;
+        max-width: 1400px;
         margin: 0 auto;
     }
-    
-    .footer-info {
+
+    .footer-column {
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
-        font-size: 0.9rem;
-        opacity: 0.9;
     }
     
-    .back-to-top {
-        background: rgba(80, 170, 241, 0.2);
-        border: 1px solid rgba(80, 170, 241, 0.3);
-        color: white;
-        padding: 0.8rem 1.5rem;
-        border-radius: 30px;
-        cursor: pointer;
+    .footer-column.center {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding-top: 3.5rem;  /* Align with other columns */
+    }
+
+    .footer-column.right {
+        display: flex;
+        justify-content: right;
+        align-items: flex-end;
+        text-align: right;
+      
+    }
+    
+    .back-to-top-container {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .footer-column h3 {
+        font-size: 1.4rem;
+        margin-bottom: 1.5rem;
+        position: relative;
+        color: #fff;
+        font-weight: 600;
+    }
+    
+    .footer-column h3::after {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 40px;
+        height: 3px;
+        background: linear-gradient(90deg, #50aaf1, #82c6ff);
+        border-radius: 3px;
+        transition: width 0.3s ease;
+    }
+    
+    .footer-column:hover h3::after {
+        width: 60px;
+    }
+    
+    .footer-nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+    }
+    
+    .footer-link {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        position: relative;
+        display: inline-block;
+        padding: 3px 0;
+    }
+    
+    .footer-link::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: #50aaf1;
+        transition: width 0.3s ease;
+    }
+    
+    .footer-link:hover {
+        color: #50aaf1;
+        transform: translateX(5px);
+        text-shadow: 0 0 10px rgba(80, 170, 241, 0.5);
+    }
+    
+    .footer-link:hover::after {
+        width: 100%;
+    }
+    
+    .social-links {
+        display: flex;
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+        
+    }
+    
+    .email-link {
         display: flex;
         align-items: center;
-        gap: 0.5rem;
-        font-size: 1rem;
-        font-weight: 500;
+        gap: 0.8rem;
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
         transition: all 0.3s ease;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(5px);
-        -webkit-backdrop-filter: blur(5px);
+        font-size: 0.95rem;
     }
     
-    .back-to-top:hover {
-        background: rgba(80, 170, 241, 0.4);
-        transform: translateY(-3px);
-        box-shadow: 0 6px 15px rgba(80, 170, 241, 0.2);
+    .email-link:hover {
+        color: #50aaf1;
+        transform: translateY(-2px);
     }
     
-    .back-to-top .arrow {
-        font-size: 1.2rem;
+    .email-link svg {
+        transition: all 0.3s ease;
+    }
+    
+    .email-link:hover svg {
+        stroke: #50aaf1;
+        transform: scale(1.1);
+    }
+    
+    .social-icons {
+        display: flex;
+        gap: 1rem;
+        margin-top: 0.5rem;
+    }
+    
+    .footer-icon {
+        width: 30px;
+        height: 30px;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        filter: brightness(0.9) contrast(1.1);
+    }
+    
+    .social-link {
+        color: rgba(255, 255, 255, 0.8);
         transition: transform 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     
-    .back-to-top:hover .arrow {
-        transform: translateY(-3px);
+    .social-link:hover .footer-icon {
+        transform: translateY(-8px) scale(1.1);
+        filter: brightness(1.2) contrast(1.2);
     }
-    
+    .footer-bottom {
+        margin-top: 1rem;
+        text-align: center;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(80, 170, 241, 0.15);
+    }
+
     /* Mobile responsive rules */
     @media (max-width: 768px) {
+        .footer-grid {
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            padding: 0 1rem;
+        }
+
+        .footer-column.center {
+            order: 3;
+        }
+        
         .header-container {
             flex-direction: column;
             padding: 10px 0;
@@ -782,5 +956,45 @@
       font-size: 1.2em;
       letter-spacing: 1px;
     }
+  }
+  
+  .back-to-top {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.8rem 1.5rem;
+      background: rgba(80, 170, 241, 0.1);
+      border: 1px solid rgba(80, 170, 241, 0.3);
+      border-radius: 50px;
+      color: white;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      margin: 0 auto;
+  }
+
+  .back-to-top svg {
+      width: 20px;
+      height: 20px;
+      transition: transform 0.3s ease;
+  }
+
+  .back-to-top:hover {
+      background: rgba(80, 170, 241, 0.2);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(80, 170, 241, 0.2);
+  }
+
+  .back-to-top:hover svg {
+      transform: translateY(-3px);
+  }
+
+  .back-to-top:active {
+      transform: translateY(-1px);
+      box-shadow: 0 3px 10px rgba(80, 170, 241, 0.1);
   }
 </style>
