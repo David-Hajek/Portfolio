@@ -378,7 +378,8 @@
     height: 100%;
     left: 0;
     top: 0;
-    background: var(--bg-glassWhite);
+    /*mozna ?????? mix-blend-mode: difference; */
+    background: rgba(129, 129, 129, 0.774);
     border: 1px solid var(--glass-border);
     box-shadow: 0 8px 32px 0 var(--glass-shadow);
     backdrop-filter: blur(var(--glass-blur));
