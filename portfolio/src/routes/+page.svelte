@@ -11,10 +11,21 @@
     let fadeOutBackground = false;
     let visible = false; 
     let canvasContainer: HTMLDivElement; // sets the canvas container as a divelement from html
-    let scrollY;
-    let innerHeight;
-    let documentHeight;
+    let cursorGif = '';
+    let showGif = false;
+    let mouseX = 0;
+    let mouseY = 0;
 
+    function handleMouseMove(event, gifSrc) {
+      mouseX = event.clientX;
+      mouseY = event.clientY;
+      cursorGif = gifSrc;
+      showGif = true;
+    }
+
+    function handleMouseLeave() {
+      showGif = false;
+    }
   
     function handleIntersection(entries: IntersectionObserverEntry[]) { // this gets the intersectionObserverEntry from the svelte-intersection-observer
       for (const entry of entries) {
@@ -234,6 +245,64 @@
 
   
  
+
+<div class="landing-page dark-section final-section">
+  <div id="glass-landing"></div>
+  <div class="sections-container">
+    <div class="sections-content">
+      <div class="sections-left">
+        <h1 class="mega-title" use:reveal={{ preset: "slide", delay: 300 }}>Not Impressed<br/>Yet?</h1>
+        <div class="accent-bar" use:reveal={{ preset: "slide", delay: 500 }}></div>
+        <p class="mega-description" use:reveal={{ preset: "slide", delay: 700 }}>
+          Choose your journey through my portfolio collections
+        </p>
+      </div>
+      <div class="sections-right">
+        <div class="sections-grid" use:reveal={{ preset: "slide", delay: 900 }}>
+          <a 
+            href="/personal" 
+            class="section-item"
+            on:mousemove={(e) => handleMouseMove(e, '/images/gifs/personal.gif')}
+            on:mouseleave={handleMouseLeave}
+          >
+            <h2>Personal</h2>
+            <p>Explore my creative projects and artistic expressions</p>
+            <div class="section-number">01</div>
+          </a>
+          <a 
+            href="/commercial" 
+            class="section-item"
+            on:mousemove={(e) => handleMouseMove(e, '/images/commercial-preview.gif')}
+            on:mouseleave={handleMouseLeave}
+          >
+            <h2>Commercial</h2>
+            <p>View my professional work and client projects</p>
+            <div class="section-number">02</div>
+          </a>
+          <a 
+            href="/retro" 
+            class="section-item"
+            on:mousemove={(e) => handleMouseMove(e, '/images/retro-preview.gif')}
+            on:mouseleave={handleMouseLeave}
+          >
+            <h2>Retro</h2>
+            <p>Discover my land of PSX creations</p>
+            <div class="section-number">03</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{#if showGif}
+  <div 
+    class="cursor-preview"
+    style="left: {mouseX + 180}px; top: {mouseY-50}px;"
+  >
+    <img src={cursorGif} alt="Section Preview" />
+  </div>
+{/if}
 
     <BlackHoleShader />
   
@@ -932,6 +1001,165 @@
 
 .dark-section .accent-bar {
   background: var(--text-primary);
+}
+
+.final-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.sections-container {
+  grid-column: 2 / 12;
+  display: flex;
+  justify-content: center;
+  padding: 8rem 0;
+  z-index: 1;
+  width: 100%;
+}
+
+.sections-content {
+  max-width: var(--max-width-glass);
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  gap: 4rem;
+  align-items: center;
+}
+
+.sections-left {
+  flex: 1;
+  text-align: left;
+  padding-right: 2rem;
+}
+
+.mega-title {
+  font-size: clamp(3.5rem, 6vw, 5rem);
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 2rem;
+  letter-spacing: -0.02em;
+}
+
+.mega-description {
+  font-size: clamp(1.2rem, 1.5vw, 1.5rem);
+  color: var(--text-secondary);
+  margin-top: 2rem;
+  max-width: 400px;
+}
+
+.sections-right {
+  flex: 1.5;
+}
+
+.sections-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.section-item {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2.5rem;
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.section-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(20px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.section-item h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.section-item p {
+  color: var(--text-secondary);
+  text-align: left;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.section-number {
+  position: absolute;
+  right: 2.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 3rem;
+  font-weight: 800;
+  opacity: 0.2;
+  transition: all 0.3s ease;
+}
+
+.section-item:hover .section-number {
+  opacity: 0.4;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.cursor-preview {
+  position: fixed;
+  width: 350px;
+  height: 350px;
+  pointer-events: none;
+  z-index: 1000;
+  transform: translate(-35%, -85%);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  object-fit: cover;
+}
+
+.cursor-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 1024px) {
+  .sections-container {
+    grid-column: 1 / 13;
+    padding: 6rem 1rem;
+  }
+  
+  .sections-content {
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .sections-left {
+    text-align: center;
+    padding-right: 0;
+  }
+
+  .mega-description {
+    margin: 2rem auto 0;
+  }
+
+  .sections-right {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-item:hover {
+    transform: translateX(0) translateY(-5px);
+  }
+  
+  .cursor-preview {
+    display: none;
+  }
 }
 </style>
 

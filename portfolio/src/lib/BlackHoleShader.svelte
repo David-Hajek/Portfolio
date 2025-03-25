@@ -31,6 +31,7 @@
     function init() {
         camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
         scene = new THREE.Scene();
+        
     
         uniforms = {
             uTime: { value: 0 },
@@ -39,7 +40,7 @@
             uIntensity: { value: 0.8 }
         };
     
-        const geometry = new THREE.PlaneGeometry(2, 2);
+        const geometry = new THREE.PlaneGeometry(3, 3);
         const material = new THREE.ShaderMaterial({
             uniforms: uniforms,
             vertexShader: vertexShader,
@@ -85,6 +86,7 @@
     
     function render() {
         uniforms.uTime.value += 0.01;
+
         renderer.render(scene, camera);
     }
     

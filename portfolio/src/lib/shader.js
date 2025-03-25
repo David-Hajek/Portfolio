@@ -13,11 +13,11 @@ uniform vec2 uMouse;
 
 void main() {
     vec2 uv = gl_FragCoord.xy / uResolution;  // Normalize between 0 and 1
-    uv = uv * 2.0 - 1.0; // Convert to range (-1,1)
+    uv = uv * 4.0 - 1.0; // Convert to range (-1,1)
     uv *= vec2(uResolution.x / uResolution.y, 1.0); // Proper aspect ratio handling
     
     // Define a looping period in seconds
-    float loopDuration = 150.0; // loop time
+    float loopDuration = 110.0; // loop time
     float loopTime = mod(uTime, loopDuration) / loopDuration * 6.28318; // normalize the time
 
     // Slower, more subtle wave effect
@@ -26,7 +26,7 @@ void main() {
         uv.y += 0.5 / i * cos(i * 1.2 * uv.x + loopTime);
     }
     
-    float intensity = 0.12 / abs(sin(loopTime - uv.y - uv.x)); // how bright the lines and how big they can get
+    float intensity = 0.20 / abs(sin(loopTime - uv.y - uv.x)); // how bright the lines and how big they can get
 
     vec3 baseColor = vec3(0.6, 0.6, 0.7); // metallic color +-
 
