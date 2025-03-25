@@ -364,7 +364,7 @@
     }
 
     p {
-        font-size: 1.5rem;
+        font-size: 1.1rem;
         line-height: 1.6;
         color: #a0a0a0;
         text-align: left;
@@ -409,6 +409,10 @@
 
         .image-wrapper {
             width: 100% !important;
+        }
+        p{
+            font-size: 14px;
+            
         }
     }
 
@@ -535,7 +539,7 @@
     }
 
     .ps-block p {
-        font-size: 1.2rem;
+        font-size: 0.9;
         line-height: 1.6;
         color: #c0c0c0;
     }

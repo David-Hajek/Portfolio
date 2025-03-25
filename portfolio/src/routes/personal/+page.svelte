@@ -146,7 +146,7 @@
     });
 </script>
 
-
+<div class="bg">
 <div class="container" in:fade={{ duration: 300, delay: 300 }}>
     <header class="page-header">
         <h1>Personal Projects</h1>
@@ -209,8 +209,14 @@
         </div>
     {/if}
 </div>
-
+</div>
 <style>
+ /*   .bg{
+        background: rgb(46,168,234);
+        background: linear-gradient(90deg, rgba(46,168,234,0.7511379551820728) 0%, rgba(84,152,180,0.5998774509803921) 7%, rgba(24,86,135,0.7035189075630253) 14%, rgba(13,51,80,0.7483368347338936) 19%, rgba(2,15,24,0.7959558823529411) 50%, rgba(13,51,80,0.7455357142857143) 80%, rgba(24,86,135,0.6951155462184874) 87%, rgba(84,152,180,0.5970763305322129) 93%, rgba(46,168,234,0.7539390756302521) 100%);
+        width: 100%;
+        position: static;
+    }    ¯\_(ツ)_/¯ */ 
     .container {
         max-width: 1400px;
         margin: 0 auto;
@@ -399,6 +405,10 @@
 
         .image-wrapper {
             width: 100% !important;
+        }
+        p{
+            font-size: 14px;
+            
         }
     }
 

@@ -520,5 +520,9 @@
       top: -40px;
       right: 0;
     }
+    p{
+            font-size: 14px;
+            
+        }
   }
   </style>
