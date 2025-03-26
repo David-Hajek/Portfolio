@@ -231,7 +231,13 @@
     background-size: 40px 40px;
     background-attachment: fixed;
   }
-
+  .expand-icon {
+        color: white;
+        mix-blend-mode: difference;
+        font-size: 2rem;
+        transform: translateY(20px);
+        transition: transform 0.3s ease;
+    }
   .retro-container {
     max-width: 1400px;
     margin: 0 auto;
@@ -456,6 +462,30 @@
  p{
     text-align: left;
  }
+ .image-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.123);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+ .image-wrapper:hover img {
+        transform: scale(1.05);
+    }
+
+    .image-wrapper:hover .image-overlay {
+        opacity: 1;
+    }
+    .image-wrapper:hover .expand-icon {
+        transform: translateY(0);
+    }
  .video-wrapper {
         position: relative;
         width: 100%;

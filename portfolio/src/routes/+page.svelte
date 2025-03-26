@@ -98,7 +98,7 @@
 
 
 <!-- Featured Work Section -->
-<div class="landing-page white-section">
+<div class="landing-page">
   <div id="glass-landingWhite"></div>
   <div class="featured-container">
     <div class="featured-content">
@@ -200,7 +200,7 @@
   </div>
 </div>
 
-  <div class="landing-page white-section">
+  <div class="landing-page">
     <div id="glass-landingWhite"></div>
     <div class="skills-container">
       <div class="skills-content">
@@ -378,10 +378,10 @@
     height: 100%;
     left: 0;
     top: 0;
-    /*mozna ?????? mix-blend-mode: difference; */
-    background: rgba(129, 129, 129, 0.774);
+    mix-blend-mode: difference;
+    background: #ffffffc2;
     border: 1px solid var(--glass-border);
-    box-shadow: 0 8px 32px 0 var(--glass-shadow);
+    box-shadow: 0 8px 32px 0 var(--glass-shadow) ;
     backdrop-filter: blur(var(--glass-blur));
     -webkit-backdrop-filter: blur(var(--glass-blur));
   }
@@ -777,17 +777,7 @@
  
   }
  
-  /* White Section Styling */
-  .white-section {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    color: #191919;
-    position: relative;
-   /* width: 95%;  
-    margin: 0 auto;  
-    border-radius: 10px;  
-    overflow: hidden;  */
-  }
+ 
  
  
 
