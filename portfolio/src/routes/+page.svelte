@@ -763,7 +763,6 @@
     z-index: -5;
     position: absolute;
     width: 100%;
-    height: 150vh;
     }
     
     .skills-container {
@@ -948,6 +947,7 @@
 
   .featured-grid {
     grid-template-columns: 1fr;
+    gap: 2rem;
   }
 
   .testimonials-grid {

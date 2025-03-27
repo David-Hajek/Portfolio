@@ -114,7 +114,7 @@ function handleContactSubmit() {
     }
 
     .contact-container {
-      padding: 2rem 0.5rem;
+      padding: 0;
     }
 
     .form-group label {
@@ -154,7 +154,7 @@ function handleContactSubmit() {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 5rem 2rem;
+    padding: 0rem 0.5rem;
   }
 
   .contact-content {
@@ -171,11 +171,12 @@ function handleContactSubmit() {
     text-align: left;
     justify-content: left;
   }
-
-  .contact-accent {
+  .accent-bar.contact-accent {
     width: 100%;
-    margin: 0 auto 3rem;
-    background: linear-gradient(90deg, var(--text-primary) 0%, rgba(255,255,255,0.5) 100%);
+    height: 6px;
+    margin: 0 0 3rem 0;
+    background: linear-gradient(90deg, #4a90e2 0%, #67b26f 100%);
+    border-radius: 3px;
   }
 
   .contact-description {

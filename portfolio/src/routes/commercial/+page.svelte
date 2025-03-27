@@ -1,7 +1,7 @@
 <script lang="ts">
     import { onMount } from 'svelte';
-    import { fade, scale, fly, slide } from 'svelte/transition';
-    import { cubicOut, elasticOut } from 'svelte/easing';
+    import { fade, scale} from 'svelte/transition';
+    import { cubicOut} from 'svelte/easing';
 
     interface Project {
         id: number;
@@ -209,18 +209,18 @@
         {/each}
     </div>
 
-    <div class="ending-statement" in:fade={{ duration: 500, delay: 300 }}>
+    <div class="ending-statement">
         <div class="ending-statement-container">
             <div class="left-side">
                     <div class="text-reveal-container">
-                        <span class="more-text" in:slide={{ delay: 600, duration: 800, axis: 'x', easing: elasticOut }}>
+                        <span class="more-text">
                             More to come<span><span >.</span><span>.</span><span>.</span></span>
                         </span>
                         <div class="text-underline"></div>
                     </div>
             </div>
             <div class="right-side">
-                <a href="../retro" class="next-button" in:fly={{ y: 20, delay: 700, duration: 600 }}>
+                <a href="../retro" class="next-button">
                     <div class="button-content">
                         <span class="button-text">Retro Section</span>
                         <div class="arrow-container">
@@ -255,7 +255,7 @@
     .container {
         max-width: 1400px;
         margin: 0 auto;
-        padding: 0 20px;
+        padding: 0 5px;
     }
 
     .page-header {
