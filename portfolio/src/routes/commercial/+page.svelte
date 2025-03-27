@@ -1,7 +1,7 @@
 <script lang="ts">
     import { onMount } from 'svelte';
-    import { fade, scale } from 'svelte/transition';
-    import { cubicOut } from 'svelte/easing';
+    import { fade, scale, fly, slide } from 'svelte/transition';
+    import { cubicOut, elasticOut } from 'svelte/easing';
 
     interface Project {
         id: number;
@@ -209,7 +209,29 @@
         {/each}
     </div>
 
- 
+    <div class="ending-statement" in:fade={{ duration: 500, delay: 300 }}>
+        <div class="ending-statement-container">
+            <div class="left-side">
+                    <div class="text-reveal-container">
+                        <span class="more-text" in:slide={{ delay: 600, duration: 800, axis: 'x', easing: elasticOut }}>
+                            More to come<span><span >.</span><span>.</span><span>.</span></span>
+                        </span>
+                        <div class="text-underline"></div>
+                    </div>
+            </div>
+            <div class="right-side">
+                <a href="../retro" class="next-button" in:fly={{ y: 20, delay: 700, duration: 600 }}>
+                    <div class="button-content">
+                        <span class="button-text">Retro Section</span>
+                        <div class="arrow-container">
+                            <span class="arrow">→</span>
+                        </div>
+                    </div>
+                    <div class="button-background"></div>
+                </a>
+            </div>
+        </div>
+    </div>
 
     {#if isModalOpen && modalImage}
         <div 
@@ -257,7 +279,7 @@
         font-size: 1.2rem;
         color: #a0a0a0;
         margin: 20px 0 0;
-        max-width: 600px;
+        max-width: 40%;
         margin-left: auto;
         margin-right: auto;
         line-height: 1.6;
@@ -414,6 +436,61 @@
             font-size: 14px;
             
         }
+
+        .ending-statement {
+            margin: 60px 0;
+            padding: 40px 0;
+        }
+
+        .ending-statement-container {
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .left-side, .right-side {
+            width: 100%;
+            text-align: center;
+        }
+
+        .more-text {
+            font-size: 2.2rem;
+        }
+
+        .next-button {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .button-content {
+            padding: 14px 30px;
+            justify-content: center;
+            width: 100%;
+        }
+        .modal-content {
+            max-width: 95vw;
+        }
+
+        .close-button {
+            top: -40px;
+            right: 0;
+        }
+
+        .problem-solution-section {
+            margin-top: 20px;
+            gap: 15px;
+        }
+
+        .ps-block {
+            padding: 15px 20px;
+        }
+
+        .ps-block h3 {
+            font-size: 1.4rem;
+        }
+
+        .ps-block p {
+            font-size: 1rem;
+        }
     }
 
     .modal-overlay {
@@ -461,16 +538,7 @@
         transform: scale(1.1);
     }
 
-    @media (max-width: 768px) {
-        .modal-content {
-            max-width: 95vw;
-        }
-
-        .close-button {
-            top: -40px;
-            right: 0;
-        }
-    }
+   
     /* Problem-Solution Section Styles */
     .problem-solution-section {
         margin-top: 30px;
@@ -543,25 +611,9 @@
         line-height: 1.6;
         color: #c0c0c0;
     }
+    
 
-    @media (max-width: 768px) {
-        .problem-solution-section {
-            margin-top: 20px;
-            gap: 15px;
-        }
-
-        .ps-block {
-            padding: 15px 20px;
-        }
-
-        .ps-block h3 {
-            font-size: 1.4rem;
-        }
-
-        .ps-block p {
-            font-size: 1rem;
-        }
-    }
+   
 
     .video-wrapper {
         position: relative;
@@ -581,5 +633,215 @@
         width: 100%;
         height: 100%;
         border: none;
+    }
+
+    .ending-statement {
+        margin: 100px 0;
+        padding: 60px 0;
+        position: relative;
+        overflow: hidden;
+        border-radius: 16px;
+        background: rgba(8, 15, 30, 0.3);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .ending-statement::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 85%;
+        height: 1px;
+        background: linear-gradient(90deg, 
+            rgba(80, 170, 241, 0) 0%, 
+            rgba(80, 170, 241, 0.4) 20%, 
+            rgba(80, 170, 241, 0.7) 50%,
+            rgba(80, 170, 241, 0.4) 80%,
+            rgba(80, 170, 241, 0) 100%);
+    }
+
+    .ending-statement-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .left-side, .right-side {
+        flex: 1;
+        position: relative;
+    }
+
+    .left-side {
+        text-align: left;
+    }
+
+    .right-side {
+        text-align: right;
+    }
+
+
+    .text-reveal-container {
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+    }
+
+    .more-text {
+        font-size: 2.8rem;
+        font-weight: 700;
+        background: linear-gradient(45deg, #ffffff 10%, #50aaf1 80%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: inline-block;
+        letter-spacing: 0.5px;
+    }
+    
+    
+  
+    
+    .text-underline {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #50aaf1, #ffffff);
+        transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        box-shadow: 0 0 10px rgba(80, 170, 241, 0.6);
+    }
+    
+  
+
+    .next-button {
+        display: inline-flex;
+        position: relative;
+        text-decoration: none;
+        overflow: hidden;
+        border-radius: 30px;
+        z-index: 1;
+    }
+    
+    .button-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px 35px;
+        position: relative;
+        z-index: 2;
+        transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    
+    .button-text {
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: #ffffff;
+        letter-spacing: 0.5px;
+        margin-right: 10px;
+    }
+    
+    .arrow-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .arrow {
+        display: inline-block;
+        font-size: 1.8rem;
+        position: relative;
+        transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    
+    .button-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, 
+            rgba(32, 64, 96, 0.8) 0%, 
+            rgba(50, 100, 160, 0.6) 50%, 
+            rgba(80, 170, 241, 0.4) 100%);
+        box-shadow: 
+            0 6px 20px rgba(80, 170, 241, 0.2),
+            inset 0 1px 1px rgba(255, 255, 255, 0.1);
+        z-index: 1;
+        transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        border-radius: 30px;
+    }
+    
+    .next-button:hover .button-content {
+        transform: translateY(-3px);
+    }
+    
+    .next-button:hover .arrow {
+        transform: translateX(5px);
+    }
+    
+    .next-button::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 150%;
+        height: 100%;
+        background: linear-gradient(90deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.1) 50%,
+            rgba(255, 255, 255, 0) 100%);
+        transform: translateX(-100%) skewX(-15deg);
+        transition: transform 0.6s ease;
+    }
+    
+    .next-button:hover::after {
+        transform: translateX(100%) skewX(-15deg);
+    }
+    
+    .next-button:hover .button-background {
+        background: linear-gradient(135deg,
+            rgba(50, 100, 160, 0.8) 0%, 
+            rgba(80, 170, 241, 0.6) 50%, 
+            rgba(100, 200, 255, 0.4) 100%);
+        box-shadow: 
+            0 8px 25px rgba(80, 170, 241, 0.3),
+            inset 0 1px 1px rgba(255, 255, 255, 0.2);
+    }
+    .next-button:hover {
+        box-shadow: 0 0 30px rgba(80, 170, 241, 0.3);
+    }
+
+    .more-text {
+        position: relative;
+    }
+
+    .more-text::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, 
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.1) 50%, 
+            rgba(255, 255, 255, 0) 100%);
+        background-size: 200% 100%;
+        animation: shimmer 3s infinite linear;
+        transform: skewX(-20deg);
+    }
+    @keyframes shimmer {
+        0% { background-position: -100% 0; }
+        100% { background-position: 200% 0; }
     }
 </style>
