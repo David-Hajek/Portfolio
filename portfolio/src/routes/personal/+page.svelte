@@ -63,8 +63,8 @@
         },
         {
             id: 5,
-            title: "wow this is amazing",
-            description: "more to come",
+            title: "Environment & Character Renders",
+            description: "A set of renders that I created as a practice for my lighting and editing skills, these have been created a while ago, however I am still happy with them to this day, I initally started with just the character render, but wanted to branch out into a more story like component, so I went full out with the environment building and the character rendering.",
             images: [
                 { url: "/images/bms/david-hajek-bms-final.jpg", alt: "Project Two Main" },
                 { url: "/images/bms/david-hajek-topviewrend-final.jpg", alt: "Project Two Main" },
@@ -75,8 +75,8 @@
         },
         {
             id: 6,
-            title: "wow this is amazing",
-            description: "more to come",
+            title: "Game Ready Model Practice",
+            description: "I wanted to challange myself with something I always wanted to tick off my bucket list. When I was younger, I loved the game Team Fortress 2 and sunk countless hours into it, so naturally, when I got older, I wanted to try and contribute to the game, I set out to create a Steam Workshop compatible item for the class Pyro, I first started out by concepting something that would fit the characters personality, as Pyro cannot express emotions via his mask, I decided to try and give him a permanent work stare, the stare that you have after a grueling day at the office. I modeled the glasses in Blender and then worked out a way to have it compatible and game ready in the steam workshop. Such a fun project",
             images: [
                 { url: "/images/pyro/david-hajek-workshopart.jpg", alt: "Project Two Main" },
                 { url: "/images/pyro/david-hajek-pyrophoto.jpg", alt: "Project Two Main" },

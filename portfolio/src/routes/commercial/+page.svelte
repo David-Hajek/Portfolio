@@ -17,6 +17,16 @@
         }[];
         videoUrl?: string;
         isRight: boolean;
+        credits?: {
+            company: {
+                name: string;
+                logo?: string;
+            };
+            team: {
+                name: string;
+                role: string;
+            }[];
+        };
     }
 
     const projects: Project[] = [
@@ -35,6 +45,26 @@
                 { url: "/images/dominic/domca5.jpg", alt: "Project One Detail"},
                 { url: "/images/dominic/domca6.jpg", alt: "Project One Detail"}
             ],
+            credits: {
+                company: {
+                    name: "Krystof Jezek",
+                    logo: "/images/krystof-logo.png"  
+                },
+                team: [
+                    {
+                        name: "David Hajek",
+                        role: "Technical Artist - Cloth Simulation"
+                    },
+                    {
+                        name: "Krystof Jezek",
+                        role: "Art Direction, Rendering"
+                    },
+                    {
+                        name: "David Hajek",
+                        role: "Technical Artist - Cloth Simulation"
+                    }
+                ]
+            },
             isRight: false
         },
         {
@@ -203,6 +233,26 @@
                                 {/if}
                             </div>
                         {/if}
+                        
+                        {#if project.credits}
+                            <div class="credits-section">
+                                <h3>Credits</h3>
+                                <div class="company-info">
+                                    {#if project.credits.company.logo}
+                                        <img src={project.credits.company.logo} alt={project.credits.company.name} class="company-logo" />
+                                    {/if}
+                                    <span class="company-name">{project.credits.company.name}</span>
+                                </div>
+                                <div class="team-credits">
+                                    {#each project.credits.team as member}
+                                        <div class="team-member">
+                                            <span class="member-name">{member.name}</span>
+                                            <span class="member-role">{member.role}</span>
+                                        </div>
+                                    {/each}
+                                </div>
+                            </div>
+                        {/if}
                     </div>
                 </div>
             </section>
@@ -253,7 +303,7 @@
 
 <style>
     .container {
-        max-width: 1400px;
+        max-width: 1600px;
         margin: 0 auto;
         padding: 0 5px;
     }
@@ -386,7 +436,7 @@
     }
 
     p {
-        font-size: 1.1rem;
+        font-size: 1rem;
         line-height: 1.6;
         color: #a0a0a0;
         text-align: left;
@@ -843,5 +893,65 @@
     @keyframes shimmer {
         0% { background-position: -100% 0; }
         100% { background-position: 200% 0; }
+    }
+
+    .credits-section {
+        margin-top: 30px;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+    }
+
+    .credits-section h3 {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+        background: linear-gradient(to right, #ffffff, #50aaf1);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .company-info {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+
+    .company-logo {
+        width: 150px;
+        height: 40px;
+        object-fit: contain;
+    }
+
+    .company-name {
+        font-size: 1.2rem;
+        color: #ffffff;
+        font-weight: 500;
+    }
+
+    .team-credits {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .team-member {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 8px;
+    }
+
+    .member-name {
+        color: #ffffff;
+        font-weight: 500;
+    }
+
+    .member-role {
+        color: #a0a0a0;
+        font-size: 0.9rem;
     }
 </style>
