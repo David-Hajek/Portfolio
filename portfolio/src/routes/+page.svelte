@@ -107,10 +107,10 @@
       <div class="featured-grid" use:reveal={{ preset: "slide", delay: 700 }}>
         <a href="/project/visualization" class="featured-item">
           <div class="featured-image-container">
-            <img src="/images/featured-1.jpg" alt="3D Visualization Project" />
+            <img src="/images/projects/wrap/thumbnail.webp" alt="3D Visualization Project" />
             <div class="featured-overlay">
-              <h3>3D Visualization</h3>
-              <p>dobry den</p>
+              <h3>THE MAG WRAP 2025</h3>
+              <p>Garment & Crowd Simulations</p>
               <span class="view-details">View Project →</span>
             </div>
           </div>

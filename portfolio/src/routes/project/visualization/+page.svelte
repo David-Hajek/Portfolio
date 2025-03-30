@@ -1,0 +1,520 @@
+
+<script lang="ts">
+	import { onMount } from 'svelte';
+	import { fade, fly } from 'svelte/transition';
+	import { reveal } from 'svelte-reveal';
+	import ImageShader from '$lib/ImageShader.svelte';
+  
+	// Media items for the grid
+	const mediaItems = [
+	  {
+		type: 'video',
+		src: '/videos/simulation1.mp4',
+		poster: '/images/simulation1-poster.jpg',
+		caption: 'Garment Simulation Demo'
+	  },
+	  {
+		type: 'image',
+		src: '/images/projects/wrap/david-hajek-pyrophoto.jpg',
+		alt: 'Final Render 1',
+		caption: 'Final Garment Render'
+	  },
+	  {
+		type: 'video',
+		src: '/videos/crowd1.mp4',
+		poster: '/images/crowd1-poster.jpg',
+		caption: 'Crowd Simulation Test'
+	  },
+	  {
+		type: 'image',
+		src: '/images/render2.jpg',
+		alt: 'Final Render 2',
+		caption: 'Crowd Implementation'
+	  }
+	];
+  
+	// Project information
+	const project = {
+	  title: "The Mag Wrap 2025",
+	  subtitle: "Garment & Crowd Simulations",
+	  description: "I had the opportunity to contribute to The Mag Wrap 2025 under the direction of Krystof Jezek. My role focused on developing realistic garment simulations and implementing crowd dynamics.",
+	  client: "THE MAG\nWorked under: Krystof Jezek",
+	  duration: "6 weeks",
+	  year: "2025",
+	  role: "Simulation Developer",
+	};
+  
+  
+	onMount(() => {
+	  console.log("Visualization Project Page Loaded");
+	});
+  </script>
+  
+  <!-- Hero Section -->
+  <div class="project-page dark-section">
+	<div id="glass-landing"></div>
+	<div class="hero-container">
+	  <div class="hero-content">
+		<div class="hero-text">
+		  <div use:reveal={{ preset: "slide", delay: 0, threshold: 0.01 }}>
+			<h4 class="project-category">SIMULATION DEVELOPMENT</h4>
+			<h1 class="project-title">{project.title}</h1>
+		  </div>
+		  
+		  <div class="project-subtitle" use:reveal={{ preset: "slide", delay: 300 }}>
+			{project.subtitle}
+		  </div>
+  
+		  <div class="project-intro" use:reveal={{ preset: "slide", delay: 500 }}>
+			<p>{project.description}</p>
+		  </div>
+  
+		  <div class="project-meta" use:reveal={{ preset: "slide", delay: 700 }}>
+			<div class="meta-item">
+			  <span class="meta-label">Client</span>
+			  <span class="meta-value">{project.client}</span>
+			</div>
+			<div class="meta-item">
+			  <span class="meta-label">Duration</span>
+			  <span class="meta-value">{project.duration}</span>
+			</div>
+			<div class="meta-item">
+			  <span class="meta-label">Year</span>
+			  <span class="meta-value">{project.year}</span>
+			</div>
+			<div class="meta-item">
+			  <span class="meta-label">Role</span>
+			  <span class="meta-value">{project.role}</span>
+			</div>
+		  </div>
+		</div>
+  
+		<div class="hero-visual">
+		  <div class="video-container">
+			<iframe
+			  src="https://player.vimeo.com/video/1065385532?h=3dd2400c80&background=1&autoplay=1&loop=1&byline=0&title=0"
+			  class="hero-video"
+			  frameborder="0"
+			  allow="autoplay; fullscreen; picture-in-picture"
+			  allowfullscreen
+			></iframe>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </div>
+  
+  <!-- Media Grid Section -->
+  <div class="project-page">
+	<div id="glass-landing"></div>
+	<div class="media-container">
+	  <div class="media-content">
+		<h2 class="section-title">Project Gallery</h2>
+		<div class="accent-bar"></div>
+		
+		<div class="media-grid">
+		  <!-- Grid items will be populated with videos and renders -->
+		  {#each mediaItems as item, i}
+			<div class="media-item">
+			  {#if item.type === 'video'}
+				<div class="video-wrapper">
+				  <video
+					src={item.src}
+					controls
+					preload="metadata"
+					poster={item.poster}
+				  >
+					<track kind="captions">
+				  </video>
+				</div>
+			  {:else}
+				<img src={item.src} alt={item.alt} loading="lazy" />
+			  {/if}
+			  {#if item.caption}
+				<p class="media-caption">{item.caption}</p>
+			  {/if}
+			</div>
+		  {/each}
+		</div>
+	  </div>
+	</div>
+  </div>
+  
+  
+  
+  <style>
+	/* Base styles with CSS variables inherited from main site */
+	:root {
+	  --text-primary: #ffffff;
+	  --text-secondary: #e0e0e0;
+	  --bg-glass: rgba(28, 29, 32, 0.5);
+	  --bg-glassWhite: rgba(255, 255, 255, 0.733);
+	  --glass-blur: 12px;
+	  --glass-border: rgba(255, 255, 255, 0.1);
+	  --glass-shadow: rgba(0, 0, 0, 0.2);
+	  --accent-color: aliceblue;
+	  --transition-speed: 0.3s;
+	  --spacing-unit: clamp(0.5rem, 1vw, 1.5rem);
+	  --max-width-glass: 1447px;
+	}
+  
+	/* Global transitions for smooth interactions */
+	* {
+	  transition: transform var(--transition-speed) ease, 
+				  opacity var(--transition-speed) ease,
+				  background-color var(--transition-speed) ease;
+	}
+  
+	/* Project page container */
+	.project-page {
+	  width: 100%;
+	  min-height: 100vh;
+	  position: relative;
+	  padding: var(--spacing-unit);
+	}
+  
+	p{
+	  text-align: left;
+	}
+  
+	/* Glass effects (reused from main site) */
+	#glass-landing {
+	  z-index: -5;
+	  position: absolute;
+	  width: 100%;
+	  height: 100%;
+	  left: 0;
+	  top: 0;
+	  background-color: rgba(1, 11, 29, 0.774);
+	  backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+	  border: 1px solid var(--glass-border);
+	  box-shadow: 0 8px 32px 0 var(--glass-shadow);
+	}
+	
+	#glass-landingWhite {
+	  z-index: -5;
+	  position: absolute;
+	  width: 100%;
+	  height: 100%;
+	  left: 0;
+	  top: 0;
+	  mix-blend-mode: difference;
+	  background: #ffffffc2;
+	  border: 1px solid var(--glass-border);
+	  box-shadow: 0 8px 32px 0 var(--glass-shadow);
+	  backdrop-filter: blur(var(--glass-blur));
+	  -webkit-backdrop-filter: blur(var(--glass-blur));
+	}
+  
+	/* Dark section styling */
+	.dark-section {
+	  position: relative;
+	  color: var(--text-primary);
+	  background-color: rgba(255,255,255,0.01);
+	}
+  
+	/* Accent bar (consistent with main site) */
+	.accent-bar {
+	  height: 4px;
+	  background: linear-gradient(90deg, #ffffff 0%, rgba(156, 156, 156, 0.5) 100%);
+	  border-radius: 4px;
+	  margin: 1.5rem 0 2.5rem;
+	  width: 100%;
+	}
+  
+  
+	/* Container and content layouts */
+	.hero-container, .media-container {
+	  width: 100%;
+	  display: flex;
+	  justify-content: center;
+  
+	  min-height: 50vh;
+	}
+  
+	.hero-content {
+	  width: 100%;
+	  max-width: 90vw;
+	  margin: 0 auto;
+	  padding: 0 3rem;
+	}
+	
+	.media-content {
+	  width: 90vw;
+	  margin: 0 auto;
+	  padding: 0 3rem;
+	}
+  
+	/* Hero section styling */
+	.hero-content {
+	  display: grid;
+	  grid-template-columns: 0.7fr 1.3fr; /* Give even more space to video */
+	  gap: 8rem;
+	  align-items: center;
+	}
+  
+	.hero-text {
+	  position: relative;
+	  z-index: 2;
+	  max-width: 90%;
+	}
+  
+	.project-category {
+	  font-size: 1rem;
+	  font-weight: 600;
+	  letter-spacing: 2px;
+	  color: var(--text-secondary);
+	  margin-bottom: 1rem;
+	  mix-blend-mode: difference;
+	}
+  
+	.project-title {
+	  font-size: clamp(2.5rem, 5vw, 4rem);
+	  font-weight: 800;
+	  line-height: 1.1;
+	  margin-bottom: 1rem;
+	  letter-spacing: -0.02em;
+	  color: var(--text-primary);
+	  mix-blend-mode: difference;
+	}
+  
+	.project-subtitle {
+	  font-size: clamp(1.5rem, 2.5vw, 2rem);
+	  font-weight: 600;
+	  color: var(--text-secondary);
+	  margin-bottom: 2rem;
+	  mix-blend-mode: difference;
+	  text-align: left;
+	}
+  
+	.project-intro {
+	  font-size: clamp(1rem, 1.5vw, 1.2rem);
+	  line-height: 1.6;
+	  margin-bottom: 2.5rem;
+	  color: var(--text-secondary);
+	  max-width: 90%;
+	  mix-blend-mode: difference;
+	}
+  
+	/* Project meta information styling */
+	.project-meta {
+	  display: grid;
+	  grid-template-columns: repeat(2, 1fr);
+	  gap: 1.5rem 2rem;
+	  margin-top: 2rem;
+	  mix-blend-mode: difference;
+	}
+  
+	.meta-item {
+	  display: flex;
+	  flex-direction: column;
+	}
+  
+	.meta-label {
+	  text-align: left;
+	  font-size: 0.875rem;
+	  font-weight: 600;
+	  text-transform: uppercase;
+	  letter-spacing: 1px;
+	  margin-bottom: 0.5rem;
+	  color: var(--text-secondary);
+	  opacity: 0.8;
+	}
+  
+	.meta-value {
+	  text-align: left;
+	  font-size: 1rem;
+	  font-weight: 500;
+	  color: var(--text-primary);
+	  white-space: pre-line;
+	}
+  
+	.hero-visual {
+	  position: relative;
+	  z-index: 1;
+	  width: 100%;
+	}
+  
+	.video-container {
+	  position: relative;
+	  padding-top: 70%; /* Extra tall for more impact */
+	  margin-left: -5%;
+	  border-radius: 16px;
+	  overflow: hidden;
+	  transform: perspective(2000px) rotateY(-8deg) translateZ(0);
+	  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+	
+	}
+  
+	.video-container:hover {
+	  transform: perspective(2000px) rotateY(0deg) translateZ(50px);
+	}
+  
+	.hero-video {
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  width: 100%;
+	  height: 100%;
+	  border: none;
+	  object-fit: contain;
+	}
+  
+	/* Section title styling (consistent across sections) */
+	.section-title {
+	  font-size: clamp(2rem, 4vw, 3rem);
+	  font-weight: 700;
+	  margin-bottom: 1rem;
+	  letter-spacing: -0.02em;
+	}
+  
+	/* Media grid styling */
+	.media-grid {
+	  display: grid;
+	  grid-template-columns: repeat(2, 1fr);
+	  gap: 1rem;
+	}
+  
+	.media-item {
+	  position: relative;
+	  border-radius: 16px;
+	  overflow: hidden;
+	  background: rgba(255, 255, 255, 0.05);
+	  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+	  transition: all 0.5s ease;
+	}
+  
+  
+	.video-wrapper {
+	  position: relative;
+	  padding-top: 85%; /* Taller aspect ratio for bigger videos */
+	  width: 100%;
+	  background: #000;
+	}
+  
+	.video-wrapper video,
+	.video-wrapper iframe {
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  width: 100%;
+	  height: 100%;
+	  object-fit: cover;
+	}
+  
+	.media-item img {
+	  width: 100%;
+	  height: auto;
+	  aspect-ratio: 4/3;
+	  object-fit: cover;
+	  display: block;
+	  transform: scale(1);
+	  transition: transform 1.2s ease;
+	}
+  
+	.media-caption {
+	  padding: 2.5rem;
+	  font-size: 1.25rem;
+	  color: var(--text-secondary);
+	  background: rgba(0, 0, 0, 0.8);
+	  margin: 0;
+	  border-top: 1px solid rgba(255, 255, 255, 0.1);
+	}
+  
+	/* Update container padding for more space */
+	.media-container {
+	  padding: 10rem 0;
+	}
+  
+	/* Adjust spacing for better vertical rhythm */
+	.section-title {
+	  margin-bottom: 2rem;
+	}
+  
+	.accent-bar {
+	  margin: 2rem 0 4rem;
+	}
+  
+	/* Make items stack on smaller screens but maintain large size */
+	@media (max-width: 1400px) {
+	  .media-content {
+		padding: 0 2rem;
+	  }
+	}
+  
+	@media (max-width: 1024px) {
+	  .media-grid {
+		grid-template-columns: 1fr;
+		gap: 8rem;
+	  }
+  
+	  .media-item {
+		max-width: 100%;
+	  }
+  
+	  .media-container {
+		padding: 8rem 0;
+	  }
+	}
+  
+	/* Responsive design breakpoints */
+	@media (max-width: 1800px) {
+	  .hero-content {
+		max-width: 2200px;
+		grid-template-columns: 0.8fr 1.2fr;
+		gap: 6rem;
+	  }
+	}
+  
+	@media (max-width: 1400px) {
+	  .hero-content {
+		padding: 0 2rem;
+		grid-template-columns: 0.9fr 1.1fr;
+		gap: 4rem;
+	  }
+	  
+	  .video-container {
+		padding-top: 100%;
+		width: 100%;
+		margin-left: 0;
+	  }
+	  
+	  .project-meta {
+		grid-template-columns: repeat(2, 1fr);
+	  }
+	}
+  
+	@media (max-width: 1024px) {
+	  .hero-content {
+		grid-template-columns: 1fr;
+		gap: 4rem;
+	  }
+	  
+	  .hero-text {
+		order: 0;
+	  }
+	  
+	  .hero-visual {
+		order: 1;
+	  }
+  
+	  .hero-text {
+		max-width: 100%;
+	  }
+	  
+	  .video-container {
+		padding-top: 75%;
+		transform: none;
+	  }
+  
+	  .video-container:hover {
+		transform: translateY(-10px);
+	  }
+  
+	  .hero-container {
+		padding: 6rem 0;
+		min-height: auto;
+	  }
+	}
+	  </style>
+  
