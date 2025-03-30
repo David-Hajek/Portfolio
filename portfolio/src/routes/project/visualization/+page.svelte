@@ -11,25 +11,36 @@
 		type: 'video',
 		src: '/videos/simulation1.mp4',
 		poster: '/images/simulation1-poster.jpg',
-		caption: 'Garment Simulation Demo'
+		caption: 'Garment Simulation Demo',
+		landscape: false
 	  },
 	  {
 		type: 'image',
 		src: '/images/projects/wrap/david-hajek-pyrophoto.jpg',
 		alt: 'Final Render 1',
-		caption: 'Final Garment Render'
+		caption: 'Final Garment Render',
+		landscape: false
+	  },
+	  {
+		type: 'image',
+		src: '/images/projects/wrap/thumbnail.webp',
+		alt: 'Final Render 1',
+		caption: 'Final Garment Render',
+		landscape: true
 	  },
 	  {
 		type: 'video',
 		src: '/videos/crowd1.mp4',
 		poster: '/images/crowd1-poster.jpg',
-		caption: 'Crowd Simulation Test'
+		caption: 'Crowd Simulation Test',
+		landscape: false
 	  },
 	  {
 		type: 'image',
 		src: '/images/render2.jpg',
 		alt: 'Final Render 2',
-		caption: 'Crowd Implementation'
+		caption: 'Crowd Implementation',
+		landscape: true
 	  }
 	];
   
@@ -115,7 +126,7 @@
 		<div class="media-grid">
 		  <!-- Grid items will be populated with videos and renders -->
 		  {#each mediaItems as item, i}
-			<div class="media-item">
+			<div class="media-item" class:landscape={item.landscape}>
 			  {#if item.type === 'video'}
 				<div class="video-wrapper">
 				  <video
@@ -383,6 +394,12 @@
 	  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
 	  transition: all 0.5s ease;
 	}
+	
+	.media-item.landscape {
+	  grid-column: 1 / span 2; /* Make item span both columns */
+	  max-height: none; /* Remove height restriction to allow proper aspect ratio */
+	  object-fit: cover;
+	}
   
   
 	.video-wrapper {
@@ -405,11 +422,15 @@
 	.media-item img {
 	  width: 100%;
 	  height: auto;
-	  aspect-ratio: 4/3;
+	  aspect-ratio: 1/1;
 	  object-fit: cover;
 	  display: block;
 	  transform: scale(1);
 	  transition: transform 1.2s ease;
+	}
+	
+	.media-item.landscape img {
+	  aspect-ratio: 18/7;
 	}
   
 	.media-caption {
@@ -446,6 +467,10 @@
 	  .media-grid {
 		grid-template-columns: 1fr;
 		gap: 8rem;
+	  }
+	  
+	  .media-item.landscape {
+		grid-column: 1; /* Reset to single column on mobile */
 	  }
   
 	  .media-item {
