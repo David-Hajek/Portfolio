@@ -382,7 +382,7 @@
     }
 
     p {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         line-height: 1.6;
         color: #a0a0a0;
         text-align: left;

@@ -107,7 +107,6 @@
 			  class="hero-video"
 			  frameborder="0"
 			  allow="autoplay; fullscreen; picture-in-picture"
-			  allowfullscreen
 			></iframe>
 		  </div>
 		</div>
@@ -158,7 +157,7 @@
 	:root {
 	  --text-primary: #ffffff;
 	  --text-secondary: #e0e0e0;
-	  --bg-glass: rgba(28, 29, 32, 0.5);
+	  --bg-glass: rgba(69, 72, 80, 0.5);
 	  --bg-glassWhite: rgba(255, 255, 255, 0.733);
 	  --glass-blur: 12px;
 	  --glass-border: rgba(255, 255, 255, 0.1);
@@ -179,7 +178,7 @@
 	/* Project page container */
 	.project-page {
 	  width: 100%;
-	  min-height: 100vh;
+	  min-height: 93vh;
 	  position: relative;
 	  padding: var(--spacing-unit);
 	}
@@ -196,7 +195,7 @@
 	  height: 100%;
 	  left: 0;
 	  top: 0;
-	  background-color: rgba(1, 11, 29, 0.774);
+	  background-color: rgb(22, 34, 44);
 	  backdrop-filter: blur(var(--glass-blur)) saturate(180%);
 	  border: 1px solid var(--glass-border);
 	  box-shadow: 0 8px 32px 0 var(--glass-shadow);
@@ -229,8 +228,8 @@
 	  height: 4px;
 	  background: linear-gradient(90deg, #ffffff 0%, rgba(156, 156, 156, 0.5) 100%);
 	  border-radius: 4px;
-	  margin: 1.5rem 0 2.5rem;
-	  width: 100%;
+	  margin: 1.5rem 1.5rem 2.5rem; /* Added horizontal padding to match grid */
+	  width: calc(100% - 3rem); /* Adjust width to account for padding */
 	}
   
   
@@ -251,9 +250,10 @@
 	}
 	
 	.media-content {
-	  width: 90vw;
+	  width: 100%;
+	  max-width: 1600px; /* Match grid max-width */
 	  margin: 0 auto;
-	  padding: 0 3rem;
+	  padding: 0;
 	}
   
 	/* Hero section styling */
@@ -348,11 +348,9 @@
   
 	.video-container {
 	  position: relative;
-	  padding-top: 70%; /* Extra tall for more impact */
-	  margin-left: -5%;
+	  padding-top: 55%; /* Extra tall for more impact */
 	  border-radius: 16px;
 	  overflow: hidden;
-	  transform: perspective(2000px) rotateY(-8deg) translateZ(0);
 	  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 	
 	}
@@ -377,26 +375,35 @@
 	  font-weight: 700;
 	  margin-bottom: 1rem;
 	  letter-spacing: -0.02em;
+	  padding: 0 1.5rem; /* Match grid gap */
 	}
   
 	/* Media grid styling */
 	.media-grid {
 	  display: grid;
-	  grid-template-columns: repeat(2, 1fr);
-	  gap: 1rem;
+	  grid-template-columns: repeat(3, 1fr); /* Changed from 2 to 3 columns */
+	  gap: 1.5rem;
+	  max-width: 1600px; /* Match media-content max-width */
+	  margin: 0 auto;
 	}
   
 	.media-item {
 	  position: relative;
-	  border-radius: 16px;
+	  border-radius: 12px;
 	  overflow: hidden;
-	  background: rgba(255, 255, 255, 0.05);
-	  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
-	  transition: all 0.5s ease;
+	  background: rgba(255, 255, 255, 0.03);
+	  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+	  transition: all 0.4s cubic-bezier(0.2, 0, 0.2, 1);
+	  border: 1px solid rgba(255, 255, 255, 0.05);
+	}
+	
+	.media-item:hover {
+	  transform: translateY(-8px);
+	  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
 	}
 	
 	.media-item.landscape {
-	  grid-column: 1 / span 2; /* Make item span both columns */
+	  grid-column: span 2; /* Span 2 instead of full width */
 	  max-height: none; /* Remove height restriction to allow proper aspect ratio */
 	  object-fit: cover;
 	}
@@ -404,9 +411,9 @@
   
 	.video-wrapper {
 	  position: relative;
-	  padding-top: 85%; /* Taller aspect ratio for bigger videos */
+	  padding-top: 75%; /* Reduced height */
 	  width: 100%;
-	  background: #000;
+	  background: #050505;
 	}
   
 	.video-wrapper video,
@@ -422,24 +429,32 @@
 	.media-item img {
 	  width: 100%;
 	  height: auto;
-	  aspect-ratio: 1/1;
+	  aspect-ratio: 4/3; /* More standard aspect ratio */
 	  object-fit: cover;
 	  display: block;
 	  transform: scale(1);
-	  transition: transform 1.2s ease;
+	  transition: transform 0.8s cubic-bezier(0.2, 0, 0.2, 1);
+	  filter: brightness(0.95);
+	}
+	
+	.media-item:hover img {
+	  transform: scale(1.05);
+	  filter: brightness(1.05);
 	}
 	
 	.media-item.landscape img {
-	  aspect-ratio: 18/7;
+	  aspect-ratio: 16/9;
 	}
   
 	.media-caption {
-	  padding: 2.5rem;
-	  font-size: 1.25rem;
+	  padding: 1.5rem;
+	  font-size: 1rem;
 	  color: var(--text-secondary);
-	  background: rgba(0, 0, 0, 0.8);
+	  background: rgba(0, 0, 0, 0.7);
+	  backdrop-filter: blur(10px);
 	  margin: 0;
-	  border-top: 1px solid rgba(255, 255, 255, 0.1);
+	  border-top: 1px solid rgba(255, 255, 255, 0.07);
+	  letter-spacing: 0.02em;
 	}
   
 	/* Update container padding for more space */
@@ -452,25 +467,43 @@
 	  margin-bottom: 2rem;
 	}
   
-	.accent-bar {
-	  margin: 2rem 0 4rem;
-	}
+	/* This is overridden by the main .accent-bar definition above */
   
 	/* Make items stack on smaller screens but maintain large size */
+	/* Updated media queries for responsive grid */
+	@media (max-width: 1800px) {
+	  .media-grid {
+	    grid-template-columns: repeat(3, 1fr);
+	    gap: 1.5rem;
+	  }
+	}
+	
 	@media (max-width: 1400px) {
+	  .media-grid {
+	    grid-template-columns: repeat(2, 1fr);
+	    gap: 1.25rem;
+	  }
+	  
 	  .media-content {
 		padding: 0 2rem;
 	  }
 	}
   
 	@media (max-width: 1024px) {
+	  .section-title, .accent-bar {
+	    padding: 0 1rem;
+	  }
+	  .accent-bar {
+	    width: calc(100% - 2rem);
+	    margin: 1.5rem 1rem 2.5rem;
+	  }
 	  .media-grid {
 		grid-template-columns: 1fr;
-		gap: 8rem;
+		gap: 2rem;
 	  }
 	  
 	  .media-item.landscape {
-		grid-column: 1; /* Reset to single column on mobile */
+		grid-column: auto;
 	  }
   
 	  .media-item {
@@ -478,7 +511,18 @@
 	  }
   
 	  .media-container {
-		padding: 8rem 0;
+		padding: 6rem 0;
+	  }
+	}
+	
+	@media (max-width: 640px) {
+	  .media-grid {
+	    gap: 1.25rem;
+	  }
+	  
+	  .media-caption {
+	    padding: 1rem;
+	    font-size: 0.9rem;
 	  }
 	}
   
