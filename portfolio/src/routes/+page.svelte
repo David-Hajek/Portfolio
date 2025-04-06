@@ -136,6 +136,7 @@
       <img src="/images/krystof-logo.png" alt="Krystof Logo" class="logo" />
       <img src="/images/mira-logo.png" alt="Mira Logo" class="logo" />
       <img src="/images/devomi-logo.png" alt="Devomi Logo" class="logo" />
+      <img src="/images/dyky-logo.png" alt="dykast Logo" class="logo" />
     </div>
       <!-- Second set of logos - For continuous scrolling animation -->
       <div class="logos-slide">
@@ -143,6 +144,7 @@
       <img src="/images/krystof-logo.png" alt="Krystof Logo" class="logo" />
       <img src="/images/mira-logo.png" alt="Mira Logo" class="logo" />
       <img src="/images/devomi-logo.png" alt="Devomi Logo" class="logo" />
+      <img src="/images/dyky-logo.png" alt="dykast Logo" class="logo" />
     </div>
     <!-- Third set of logos - For continuous scrolling animation -->
     <div class="logos-slide">
@@ -150,6 +152,7 @@
       <img src="/images/krystof-logo.png" alt="Krystof Logo" class="logo" />
       <img src="/images/mira-logo.png" alt="Mira Logo" class="logo" />
       <img src="/images/devomi-logo.png" alt="Devomi Logo" class="logo" />
+      <img src="/images/dyky-logo.png" alt="dykast Logo" class="logo" />
     </div>
     <!-- Fourth set of logos - For continuous scrolling animation -->
     <div class="logos-slide">
@@ -157,6 +160,7 @@
       <img src="/images/krystof-logo.png" alt="Krystof Logo" class="logo" />
       <img src="/images/mira-logo.png" alt="Mira Logo" class="logo" />
       <img src="/images/devomi-logo.png" alt="Devomi Logo" class="logo" />
+      <img src="/images/dyky-logo.png" alt="dykast Logo" class="logo" />
 </div>
 </div>
 <!-- Testimonials Section -->
