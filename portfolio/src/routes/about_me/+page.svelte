@@ -38,7 +38,7 @@
         With a deep passion for storytelling through visuals, he focuses on crafting immersive scenes, and expressive characters that connect with the viewer.</p>
         <h1 class="workedwith">WORKED WITH</h1>
         <p class="workedwithtext">KRYSTOF JEZEK, APPARENTLY STUDIOS, 
-            MIRA LUMIÈRE, DEVOMI</p>
+            MIRA LUMIÈRE, DYKY, DEVOMI</p>
     </div>
 </div>
 <BlackHoleShader></BlackHoleShader>

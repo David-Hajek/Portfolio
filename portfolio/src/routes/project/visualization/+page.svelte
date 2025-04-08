@@ -116,7 +116,7 @@
   
   <!-- Media Grid Section -->
   <div class="project-page">
-	<div id="glass-landing"></div>
+	<div id="glass-landing-bottom"></div>
 	<div class="media-container">
 	  <div class="media-content">
 		<h2 class="section-title">Project Gallery</h2>
@@ -195,26 +195,24 @@
 	  height: 100%;
 	  left: 0;
 	  top: 0;
-	  background-color: rgb(22, 34, 44);
+	  background: rgb(2,0,36);
+background: linear-gradient(180deg, rgba(2,0,36,0) 0%, rgba(45,45,69,0.3113620448179272) 42%, rgba(107,127,240,0.44861694677871145) 100%);
 	  backdrop-filter: blur(var(--glass-blur)) saturate(180%);
-	  border: 1px solid var(--glass-border);
 	  box-shadow: 0 8px 32px 0 var(--glass-shadow);
 	}
-	
-	#glass-landingWhite {
+	#glass-landing-bottom {
 	  z-index: -5;
 	  position: absolute;
 	  width: 100%;
 	  height: 100%;
 	  left: 0;
 	  top: 0;
-	  mix-blend-mode: difference;
-	  background: #ffffffc2;
-	  border: 1px solid var(--glass-border);
+	  background: rgb(2,0,36);
+background: linear-gradient(0deg, rgba(2,0,36,0) 0%, rgba(45,45,69,0.3113620448179272) 42%, rgba(107,127,240,0.44861694677871145) 100%);
+	  backdrop-filter: blur(var(--glass-blur)) saturate(180%);
 	  box-shadow: 0 8px 32px 0 var(--glass-shadow);
-	  backdrop-filter: blur(var(--glass-blur));
-	  -webkit-backdrop-filter: blur(var(--glass-blur));
 	}
+	
   
 	/* Dark section styling */
 	.dark-section {
@@ -239,7 +237,7 @@
 	  display: flex;
 	  justify-content: center;
   
-	  min-height: 50vh;
+	  min-height: 80vh;
 	}
   
 	.hero-content {
@@ -344,14 +342,15 @@
 	  position: relative;
 	  z-index: 1;
 	  width: 100%;
+	  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
 	}
   
 	.video-container {
 	  position: relative;
-	  padding-top: 55%; /* Extra tall for more impact */
+	  padding-top: 57%; /* Extra tall for more impact */
 	  border-radius: 16px;
 	  overflow: hidden;
-	  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+	  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);	
 	
 	}
   
@@ -367,6 +366,8 @@
 	  height: 100%;
 	  border: none;
 	  object-fit: contain;
+	  box-shadow: 0 40px 40px rgba(0, 0, 0, 0.6);	
+	  
 	}
   
 	/* Section title styling (consistent across sections) */
@@ -411,7 +412,7 @@
   
 	.video-wrapper {
 	  position: relative;
-	  padding-top: 75%; /* Reduced height */
+	  padding-top: 5%; /* Reduced height */
 	  width: 100%;
 	  background: #050505;
 	}
@@ -459,7 +460,7 @@
   
 	/* Update container padding for more space */
 	.media-container {
-	  padding: 10rem 0;
+	  padding: 2rem 0;
 	}
   
 	/* Adjust spacing for better vertical rhythm */
@@ -543,7 +544,7 @@
 	  }
 	  
 	  .video-container {
-		padding-top: 100%;
+		
 		width: 100%;
 		margin-left: 0;
 	  }
@@ -572,7 +573,6 @@
 	  }
 	  
 	  .video-container {
-		padding-top: 75%;
 		transform: none;
 	  }
   
