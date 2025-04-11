@@ -68,20 +68,20 @@
           <h1 class="name">David</h1>
         </div>
 
-        <h2 class="profession" use:reveal={{ preset: "slide", delay: 1700 }}>
+        <h2 class="profession" use:reveal={{ preset: "slide", delay: 1700, threshold: 0.01 }}>
           3D Artist & Visual Designer
         </h2>
 
-        <div class="tagline" use:reveal={{ preset: "slide", delay: 1900 }}>
+        <div class="tagline" use:reveal={{ preset: "slide", delay: 1900, threshold: 0.01 }}>
           Transforming creative concepts into stunning digital experiences
         </div>
 
-        <div class="description" use:reveal={{ preset: "slide", delay: 2200 }}>
+        <div class="description" use:reveal={{ preset: "slide", delay: 2200, threshold: 0.01 }}>
           <p>I specialize in creating immersive 3D visuals and compelling digital art that helps brands and businesses stand out in the digital space.</p>
           <p>With expertise in the 3D sphere, I bring ideas to life through technical excellence and artistic vision.</p>
         </div>
 
-        <div class="hero-cta" use:reveal={{ preset: "slide", delay: 2600 }}>
+        <div class="hero-cta" use:reveal={{ preset: "slide", delay: 2600, threshold: 0.01 }}>
           <a href="/personal" class="primary-btn">View My Work</a>
           <a href="/contact" class="secondary-btn">Let's Talk</a>
         </div>
@@ -102,9 +102,9 @@
   <div id="glass-landingWhite"></div>
   <div class="featured-container">
     <div class="featured-content">
-      <h1 class="section-title" use:reveal={{ preset: "slide", delay: 300 }}>Featured Work</h1>
-      <div class="accent-bar" use:reveal={{ preset: "slide", delay: 500 }}></div>
-      <div class="featured-grid" use:reveal={{ preset: "slide", delay: 700 }}>
+      <h1 class="section-title" use:reveal={{ preset: "slide", delay: 150, threshold: 0.01 }}>Featured Work</h1>
+      <div class="accent-bar" use:reveal={{ preset: "slide", delay: 200, threshold: 0.01 }}></div>
+      <div class="featured-grid" use:reveal={{ preset: "slide", delay: 250, threshold: 0.01 }}>
         <a href="/project/visualization" class="featured-item">
           <div class="featured-image-container">
             <img src="/images/projects/wrap/thumbnail.webp" alt="3D Visualization Project" />
@@ -168,9 +168,9 @@
   <div id="glass-landing"></div>
   <div class="testimonials-container">
     <div class="testimonials-content">
-      <h1 class="section-title" use:reveal={{ preset: "slide", delay: 300 }}>Client Testimonials</h1>
-      <div class="accent-bar" use:reveal={{ preset: "slide", delay: 500 }}></div>
-      <div class="testimonials-grid" use:reveal={{ preset: "slide", delay: 700 }}>
+      <h1 class="section-title" use:reveal={{ preset: "slide", delay: 100 }}>Client Testimonials</h1>
+      <div class="accent-bar" use:reveal={{ preset: "slide", delay: 200 }}></div>
+      <div class="testimonials-grid" use:reveal={{ preset: "slide", delay: 280 }}>
         <div class="testimonial-card">
           <div class="testimonial-content">
             <svg class="quote-icon" viewBox="0 0 24 24" fill="currentColor">
