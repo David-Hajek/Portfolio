@@ -4,6 +4,15 @@
 	import { fade, fly } from 'svelte/transition';
 	import { reveal } from 'svelte-reveal';
 	import ImageShader from '$lib/ImageShader.svelte';
+	
+	let showScrollIndicator = true;
+	let scrollY = 0;
+	
+	// Handle scroll to hide the arrow indicator
+	function handleScroll() {
+		scrollY = window.scrollY;
+		showScrollIndicator = scrollY < 100;
+	}
   
 	// Media items for the grid
 	const mediaItems = [
@@ -58,6 +67,14 @@
   
 	onMount(() => {
 	  console.log("Visualization Project Page Loaded");
+	  
+	  // Add scroll event listener
+	  window.addEventListener('scroll', handleScroll);
+	  
+	  // Clean up event listener on component destruction
+	  return () => {
+		window.removeEventListener('scroll', handleScroll);
+	  };
 	});
   </script>
   
@@ -107,11 +124,24 @@
 			  class="hero-video"
 			  frameborder="0"
 			  allow="autoplay; fullscreen; picture-in-picture"
+			  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
 			></iframe>
 		  </div>
 		</div>
 	  </div>
 	</div>
+	
+	<!-- Animated scroll indicator -->
+	{#if showScrollIndicator}
+	  <div class="scroll-indicator" transition:fade={{ duration: 400 }}>
+		<div class="scroll-arrow">
+		  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M12 5V19M12 19L19 12M12 19L5 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+		  </svg>
+		</div>
+		<span class="scroll-text">Scroll Down</span>
+	  </div>
+	{/if}
   </div>
   
   <!-- Media Grid Section -->
@@ -133,6 +163,7 @@
 					controls
 					preload="metadata"
 					poster={item.poster}
+					style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"
 				  >
 					<track kind="captions">
 				  </video>
@@ -166,13 +197,16 @@
 	  --transition-speed: 0.3s;
 	  --spacing-unit: clamp(0.5rem, 1vw, 1.5rem);
 	  --max-width-glass: 1447px;
+	  --scroll-indicator-color: rgba(255, 255, 255, 0.8);
 	}
   
 	/* Global transitions for smooth interactions */
 	* {
 	  transition: transform var(--transition-speed) ease, 
 				  opacity var(--transition-speed) ease,
-				  background-color var(--transition-speed) ease;
+				  background-color var(--transition-speed) ease,
+				  box-shadow var(--transition-speed) ease,
+				  filter var(--transition-speed) ease;
 	}
   
 	/* Project page container */
@@ -196,8 +230,8 @@
 	  left: 0;
 	  top: 0;
 	  background: rgb(2,0,36);
-background: linear-gradient(180deg, rgba(2,0,36,0) 0%, rgba(45,45,69,0.3113620448179272) 42%, rgba(107,127,240,0.44861694677871145) 100%);
-	  backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+      background: linear-gradient(180deg, rgba(2,0,36,0.1) 0%, rgba(45,45,69,0.35) 42%, rgba(107,127,240,0.5) 100%);
+	  backdrop-filter: blur(var(--glass-blur)) saturate(190%);
 	  box-shadow: 0 8px 32px 0 var(--glass-shadow);
 	}
 	#glass-landing-bottom {
@@ -219,6 +253,58 @@ background: linear-gradient(0deg, rgba(2,0,36,0) 0%, rgba(45,45,69,0.31136204481
 	  position: relative;
 	  color: var(--text-primary);
 	  background-color: rgba(255,255,255,0.01);
+	  overflow: hidden;
+	}
+	
+	/* Scroll indicator styling */
+	.scroll-indicator {
+	  position: absolute;
+	  bottom: 5rem;
+	  left: 50%;
+	  transform: translateX(-50%);
+	  display: flex;
+	  flex-direction: column;
+	  align-items: center;
+	  color: var(--scroll-indicator-color);
+	  z-index: 10;
+	}
+	
+	.scroll-arrow {
+	  animation: float 2s ease-in-out infinite;
+	  background: rgba(255, 255, 255, 0.1);
+	  border-radius: 50%;
+	  padding: 10px;
+	  backdrop-filter: blur(8px);
+	  border: 1px solid rgba(255, 255, 255, 0.15);
+	  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+	  margin-bottom: 0.5rem;
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  transition: all 0.4s ease;
+	}
+	
+	.scroll-arrow:hover {
+	  transform: translateY(-5px);
+	  background: rgba(255, 255, 255, 0.2);
+	  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+	}
+	
+	.scroll-text {
+	  font-size: 0.875rem;
+	  font-weight: 500;
+	  letter-spacing: 1px;
+	  opacity: 0.8;
+	  text-transform: uppercase;
+	}
+	
+	@keyframes float {
+	  0%, 100% {
+		transform: translateY(0);
+	  }
+	  50% {
+		transform: translateY(-15px);
+	  }
 	}
   
 	/* Accent bar (consistent with main site) */
@@ -236,8 +322,7 @@ background: linear-gradient(0deg, rgba(2,0,36,0) 0%, rgba(45,45,69,0.31136204481
 	  width: 100%;
 	  display: flex;
 	  justify-content: center;
-  
-	  min-height: 80vh;
+	  min-height: 10vh;
 	}
   
 	.hero-content {
@@ -245,6 +330,8 @@ background: linear-gradient(0deg, rgba(2,0,36,0) 0%, rgba(45,45,69,0.31136204481
 	  max-width: 90vw;
 	  margin: 0 auto;
 	  padding: 0 3rem;
+	  position: relative;
+	  z-index: 1;
 	}
 	
 	.media-content {
@@ -260,6 +347,7 @@ background: linear-gradient(0deg, rgba(2,0,36,0) 0%, rgba(45,45,69,0.31136204481
 	  grid-template-columns: 0.7fr 1.3fr; /* Give even more space to video */
 	  gap: 8rem;
 	  align-items: center;
+	  padding-top: 2rem;
 	}
   
 	.hero-text {
@@ -312,6 +400,12 @@ background: linear-gradient(0deg, rgba(2,0,36,0) 0%, rgba(45,45,69,0.31136204481
 	  gap: 1.5rem 2rem;
 	  margin-top: 2rem;
 	  mix-blend-mode: difference;
+	  background: rgba(255, 255, 255, 0.05);
+	  border-radius: 12px;
+	  padding: 1.5rem;
+	  backdrop-filter: blur(8px);
+	  border: 1px solid rgba(255, 255, 255, 0.1);
+	  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 	}
   
 	.meta-item {
@@ -342,16 +436,21 @@ background: linear-gradient(0deg, rgba(2,0,36,0) 0%, rgba(45,45,69,0.31136204481
 	  position: relative;
 	  z-index: 1;
 	  width: 100%;
-	  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+	  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+	  transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
 	}
-  
+	
+	.hero-visual:hover {
+	  transform: translateY(-10px);
+	}
+	
 	.video-container {
 	  position: relative;
-	  padding-top: 57%; /* Extra tall for more impact */
+	  padding-top: 56.25%; /* 16:9 aspect ratio */
+	  width: 100%;
 	  border-radius: 16px;
 	  overflow: hidden;
-	  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);	
-	
+	  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 	}
   
 	.video-container:hover {
@@ -365,9 +464,8 @@ background: linear-gradient(0deg, rgba(2,0,36,0) 0%, rgba(45,45,69,0.31136204481
 	  width: 100%;
 	  height: 100%;
 	  border: none;
-	  object-fit: contain;
-	  box-shadow: 0 40px 40px rgba(0, 0, 0, 0.6);	
-	  
+	  object-fit: cover;
+	  box-shadow: 0 40px 40px rgba(0, 0, 0, 0.6);
 	}
   
 	/* Section title styling (consistent across sections) */
@@ -409,23 +507,16 @@ background: linear-gradient(0deg, rgba(2,0,36,0) 0%, rgba(45,45,69,0.31136204481
 	  object-fit: cover;
 	}
   
-  
 	.video-wrapper {
 	  position: relative;
-	  padding-top: 5%; /* Reduced height */
+	  padding-top: 56.25%; /* 16:9 aspect ratio */
 	  width: 100%;
 	  background: #050505;
+	  border-radius: 12px;
+	  overflow: hidden;
 	}
   
-	.video-wrapper video,
-	.video-wrapper iframe {
-	  position: absolute;
-	  top: 0;
-	  left: 0;
-	  width: 100%;
-	  height: 100%;
-	  object-fit: cover;
-	}
+	
   
 	.media-item img {
 	  width: 100%;
@@ -543,12 +634,11 @@ background: linear-gradient(0deg, rgba(2,0,36,0) 0%, rgba(45,45,69,0.31136204481
 		gap: 4rem;
 	  }
 	  
+	  
 	  .video-container {
-		
 		width: 100%;
 		margin-left: 0;
 	  }
-	  
 	  .project-meta {
 		grid-template-columns: repeat(2, 1fr);
 	  }
