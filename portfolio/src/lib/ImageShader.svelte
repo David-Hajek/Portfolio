@@ -89,7 +89,7 @@
     let planeWidth, planeHeight;
     
     // Calculate the visible frustum dimensions at camera position z=1.5
-    const vFov = 45 * Math.PI / 180; // 45 degrees in radians
+    const vFov = 13.1 * Math.PI / 180; // 45 degrees in radians
     const visibleHeight = 2 * Math.tan(vFov / 2) * camera.position.z;
     const visibleWidth = visibleHeight * aspectRatio;
     
@@ -115,9 +115,7 @@
       })
     );
     
-    // adjust plane scale to maintain aspect ratio
-    adjustPlaneScale();
-
+ 
     // add mesh to scene
     scene.add(planeMesh);
 
@@ -230,39 +228,6 @@
     targetMousePosition = { ...prevPosition };
   }
 
-  // adjust plane scale to exactly match image dimensions
-  function adjustPlaneScale() {
-    if (!planeMesh || !camera || !imageContainer) return;
-    
-    // Get current container dimensions
-    const containerWidth = imageContainer.offsetWidth;
-    const containerHeight = imageContainer.offsetHeight;
-    
-    // Ensure we have valid dimensions
-    if (!containerWidth || !containerHeight) return;
-    
-    // Always use the image's aspect ratio, not the container's
-    // This ensures the image fills the canvas but maintains proportions
-    
-    // Calculate the visible frustum dimensions at the fixed camera position z=1.5
-    const vFov = 45 * Math.PI / 180; // Fixed 45 degrees in radians
-    const visibleHeight = 2 * Math.tan(vFov / 2) * 1.5; // Using fixed z=1.5
-    const visibleWidth = visibleHeight * textureAspect;
-    
-    // Apply a vertical stretch factor
-    const verticalStretchFactor = 1.4; // Stretch the image vertically by 8%
-    const horizontalStretchFactor = 0.9;
-    
-    // Reset scale to 1 before applying new scale
-    planeMesh.scale.set(1, 1, 1);
-    
-    // Scale plane to match the image's dimensions with vertical stretch
-    planeMesh.scale.set(
-      visibleWidth * verticalStretchFactor,
-      visibleHeight * horizontalStretchFactor,
-      1
-    );
-  }
   
   onMount(() => {
     // Wait for next tick to ensure DOM elements are bound
@@ -284,12 +249,6 @@
           imageContainer.addEventListener("mouseenter", handleMouseEnter);
           imageContainer.addEventListener("mouseleave", handleMouseLeave);
           
-          // Add resize observer for responsive behavior
-          resizeObserver = new ResizeObserver(handleResize);
-          resizeObserver.observe(imageContainer);
-          
-          // Initial resize to ensure proper sizing
-          handleResize();
         }
       });
       
@@ -297,55 +256,6 @@
     }, 0);
   });
 
-  // Add a resize observer to handle responsive resizing
-  let resizeObserver;
-  
-  function handleResize() {
-    if (renderer && camera && imageContainer) {
-      const containerWidth = imageContainer.offsetWidth;
-      const containerHeight = imageContainer.offsetHeight;
-      
-      // Return early if container dimensions are invalid
-      if (!containerWidth || !containerHeight) return;
-      
-      // Calculate dimensions that preserve image aspect ratio
-      let renderWidth, renderHeight;
-      
-      // Apply vertical stretch factor when calculating render dimensions
-      
-      if (containerWidth / containerHeight > textureAspect) {
-        // Container is wider than image
-        renderHeight = containerHeight ;
-        renderWidth = (renderHeight * textureAspect);
-      } else {
-        // Container is taller than image
-        renderWidth = containerWidth;
-        renderHeight = (renderWidth / textureAspect);
-      }
-      
-      // Update renderer size to match calculated dimensions
-      renderer.setSize(renderWidth, renderHeight);
-      
-      // Update the canvas element style to match the new dimensions
-      const canvas = renderer.domElement;
-      canvas.style.width = renderWidth + 'px';
-      canvas.style.height = renderHeight + 'px';
-      
-      // Update camera with image's aspect ratio, not container's
-      camera.aspect = textureAspect;
-      
-      // Fixed FOV at 45 degrees
-      camera.fov = 45;
-      
-      camera.updateProjectionMatrix();
-      
-      // Adjust plane scale to fit the new dimensions
-      adjustPlaneScale();
-      
-      // Force a render to update the view
-      if (scene) renderer.render(scene, camera);
-    }
-  }
   
 
   onDestroy(() => {
@@ -356,10 +266,6 @@
       imageContainer.removeEventListener("mouseleave", handleMouseLeave);
     }
 
-    // remove resize listener
-    if (resizeObserver) {
-      resizeObserver.disconnect();
-    }
 
     if (animationFrameId) {
       cancelAnimationFrame(animationFrameId);

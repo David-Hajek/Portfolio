@@ -715,7 +715,7 @@
     min-height: 500px;
     position: relative;
     overflow: hidden;
-    border-radius: 24px;
+    border-radius: 30px;
   }
 
   @media (max-width: 1024px) {
