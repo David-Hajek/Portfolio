@@ -271,23 +271,12 @@ background: linear-gradient(0deg, rgba(2,0,36,0) 0%, rgba(45,45,69,0.31136204481
 	
 	.scroll-arrow {
 	  animation: float 2s ease-in-out infinite;
-	  background: rgba(255, 255, 255, 0.1);
-	  border-radius: 50%;
 	  padding: 10px;
-	  backdrop-filter: blur(8px);
-	  border: 1px solid rgba(255, 255, 255, 0.15);
-	  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 	  margin-bottom: 0.5rem;
 	  display: flex;
 	  justify-content: center;
 	  align-items: center;
 	  transition: all 0.4s ease;
-	}
-	
-	.scroll-arrow:hover {
-	  transform: translateY(-5px);
-	  background: rgba(255, 255, 255, 0.2);
-	  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
 	}
 	
 	.scroll-text {

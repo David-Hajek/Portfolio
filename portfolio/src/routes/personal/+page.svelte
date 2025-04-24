@@ -13,6 +13,7 @@
             alt: string;
             width?: string; // Optional width override
         }[];
+        videoUrl?: string; // Optional YouTube embed URL
         isRight: boolean;
     }
 
@@ -87,12 +88,13 @@
         },
         {
             id: 7,
-            title: "wow this is amazing",
-            description: "more to come",
+            title: "Sunshower",
+            description: "This was a fanmade passion project, in which I wanted to create a character from the game Limbus Company, I have also experimented with the use of After Effects, overall a very fun experience! Will most definitely do again, maybe, someday?",
             images: [
                 { url: "/images/sunshower/david-hajek-heahtcliff-sunshower-min-1.jpg", alt: "Project Two Main" },
                 { url: "/images/sunshower/david-hajek-basemesh-min.jpg", alt: "Project Two Main" }
             ],
+            videoUrl: "https://www.youtube.com/embed/3Got7Yyc-Dc?si=vjT0wip0BYxzIL9c",
             isRight: false
         }
     ];
@@ -160,6 +162,17 @@
                 class:right={project.isRight}
                 bind:this={sections[i]}>
                 <div class="content-column images">
+                    {#if project.videoUrl}
+                        <div class="video-wrapper">
+                            <iframe
+                                src={project.videoUrl}
+                                title={project.title}
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen
+                            ></iframe>
+                        </div>
+                    {/if}
                     {#each project.images as image}
                         <div 
                             class="image-wrapper" 
@@ -278,7 +291,6 @@
 
     .project-section {
         display: flex;
-        min-height: 100vh;
         position: relative;
         gap: 40px;
         margin-bottom: 100px;
@@ -319,6 +331,26 @@
         background: rgba(255, 255, 255, 0.05);
         position: relative;
         cursor: pointer;
+    }
+
+    .video-wrapper {
+        position: relative;
+        width: 100%;
+        padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+        margin-bottom: 40px;
+        border-radius: 12px;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.05);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    }
+
+    .video-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
     }
 
     .image-wrapper img {
@@ -391,6 +423,10 @@
     @media (max-width: 768px) {
         .page-header {
             padding: 60px 0 30px;
+        }
+
+        .video-wrapper {
+            margin-bottom: 20px;
         }
 
         h1 {

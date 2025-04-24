@@ -211,9 +211,9 @@
         <div class="footer-grid">
             <div class="footer-column left">
                     <h3>Connect</h3>
-                    <a href="mailto:david@example.com" class="footer-link email-link">
+                    <a href="mailto:david.mhaace@gmail.com" class="footer-link email-link">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                        <span>david@example.com</span>
+                        <span>david.mhaace@gmail.com</span>
                     </a>
                     <div class="social-links">
                         <a href="https://www.linkedin.com/in/david-h%C3%A1jek-98901b292/" target="_blank" class="social-link">
@@ -699,13 +699,17 @@
         align-items: flex-start;
         padding-top: 3.5rem;  /* Align with other columns */
     }
-
     .footer-column.right {
         display: flex;
         justify-content: right;
         align-items: flex-end;
         text-align: right;
-      
+    }
+
+    .footer-column.right .footer-link {
+        text-align: right;
+        display: inline-block;
+        width: fit-content;
     }
     
     .back-to-top-container {
@@ -734,6 +738,12 @@
         transition: width 0.3s ease;
     }
     
+    .footer-column.right h3::after {
+        left: auto;
+        right: 0;
+        background: linear-gradient(90deg, #82c6ff, #50aaf1);
+    }
+    
     .footer-column:hover h3::after {
         width: 60px;
     }
@@ -745,6 +755,7 @@
         display: flex;
         flex-direction: column;
         gap: 0.4rem;
+        align-items: flex-end;
     }
     
     .footer-link {
@@ -760,16 +771,17 @@
         content: '';
         position: absolute;
         bottom: 0;
-        left: 0;
+        right: 0;
         width: 0;
         height: 2px;
         background-color: #50aaf1;
-        transition: width 0.3s ease;
+        transition: width 0.3s ease-out;
+        transform-origin: right;
     }
     
     .footer-link:hover {
         color: #50aaf1;
-        transform: translateX(5px);
+        transform: translateX(-5px);
         text-shadow: 0 0 10px rgba(80, 170, 241, 0.5);
     }
     
