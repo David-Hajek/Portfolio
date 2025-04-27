@@ -19,6 +19,17 @@
 
     const projects: Project[] = [
         {
+            id: 0,
+            title: "Convenience Store",
+            description: "A set of renders where I really went out of my comfort zone, as I have found that I sort of gravitate to always including a character somewhere in the scene, this one however, has none. I loved the outcome of this one, it has quickly became my favorite CG creation honestly.",
+            images: [
+                { url: "/images/convenience/david-hajek-front-final.jpg", alt: "Convenience Wide-Shot" },
+                { url: "/images/convenience/david-hajek-side-final-really.jpg", alt: "Convenience Close up"},
+                { url: "/images/convenience/david-hajek-makro.jpg", alt: "Convenience Macro" }
+            ],
+            isRight: true
+        },
+        {
             id: 1,
             title: "SLAVE KNIGHT DOMINIC REDESIGN",
             description: "Dominic started out as a Matura project for my end of High School assignment, I always had a fascination with the medieval fantasy theme, and back then, I was not as proficient with 3D software as I am now, so I wanted to challange myself to recreate Dominic with my current knowledge and skillset. Staying true to the design I had set for myself baack then was my number one priority, that is why I had to create certain compromises when it came to his redesign and overall creation. Overall I was happy to finally create him the way I envisioned back then.",

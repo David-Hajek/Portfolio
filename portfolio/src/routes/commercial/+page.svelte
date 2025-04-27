@@ -70,10 +70,10 @@
         {
             id: 2,
             title: "A Witch Cries, So Comes the End",
-            description: "TOMAS DITE",
-            problem: "I was tasked with the creation of realistic animation of clothing on a character, I knew that the default tools of Blender would not suffice for the creation and simulation of the cloth. The challenge for me was to find a method to reliably create smooth and realistic simulations within the limited time we had.",
-            solution: "I have learned the tool Marvelous Designer in order to execute realistic cloth animations, I first created a pipeline which I could follow to easily add multiple animations and simulate them.",
-            outcome: "The resulting simulations were highly realistic and efficient to produce. The pipeline I created reduced",
+            description: "A series of background renders that were used for a trailer for a newly released novel",
+            problem: "I was tasked with the creation of Background renders for a novel trailer, the client needed to maintain a degree of stylization, as there would always be a character occupying the image.",
+            solution: "I needed to create compositions that would allow for the client to place the characters in the foreground, without the worry of the background taking too much attention away from the voice acted characters. ",
+            outcome: "The renders created set the mood of the trailer perfectly, while maintaing the mix of realism and stylization.",
             videoUrl: "https://www.youtube.com/embed/LM-yDnRP4PI",
             images: [
                 { url: "/images/commercial/mira/mansionpost.png", alt: "Project Two Main"},
@@ -81,16 +81,62 @@
                 { url: "/images/commercial/mira/rooftopFinal.png", alt: "Project Two Main"},
                 { url: "/images/commercial/mira/street.png", alt: "Project Two Main"},
             ],
+            credits: {
+                company: {
+                    name: "Yoimira Entertainment",
+                    logo: "/images/mira-logo.png"  
+                },
+                team: [
+                    {
+                        name: "David Hajek",
+                        role: "CG Visualization, Rendering, Texturing, Lighting"
+                    },
+                    {
+                        name: "Mira Lumière",
+                        role: "Art Direction, Video Creation"
+                    }
+                ]
+            },
             isRight: true
         },
         {
             id: 3,
-            title: "HWEI - BUST SCULPT",
-            description: "Hwei was a personal challenge for me, as I always wanted to try sculpting, I initially wanted to sculpt the entire character, but due to time constraints, I settled onto creating just the bust. This model was project in which I wanted to expand my repertoaire of 3D software, as I wanted to learn more 3DCoat and Zbrush respectively",
+            title: "KRAJÁČ",
+            description: "Logo creation, 3D Assets, Transitions",
+            problem: "I was tasked with the creation of a Logo, and helping with particular 3D assets for the video series Krajáč. ",
+            solution: "As Krajáč is a hockey themed series, I needed to nail the hockey aesthethic, I wanted the logo to scream Hockey. After discussing it further, we picked out a font and I started to create the logo while staying true to the Hockey aesthethic. I also created a transition for the series, where a hockey puck covers the screen and flies out.",
+            outcome: "The logo was very well received, aswell as the transition, as both fit very well into our own Hockey-Krajáč aesthethic we have created.",
+            videoUrl: "https://www.youtube.com/embed/pjrx30rcJ3A?si=A--97fr2R4mZhuRy",
             images: [
-                { url: "images/hwei/david-hajek-hweisidefinal.jpg", alt: "Project Three Main" },
-                { url: "/images/hwei/david-hajek-frontbase.jpg", alt: "Project Three Detail"}
+                { url: "/images/commercial/krajac/logo_main.png", alt: "Krajac Logo"},
+                { url: "/images/commercial/krajac/transition.gif", alt: "Transition"},
+                { url: "/images/commercial/mira/rooftopFinal.png", alt: "Project Two Main"},
+                { url: "/images/commercial/mira/street.png", alt: "Project Two Main"},
             ],
+            credits: {
+                company: {
+                    name: "Vladimir Dykast",
+                    logo: "/images/dyky-logo.png"  
+                },
+                team: [
+                    {
+                        name: "David Hajek",
+                        role: "Transitions, Logo, Visual Identity"
+                    },
+                    {
+                        name: "Vladimir Dykast",
+                        role: "Art Direction, Video Creation"
+                    },
+                    {
+                        name: "Jachym Wizz",
+                        role: "Intro Cinematic, Recording, VFX"
+                    },
+                    {
+                        name: "Vojtěch Štor",
+                        role: "Recording, VFX"
+                    }
+                ]
+            },
             isRight: false
         },
         {
@@ -919,8 +965,7 @@
     }
 
     .company-logo {
-        width: 150px;
-        height: 40px;
+        height: 50px;
         object-fit: contain;
     }
 
