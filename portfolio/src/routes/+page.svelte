@@ -168,9 +168,9 @@
   <div id="glass-landing"></div>
   <div class="testimonials-container">
     <div class="testimonials-content">
-      <h1 class="section-title" use:reveal={{ preset: "slide", delay: 100 }}>Client Testimonials</h1>
-      <div class="accent-bar" use:reveal={{ preset: "slide", delay: 200 }}></div>
-      <div class="testimonials-grid" use:reveal={{ preset: "slide", delay: 280 }}>
+      <h1 class="section-title" use:reveal={{ preset: "slide", delay: 100, threshold: 0.01 }}>Client Testimonials</h1>
+      <div class="accent-bar" use:reveal={{ preset: "slide", delay: 110, threshold: 0.01 }}></div>
+      <div class="testimonials-grid" use:reveal={{ preset: "slide", delay: 120, threshold: 0.01 }}>
         <div class="testimonial-card">
           <div class="testimonial-content">
             <svg class="quote-icon" viewBox="0 0 24 24" fill="currentColor">
@@ -208,11 +208,11 @@
     <div id="glass-landingWhite"></div>
     <div class="skills-container">
       <div class="skills-content">
-        <h1 class="skills-title" use:reveal={{ preset: "slide", delay: 300 }}>Skills</h1>
-        <div class="accent-bar" use:reveal={{ preset: "slide", delay: 500 }}></div>
+        <h1 class="skills-title" use:reveal={{ preset: "slide", delay: 100 , threshold: 0.01 }}>Skills</h1>
+        <div class="accent-bar" use:reveal={{ preset: "slide", delay: 110, threshold: 0.01 }}></div>
         
         <div class="skills-section">
-          <div class="section-container" use:reveal={{ preset: "slide", delay: 900 }}>
+          <div class="section-container" use:reveal={{ preset: "slide",  threshold: 0.01}}>
             <div class="bubble-container">
               <span class="bubble">3D Modeling</span>
               <span class="bubble">Texturing</span>
@@ -223,7 +223,7 @@
             </div>
           </div>
 
-          <div class="section-container" use:reveal={{ preset: "slide", delay: 1100 }}>
+          <div class="section-container" use:reveal={{ preset: "slide", threshold: 0.01 }}>
             <h2 class="section-title">Technology</h2>
             <div class="accent-bar"></div>
             <div class="bubble-container">
@@ -255,14 +255,14 @@
   <div class="sections-container">
     <div class="sections-content">
       <div class="sections-left">
-        <h1 class="mega-title" use:reveal={{ preset: "slide", delay: 300 }}>Not Impressed<br/>Yet?</h1>
-        <div class="accent-bar" use:reveal={{ preset: "slide", delay: 500 }}></div>
-        <p class="mega-description" use:reveal={{ preset: "slide", delay: 700 }}>
+        <h1 class="mega-title" use:reveal={{ preset: "slide", delay: 50, threshold: 0.01 }}>Not Impressed<br/>Yet?</h1>
+        <div class="accent-bar" use:reveal={{ preset: "slide", delay: 100, threshold: 0.01 }}></div>
+        <p class="mega-description" use:reveal={{ preset: "slide", delay: 110 , threshold: 0.01 }}>
           Choose your journey through my portfolio collections
         </p>
       </div>
       <div class="sections-right">
-        <div class="sections-grid" use:reveal={{ preset: "slide", delay: 900 }}>
+        <div class="sections-grid" use:reveal={{ preset: "slide", delay: 120, threshold: 0.01 }}>
           <a 
             href="/personal" 
             class="section-item"

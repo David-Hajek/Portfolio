@@ -2,7 +2,7 @@
     import { onMount } from 'svelte';
     import { fade, scale } from 'svelte/transition';
     import { cubicOut } from 'svelte/easing';
-   
+
 
     interface Project {
         id: number;
@@ -294,6 +294,7 @@
         margin-left: auto;
         margin-right: auto;
         line-height: 1.6;
+        text-align: center;
     }
 
     .projects-container {

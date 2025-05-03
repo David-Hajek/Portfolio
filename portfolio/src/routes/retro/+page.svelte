@@ -20,7 +20,7 @@
         {
             id: 1,
             title: "UNTITLED GAME PROJECT",
-            description: "Dominic started out as a Matura project for my end of High School assignment, I always had a fascination with the medieval fantasy theme, and back then, I was not as proficient with 3D software as I am now, so I wanted to challange myself to recreate Dominic with my current knowledge and skillset. Staying true to the design I had set for myself baack then was my number one priority, that is why I had to create certain compromises when it came to his redesign and overall creation. Overall I was happy to finally create him the way I envisioned back then.",
+            description: "This was a project I worked on with my friend. I was in charge of creating the PSX models for the game. I was overally very pleased with the visuals for the ingame characters and environments. I created my own pipeline of creating said models with realtive ease later on.",
             images: [
                 { url: "/images/retro/untitled/bgtest.webp", alt: "Project One Main" },
                 { url: "/images/retro/untitled/tank.webp", alt: "Project One Detail"},
@@ -34,7 +34,7 @@
         {
             id: 2,
             title: "UNIVERSITY MODELING PRACTICE",
-            description: "I was always fascinated with nature and wanted to create something bright and hopeful, this was a very fun and challenging piece, as I needed to balance performance with quality and light, alot of the lighting issues were solved using blender's native light nodes. This piece also includes a gif, showcasing my workflow and my approach to solving various problems that may arise.",
+            description: "A simple university assignment, I have created, rigged and textured the knight, so that It can be moved within blender and posed. Probably my favorite knight model I have done so far, very happy with how clean he turned out! The background was also a part of the assignment, I wanted to create a somber forest scape, with a towering castle in the back, while also maintaining the depth and atmosphere.",
             images: [
                 { url: "/images/retro/proj2/gifmaker_me.gif", alt: "Project Two Main" },
                 { url: "/images/retro/proj2/bg.jpg", alt: "Project Two Main"}
@@ -44,56 +44,24 @@
         {
             id: 3,
             title: "BACKSTREETS",
-            description: "Hwei was a personal challenge for me, as I always wanted to try sculpting, I initially wanted to sculpt the entire character, but due to time constraints, I settled onto creating just the bust. This model was project in which I wanted to expand my repertoaire of 3D software, as I wanted to learn more 3DCoat and Zbrush respectively",
+            description: "A personal challenge, where I wanted to learn more software to add to my toolbelt in the future. I at first only wanted to have a quick enviro render, however I then created a character for the scene, and all of a sudden it was animated. I then edited the animations in davinci resolve, and created a pretty artistic piece in the end :) ",
             images: [
                 { url: "/images/retro/to-add/main.webp", alt: "Project Three Main" },
                 { url: "/images/retro/to-add/background.webp", alt: "Project Three Detail"}
             ],
+            videoUrl: "https://www.youtube.com/embed/ECQ7oTGyaNY",
             isRight: false
         },
         {
             id: 4,
-            title: "LEGARDE- SCULPT",
-            description: "Creating Legarde from Fear and Hunger was a personal challenge I set out to conquer, as I wanted to aim for more realism in this one. It was tough trying to recreate the textures just right for him, so many reference photos were mandatory for this project to work. The model of the sword was provided by my good friend Tomas Dite",
+            title: "UYUU - Stream Background/Model",
+            description: "A friend of mine wanted to have a sort of intermission background for his streams, and I really wanted to model something in the psx style, so I took it upon myself to create the 3D model of his avatar, aswell as the render of the intermission stage. I was pretty happy with how both turned out! It was a very fun project for me",
             images: [
-                { url: "/images/legarde/david-hajek-legardcinema.jpg", alt: "Project Two Main" },
-                { url: "/images/legarde/david-hajek-wireframe.jpg", alt: "Project Two Main" }
+                { url: "/images/retro/uyuy/uyuu-main.webp", alt: "Project Two Main" },
+                { url: "/images/retro/uyuy/ujuj-stream.webp", alt: "Project Two Main" },
+                { url: "/images/retro/uyuy/uyuu-model.webp", alt: "Project Two Main" }
             ],
             isRight: true
-        },
-        {
-            id: 5,
-            title: "wow this is amazing",
-            description: "more to come",
-            images: [
-                { url: "/images/bms/david-hajek-bms-final.jpg", alt: "Project Two Main" },
-                { url: "/images/bms/david-hajek-topviewrend-final.jpg", alt: "Project Two Main" },
-                { url: "/images/bms/david-hajek-bms22-final.jpg", alt: "Project Two Main" },
-                { url: "/images/bms/david-hajek-bms222-final.jpg", alt: "Project Two Main" }
-            ],
-            isRight: false
-        },
-        {
-            id: 6,
-            title: "wow this is amazing",
-            description: "more to come",
-            images: [
-                { url: "/images/pyro/david-hajek-workshopart.jpg", alt: "Project Two Main" },
-                { url: "/images/pyro/david-hajek-pyrophoto.jpg", alt: "Project Two Main" },
-                { url: "/images/pyro/david-hajek-ws2.jpg", alt: "Project Two Main" },
-                { url: "/images/pyro/david-hajek-workshop.jpg", alt: "Project Two Main" }
-            ],
-            isRight: true
-        },
-        {
-            id: 7,
-            title: "wow this is amazing",
-            description: "more to come",
-            images: [
-                { url: "/images/sunshower/david-hajek-heahtcliff-sunshower-min-1.jpg", alt: "Project Two Main" },
-                { url: "/images/sunshower/david-hajek-basemesh-min.jpg", alt: "Project Two Main" }
-            ],
-            isRight: false
         }
     ];
 

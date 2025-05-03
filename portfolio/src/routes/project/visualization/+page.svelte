@@ -17,39 +17,46 @@
 	// Media items for the grid
 	const mediaItems = [
 	  {
-		type: 'video',
-		src: '/videos/simulation1.mp4',
-		poster: '/images/simulation1-poster.jpg',
-		caption: 'Garment Simulation Demo',
-		landscape: false
-	  },
-	  {
-		type: 'image',
-		src: '/images/projects/wrap/david-hajek-pyrophoto.jpg',
-		alt: 'Final Render 1',
-		caption: 'Final Garment Render',
-		landscape: false
-	  },
-	  {
 		type: 'image',
 		src: '/images/projects/wrap/thumbnail.webp',
 		alt: 'Final Render 1',
-		caption: 'Final Garment Render',
-		landscape: true
-	  },
-	  {
-		type: 'video',
-		src: '/videos/crowd1.mp4',
-		poster: '/images/crowd1-poster.jpg',
-		caption: 'Crowd Simulation Test',
-		landscape: false
+		caption: 'Screenshot from the final video',
+		landscape: true,
+		square:false
 	  },
 	  {
 		type: 'image',
-		src: '/images/render2.jpg',
+		src: '/images/projects/wrap/static.webp',
+		alt: 'Final Render 1',
+		caption: 'Final Garment Render',
+		landscape: false,
+		square:false
+	  },
+	  
+	  {
+		type: 'image',
+		src: '/images/projects/wrap/box.webp',
 		alt: 'Final Render 2',
-		caption: 'Crowd Implementation',
-		landscape: true
+		caption: 'Model showcase',
+		landscape: false,
+		square:true
+	  },
+	  
+	  {
+		type: 'image',
+		src: '/images/projects/wrap/bts2.webp',
+		alt: 'Final Render 2',
+		caption: 'Model showcase',
+		landscape: false,
+		square:false
+	  },
+	  {
+		type: 'video',
+		src: '/images/projects/wrap/bts.mp4',
+		poster: '/images/projects/wrap/poster.webp',
+		caption: 'Garment Simulation Demo',
+		landscape: true,
+		square:false
 	  }
 	];
   
@@ -155,7 +162,7 @@
 		<div class="media-grid">
 		  <!-- Grid items will be populated with videos and renders -->
 		  {#each mediaItems as item, i}
-			<div class="media-item" class:landscape={item.landscape}>
+			<div class="media-item" class:landscape={item.landscape} class:square={item.square}>
 			  {#if item.type === 'video'}
 				<div class="video-wrapper">
 				  <video
@@ -490,8 +497,25 @@ background: linear-gradient(0deg, rgba(2,0,36,0) 0%, rgba(45,45,69,0.31136204481
 	  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
 	}
 	
+	.media-item.square {
+    height: 100%;
+    grid-column: span 2;
+    grid-row: span 1;
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.03);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+.media-item.square img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 16/9;
+}
 	.media-item.landscape {
-	  grid-column: span 2; /* Span 2 instead of full width */
+	  grid-column: span 3; /* Span 2 instead of full width */
 	  max-height: none; /* Remove height restriction to allow proper aspect ratio */
 	  object-fit: cover;
 	}
@@ -508,9 +532,9 @@ background: linear-gradient(0deg, rgba(2,0,36,0) 0%, rgba(45,45,69,0.31136204481
 	
   
 	.media-item img {
+		aspect-ratio: 2/3; /* change later if need be */
 	  width: 100%;
 	  height: auto;
-	  aspect-ratio: 4/3; /* More standard aspect ratio */
 	  object-fit: cover;
 	  display: block;
 	  transform: scale(1);

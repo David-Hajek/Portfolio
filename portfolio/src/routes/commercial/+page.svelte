@@ -212,8 +212,8 @@
 
 <div class="container" in:fade={{ duration: 300, delay: 300 }}>
     <header class="page-header">
-        <h1>Personal Projects</h1>
-        <p class="subtext">A comprehensive collection of my most recent personal work.</p>
+        <h1>Commercial Projects</h1>
+        <p class="subtext">A comprehensive collection of my favorite projects I had to pleasure to work on.</p>
     </header>
 
     <div class="projects-container">
@@ -375,10 +375,11 @@
         font-size: 1.2rem;
         color: #a0a0a0;
         margin: 20px 0 0;
-        max-width: 40%;
+        max-width: 60%;
         margin-left: auto;
         margin-right: auto;
         line-height: 1.6;
+        text-align: center;
     }
 
     .projects-container {
