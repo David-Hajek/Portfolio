@@ -115,7 +115,7 @@
             </div>
           </div>
         </a>
-        <a href="/project/character" class="featured-item">
+ <!--       <a href="/project/character" class="featured-item">
           <div class="featured-image-container">
             <img src="/images/featured-2.jpg" alt="Character Design Project" />
             <div class="featured-overlay">
@@ -124,7 +124,7 @@
               <span class="view-details">View Project →</span>
             </div>
           </div>
-        </a>
+        </a> -->
       </div>
     </div>
   </div>
@@ -219,7 +219,11 @@
               <span class="bubble">Animation</span>
               <span class="bubble">UV Mapping</span>
               <span class="bubble">Rigging</span>
+              <span class="bubble">Rendering</span>
+              <span class="bubble">Lighting</span>
               <span class="bubble">Sculpting</span>
+              <span class="bubble">Geometry Nodes</span>
+              <span class="bubble">Simulations</span>
             </div>
           </div>
 
@@ -235,10 +239,13 @@
               <span class="bubble">Photoshop</span>
               <span class="bubble">Illustrator</span>
               <span class="bubble">Indesign</span>
-              <span class="bubble">Premiere Pro</span>
+              <span class="bubble">After Effects</span>
+              <span class="bubble"> Figma</span>
               <span class="bubble">Davinci Resolve</span>
               <span class="bubble">Houdini</span>
-              <span class="bubble"> maja 3ds max after effects blesky renderer za 50 tisic na mesic</span>
+              <span class="bubble"> Figma</span>
+              <span class="bubble"> Github</span>
+              <span class="bubble"> Svelte</span>
             </div>
           </div>
         </div>
@@ -276,7 +283,7 @@
           <a 
             href="/commercial" 
             class="section-item"
-            on:mousemove={(e) => handleMouseMove(e, '/images/gifs/personal.gif')}
+            on:mousemove={(e) => handleMouseMove(e, '/images/gifs/commercial.gif')}
             on:mouseleave={handleMouseLeave}
           >
             <h2>Commercial</h2>

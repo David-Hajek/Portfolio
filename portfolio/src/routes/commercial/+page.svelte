@@ -32,18 +32,14 @@
     const projects: Project[] = [
         {
             id: 1,
-            title: "Clothing Simulations",
-            description: "A set of clothing simulations I created for the latest untitled project",
-            problem: "I was tasked with the creation of realistic animation of clothing on a character, I knew that the default tools of Blender would not suffice for the creation and simulation of the cloth. The challenge for me was to find a method to reliably create smooth and realistic simulations within the limited time we had.",
-            solution: "I have learned the tool Marvelous Designer in order to execute realistic cloth animations, I first created a pipeline which I could follow to easily add multiple animations and simulate them.",
-            outcome: "The resulting simulations were highly realistic and efficient to produce. The pipeline I created reduced the production time significantly, allowing us to meet our deadlines while maintaining high quality. The clothing animations added a new level of realism to the character movements.",
+            title: "Antarctica Scene",
+            description: "An environment for a scene I helped to create",
+            problem: "I was tasked with the creation of the environment for a scene, we needed to create a realistic environment, that would complement the jewelery in the middle of the scene.",
+            solution: "I first started with the modeling of the environment, I used a combination of sculpting, importing heightmaps, and texturing based on its's Z values, to create a realistic arctic environment.",
+            outcome: "The resulting environment was a perfect base for the scene, it added a sense of realism and dept, while keeping the focus on the jewelery, making the entire scene otheworldly and grounded.",
+            videoUrl: "https://player.vimeo.com/video/1069158462",
             images: [
-                { url: "/images/dominic/domca1.jpg", alt: "Project One Main" },
-                { url: "/images/dominic/domca2.jpg", alt: "Project One Detail"},
-                { url: "/images/dominic/domca3.jpg", alt: "Project One Close-up" },
-                { url: "/images/dominic/domca4.jpg", alt: "Project One Detail"},
-                { url: "/images/dominic/domca5.jpg", alt: "Project One Detail"},
-                { url: "/images/dominic/domca6.jpg", alt: "Project One Detail"}
+                { url: "/images/commercial/antarctic/antarctica-bts.gif", alt: "Antarctica BTS" },
             ],
             credits: {
                 company: {
@@ -53,15 +49,11 @@
                 team: [
                     {
                         name: "David Hajek",
-                        role: "Technical Artist - Cloth Simulation"
+                        role: "Environment Modeling, Base Textures, Composition,  Scene Concept Artist"
                     },
                     {
                         name: "Krystof Jezek",
-                        role: "Art Direction, Rendering"
-                    },
-                    {
-                        name: "David Hajek",
-                        role: "Technical Artist - Cloth Simulation"
+                        role: "Art Direction, Rendering, Textures, Lighting, Animation, Sound, Compositing"
                     }
                 ]
             },
@@ -73,13 +65,13 @@
             description: "A series of background renders that were used for a trailer for a newly released novel",
             problem: "I was tasked with the creation of Background renders for a novel trailer, the client needed to maintain a degree of stylization, as there would always be a character occupying the image.",
             solution: "I needed to create compositions that would allow for the client to place the characters in the foreground, without the worry of the background taking too much attention away from the voice acted characters. ",
-            outcome: "The renders created set the mood of the trailer perfectly, while maintaing the mix of realism and stylization.",
+            outcome: "The renders created, set the mood of the trailer perfectly, while maintaing the mix of realism and stylization.",
             videoUrl: "https://www.youtube.com/embed/LM-yDnRP4PI",
             images: [
-                { url: "/images/commercial/mira/mansionpost.png", alt: "Project Two Main"},
-                { url: "/images/commercial/mira/frontmansion2.png", alt: "Project Two Main"},
-                { url: "/images/commercial/mira/rooftopFinal.png", alt: "Project Two Main"},
-                { url: "/images/commercial/mira/street.png", alt: "Project Two Main"},
+                { url: "/images/commercial/mira/mansionpost.png", alt: "Side view of the mansion from outside the gate"},
+                { url: "/images/commercial/mira/frontmansion2.png", alt: "Mansion front view"},
+                { url: "/images/commercial/mira/rooftopFinal.png", alt: "Rooftops during thunderstorm"},
+                { url: "/images/commercial/mira/street.png", alt: "Abandoned streets"},
             ],
             credits: {
                 company: {
@@ -110,8 +102,6 @@
             images: [
                 { url: "/images/commercial/krajac/logo_main.png", alt: "Krajac Logo"},
                 { url: "/images/commercial/krajac/transition.gif", alt: "Transition"},
-                { url: "/images/commercial/mira/rooftopFinal.png", alt: "Project Two Main"},
-                { url: "/images/commercial/mira/street.png", alt: "Project Two Main"},
             ],
             credits: {
                 company: {
@@ -139,26 +129,6 @@
             },
             isRight: false
         },
-        {
-            id: 4,
-            title: "LEGARDE- SCULPT",
-            description: "Creating Legarde from Fear and Hunger was a personal challenge I set out to conquer, as I wanted to aim for more realism in this one. It was tough trying to recreate the textures just right for him, so many reference photos were mandatory for this project to work. The model of the sword was provided by my good friend Tomas Dite",
-            images: [
-                { url: "/images/legarde/david-hajek-legardcinema.jpg", alt: "Project Two Main" },
-                { url: "/images/legarde/david-hajek-wireframe.jpg", alt: "Project Two Main" }
-            ],
-            isRight: true
-        },
-        {
-            id: 5,
-            title: "wow this is amazing",
-            description: "more to come",
-            images: [
-                { url: "/images/legarde/david-hajek-legardcinema.jpg", alt: "Project Two Main" },
-                { url: "/images/legarde/david-hajek-legardcinema.jpg", alt: "Project Two Main" }
-            ],
-            isRight: false
-        }
     ];
 
     let sections: HTMLElement[] = [];
@@ -224,15 +194,15 @@
                 bind:this={sections[i]}>
                 <div class="content-column images">
                     {#if project.videoUrl}
-                        <div class="video-wrapper">
-                            <iframe
-                                src={project.videoUrl}
-                                title={project.title}
-                                frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen
-                            ></iframe>
-                        </div>
+                    <div class="video-wrapper" class:vertical={project.videoUrl.includes('vimeo')} class:horizontal={!project.videoUrl.includes('vimeo')}>
+                        <iframe
+                            src={project.videoUrl}
+                            title={project.title}
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen
+                        ></iframe>
+                    </div>
                     {/if}
                     {#each project.images as image}
                         <div 
@@ -713,25 +683,32 @@
    
 
     .video-wrapper {
-        position: relative;
-        width: 100%;
-        padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-        margin-bottom: 40px;
-        border-radius: 12px;
-        overflow: hidden;
-        background: rgba(255, 255, 255, 0.05);
-        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-    }
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 40px;
+    height: 0;
+    padding-bottom: 177.78%; /* Default for vertical videos (9:16) */
+    border-radius: 12px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
 
-    .video-wrapper iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: none;
-    }
-
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+.video-wrapper.vertical {
+    padding-bottom: 125.78%; /* For 9:16 videos */
+}
+.video-wrapper.horizontal {
+    padding-bottom: 56.25%; /* For 16:9 videos */
+}
     .ending-statement {
         margin: 100px 0;
         padding: 60px 0;

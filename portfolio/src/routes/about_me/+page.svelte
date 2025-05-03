@@ -13,7 +13,7 @@
     <div class="left-side" use:reveal={{ preset: "slide", y: 50, x: 0 }}>
         <img src="/images/face.gif" alt="profile photo" class="profile"/>
         <h1 class="contacts">SOCIAL/S</h1>
-        <p class="contacts"><a href="mailto:example@email.com" >info@example.com</a>.</p>
+        <p class="contacts"><a href="mailto:david.mhaace@gmail.com" >david.mhaace@gmail.com</a></p>
         <nav class="contacts2">
             <ul>
                 <a href="https://www.linkedin.com/in/david-h%C3%A1jek-98901b292/">

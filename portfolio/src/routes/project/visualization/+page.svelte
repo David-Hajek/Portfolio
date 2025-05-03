@@ -18,14 +18,6 @@
 	const mediaItems = [
 	  {
 		type: 'image',
-		src: '/images/projects/wrap/thumbnail.webp',
-		alt: 'Final Render 1',
-		caption: 'Screenshot from the final video',
-		landscape: true,
-		square:false
-	  },
-	  {
-		type: 'image',
 		src: '/images/projects/wrap/static.webp',
 		alt: 'Final Render 1',
 		caption: 'Final Garment Render',
@@ -49,6 +41,14 @@
 		caption: 'Model showcase',
 		landscape: false,
 		square:false
+	  },
+	  {
+		type: 'image',
+		src: '/images/projects/wrap/runbts.gif',
+		alt: 'Final Render 2',
+		caption: 'Crowd Simulation Demo',
+		landscape: false,
+		square:true
 	  },
 	  {
 		type: 'video',

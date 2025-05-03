@@ -34,12 +34,12 @@
             title: "SLAVE KNIGHT DOMINIC REDESIGN",
             description: "Dominic started out as a Matura project for my end of High School assignment, I always had a fascination with the medieval fantasy theme, and back then, I was not as proficient with 3D software as I am now, so I wanted to challange myself to recreate Dominic with my current knowledge and skillset. Staying true to the design I had set for myself baack then was my number one priority, that is why I had to create certain compromises when it came to his redesign and overall creation. Overall I was happy to finally create him the way I envisioned back then.",
             images: [
-                { url: "/images/dominic/domca1.jpg", alt: "Project One Main" },
-                { url: "/images/dominic/domca2.jpg", alt: "Project One Detail"},
-                { url: "/images/dominic/domca3.jpg", alt: "Project One Close-up" },
-                { url: "/images/dominic/domca4.jpg", alt: "Project One Detail"},
-                { url: "/images/dominic/domca5.jpg", alt: "Project One Detail"},
-                { url: "/images/dominic/domca6.jpg", alt: "Project One Detail"}
+                { url: "/images/dominic/domca1.jpg", alt: "Knight Money Shot - main" },
+                { url: "/images/dominic/domca2.jpg", alt: "Knight model showcase"},
+                { url: "/images/dominic/domca3.jpg", alt: "Helmet Close-up" },
+                { url: "/images/dominic/domca4.jpg", alt: "Gauntlet Detail"},
+                { url: "/images/dominic/domca5.jpg", alt: "Recreation of a previous render"},
+                { url: "/images/dominic/domca6.jpg", alt: "Previous poster render"}
             ],
             isRight: false
         },
@@ -48,8 +48,8 @@
             title: "UNCLAIMED TERRITORY",
             description: "I was always fascinated with nature and wanted to create something bright and hopeful, this was a very fun and challenging piece, as I needed to balance performance with quality and light, alot of the lighting issues were solved using blender's native light nodes. This piece also includes a gif, showcasing my workflow and my approach to solving various problems that may arise.",
             images: [
-                { url: "/images/enviroknight/david-hajek-forestfinal.jpg", alt: "Project Two Main" },
-                { url: "/images/enviroknight/david-hajek-ezgif-com-animated-gif-maker.gif", alt: "Project Two Main"}
+                { url: "/images/enviroknight/david-hajek-forestfinal.jpg", alt: "Forest scene with a knight marching towards a tree" },
+                { url: "/images/enviroknight/david-hajek-ezgif-com-animated-gif-maker.gif", alt: "Behind the scenes of the previous scene"}
             ],
             isRight: true
         },
@@ -58,8 +58,8 @@
             title: "HWEI - BUST SCULPT",
             description: "Hwei was a personal challenge for me, as I always wanted to try sculpting, I initially wanted to sculpt the entire character, but due to time constraints, I settled onto creating just the bust. This model was project in which I wanted to expand my repertoaire of 3D software, as I wanted to learn more 3DCoat and Zbrush respectively",
             images: [
-                { url: "images/hwei/david-hajek-hweisidefinal.jpg", alt: "Project Three Main" },
-                { url: "/images/hwei/david-hajek-frontbase.jpg", alt: "Project Three Detail"}
+                { url: "images/hwei/david-hajek-hweisidefinal.jpg", alt: "Hwei money shot" },
+                { url: "/images/hwei/david-hajek-frontbase.jpg", alt: "Flat shaded base model"}
             ],
             isRight: false
         },
@@ -68,8 +68,8 @@
             title: "LEGARDE- SCULPT",
             description: "Creating Legarde from Fear and Hunger was a personal challenge I set out to conquer, as I wanted to aim for more realism in this one. It was tough trying to recreate the textures just right for him, so many reference photos were mandatory for this project to work. The model of the sword was provided by my good friend Tomas Dite",
             images: [
-                { url: "/images/legarde/david-hajek-legardcinema.jpg", alt: "Project Two Main" },
-                { url: "/images/legarde/david-hajek-wireframe.jpg", alt: "Project Two Main" }
+                { url: "/images/legarde/david-hajek-legardcinema.jpg", alt: "Legarde money shot main" },
+                { url: "/images/legarde/david-hajek-wireframe.jpg", alt: "Topology and behind the scenes" }
             ],
             isRight: true
         },
@@ -78,10 +78,10 @@
             title: "Environment & Character Renders",
             description: "A set of renders that I created as a practice for my lighting and editing skills, these have been created a while ago, however I am still happy with them to this day, I initally started with just the character render, but wanted to branch out into a more story like component, so I went full out with the environment building and the character rendering.",
             images: [
-                { url: "/images/bms/david-hajek-bms-final.jpg", alt: "Project Two Main" },
-                { url: "/images/bms/david-hajek-topviewrend-final.jpg", alt: "Project Two Main" },
-                { url: "/images/bms/david-hajek-bms22-final.jpg", alt: "Project Two Main" },
-                { url: "/images/bms/david-hajek-bms222-final.jpg", alt: "Project Two Main" }
+                { url: "/images/bms/david-hajek-bms-final.jpg", alt: "Pyro main money shot" },
+                { url: "/images/bms/david-hajek-topviewrend-final.jpg", alt: "Top view of a scene with the pyro character" },
+                { url: "/images/bms/david-hajek-bms22-final.jpg", alt: "3rd person esque shot of the same scene from above" },
+                { url: "/images/bms/david-hajek-bms222-final.jpg", alt: "Ground shot from a different place in the scene of the character" }
             ],
             isRight: false
         },
@@ -90,10 +90,10 @@
             title: "Game Ready Model Practice",
             description: "I wanted to challange myself with something I always wanted to tick off my bucket list. When I was younger, I loved the game Team Fortress 2 and sunk countless hours into it, so naturally, when I got older, I wanted to try and contribute to the game, I set out to create a Steam Workshop compatible item for the class Pyro, I first started out by concepting something that would fit the characters personality, as Pyro cannot express emotions via his mask, I decided to try and give him a permanent work stare, the stare that you have after a grueling day at the office. I modeled the glasses in Blender and then worked out a way to have it compatible and game ready in the steam workshop. Such a fun project",
             images: [
-                { url: "/images/pyro/david-hajek-workshopart.jpg", alt: "Project Two Main" },
-                { url: "/images/pyro/david-hajek-pyrophoto.jpg", alt: "Project Two Main" },
-                { url: "/images/pyro/david-hajek-ws2.jpg", alt: "Project Two Main" },
-                { url: "/images/pyro/david-hajek-workshop.jpg", alt: "Project Two Main" }
+                { url: "/images/pyro/david-hajek-workshopart.jpg", alt: "TF2 Pyro money shot - main item showcase" },
+                { url: "/images/pyro/david-hajek-pyrophoto.jpg", alt: "Headshot, showcasing the item" },
+                { url: "/images/pyro/david-hajek-ws2.jpg", alt: "Promo material" },
+                { url: "/images/pyro/david-hajek-workshop.jpg", alt: "Promo material" }
             ],
             isRight: true
         },
@@ -102,8 +102,8 @@
             title: "Sunshower",
             description: "This was a fanmade passion project, in which I wanted to create a character from the game Limbus Company, I have also experimented with the use of After Effects, overall a very fun experience! Will most definitely do again, maybe, someday?",
             images: [
-                { url: "/images/sunshower/david-hajek-heahtcliff-sunshower-min-1.jpg", alt: "Project Two Main" },
-                { url: "/images/sunshower/david-hajek-basemesh-min.jpg", alt: "Project Two Main" }
+                { url: "/images/sunshower/david-hajek-heahtcliff-sunshower-min-1.jpg", alt: "Main money shot of heathcliff" },
+                { url: "/images/sunshower/david-hajek-basemesh-min.jpg", alt: "Flat shaded base of the model" }
             ],
             videoUrl: "https://www.youtube.com/embed/3Got7Yyc-Dc?si=vjT0wip0BYxzIL9c",
             isRight: false

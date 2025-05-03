@@ -22,11 +22,11 @@
             title: "UNTITLED GAME PROJECT",
             description: "This was a project I worked on with my friend. I was in charge of creating the PSX models for the game. I was overally very pleased with the visuals for the ingame characters and environments. I created my own pipeline of creating said models with realtive ease later on.",
             images: [
-                { url: "/images/retro/untitled/bgtest.webp", alt: "Project One Main" },
-                { url: "/images/retro/untitled/tank.webp", alt: "Project One Detail"},
-                { url: "/images/retro/untitled/rendertest.webp", alt: "Project One Close-up" },
-                { url: "/images/retro/untitled/preview.webp", alt: "Project One Detail"},
-                { url: "/images/retro/untitled/concept.webp", alt: "Project One Detail"},
+                { url: "/images/retro/untitled/bgtest.webp", alt: "Ingame background" },
+                { url: "/images/retro/untitled/tank.webp", alt: "Game character - Tank"},
+                { url: "/images/retro/untitled/rendertest.webp", alt: "Game character - Assasin" },
+                { url: "/images/retro/untitled/preview.webp", alt: "Game preview"},
+                { url: "/images/retro/untitled/concept.webp", alt: "Concept render"},
             ],
             videoUrl: "https://www.youtube.com/embed/RJHFx1jc5Oc",
             isRight: false
@@ -36,8 +36,8 @@
             title: "UNIVERSITY MODELING PRACTICE",
             description: "A simple university assignment, I have created, rigged and textured the knight, so that It can be moved within blender and posed. Probably my favorite knight model I have done so far, very happy with how clean he turned out! The background was also a part of the assignment, I wanted to create a somber forest scape, with a towering castle in the back, while also maintaining the depth and atmosphere.",
             images: [
-                { url: "/images/retro/proj2/gifmaker_me.gif", alt: "Project Two Main" },
-                { url: "/images/retro/proj2/bg.jpg", alt: "Project Two Main"}
+                { url: "/images/retro/proj2/gifmaker_me.gif", alt: "Model turnaround" },
+                { url: "/images/retro/proj2/bg.jpg", alt: "Medieval forest background"}
             ],
             isRight: true
         },
@@ -46,8 +46,8 @@
             title: "BACKSTREETS",
             description: "A personal challenge, where I wanted to learn more software to add to my toolbelt in the future. I at first only wanted to have a quick enviro render, however I then created a character for the scene, and all of a sudden it was animated. I then edited the animations in davinci resolve, and created a pretty artistic piece in the end :) ",
             images: [
-                { url: "/images/retro/to-add/main.webp", alt: "Project Three Main" },
-                { url: "/images/retro/to-add/background.webp", alt: "Project Three Detail"}
+                { url: "/images/retro/to-add/main.webp", alt: "Closeup render PSX" },
+                { url: "/images/retro/to-add/background.webp", alt: "Wide shot of backstreets, PSX"}
             ],
             videoUrl: "https://www.youtube.com/embed/ECQ7oTGyaNY",
             isRight: false
@@ -57,9 +57,9 @@
             title: "UYUU - Stream Background/Model",
             description: "A friend of mine wanted to have a sort of intermission background for his streams, and I really wanted to model something in the psx style, so I took it upon myself to create the 3D model of his avatar, aswell as the render of the intermission stage. I was pretty happy with how both turned out! It was a very fun project for me",
             images: [
-                { url: "/images/retro/uyuy/uyuu-main.webp", alt: "Project Two Main" },
-                { url: "/images/retro/uyuy/ujuj-stream.webp", alt: "Project Two Main" },
-                { url: "/images/retro/uyuy/uyuu-model.webp", alt: "Project Two Main" }
+                { url: "/images/retro/uyuy/uyuu-main.webp", alt: "Background art" },
+                { url: "/images/retro/uyuy/ujuj-stream.webp", alt: "Background art, livestream screenshot" },
+                { url: "/images/retro/uyuy/uyuu-model.webp", alt: "Raw Vtuber model" }
             ],
             isRight: true
         }
