@@ -1,5 +1,7 @@
 <script lang="ts">
     import { onMount } from 'svelte';
+    import { browser } from '$app/environment';
+
     let cursorX: number = 0;
     let cursorY: number = 0;
     let cursor: HTMLDivElement;
@@ -12,18 +14,19 @@
             cursor.style.left = `${cursorX}px`;
             cursor.style.top = `${cursorY}px`;
 
-            // Check if the element under cursor is clickable
             const target = e.target as HTMLElement;
             isClickable = target.matches('a, button, [role="button"], input, select, textarea') || 
-                        target.closest('a, button, [role="button"], input, select, textarea') !== null;
+                         target.closest('a, button, [role="button"], input, select, textarea') !== null;
         }
     }
 
     onMount(() => {
-        document.addEventListener('mousemove', updateCursorPosition);
-        return () => {
-            document.removeEventListener('mousemove', updateCursorPosition);
-        };
+        if (browser) {
+            document.addEventListener('mousemove', updateCursorPosition);
+            return () => {
+                document.removeEventListener('mousemove', updateCursorPosition);
+            };
+        }
     });
 </script>
 

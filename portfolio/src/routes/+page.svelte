@@ -90,7 +90,7 @@
 
       <div class="hero-visual">
         <div class="image-container">
-          <ImageShader imageSrc="{base}/images/landing.jpg"></ImageShader>
+          <ImageShader imageSrc="/images/landing.jpg"></ImageShader>
         </div>
       </div>
     </div>

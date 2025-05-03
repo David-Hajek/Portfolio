@@ -232,6 +232,7 @@
   onMount(() => {
     // Wait for next tick to ensure DOM elements are bound
     setTimeout(() => {
+      
       if (!imageContainer || !imageElement) {
         console.error("ImageShader: Could not initialize - DOM elements not available");
         return;
@@ -278,7 +279,7 @@
 </script>
 
 <div bind:this={imageContainer} class="image-container" style={`${exactWidth || exactHeight ? '' : `min-height: ${minHeight};`}`}>
-  <img bind:this={imageElement} src={imageSrc} alt="Shader Effect" />
+  <img bind:this={imageElement} src={`${base}${imageSrc}`} alt="Shader Effect" />
 </div>
 
 <style>
