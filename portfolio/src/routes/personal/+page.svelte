@@ -426,7 +426,7 @@
     }
 
     p {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
         line-height: 1.6;
         color: #a0a0a0;
         text-align: left;

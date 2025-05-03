@@ -76,7 +76,9 @@
     bind:innerWidth 
     bind:innerHeight 
 /> <!-- binds the scroll to the variable y-->
+{#if innerWidth > 768}
 <CustomCursor />
+{/if}
 
 <svelte:head>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -88,7 +90,9 @@
     <div class="header-container" transition:fade={{ duration: 300 }}>
         <!-- left side -->
         <div class="left-info unblurred">
-            <img src="{base}/images/david-icon.png" class="logo" alt="David Icon" />
+            <a href="{base}/" class="logo-link">
+                <img src="{base}/images/david-icon.png" class="logo" alt="David Icon" />
+            </a>
             <span>3D GENERALIST</span>
             <span class="status">OPEN TO WORK ●</span>
         </div>
@@ -585,6 +589,7 @@
     }
 
     .nav-blur ul li a.active::after {
+        content: '';
         position: absolute;
         bottom: -4px;
         left: 0;
@@ -923,6 +928,25 @@
         }
     }
     
+    .logo-link {
+        display: inline-block;
+        transition: transform 0.3s ease, filter 0.3s ease;
+        text-decoration: none;
+    }
+    
+    .logo-link:hover {
+        transform: scale(1.1);
+        filter: drop-shadow(0 0 8px rgba(80, 170, 241, 0.7));
+    }
+    
+    .logo-link:active {
+        transform: scale(0.95);
+    }
+    
+    .logo {
+        transition: all 0.3s ease;
+    }
+
     @media (max-width: 480px) {
         nav ul {
             gap: 0.5rem;

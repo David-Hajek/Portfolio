@@ -45,7 +45,7 @@
           root: null, 
           threshold: 0.2 // the threshold that has to be passed in order for it to be displayed
         });
-        observer.observe(canvasContainer);
+        observer.observe(canvasContainer); 
   
         onDestroy(() => observer.disconnect());
       }

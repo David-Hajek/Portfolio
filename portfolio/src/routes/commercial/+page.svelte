@@ -194,7 +194,7 @@
                 bind:this={sections[i]}>
                 <div class="content-column images">
                     {#if project.videoUrl}
-                    <div class="video-wrapper" class:vertical={project.videoUrl.includes('vimeo')} class:horizontal={!project.videoUrl.includes('vimeo')}>
+                    <div class="video-wrapper" class:vertical={project.videoUrl.includes('vimeo')} class:horizontal={!project.videoUrl.includes('vimeo')}> 
                         <iframe
                             src={project.videoUrl}
                             title={project.title}
