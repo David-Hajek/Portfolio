@@ -4,6 +4,7 @@
     import { onMount } from 'svelte';;
     import { fly, fade } from 'svelte/transition';
     import CustomCursor from '$lib/CustomCursor.svelte';
+    import { base } from '$app/paths';
 
     let y: number = 0;  // current user y height
     let prevY: number = 0; // last logged y 
@@ -81,13 +82,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </svelte:head>
 
-<link rel="stylesheet" href="/styles/global.css" />
+<link rel="stylesheet" href="{base}/styles/global.css" />
 <header class={isHeaderVisible ? 'fade-in' : 'fade-out'}>
     {#if mounted}
     <div class="header-container" transition:fade={{ duration: 300 }}>
         <!-- left side -->
         <div class="left-info unblurred">
-            <img src="/images/david-icon.png" class="logo" alt="David Icon" />
+            <img src="{base}/images/david-icon.png" class="logo" alt="David Icon" />
             <span>3D GENERALIST</span>
             <span class="status">OPEN TO WORK ●</span>
         </div>
@@ -96,22 +97,22 @@
         <nav class="nav-blur desktop-nav">
             <ul>
                 <li>
-                    <a href="/" class="{$page.url.pathname === '/' ? 'nav-link active' : 'nav-link'}" data-sveltekit-preload-data>HOME</a>
+                    <a href="{base}/" class="{$page.url.pathname === '/' ? 'nav-link active' : 'nav-link'}" data-sveltekit-preload-data>HOME</a>
                 </li>
                 <li>
-                    <a href="/personal" class="{$page.url.pathname === '/personal' ? 'nav-link active' : 'nav-link'}" data-sveltekit-preload-data>PERSONAL</a>
+                    <a href="{base}/personal" class="{$page.url.pathname === '/personal' ? 'nav-link active' : 'nav-link'}" data-sveltekit-preload-data>PERSONAL</a>
                 </li>
                 <li>
-                    <a href="/commercial" class="{$page.url.pathname === '/commercial' ? 'nav-link active' : 'nav-link'}" data-sveltekit-preload-data>COMMERCIAL</a>
+                    <a href="{base}/commercial" class="{$page.url.pathname === '/commercial' ? 'nav-link active' : 'nav-link'}" data-sveltekit-preload-data>COMMERCIAL</a>
                 </li>
                 <li>
-                    <a href="/retro" class="{$page.url.pathname === '/retro' ? 'nav-link active' : 'nav-link'}" data-sveltekit-preload-data>RETRO</a>
+                    <a href="{base}/retro" class="{$page.url.pathname === '/retro' ? 'nav-link active' : 'nav-link'}" data-sveltekit-preload-data>RETRO</a>
                 </li>
                 <li>
-                    <a href="/about_me" class="{$page.url.pathname === '/about_me' ? 'nav-link active' : 'nav-link'}" data-sveltekit-preload-data>ABOUT ME</a>
+                    <a href="{base}/about_me" class="{$page.url.pathname === '/about_me' ? 'nav-link active' : 'nav-link'}" data-sveltekit-preload-data>ABOUT ME</a>
                 </li>
                 <li>
-                    <a href="/contact" class="{$page.url.pathname === '/contact' ? 'nav-link active' : 'nav-link'}" data-sveltekit-preload-data>CONTACT</a>
+                    <a href="{base}/contact" class="{$page.url.pathname === '/contact' ? 'nav-link active' : 'nav-link'}" data-sveltekit-preload-data>CONTACT</a>
                 </li>
             </ul>
         </nav>
@@ -136,7 +137,7 @@
         <ul>
             <li>
                 <a 
-                    href="/" 
+                    href="{base}/" 
                     class:active={$page.url.pathname === '/'} 
                     on:click={() => toggleMobileMenu()}
                 >
@@ -145,7 +146,7 @@
             </li>
             <li>
                 <a 
-                    href="/personal" 
+                    href="{base}/personal" 
                     class:active={$page.url.pathname === '/personal'} 
                     on:click={() => toggleMobileMenu()}
                 >
@@ -154,7 +155,7 @@
             </li>
             <li>
                 <a 
-                    href="/commercial" 
+                    href="{base}/commercial" 
                     class:active={$page.url.pathname === '/commercial'} 
                     on:click={() => toggleMobileMenu()}
                 >
@@ -163,7 +164,7 @@
             </li>
             <li>
                 <a 
-                    href="/retro" 
+                    href="{base}/retro" 
                     class:active={$page.url.pathname === '/retro'} 
                     on:click={() => toggleMobileMenu()}
                 >
@@ -172,7 +173,7 @@
             </li>
             <li>
                 <a 
-                    href="/about_me" 
+                    href="{base}/about_me" 
                     class:active={$page.url.pathname === '/about_me'} 
                     on:click={() => toggleMobileMenu()}
                 >
@@ -181,7 +182,7 @@
             </li>
             <li>
                 <a 
-                    href="/contact" 
+                    href="{base}/contact" 
                     class:active={$page.url.pathname === '/contact'} 
                     on:click={() => toggleMobileMenu()}
                 >
@@ -217,16 +218,16 @@
                     </a>
                     <div class="social-links">
                         <a href="https://www.linkedin.com/in/david-h%C3%A1jek-98901b292/" target="_blank" class="social-link">
-                            <img src="/images/linkedin.png" alt="LinkedIn" class="footer-icon" />
+                            <img src="{base}/images/linkedin.png" alt="LinkedIn" class="footer-icon" />
                         </a>
                         <a href="https://www.artstation.com/naden" target="_blank" class="social-link">
-                            <img src="/images/artstation.png" alt="ArtStation" class="footer-icon" />
+                            <img src="{base}/images/artstation.png" alt="ArtStation" class="footer-icon" />
                         </a>
                         <a href="https://mhaace.itch.io/" target="_blank" class="social-link">
-                            <img src="/images/itch.png" alt="Itch.io" class="footer-icon" />
+                            <img src="{base}/images/itch.png" alt="Itch.io" class="footer-icon" />
                         </a>
                         <a href="https://www.instagram.com/dejvid.hajek/?hl=en" target="_blank" class="social-link">
-                            <img src="/images/instagram.png" alt="Instagram" class="footer-icon" />
+                            <img src="{base}/images/instagram.png" alt="Instagram" class="footer-icon" />
                         </a>
                     </div>
                 </div>
@@ -248,12 +249,12 @@
                 <h3>Quick Links</h3>
                 <nav class="footer-nav">
                     <ul>
-                        <li><a href="/" class="footer-link">Home</a></li>
-                        <li><a href="/personal" class="footer-link">Personal</a></li>
-                        <li><a href="/commercial" class="footer-link">Commercial</a></li>
-                        <li><a href="/retro" class="footer-link">Retro</a></li>
-                        <li><a href="/about_me" class="footer-link">About Me</a></li>
-                        <li><a href="/contact" class="footer-link">Contact</a></li>
+                        <li><a href="{base}/" class="footer-link">Home</a></li>
+                        <li><a href="{base}/personal" class="footer-link">Personal</a></li>
+                        <li><a href="{base}/commercial" class="footer-link">Commercial</a></li>
+                        <li><a href="{base}/retro" class="footer-link">Retro</a></li>
+                        <li><a href="{base}/about_me" class="footer-link">About Me</a></li>
+                        <li><a href="{base}/contact" class="footer-link">Contact</a></li>
                     </ul>
                 </nav>
             </div>

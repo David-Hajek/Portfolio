@@ -4,7 +4,7 @@
 	import { fade, fly } from 'svelte/transition';
 	import { reveal } from 'svelte-reveal';
 	import ImageShader from '$lib/ImageShader.svelte';
-	
+	import { base } from '$app/paths';
 	let showScrollIndicator = true;
 	let scrollY = 0;
 	
@@ -64,7 +64,7 @@
 	const project = {
 	  title: "The Mag Wrap 2025",
 	  subtitle: "Garment & Crowd Simulations",
-	  description: "I had the opportunity to contribute to The Mag Wrap 2025 under the direction of Krystof Jezek. My role focused on developing realistic garment simulations and implementing crowd dynamics.",
+	  description: "I had the opportunity to contribute to The Mag Wrap 2025 under the direction of Krystof Jezek. My role focused on developing realistic garment simulations and implementing crowd dynamics. You can watch the final series <a href='https://www.youtube.com/watch?v=bCpYQCTLIRs&t' target='_blank' rel='noopener noreferrer' style='color: #50aaf1; text-decoration: none; border-bottom: 1px solid #50aaf1;'>here</a>.",
 	  client: "THE MAG\nWorked under: Krystof Jezek",
 	  duration: "6 weeks",
 	  year: "2025",
@@ -101,7 +101,7 @@
 		  </div>
   
 		  <div class="project-intro" use:reveal={{ preset: "slide", delay: 500 }}>
-			<p>{project.description}</p>
+			<p>{@html project.description}</p>
 		  </div>
   
 		  <div class="project-meta" use:reveal={{ preset: "slide", delay: 700 }}>
@@ -166,17 +166,17 @@
 			  {#if item.type === 'video'}
 				<div class="video-wrapper">
 				  <video
-					src={item.src}
+					src={`${base}${item.src}`}
 					controls
 					preload="metadata"
-					poster={item.poster}
+					poster={`${base}${item.poster}`}
 					style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"
 				  >
 					<track kind="captions">
 				  </video>
 				</div>
 			  {:else}
-				<img src={item.src} alt={item.alt} loading="lazy" />
+				<img src={`${base}${item.src}`} alt={item.alt} loading="lazy" />
 			  {/if}
 			  {#if item.caption}
 				<p class="media-caption">{item.caption}</p>

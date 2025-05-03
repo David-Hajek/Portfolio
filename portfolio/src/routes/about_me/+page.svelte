@@ -2,6 +2,7 @@
     import { onMount } from 'svelte';
     import { reveal } from 'svelte-reveal';
     import BlackHoleShader from '$lib/BlackHoleShader.svelte';
+    import { base } from '$app/paths';
     onMount(() =>{
         console.log("Contacts loaded");
     });
@@ -11,22 +12,22 @@
 
 <div class="container glassmorphism">
     <div class="left-side" use:reveal={{ preset: "slide", y: 50, x: 0 }}>
-        <img src="/images/face.gif" alt="profile photo" class="profile"/>
+        <img src="{base}/images/face.gif" alt="profile photo" class="profile"/>
         <h1 class="contacts">SOCIAL/S</h1>
         <p class="contacts"><a href="mailto:david.mhaace@gmail.com" >david.mhaace@gmail.com</a></p>
         <nav class="contacts2">
             <ul>
-                <a href="https://www.linkedin.com/in/david-h%C3%A1jek-98901b292/">
-                    <li><img src="/images/linkedin.png" alt="linkedin" class="images"></li>
+                <a href="}https://www.linkedin.com/in/david-h%C3%A1jek-98901b292/">
+                    <li><img src="{base}/images/linkedin.png" alt="linkedin" class="images"></li>
                 </a>
-                <a href="https://www.artstation.com/naden">
-                    <li><img src="images/artstation.png" alt="artstation" class="images"></li>
+                <a href="}https://www.artstation.com/naden">
+                    <li><img src="{base}images/artstation.png" alt="artstation" class="images"></li>
                 </a>
                 <a href="https://mhaace.itch.io/">
-                    <li><img src="images/itch.png" alt="itch.io" class="images"></li>
+                    <li><img src="{base}images/itch.png" alt="itch.io" class="images"></li>
                 </a>
                 <a href="https://www.instagram.com/dejvid.hajek/?hl=en">
-                    <li><img src="images/instagram.png" alt="instagram" class="images"></li>
+                    <li><img src="{base}images/instagram.png" alt="instagram" class="images"></li>
                 </a>
             </ul>
         </nav>

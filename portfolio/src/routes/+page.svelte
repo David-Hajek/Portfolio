@@ -7,6 +7,7 @@
     import { reveal } from 'svelte-reveal';
     import { onDestroy } from 'svelte';
     import BlackHoleShader from '$lib/BlackHoleShader.svelte';
+    import { base } from '$app/paths';
     let showIntro = true;
     let fadeOutBackground = false;
     let visible = false; 
@@ -82,14 +83,14 @@
         </div>
 
         <div class="hero-cta" use:reveal={{ preset: "slide", delay: 2600, threshold: 0.01 }}>
-          <a href="/personal" class="primary-btn">View My Work</a>
-          <a href="/contact" class="secondary-btn">Let's Talk</a>
+          <a href="{base}/personal" class="primary-btn">View My Work</a>
+          <a href="{base}/contact" class="secondary-btn">Let's Talk</a>
         </div>
       </div>
 
       <div class="hero-visual">
         <div class="image-container">
-          <ImageShader imageSrc="images/landing.jpg"></ImageShader>
+          <ImageShader imageSrc="{base}/images/landing.jpg"></ImageShader>
         </div>
       </div>
     </div>
@@ -105,9 +106,9 @@
       <h1 class="section-title" use:reveal={{ preset: "slide", delay: 150, threshold: 0.01 }}>Featured Work</h1>
       <div class="accent-bar" use:reveal={{ preset: "slide", delay: 200, threshold: 0.01 }}></div>
       <div class="featured-grid" use:reveal={{ preset: "slide", delay: 250, threshold: 0.01 }}>
-        <a href="/project/visualization" class="featured-item">
+        <a href="{base}/project/visualization" class="featured-item">
           <div class="featured-image-container">
-            <img src="/images/projects/wrap/thumbnail.webp" alt="3D Visualization Project" />
+            <img src="{base}/images/projects/wrap/thumbnail.webp" alt="3D Visualization Project" />
             <div class="featured-overlay">
               <h3>THE MAG WRAP 2025</h3>
               <p>Garment & Crowd Simulations</p>
@@ -132,35 +133,35 @@
 <div class="logos">
   <div class="logos-slide">
       <!-- First set of logos - Client companies -->
-      <img src="/images/apparently-logo.png" alt="Apparently Logo" class="logo" />
-      <img src="/images/krystof-logo.png" alt="Krystof Logo" class="logo" />
-      <img src="/images/mira-logo.png" alt="Mira Logo" class="logo" />
-      <img src="/images/devomi-logo.png" alt="Devomi Logo" class="logo" />
-      <img src="/images/dyky-logo.png" alt="dykast Logo" class="logo" />
+      <img src="{base}/images/apparently-logo.png" alt="Apparently Logo" class="logo" />
+      <img src="{base}/images/krystof-logo.png" alt="Krystof Logo" class="logo" />
+      <img src="{base}/images/mira-logo.png" alt="Mira Logo" class="logo" />
+      <img src="{base}/images/devomi-logo.png" alt="Devomi Logo" class="logo" />
+      <img src="{base}/images/dyky-logo.png" alt="dykast Logo" class="logo" />
     </div>
       <!-- Second set of logos - For continuous scrolling animation -->
       <div class="logos-slide">
-      <img src="/images/apparently-logo.png" alt="Apparently Logo" class="logo" />
-      <img src="/images/krystof-logo.png" alt="Krystof Logo" class="logo" />
-      <img src="/images/mira-logo.png" alt="Mira Logo" class="logo" />
-      <img src="/images/devomi-logo.png" alt="Devomi Logo" class="logo" />
-      <img src="/images/dyky-logo.png" alt="dykast Logo" class="logo" />
+      <img src="{base}/images/apparently-logo.png" alt="Apparently Logo" class="logo" />
+      <img src="{base}/images/krystof-logo.png" alt="Krystof Logo" class="logo" />
+      <img src="{base}/images/mira-logo.png" alt="Mira Logo" class="logo" />
+      <img src="{base}/images/devomi-logo.png" alt="Devomi Logo" class="logo" />
+      <img src="{base}/images/dyky-logo.png" alt="dykast Logo" class="logo" />
     </div>
     <!-- Third set of logos - For continuous scrolling animation -->
     <div class="logos-slide">
-      <img src="/images/apparently-logo.png" alt="Apparently Logo" class="logo" />
-      <img src="/images/krystof-logo.png" alt="Krystof Logo" class="logo" />
-      <img src="/images/mira-logo.png" alt="Mira Logo" class="logo" />
-      <img src="/images/devomi-logo.png" alt="Devomi Logo" class="logo" />
-      <img src="/images/dyky-logo.png" alt="dykast Logo" class="logo" />
+      <img src="{base}/images/apparently-logo.png" alt="Apparently Logo" class="logo" />
+      <img src="{base}/images/krystof-logo.png" alt="Krystof Logo" class="logo" />
+      <img src="{base}/images/mira-logo.png" alt="Mira Logo" class="logo" />
+      <img src="{base}/images/devomi-logo.png" alt="Devomi Logo" class="logo" />
+      <img src="{base}/images/dyky-logo.png" alt="dykast Logo" class="logo" />
     </div>
     <!-- Fourth set of logos - For continuous scrolling animation -->
     <div class="logos-slide">
-      <img src="/images/apparently-logo.png" alt="Apparently Logo" class="logo" />
-      <img src="/images/krystof-logo.png" alt="Krystof Logo" class="logo" />
-      <img src="/images/mira-logo.png" alt="Mira Logo" class="logo" />
-      <img src="/images/devomi-logo.png" alt="Devomi Logo" class="logo" />
-      <img src="/images/dyky-logo.png" alt="dykast Logo" class="logo" />
+      <img src="{base}/images/apparently-logo.png" alt="Apparently Logo" class="logo" />
+      <img src="{base}/images/krystof-logo.png" alt="Krystof Logo" class="logo" />
+      <img src="{base}/images/mira-logo.png" alt="Mira Logo" class="logo" />
+      <img src="{base}/images/devomi-logo.png" alt="Devomi Logo" class="logo" />
+      <img src="{base}/images/dyky-logo.png" alt="dykast Logo" class="logo" />
 </div>
 </div>
 <!-- Testimonials Section -->
@@ -180,7 +181,7 @@
             <div class="testimonial-author">
               <strong>Mira Lumière</strong>
               <span>Director @ Yoimira Entertainment</span>
-              <img src="/images/mira-logo.png" alt="Mira Logo" class="logo-testamonial" style="opacity:0.5" />
+              <img src="{base}/images/mira-logo.png" alt="Mira Logo" class="logo-testamonial" style="opacity:0.5" />
             </div>
           </div>
         </div>
@@ -194,7 +195,7 @@
             <div class="testimonial-author">
               <strong>Krystof Jezek</strong>
               <span>Motion Director @ Krystof Jezek</span>
-              <img src="/images/krystof-logo.png" alt="Krystof Logo" class="logo-testamonial" style="opacity:0.5" />
+              <img src="{base}/images/krystof-logo.png" alt="Krystof Logo" class="logo-testamonial" style="opacity:0.5" />
             </div>
           </div>
         </div>
@@ -271,7 +272,7 @@
       <div class="sections-right">
         <div class="sections-grid" use:reveal={{ preset: "slide", delay: 120, threshold: 0.01 }}>
           <a 
-            href="/personal" 
+            href="{base}/personal" 
             class="section-item"
             on:mousemove={(e) => handleMouseMove(e, '/images/gifs/personal.gif')}
             on:mouseleave={handleMouseLeave}
@@ -281,7 +282,7 @@
             <div class="section-number">01</div>
           </a>
           <a 
-            href="/commercial" 
+            href="{base}/commercial" 
             class="section-item"
             on:mousemove={(e) => handleMouseMove(e, '/images/gifs/commercial.gif')}
             on:mouseleave={handleMouseLeave}
@@ -291,7 +292,7 @@
             <div class="section-number">02</div>
           </a>
           <a 
-            href="/retro" 
+            href="{base}/retro" 
             class="section-item"
             on:mousemove={(e) => handleMouseMove(e, '/images/gifs/retro.gif')}
             on:mouseleave={handleMouseLeave}
@@ -311,7 +312,7 @@
     class="cursor-preview"
     style="left: {mouseX + 180}px; top: {mouseY-50}px;"
   >
-    <img src={cursorGif} alt="Section Preview" />
+    <img src={base}{cursorGif} alt="Section Preview" />
   </div>
 {/if}
 

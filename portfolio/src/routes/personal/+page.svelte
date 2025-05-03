@@ -2,7 +2,7 @@
     import { onMount } from 'svelte';
     import { fade, scale } from 'svelte/transition';
     import { cubicOut } from 'svelte/easing';
-
+    import { base } from '$app/paths';
 
     interface Project {
         id: number;
@@ -194,7 +194,7 @@
                             tabindex="0"
                         >
                             <img 
-                                src={image.url} 
+                                src={`${base}${image.url}`} 
                                 alt={image.alt}
                                 loading="lazy"
                             />
@@ -225,7 +225,7 @@
                     </div>
             </div>
             <div class="right-side">
-                <a href="../commercial" class="next-button">
+                <a href="{base}../commercial" class="next-button">
                     <div class="button-content">
                         <span class="button-text">Commercial Section</span>
                         <div class="arrow-container">
@@ -249,7 +249,7 @@
                 transition:scale={{ duration: 300, easing: cubicOut }}
                 on:click|stopPropagation
             >
-                <img src={modalImage.url} alt={modalImage.alt} />
+                <img src={`${base}${modalImage.url}`} alt={modalImage.alt} />
                 <button class="close-button" on:click={closeModal}>×</button>
             </div>
         </div>

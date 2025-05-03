@@ -3,6 +3,7 @@
     import { fade, scale } from 'svelte/transition';
     import { cubicOut } from 'svelte/easing';
     import { reveal } from 'svelte-reveal';
+    import { base } from '$app/paths';
     interface Project {
         id: number;
         title: string;
@@ -149,7 +150,7 @@
                         tabindex="0"
                     >
                         <img 
-                            src={image.url} 
+                            src={`${base}${image.url}`} 
                             alt={image.alt}
                             loading="lazy"
                         />
@@ -182,7 +183,7 @@
             transition:scale={{ duration: 300, easing: cubicOut }}
             on:click|stopPropagation
         >
-            <img src={modalImage.url} alt={modalImage.alt} />
+            <img src={`${base}${modalImage.url}`} alt={modalImage.alt} />
             <button class="close-button" on:click={closeModal}>×</button>
         </div>
     </div>

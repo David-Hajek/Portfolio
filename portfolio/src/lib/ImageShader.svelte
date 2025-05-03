@@ -2,7 +2,7 @@
   import { onMount, onDestroy } from 'svelte';
   import * as THREE from 'three';
   import { vertexShader, fragmentShader } from '$lib/imageshader.js';
-  
+  import { base } from '$app/paths';
   // Props
   export let imageSrc;
   export let exactWidth = undefined; // exact width
@@ -239,7 +239,7 @@
       
       // Load image and initialize
       const textureLoader = new THREE.TextureLoader();
-      textureLoader.load(imageSrc, (texture) => {
+      textureLoader.load(`${base}${imageSrc}`, (texture) => {
         initializeScene(texture);
         animateScene();
         
@@ -278,7 +278,7 @@
 </script>
 
 <div bind:this={imageContainer} class="image-container" style={`${exactWidth || exactHeight ? '' : `min-height: ${minHeight};`}`}>
-  <img bind:this={imageElement} src={imageSrc} alt="Shader Effect" />
+  <img bind:this={imageElement} src={`${base}${imageSrc}`} alt="Shader Effect" />
 </div>
 
 <style>
