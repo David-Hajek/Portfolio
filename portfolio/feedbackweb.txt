@@ -16,3 +16,5 @@ david logo at vraci na homepage
 zmenit description z default sveltekit
 
 dat pryc kulicku na mobilech
+
+kdyz se selectne home, personal apod v live verzi, neni podtrzenej
