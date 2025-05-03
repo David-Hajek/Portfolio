@@ -4,7 +4,6 @@ laggy kurzor
 jen jednou ukazat welcome
 personal hodne prazdneho mista
 
-divnej kurzor? nechava za sebou kokotinu
 
 upravit vimeo at nemuzes vybirat dalsi videa
 
@@ -12,7 +11,9 @@ vymenit mira video at je tam neco bez reklam
 to same u krajace 
 
 
-zmenit description z default sveltekit
+
+
+zmenit description z default sveltekit hotovo
 
 david logo at vraci na homepage hotovo
 
