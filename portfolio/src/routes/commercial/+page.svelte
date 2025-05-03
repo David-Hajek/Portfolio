@@ -286,7 +286,7 @@
                     </div>
             </div>
             <div class="right-side">
-                <a href="{base}../retro" class="next-button">
+                <a href="{base}/retro" class="next-button">
                     <div class="button-content">
                         <span class="button-text">Retro Section</span>
                         <div class="arrow-container">

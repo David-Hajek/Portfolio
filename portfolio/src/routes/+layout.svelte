@@ -956,15 +956,15 @@
     
 
 
-  .nav-link[href="/retro"]:hover,
-  .nav-link[href="/retro"].active {
+  .nav-link[href="{base}/retro"]:hover,
+  .nav-link[href="{base}/retro"].active {
     color: #50aaf1;
     text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
     transform: translateY(-2px);
   }
 
   @media (max-width: 768px) {
-    .mobile-nav ul li a[href="/retro"] {
+    .mobile-nav ul li a[href="{base}/retro"] {
       font-family: 'Press Start 2P', cursive;
       font-size: 1.2em;
       letter-spacing: 1px;

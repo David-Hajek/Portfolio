@@ -17,17 +17,17 @@
         <p class="contacts"><a href="mailto:david.mhaace@gmail.com" >david.mhaace@gmail.com</a></p>
         <nav class="contacts2">
             <ul>
-                <a href="}https://www.linkedin.com/in/david-h%C3%A1jek-98901b292/">
+                <a href="https://www.linkedin.com/in/david-h%C3%A1jek-98901b292/">
                     <li><img src="{base}/images/linkedin.png" alt="linkedin" class="images"></li>
                 </a>
-                <a href="}https://www.artstation.com/naden">
-                    <li><img src="{base}images/artstation.png" alt="artstation" class="images"></li>
+                <a href="https://www.artstation.com/naden">
+                    <li><img src="{base}/images/artstation.png" alt="artstation" class="images"></li>
                 </a>
                 <a href="https://mhaace.itch.io/">
-                    <li><img src="{base}images/itch.png" alt="itch.io" class="images"></li>
+                    <li><img src="{base}/images/itch.png" alt="itch.io" class="images"></li>
                 </a>
                 <a href="https://www.instagram.com/dejvid.hajek/?hl=en">
-                    <li><img src="{base}images/instagram.png" alt="instagram" class="images"></li>
+                    <li><img src="{base}/images/instagram.png" alt="instagram" class="images"></li>
                 </a>
             </ul>
         </nav>

@@ -58,7 +58,7 @@
             title: "HWEI - BUST SCULPT",
             description: "Hwei was a personal challenge for me, as I always wanted to try sculpting, I initially wanted to sculpt the entire character, but due to time constraints, I settled onto creating just the bust. This model was project in which I wanted to expand my repertoaire of 3D software, as I wanted to learn more 3DCoat and Zbrush respectively",
             images: [
-                { url: "images/hwei/david-hajek-hweisidefinal.jpg", alt: "Hwei money shot" },
+                { url: "/images/hwei/david-hajek-hweisidefinal.jpg", alt: "Hwei money shot" },
                 { url: "/images/hwei/david-hajek-frontbase.jpg", alt: "Flat shaded base model"}
             ],
             isRight: false
@@ -225,7 +225,7 @@
                     </div>
             </div>
             <div class="right-side">
-                <a href="{base}../commercial" class="next-button">
+                <a href="{base}/commercial" class="next-button">
                     <div class="button-content">
                         <span class="button-text">Commercial Section</span>
                         <div class="arrow-container">

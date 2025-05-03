@@ -278,7 +278,7 @@
 </script>
 
 <div bind:this={imageContainer} class="image-container" style={`${exactWidth || exactHeight ? '' : `min-height: ${minHeight};`}`}>
-  <img bind:this={imageElement} src={`${base}${imageSrc}`} alt="Shader Effect" />
+  <img bind:this={imageElement} src={imageSrc} alt="Shader Effect" />
 </div>
 
 <style>
