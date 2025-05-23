@@ -101,22 +101,22 @@
         <nav class="nav-blur desktop-nav">
             <ul>
                 <li>
-                    <a href="{base}/" class="{$page.url.pathname === '/' ? 'nav-link active' : 'nav-link'}" data-sveltekit-preload-data>HOME</a>
+                    <a href="{base}/" class="{$page.url.pathname === '/' ? 'nav-link active' : 'nav-link'}" data-sveltekit-preload-data aria-current={$page.url.pathname === '/' ? 'page' : undefined}>HOME</a>
                 </li>
                 <li>
-                    <a href="{base}/personal" class="{$page.url.pathname === '/personal' ? 'nav-link active' : 'nav-link'}" data-sveltekit-preload-data>PERSONAL</a>
+                    <a href="{base}/personal" class="{$page.url.pathname === '/personal' ? 'nav-link active' : 'nav-link'}" data-sveltekit-preload-data aria-current={$page.url.pathname === '/personal' ? 'page' : undefined}>PERSONAL</a>
                 </li>
                 <li>
-                    <a href="{base}/commercial" class="{$page.url.pathname === '/commercial' ? 'nav-link active' : 'nav-link'}" data-sveltekit-preload-data>COMMERCIAL</a>
+                    <a href="{base}/commercial" class="{$page.url.pathname === '/commercial' ? 'nav-link active' : 'nav-link'}" data-sveltekit-preload-data aria-current={$page.url.pathname === '/commercial' ? 'page' : undefined}>COMMERCIAL</a>
                 </li>
                 <li>
-                    <a href="{base}/retro" class="{$page.url.pathname === '/retro' ? 'nav-link active' : 'nav-link'}" data-sveltekit-preload-data>RETRO</a>
+                    <a href="{base}/retro" class="{$page.url.pathname === '/retro' ? 'nav-link active' : 'nav-link'}" data-sveltekit-preload-data aria-current={$page.url.pathname === '/retro' ? 'page' : undefined}>RETRO</a>
                 </li>
                 <li>
-                    <a href="{base}/about_me" class="{$page.url.pathname === '/about_me' ? 'nav-link active' : 'nav-link'}" data-sveltekit-preload-data>ABOUT ME</a>
+                    <a href="{base}/about_me" class="{$page.url.pathname === '/about_me' ? 'nav-link active' : 'nav-link'}" data-sveltekit-preload-data aria-current={$page.url.pathname === '/about_me' ? 'page' : undefined}>ABOUT ME</a>
                 </li>
                 <li>
-                    <a href="{base}/contact" class="{$page.url.pathname === '/contact' ? 'nav-link active' : 'nav-link'}" data-sveltekit-preload-data>CONTACT</a>
+                    <a href="{base}/contact" class="{$page.url.pathname === '/contact' ? 'nav-link active' : 'nav-link'}" data-sveltekit-preload-data aria-current={$page.url.pathname === '/contact' ? 'page' : undefined}>CONTACT</a>
                 </li>
             </ul>
         </nav>
@@ -583,26 +583,84 @@
     }
 
     /* Active link styling */
-    .nav-blur ul li a.active {
-        color: #50AAF1;
-        position: relative;
-    }
-
-    .nav-blur ul li a.active::after {
-        content: '';
-        position: absolute;
-        bottom: -4px;
-        left: 0;
-        width: 100%;
-        height: 3px;
-        background-color: #50AAF1;
-        transform: scaleX(1);
-    }
-
-    :global(a[aria-current="page"]) {
+    /* Active link styling - with enhanced specificity */
+    .nav-blur ul li a.active,
+    .nav-blur ul li a[aria-current="page"],
+    :global(.nav-blur ul li a.active),
+    :global(.nav-blur ul li a[aria-current="page"]),
+    :global(header .nav-blur ul li a.active),
+    :global(header .nav-blur ul li a[aria-current="page"]) {
         color: #50AAF1 !important;
+        position: relative !important;
+        transition: none !important; /* Ensure immediate color change */
     }
 
+    .nav-blur ul li a.active::after,
+    .nav-blur ul li a[aria-current="page"]::after,
+    :global(.nav-blur ul li a.active)::after,
+    :global(.nav-blur ul li a[aria-current="page"])::after,
+    :global(header .nav-blur ul li a.active)::after,
+    :global(header .nav-blur ul li a[aria-current="page"])::after {
+        content: '' !important;
+        position: absolute !important;
+        bottom: -4px !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 3px !important;
+        background-color: #50AAF1 !important;
+        transform: scaleX(1) !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: none !important;
+        box-shadow: 0 0 8px rgba(80, 170, 241, 0.6) !important; /* Add glow effect */
+        transition: none !important; /* Ensure immediate appearance */
+    }
+
+    /* Global selectors for SvelteKit's auto-applied aria-current - enhanced */
+    :global(a[aria-current="page"]),
+    :global(nav a[aria-current="page"]),
+    :global(header nav a[aria-current="page"]),
+    :global(.nav-blur a[aria-current="page"]) {
+        color: #50AAF1 !important;
+        position: relative !important;
+    }
+    
+    :global(a[aria-current="page"])::after,
+    :global(nav a[aria-current="page"])::after,
+    :global(header nav a[aria-current="page"])::after,
+    :global(.nav-blur a[aria-current="page"])::after {
+        content: '' !important;
+        position: absolute !important;
+        bottom: -4px !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 3px !important;
+        background-color: #50AAF1 !important;
+        transform: scaleX(1) !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        box-shadow: 0 0 8px rgba(80, 170, 241, 0.6) !important; /* Add glow effect */
+        transition: none !important; /* Ensure immediate appearance */
+    }
+    
+    /* Additional targeting for SvelteKit production build */
+    :global([aria-current]) a,
+    :global([aria-current="page"]) {
+        color: #50AAF1 !important;
+        position: relative !important;
+    }
+    
+    :global([aria-current])::after,
+    :global([aria-current="page"])::after {
+        content: '' !important;
+        position: absolute !important;
+        bottom: -4px !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 3px !important;
+        background-color: #50AAF1 !important;
+        opacity: 1 !important;
+    }
     nav ul {
         list-style: none;
         padding: 0;
@@ -617,12 +675,12 @@
     }
     
     .nav-link {
-        position: relative;
+        position: relative !important;
         color: white;
         text-decoration: none;
         font-weight: 500;
         border-radius: 10px;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
     
     .nav-link:hover {
@@ -633,18 +691,83 @@
     
     .nav-link::after {
         content: '';
-        position: absolute;
-        bottom: -4px;
-        left: 0;
+        position: absolute !important;
+        bottom: -4px !important;
+        left: 0 !important;
         width: 0;
-        height: 2px;
+        height: 3px !important; /* Increased height for more prominence */
         background-color: #50aaf1;
         transition: width 0.3s ease;
+        z-index: 10 !important; /* Ensure the underline is always visible */
+        pointer-events: none !important;
     }
     
+    /* Hover and active states for underline */
     .nav-link:hover::after,
-    .nav-link.unblurred::after {
-        width: 100%;
+    .nav-link.unblurred::after,
+    .nav-link.active::after,
+    .nav-link[aria-current="page"]::after,
+    :global(.nav-link.active)::after,
+    :global(.nav-link[aria-current="page"])::after,
+    :global(a.nav-link.active)::after,
+    :global(a.nav-link[aria-current="page"])::after,
+    :global(nav a.active)::after,
+    :global(nav a[aria-current="page"])::after {
+        width: 100% !important;
+        height: 3px !important;
+        box-shadow: 0 0 8px rgba(80, 170, 241, 0.6) !important; /* Add glow effect */
+    }
+    
+    /* Comprehensive active link styling */
+    .nav-link.active,
+    .nav-link[aria-current="page"],
+    :global(.nav-link.active),
+    :global(.nav-link[aria-current="page"]),
+    :global(a.nav-link.active),
+    :global(a.nav-link[aria-current="page"]),
+    :global(nav a.active),
+    :global(nav a[aria-current="page"]) {
+        color: #50aaf1 !important;
+        text-shadow: 0 0 10px rgba(80, 170, 241, 0.3) !important;
+        position: relative !important;
+    }
+    
+    /* Production build specific selectors with increased specificity */
+    :global(nav ul li a.active),
+    :global(nav ul li a[aria-current="page"]),
+    :global(header nav ul li a.active),
+    :global(header nav ul li a[aria-current="page"]),
+    :global(.nav-blur ul li a.active),
+    :global(.nav-blur ul li a[aria-current="page"]) {
+        color: #50aaf1 !important;
+        position: relative !important;
+        transition: none !important; /* Prevent transition delays */
+    }
+    
+    :global(nav ul li a.active)::after,
+    :global(nav ul li a[aria-current="page"])::after,
+    :global(header nav ul li a.active)::after,
+    :global(header nav ul li a[aria-current="page"])::after,
+    :global(.nav-blur ul li a.active)::after,
+    :global(.nav-blur ul li a[aria-current="page"])::after {
+        content: '' !important;
+        position: absolute !important;
+        bottom: -4px !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 3px !important;
+        background-color: #50aaf1 !important;
+        transform: scaleX(1) !important;
+        box-shadow: 0 0 8px rgba(80, 170, 241, 0.6) !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        z-index: 10 !important;
+        transition: none !important; /* Prevent transition delays */
+    }
+    
+    /* Direct attribute selector for production build */
+    :global([aria-current="page"]) {
+        color: #50aaf1 !important;
     }
     
     

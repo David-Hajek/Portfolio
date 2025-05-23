@@ -3,7 +3,7 @@
     import * as THREE from 'three';
     import { vertexShader, fragmentShader } from '$lib/shader.js';
     
-    export let pixelRatio = 0.5;
+    export let pixelRatio = 0.35;
     
     let container;
     let camera, scene, renderer;
