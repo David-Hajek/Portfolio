@@ -101,22 +101,22 @@
         <nav class="nav-blur desktop-nav">
             <ul>
                 <li>
-                    <a href="{base}/" class="{$page.url.pathname === '/' ? 'nav-link active' : 'nav-link'}" data-sveltekit-preload-data aria-current={$page.url.pathname === '/' ? 'page' : undefined}>HOME</a>
+                    <a href="{base}/" class="{$page.url.pathname === `${base}/` || $page.url.pathname === '/' ? 'nav-link active' : 'nav-link'}" data-sveltekit-preload-data aria-current={$page.url.pathname === `${base}/` || $page.url.pathname === '/' ? 'page' : undefined}>HOME</a>
                 </li>
                 <li>
-                    <a href="{base}/personal" class="{$page.url.pathname === '/personal' ? 'nav-link active' : 'nav-link'}" data-sveltekit-preload-data aria-current={$page.url.pathname === '/personal' ? 'page' : undefined}>PERSONAL</a>
+                    <a href="{base}/personal" class="{$page.url.pathname === `${base}/personal` || $page.url.pathname === '/personal' ? 'nav-link active' : 'nav-link'}" data-sveltekit-preload-data aria-current={$page.url.pathname === `${base}/personal` || $page.url.pathname === '/personal' ? 'page' : undefined}>PERSONAL</a>
                 </li>
                 <li>
-                    <a href="{base}/commercial" class="{$page.url.pathname === '/commercial' ? 'nav-link active' : 'nav-link'}" data-sveltekit-preload-data aria-current={$page.url.pathname === '/commercial' ? 'page' : undefined}>COMMERCIAL</a>
+                    <a href="{base}/commercial" class="{$page.url.pathname === `${base}/commercial` || $page.url.pathname === '/commercial' ? 'nav-link active' : 'nav-link'}" data-sveltekit-preload-data aria-current={$page.url.pathname === `${base}/commercial` || $page.url.pathname === '/commercial' ? 'page' : undefined}>COMMERCIAL</a>
                 </li>
                 <li>
-                    <a href="{base}/retro" class="{$page.url.pathname === '/retro' ? 'nav-link active' : 'nav-link'}" data-sveltekit-preload-data aria-current={$page.url.pathname === '/retro' ? 'page' : undefined}>RETRO</a>
+                    <a href="{base}/retro" class="{$page.url.pathname === `${base}/retro` || $page.url.pathname === '/retro' ? 'nav-link active' : 'nav-link'}" data-sveltekit-preload-data aria-current={$page.url.pathname === `${base}/retro` || $page.url.pathname === '/retro' ? 'page' : undefined}>RETRO</a>
                 </li>
                 <li>
-                    <a href="{base}/about_me" class="{$page.url.pathname === '/about_me' ? 'nav-link active' : 'nav-link'}" data-sveltekit-preload-data aria-current={$page.url.pathname === '/about_me' ? 'page' : undefined}>ABOUT ME</a>
+                    <a href="{base}/about_me" class="{$page.url.pathname === `${base}/about_me` || $page.url.pathname === '/about_me' ? 'nav-link active' : 'nav-link'}" data-sveltekit-preload-data aria-current={$page.url.pathname === `${base}/about_me` || $page.url.pathname === '/about_me' ? 'page' : undefined}>ABOUT ME</a>
                 </li>
                 <li>
-                    <a href="{base}/contact" class="{$page.url.pathname === '/contact' ? 'nav-link active' : 'nav-link'}" data-sveltekit-preload-data aria-current={$page.url.pathname === '/contact' ? 'page' : undefined}>CONTACT</a>
+                    <a href="{base}/contact" class="{$page.url.pathname === `${base}/contact` || $page.url.pathname === '/contact' ? 'nav-link active' : 'nav-link'}" data-sveltekit-preload-data aria-current={$page.url.pathname === `${base}/contact` || $page.url.pathname === '/contact' ? 'page' : undefined}>CONTACT</a>
                 </li>
             </ul>
         </nav>
@@ -142,7 +142,7 @@
             <li>
                 <a 
                     href="{base}/" 
-                    class:active={$page.url.pathname === '/'} 
+                    class:active={$page.url.pathname === `${base}/` || $page.url.pathname === '/'} 
                     on:click={() => toggleMobileMenu()}
                 >
                     HOME
@@ -151,7 +151,7 @@
             <li>
                 <a 
                     href="{base}/personal" 
-                    class:active={$page.url.pathname === '/personal'} 
+                    class:active={$page.url.pathname === `${base}/personal` || $page.url.pathname === '/personal'} 
                     on:click={() => toggleMobileMenu()}
                 >
                     PERSONAL
@@ -160,7 +160,7 @@
             <li>
                 <a 
                     href="{base}/commercial" 
-                    class:active={$page.url.pathname === '/commercial'} 
+                    class:active={$page.url.pathname === `${base}/commercial` || $page.url.pathname === '/commercial'} 
                     on:click={() => toggleMobileMenu()}
                 >
                     COMMERCIAL
@@ -169,7 +169,7 @@
             <li>
                 <a 
                     href="{base}/retro" 
-                    class:active={$page.url.pathname === '/retro'} 
+                    class:active={$page.url.pathname === `${base}/retro` || $page.url.pathname === '/retro'} 
                     on:click={() => toggleMobileMenu()}
                 >
                     RETRO
@@ -178,7 +178,7 @@
             <li>
                 <a 
                     href="{base}/about_me" 
-                    class:active={$page.url.pathname === '/about_me'} 
+                    class:active={$page.url.pathname === `${base}/about_me` || $page.url.pathname === '/about_me'} 
                     on:click={() => toggleMobileMenu()}
                 >
                     ABOUT ME
@@ -187,7 +187,7 @@
             <li>
                 <a 
                     href="{base}/contact" 
-                    class:active={$page.url.pathname === '/contact'} 
+                    class:active={$page.url.pathname === `${base}/contact` || $page.url.pathname === '/contact'} 
                     on:click={() => toggleMobileMenu()}
                 >
                     CONTACT
