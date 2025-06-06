@@ -20,6 +20,18 @@
     const projects: Project[] = [
         {
             id: 0,
+            title: "The Fated Return",
+            description: "A small series of renders, where I tested out new tools to add to my 3D Arsenal, I used Gaea for the environment, megascans for some of the assets scattered around the scene, Houdini for the vdb beam and smoke, and finally Blender to put it all together into a cohesive piece. Edited in Lightroom and Photoshop.",
+            images: [
+                { url: "/images/fatedreturn/david-hajek-field-rend1.webp", alt: "Convenience Wide-Shot" },
+                { url: "/images/fatedreturn/david-hajek-field-rend2.webp", alt: "Convenience Close up"},
+                { url: "/images/fatedreturn/david-hajek-field-rend3.webp", alt: "Convenience Close up"},
+                { url: "/images/fatedreturn/david-hajek-process-gif.gif", alt: "Process Gif" }
+            ],
+            isRight: false
+        },
+        {
+            id: 1,
             title: "Convenience Store",
             description: "A set of renders where I really went out of my comfort zone, as I have found that I sort of gravitate to always including a character somewhere in the scene, this one however, has none. I loved the outcome of this one, it has quickly became my favorite CG creation honestly.",
             images: [
@@ -30,7 +42,7 @@
             isRight: true
         },
         {
-            id: 1,
+            id: 2,
             title: "SLAVE KNIGHT DOMINIC REDESIGN",
             description: "Dominic started out as a Matura project for my end of High School assignment, I always had a fascination with the medieval fantasy theme, and back then, I was not as proficient with 3D software as I am now, so I wanted to challange myself to recreate Dominic with my current knowledge and skillset. Staying true to the design I had set for myself baack then was my number one priority, that is why I had to create certain compromises when it came to his redesign and overall creation. Overall I was happy to finally create him the way I envisioned back then.",
             images: [
@@ -44,7 +56,7 @@
             isRight: false
         },
         {
-            id: 2,
+            id: 3,
             title: "UNCLAIMED TERRITORY",
             description: "I was always fascinated with nature and wanted to create something bright and hopeful, this was a very fun and challenging piece, as I needed to balance performance with quality and light, alot of the lighting issues were solved using blender's native light nodes. This piece also includes a gif, showcasing my workflow and my approach to solving various problems that may arise.",
             images: [
@@ -54,7 +66,7 @@
             isRight: true
         },
         {
-            id: 3,
+            id: 4,
             title: "HWEI - BUST SCULPT",
             description: "Hwei was a personal challenge for me, as I always wanted to try sculpting, I initially wanted to sculpt the entire character, but due to time constraints, I settled onto creating just the bust. This model was project in which I wanted to expand my repertoaire of 3D software, as I wanted to learn more 3DCoat and Zbrush respectively",
             images: [
@@ -64,7 +76,7 @@
             isRight: false
         },
         {
-            id: 4,
+            id: 5,
             title: "LEGARDE- SCULPT",
             description: "Creating Legarde from Fear and Hunger was a personal challenge I set out to conquer, as I wanted to aim for more realism in this one. It was tough trying to recreate the textures just right for him, so many reference photos were mandatory for this project to work. The model of the sword was provided by my good friend Tomas Dite",
             images: [
@@ -74,7 +86,7 @@
             isRight: true
         },
         {
-            id: 5,
+            id: 6,
             title: "Environment & Character Renders",
             description: "A set of renders that I created as a practice for my lighting and editing skills, these have been created a while ago, however I am still happy with them to this day, I initally started with just the character render, but wanted to branch out into a more story like component, so I went full out with the environment building and the character rendering.",
             images: [
@@ -86,7 +98,7 @@
             isRight: false
         },
         {
-            id: 6,
+            id: 7,
             title: "Game Ready Model Practice",
             description: "I wanted to challange myself with something I always wanted to tick off my bucket list. When I was younger, I loved the game Team Fortress 2 and sunk countless hours into it, so naturally, when I got older, I wanted to try and contribute to the game, I set out to create a Steam Workshop compatible item for the class Pyro, I first started out by concepting something that would fit the characters personality, as Pyro cannot express emotions via his mask, I decided to try and give him a permanent work stare, the stare that you have after a grueling day at the office. I modeled the glasses in Blender and then worked out a way to have it compatible and game ready in the steam workshop. Such a fun project",
             images: [
@@ -98,7 +110,7 @@
             isRight: true
         },
         {
-            id: 7,
+            id: 8,
             title: "Sunshower",
             description: "This was a fanmade passion project, in which I wanted to create a character from the game Limbus Company, I have also experimented with the use of After Effects, overall a very fun experience! Will most definitely do again, maybe, someday?",
             images: [

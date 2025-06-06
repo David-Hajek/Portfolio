@@ -64,25 +64,25 @@
   <div class="hero-container">
     <div class="hero-content">
       <div class="hero-text">
-        <div class="identity" use:reveal={{ preset: "slide", delay: 0, threshold: 0.01 }}>
+        <div class="identity">
           <span class="greeting">Hi, I'm</span>
           <h1 class="name">David</h1>
         </div>
 
-        <h2 class="profession" use:reveal={{ preset: "slide", delay: 1700, threshold: 0.01 }}>
+        <h2 class="profession">
           3D Artist & Visual Designer
         </h2>
 
-        <div class="tagline" use:reveal={{ preset: "slide", delay: 1900, threshold: 0.01 }}>
+        <div class="tagline">
           Transforming creative concepts into stunning digital experiences
         </div>
 
-        <div class="description" use:reveal={{ preset: "slide", delay: 2200, threshold: 0.01 }}>
+        <div class="description">
           <p>I specialize in creating immersive 3D visuals and compelling digital art that helps brands and businesses stand out in the digital space.</p>
           <p>With expertise in the 3D sphere, I bring ideas to life through technical excellence and artistic vision.</p>
         </div>
 
-        <div class="hero-cta" use:reveal={{ preset: "slide", delay: 2600, threshold: 0.01 }}>
+        <div class="hero-cta">
           <a href="{base}/personal" class="primary-btn">View My Work</a>
           <a href="{base}/contact" class="secondary-btn">Let's Talk</a>
         </div>
@@ -103,9 +103,9 @@
   <div id="glass-landingWhite"></div>
   <div class="featured-container">
     <div class="featured-content">
-      <h1 class="section-title" use:reveal={{ preset: "slide", delay: 150, threshold: 0.01 }}>Featured Work</h1>
-      <div class="accent-bar" use:reveal={{ preset: "slide", delay: 200, threshold: 0.01 }}></div>
-      <div class="featured-grid" use:reveal={{ preset: "slide", delay: 250, threshold: 0.01 }}>
+      <h1 class="section-title" >Featured Work</h1>
+      <div class="accent-bar"></div>
+      <div class="featured-grid">
         <a href="{base}/project/visualization" class="featured-item">
           <div class="featured-image-container">
             <img src="{base}/images/projects/wrap/thumbnail.webp" alt="3D Visualization Project" />
@@ -169,9 +169,9 @@
   <div id="glass-landing"></div>
   <div class="testimonials-container">
     <div class="testimonials-content">
-      <h1 class="section-title" use:reveal={{ preset: "slide", delay: 100, threshold: 0.01 }}>Client Testimonials</h1>
-      <div class="accent-bar" use:reveal={{ preset: "slide", delay: 110, threshold: 0.01 }}></div>
-      <div class="testimonials-grid" use:reveal={{ preset: "slide", delay: 120, threshold: 0.01 }}>
+      <h1 class="section-title">Client Testimonials</h1>
+      <div class="accent-bar"></div>
+      <div class="testimonials-grid">
         <div class="testimonial-card">
           <div class="testimonial-content">
             <svg class="quote-icon" viewBox="0 0 24 24" fill="currentColor">
@@ -209,11 +209,11 @@
     <div id="glass-landingWhite"></div>
     <div class="skills-container">
       <div class="skills-content">
-        <h1 class="skills-title" use:reveal={{ preset: "slide", delay: 100 , threshold: 0.01 }}>Skills</h1>
-        <div class="accent-bar" use:reveal={{ preset: "slide", delay: 110, threshold: 0.01 }}></div>
+        <h1 class="skills-title">Skills</h1>
+        <div class="accent-bar"></div>
         
         <div class="skills-section">
-          <div class="section-container" use:reveal={{ preset: "slide",  threshold: 0.01}}>
+          <div class="section-container">
             <div class="bubble-container">
               <span class="bubble">3D Modeling</span>
               <span class="bubble">Texturing</span>
@@ -228,7 +228,7 @@
             </div>
           </div>
 
-          <div class="section-container" use:reveal={{ preset: "slide", threshold: 0.01 }}>
+          <div class="section-container">
             <h2 class="section-title">Technology</h2>
             <div class="accent-bar"></div>
             <div class="bubble-container">
@@ -263,14 +263,14 @@
   <div class="sections-container">
     <div class="sections-content">
       <div class="sections-left">
-        <h1 class="mega-title" use:reveal={{ preset: "slide", delay: 50, threshold: 0.01 }}>Not Impressed<br/>Yet?</h1>
-        <div class="accent-bar" use:reveal={{ preset: "slide", delay: 100, threshold: 0.01 }}></div>
-        <p class="mega-description" use:reveal={{ preset: "slide", delay: 110 , threshold: 0.01 }}>
+        <h1 class="mega-title">Not Impressed<br/>Yet?</h1>
+        <div class="accent-bar"></div>
+        <p class="mega-description">
           Choose your journey through my portfolio collections
         </p>
       </div>
       <div class="sections-right">
-        <div class="sections-grid" use:reveal={{ preset: "slide", delay: 120, threshold: 0.01 }}>
+        <div class="sections-grid">
           <a 
             href="{base}/personal" 
             class="section-item"
