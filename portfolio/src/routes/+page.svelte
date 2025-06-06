@@ -8,7 +8,8 @@
     import { onDestroy } from 'svelte';
     import BlackHoleShader from '$lib/BlackHoleShader.svelte';
     import { base } from '$app/paths';
-    let showIntro = true;
+    import { browser } from '$app/environment';
+    let showIntro = false;
     let fadeOutBackground = false;
     let visible = false; 
     let canvasContainer: HTMLDivElement; // sets the canvas container as a divelement from html
@@ -37,8 +38,21 @@
     onMount(() => {
       console.log("Home Page Loaded");
       
-      setTimeout(() => fadeOutBackground = true, 1000); 
-      setTimeout(() => showIntro = false, 2000);
+      // Check if this is the first visit
+      if (browser) {
+        const hasVisited = localStorage.getItem('hasVisited');
+        
+        if (!hasVisited) {
+          // First time visitor - show welcome message
+          showIntro = true;
+          setTimeout(() => fadeOutBackground = true, 1000); 
+          setTimeout(() => showIntro = false, 2000);
+          
+          // Mark as visited
+          localStorage.setItem('hasVisited', 'true');
+        }
+        // If hasVisited exists, showIntro stays false (no welcome message)
+      }
   
       if (canvasContainer) {
         const observer = new IntersectionObserver(handleIntersection, {
