@@ -300,7 +300,15 @@
 			<section class="project-section" class:right={project.isRight} bind:this={sections[i]}>
 				<div class="content-column images">
 					<div class="video-wrapper">
-						<video src={project.videoUrl} title={project.title} autoplay muted loop playsinline
+						<video
+							src={project.videoUrl?.startsWith('http')
+								? project.videoUrl
+								: `${base}${project.videoUrl}`}
+							title={project.title}
+							autoplay
+							muted
+							loop
+							playsinline
 						></video>
 					</div>
 

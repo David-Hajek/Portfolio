@@ -1,17 +1,16 @@
 import adapter from '@sveltejs/adapter-static';
 
-
-const dev = process.env.NODE_ENV === 'development';
-const repoName = 'Portfolio'; // 👈 Replace with your repo name!
-
-/** @type {import('@sveltejs/kit').Config} */
-const config = {
+export default {
 	kit: {
-		adapter: adapter(),
+		adapter: adapter({
+			pages: 'build',
+			assets: 'build',
+			fallback: undefined,
+			precompress: false,
+			strict: true
+		}),
 		paths: {
-			base: dev ? '' : `/${repoName}`
-		},
+			base: '/Portfolio'  // your repo name
+		}
 	}
 };
-
-export default config;

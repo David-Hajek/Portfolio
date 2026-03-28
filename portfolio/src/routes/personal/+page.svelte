@@ -275,7 +275,11 @@
 								role="button"
 								tabindex="0"
 							>
-								<img src={`${base}${image.url}`} alt={image.alt} loading="lazy" />
+								<img
+									src={image.url.startsWith('http') ? image.url : `${base}${image.url}`}
+									alt={image.alt}
+									loading="lazy"
+								/>
 								<div class="image-overlay">
 									<span class="expand-icon">+</span>
 								</div>
@@ -323,7 +327,10 @@
 					transition:scale={{ duration: 300, easing: cubicOut }}
 					on:click|stopPropagation
 				>
-					<img src={`${base}${modalImage.url}`} alt={modalImage.alt} />
+					<img
+						src={modalImage.url.startsWith('http') ? modalImage.url : `${base}${modalImage.url}`}
+						alt={modalImage.alt}
+					/>
 					<button class="close-button" on:click={closeModal}>×</button>
 				</div>
 			</div>

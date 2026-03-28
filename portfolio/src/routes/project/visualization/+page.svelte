@@ -123,10 +123,10 @@
 				</div>
 			</div>
 
-			<div class="hero-visual">
+				<div class="hero-visual">
 				<div class="video-container">
 					<video
-						src="/images/vidz/magwrap.mp4"
+						src={`${base}/images/vidz/magwrap.mp4`}
 						class="hero-video"
 						autoplay
 						muted
