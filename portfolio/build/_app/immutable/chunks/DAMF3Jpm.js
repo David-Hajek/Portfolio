@@ -1,0 +1,1 @@
+import{F as e}from"./Doxv_zDN.js";function i(a){return function(...t){var r=t[0];return r.stopPropagation(),a==null?void 0:a.apply(this,t)}}function u(a,t){var o;var r=(o=a.$$events)==null?void 0:o[t.type],n=e(r)?r.slice():r==null?[]:[r];for(var s of n)s.call(this,t)}function l(a){const t=a-1;return t*t*t+1}export{u as b,l as c,i as s};
