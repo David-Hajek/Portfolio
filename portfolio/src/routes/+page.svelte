@@ -303,16 +303,6 @@
 			<div class="sections-right">
 				<div class="sections-grid">
 					<a
-						href="{base}/personal"
-						class="section-item"
-						on:mousemove={(e) => handleMouseMove(e, '/images/gifs/personal.gif')}
-						on:mouseleave={handleMouseLeave}
-					>
-						<h2>Personal</h2>
-						<p>Explore my creative projects and artistic expressions</p>
-						<div class="section-number">01</div>
-					</a>
-					<a
 						href="{base}/commercial"
 						class="section-item"
 						on:mousemove={(e) => handleMouseMove(e, '/images/gifs/commercial.gif')}
@@ -320,6 +310,17 @@
 					>
 						<h2>Commercial</h2>
 						<p>View my professional work and client projects</p>
+
+						<div class="section-number">01</div>
+					</a>
+					<a
+						href="{base}/personal"
+						class="section-item"
+						on:mousemove={(e) => handleMouseMove(e, '/images/gifs/personal.gif')}
+						on:mouseleave={handleMouseLeave}
+					>
+						<h2>Personal</h2>
+						<p>Explore my creative projects and artistic expressions</p>
 						<div class="section-number">02</div>
 					</a>
 					<a

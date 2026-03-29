@@ -32,8 +32,42 @@
 	const projects: Project[] = [
 		{
 			id: 0,
+			title: 'Server Environment Creation',
+			description: 'An server created for a short animation.',
+			problem: 'We needed to create an environment scene which would take place in a server room.',
+			solution:
+				'I have modeled the entire scene in blender and textured key components and closeups within substance painter.',
+			outcome:
+				'The finalized environment fit perfectly within the project and has provided the grounds for Krystof to create the finalized animation.',
+			videoUrl: '/images/vidz/netgear.mp4',
+			images: [
+				{
+					url: '/images/vidz/netgear.png',
+					alt: 'Solid View'
+				}
+			],
+			credits: {
+				company: {
+					name: 'Krystof Jezek',
+					logo: '/images/krystof-logo.png'
+				},
+				team: [
+					{
+						name: 'David Hajek',
+						role: 'Environment Modeling, Environment Texturing'
+					},
+					{
+						name: 'Krystof Jezek',
+						role: 'Rendering, Animations, Laptop screen animations, Lighting, Sound, Compositing'
+					}
+				]
+			},
+			isRight: false
+		},
+		{
+			id: 0,
 			title: 'Bottle Desturction & Smoke Sim',
-			description: 'A Houdini made ground destruction with a smoke sim',
+			description: 'A Houdini made ground destruction with a smoke sim for a concept.',
 			problem:
 				'We needed a ground destruction simulation for a bottle that would crash into it, I knew that Houdini was the right choice for this task, as it allowed me to create smoke VDBs and ground destruction RBDs very quickly',
 			solution:
@@ -70,8 +104,7 @@
 				'I created a robust geometry node setup, that allowed us to control the growth of the vegetation using invisible objects, allowing us to easily tell the software where and how quickly will the vegetation grow.',
 			outcome:
 				'Once the growth simulation was all functioning and ready, Krystof put it all together, textured the bottle, lit up the scene and rendered it all out.',
-			videoUrl:
-				'https://s3.amazonaws.com/webflow-prod-assets/5d626c045bf4d84a1c256e90/6952872620648d87bff46128_cgi_spojka%20updated-web2.mp4',
+			videoUrl: '/images/vidz/spojka.mp4',
 			images: [{ url: '', alt: '' }],
 			credits: {
 				company: {
@@ -101,8 +134,7 @@
 				'I have modelled the tweezers from a real world reference, while utilizing booleans to create the grates that held the diamond. The model was then textured within substance painter to allow for creative control when texturing the tweezers ',
 			outcome:
 				'After the model was rigged, Krystof gave it a small animation to enhance the realness of the entire shot. A gem was placed in the middle and really brought the scene together.',
-			videoUrl:
-				'https://s3.amazonaws.com/webflow-prod-assets/5d626c045bf4d84a1c256e90/69528742a754a3e0423638d2_cgi_tweezers-web2.mp4',
+			videoUrl: '/images/vidz/tweezers.mp4',
 			images: [{ url: '', alt: '' }],
 			credits: {
 				company: {
@@ -394,9 +426,9 @@
 				</div>
 			</div>
 			<div class="right-side">
-				<a href="{base}/retro" class="next-button">
+				<a href="{base}/personal" class="next-button">
 					<div class="button-content">
-						<span class="button-text">Retro Section</span>
+						<span class="button-text">Personal Section</span>
 						<div class="arrow-container">
 							<span class="arrow">→</span>
 						</div>
