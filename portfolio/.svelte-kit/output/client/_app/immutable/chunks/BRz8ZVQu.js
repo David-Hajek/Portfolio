@@ -1,1 +1,0 @@
-import{q,r as T,u as c,y as x,S as y}from"./Doxv_zDN.js";function k(i,r){return i===r||(i==null?void 0:i[y])===r}function B(i={},r,S,h){return q(()=>{var s,f;return T(()=>{s=f,f=(h==null?void 0:h())||[],c(()=>{i!==S(...f)&&(r(i,...f),s&&k(S(...s),i)&&r(null,...s))})}),()=>{x(()=>{f&&k(S(...f),i)&&r(null,...f)})}}),i}export{B as b};
