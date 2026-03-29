@@ -38,7 +38,7 @@ function _page($$payload, $$props) {
       problem: "We needed to create a growth simulation that could be easily controled within blender, as we needed full artistic control as to where and how much vegetation will grow.",
       solution: "I created a robust geometry node setup, that allowed us to control the growth of the vegetation using invisible objects, allowing us to easily tell the software where and how quickly will the vegetation grow.",
       outcome: "Once the growth simulation was all functioning and ready, Krystof put it all together, textured the bottle, lit up the scene and rendered it all out.",
-      videoUrl: "https://s3.amazonaws.com/webflow-prod-assets/5d626c045bf4d84a1c256e90/6952872620648d87bff46128_cgi_spojka%20updated-web2.mp4",
+      videoUrl: "https://s3.amazonaws.com/webflow-prod-assets/5d626c045bf4d84a1c256e90/6952764313a8841f851c94e3_cgi_spojka%20updated.webm",
       images: [{ url: "", alt: "" }],
       credits: {
         company: {
@@ -65,7 +65,7 @@ function _page($$payload, $$props) {
       problem: "I had the task to create a detailed an high definition model of tweezers that needed to hold a diamond, I knew this model needed to be high poly, as it was the second most important thing in the shot.",
       solution: "I have modelled the tweezers from a real world reference, while utilizing booleans to create the grates that held the diamond. The model was then textured within substance painter to allow for creative control when texturing the tweezers ",
       outcome: "After the model was rigged, Krystof gave it a small animation to enhance the realness of the entire shot. A gem was placed in the middle and really brought the scene together.",
-      videoUrl: "https://s3.amazonaws.com/webflow-prod-assets/5d626c045bf4d84a1c256e90/69528742a754a3e0423638d2_cgi_tweezers-web2.mp4",
+      videoUrl: "https://s3.amazonaws.com/webflow-prod-assets/5d626c045bf4d84a1c256e90/69527656311e8cb2a4036ef8_cgi_tweezers.webm",
       images: [{ url: "", alt: "" }],
       credits: {
         company: {
@@ -92,7 +92,7 @@ function _page($$payload, $$props) {
       problem: "I was tasked with the creation of the environment for a scene, we needed to create a realistic environment, that would complement the jewelery in the middle of the scene.",
       solution: "I first started with the modeling of the environment, I used a combination of sculpting, importing heightmaps, and texturing based on its's Z values, to create a realistic arctic environment.",
       outcome: "The resulting environment was a perfect base for the scene, it added a sense of realism and dept, while keeping the focus on the jewelery, making the entire scene otheworldly and grounded.",
-      videoUrl: "https://s3.amazonaws.com/webflow-prod-assets/5d626c045bf4d84a1c256e90/6952875461ca8c9f99315d92_cgi_antartcica-web2.mp4",
+      videoUrl: "https://s3.amazonaws.com/webflow-prod-assets/5d626c045bf4d84a1c256e90/6952766676940c71000e3fff_cgi_antartcica.webm",
       images: [
         {
           url: "/images/commercial/antarctic/antarctica-bts.gif",
