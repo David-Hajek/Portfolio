@@ -32,8 +32,8 @@
 		</div>
 		<div class="hero-right">
 			<p class="hero-desc">
-				Specialising in 3D art, VFX, simulation and visual design — for brands and studios that
-				want work that stands out.
+				Specialising in 3D art, VFX, simulation and visual design — for brands and studios that want
+				work that stands out.
 			</p>
 			<div class="hero-ctas">
 				<a href="/commercial" class="btn-primary">View my work</a>
@@ -120,8 +120,11 @@
 		</div>
 		<div class="tcard">
 			<p class="tquote">
-				"He knows his way around 3D, isn't afraid of complex challenges, and always delivers on
-				time."
+				"David is a great addition to my team. He knows his way around 3D graphics and isn’t afraid
+				to take on complex technical challenges. He communicates really well, so working with him is
+				always a breeze. Plus, he's reliable and always delivers his work on time, which I truly
+				appreciate. I really enjoy working with him, and I know he'll keep playing a big part in our
+				projects' success."
 			</p>
 			<div class="tauthor">
 				<span class="tname">Krystof Jezek</span>
@@ -163,7 +166,9 @@
 		z-index: 1000;
 		transition: opacity 0.8s ease;
 	}
-	.intro.fade-out { opacity: 0; }
+	.intro.fade-out {
+		opacity: 0;
+	}
 	.intro-text {
 		font-size: 18px;
 		font-weight: 500;
@@ -184,13 +189,15 @@
 		max-width: 1600px;
 		margin: 0 auto;
 	}
-	.hero-label { margin-bottom: 22px; }
+	.hero-label {
+		margin-bottom: 22px;
+	}
 	.hero-title {
 		font-size: clamp(38px, 5vw, 58px);
 		font-weight: 600;
 		letter-spacing: -0.04em;
 		color: #f0f0f0;
-		line-height: 1.0;
+		line-height: 1;
 	}
 	.hero-right {
 		display: flex;
@@ -204,7 +211,10 @@
 		line-height: 1.8;
 		max-width: 300px;
 	}
-	.hero-ctas { display: flex; gap: 10px; }
+	.hero-ctas {
+		display: flex;
+		gap: 10px;
+	}
 	.btn-primary {
 		font-size: 11px;
 		letter-spacing: 0.1em;
@@ -215,7 +225,9 @@
 		font-weight: 500;
 		transition: background 0.2s;
 	}
-	.btn-primary:hover { background: #fff; }
+	.btn-primary:hover {
+		background: #fff;
+	}
 	.btn-secondary {
 		font-size: 11px;
 		letter-spacing: 0.1em;
@@ -226,9 +238,13 @@
 		border: 1px solid #282828;
 		transition: border-color 0.2s;
 	}
-	.btn-secondary:hover { border-color: #444; }
+	.btn-secondary:hover {
+		border-color: #444;
+	}
 
-	.work-section { border-bottom: 1px solid #181818; }
+	.work-section {
+		border-bottom: 1px solid #181818;
+	}
 	.work-header {
 		display: flex;
 		justify-content: space-between;
@@ -256,7 +272,10 @@
 		transition: transform 0.5s ease;
 		opacity: 0.7;
 	}
-	.work-cell:hover img { transform: scale(1.04); opacity: 1; }
+	.work-cell:hover img {
+		transform: scale(1.04);
+		opacity: 1;
+	}
 	.work-num {
 		position: absolute;
 		top: 14px;
@@ -273,14 +292,20 @@
 		opacity: 0;
 		transition: opacity 0.2s;
 	}
-	.work-cell:hover .work-overlay { opacity: 1; }
+	.work-cell:hover .work-overlay {
+		opacity: 1;
+	}
 	.wo-title {
 		font-size: 14px;
 		font-weight: 500;
 		color: #f0f0f0;
 		margin-bottom: 4px;
 	}
-	.wo-sub { font-size: 11px; color: #888; letter-spacing: 0.08em; }
+	.wo-sub {
+		font-size: 11px;
+		color: #888;
+		letter-spacing: 0.08em;
+	}
 
 	.clients {
 		padding: 28px 40px;
@@ -289,7 +314,9 @@
 		align-items: center;
 		gap: 44px;
 	}
-	.clients-label { white-space: nowrap; }
+	.clients-label {
+		white-space: nowrap;
+	}
 	.client-names {
 		display: flex;
 		gap: 36px;
@@ -307,8 +334,12 @@
 		grid-template-columns: 1fr 1fr;
 		border-bottom: 1px solid #181818;
 	}
-	.split-col { padding: 52px 40px; }
-	.split-col:first-child { border-right: 1px solid #181818; }
+	.split-col {
+		padding: 52px 40px;
+	}
+	.split-col:first-child {
+		border-right: 1px solid #181818;
+	}
 	.split-title {
 		font-size: clamp(22px, 2.5vw, 30px);
 		font-weight: 500;
@@ -317,7 +348,11 @@
 		letter-spacing: -0.02em;
 		margin-bottom: 16px;
 	}
-	.split-body { font-size: 13px; color: #aaa; line-height: 1.8; }
+	.split-body {
+		font-size: 13px;
+		color: #aaa;
+		line-height: 1.8;
+	}
 	.tags-row {
 		display: flex;
 		flex-wrap: wrap;
@@ -331,7 +366,9 @@
 		padding: 24px;
 		margin-bottom: 10px;
 	}
-	.tcard:last-child { margin-bottom: 0; }
+	.tcard:last-child {
+		margin-bottom: 0;
+	}
 	.tquote {
 		font-size: 13px;
 		color: #aaa;
@@ -339,9 +376,20 @@
 		font-style: italic;
 		margin-bottom: 18px;
 	}
-	.tauthor { display: flex; flex-direction: column; gap: 3px; }
-	.tname { font-size: 12px; color: #ccc; font-weight: 500; }
-	.trole { font-size: 11px; color: #666; }
+	.tauthor {
+		display: flex;
+		flex-direction: column;
+		gap: 3px;
+	}
+	.tname {
+		font-size: 12px;
+		color: #ccc;
+		font-weight: 500;
+	}
+	.trole {
+		font-size: 11px;
+		color: #666;
+	}
 
 	.nav-sections {
 		display: grid;
@@ -355,44 +403,99 @@
 		flex-direction: column;
 		transition: background 0.15s;
 	}
-	.ns:last-child { border-right: none; }
-	.ns:hover { background: rgba(255, 255, 255, 0.018); }
-	.ns-num { margin-bottom: 16px; }
+	.ns:last-child {
+		border-right: none;
+	}
+	.ns:hover {
+		background: rgba(255, 255, 255, 0.018);
+	}
+	.ns-num {
+		margin-bottom: 16px;
+	}
 	.ns-title {
 		font-size: 22px;
 		font-weight: 500;
 		color: #f0f0f0;
 		margin-bottom: 8px;
 	}
-	.ns-desc { font-size: 12px; color: #777; line-height: 1.6; }
+	.ns-desc {
+		font-size: 12px;
+		color: #777;
+		line-height: 1.6;
+	}
 	.ns-arr {
 		margin-top: 24px;
 		font-size: 18px;
 		color: #444;
-		transition: color 0.15s, transform 0.15s;
+		transition:
+			color 0.15s,
+			transform 0.15s;
 	}
-	.ns:hover .ns-arr { color: #aaa; transform: translateX(4px); }
+	.ns:hover .ns-arr {
+		color: #aaa;
+		transform: translateX(4px);
+	}
 
 	@media (max-width: 1024px) {
-		.hero-inner { grid-template-columns: 1fr; gap: 36px; }
-		.hero-right { justify-content: flex-start; }
-		.hero-desc { max-width: 100%; }
-		.work-grid { grid-template-columns: 1fr 1fr; }
-		.nav-sections { grid-template-columns: 1fr; }
-		.ns { border-right: none; border-bottom: 1px solid #181818; }
-		.ns:last-child { border-bottom: none; }
+		.hero-inner {
+			grid-template-columns: 1fr;
+			gap: 36px;
+		}
+		.hero-right {
+			justify-content: flex-start;
+		}
+		.hero-desc {
+			max-width: 100%;
+		}
+		.work-grid {
+			grid-template-columns: 1fr 1fr;
+		}
+		.nav-sections {
+			grid-template-columns: 1fr;
+		}
+		.ns {
+			border-right: none;
+			border-bottom: 1px solid #181818;
+		}
+		.ns:last-child {
+			border-bottom: none;
+		}
 	}
 
 	@media (max-width: 768px) {
-		.hero { padding: 48px 20px 40px; }
-		.hero-title { font-size: 36px; }
-		.work-header { padding: 16px 20px; }
-		.work-grid { grid-template-columns: 1fr; }
-		.clients { padding: 20px; flex-direction: column; align-items: flex-start; gap: 12px; }
-		.client-names { gap: 16px; }
-		.split { grid-template-columns: 1fr; }
-		.split-col { padding: 36px 20px; }
-		.split-col:first-child { border-right: none; border-bottom: 1px solid #181818; }
-		.ns { padding: 32px 20px; }
+		.hero {
+			padding: 48px 20px 40px;
+		}
+		.hero-title {
+			font-size: 36px;
+		}
+		.work-header {
+			padding: 16px 20px;
+		}
+		.work-grid {
+			grid-template-columns: 1fr;
+		}
+		.clients {
+			padding: 20px;
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 12px;
+		}
+		.client-names {
+			gap: 16px;
+		}
+		.split {
+			grid-template-columns: 1fr;
+		}
+		.split-col {
+			padding: 36px 20px;
+		}
+		.split-col:first-child {
+			border-right: none;
+			border-bottom: 1px solid #181818;
+		}
+		.ns {
+			padding: 32px 20px;
+		}
 	}
 </style>

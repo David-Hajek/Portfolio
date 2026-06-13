@@ -2,6 +2,7 @@
 	import '@fontsource-variable/hanken-grotesk';
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
+	import { afterNavigate } from '$app/navigation';
 	import { fade } from 'svelte/transition';
 
 	let y = 0;
@@ -39,6 +40,10 @@
 			cursorX = e.clientX;
 			cursorY = e.clientY;
 		});
+	});
+
+	afterNavigate(() => {
+		document.body.style.overflow = '';
 	});
 
 	const links = [
