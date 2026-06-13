@@ -143,7 +143,7 @@
 <style>
 	.pg-header {
 		padding: 64px 40px 48px;
-		border-bottom: 1px solid #181818;
+		border-bottom: 1px solid #282828;
 		display: flex;
 		justify-content: space-between;
 		align-items: flex-end;
@@ -159,21 +159,21 @@
 	.ph-right { text-align: right; }
 	.ph-meta {
 		font-size: 13px;
-		color: #777;
+		color: #999;
 		line-height: 2;
 	}
 
 	.proj-row {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		border-bottom: 1px solid #181818;
+		border-bottom: 1px solid #282828;
 	}
-	.proj-row.rev .proj-media { order: 2; border-left: 1px solid #181818; border-right: none; }
+	.proj-row.rev .proj-media { order: 2; border-left: 1px solid #282828; border-right: none; }
 	.proj-row.rev .proj-body { order: 1; }
 
 	.proj-media {
-		border-right: 1px solid #181818;
-		background: #0d0d0d;
+		border-right: 1px solid #282828;
+		background: #0f0f0f;
 		display: flex;
 		flex-direction: column;
 		min-width: 0;
@@ -198,7 +198,7 @@
 		top: 12px;
 		right: 14px;
 		font-size: 13px;
-		color: #555;
+		color: #888;
 		transition: color 0.15s;
 		pointer-events: none;
 	}
@@ -206,7 +206,7 @@
 
 	.thumb-strip {
 		display: flex;
-		border-top: 1px solid #181818;
+		border-top: 1px solid #282828;
 		overflow-x: auto;
 		scrollbar-width: none;
 	}
@@ -215,7 +215,7 @@
 		flex: 0 0 180px;
 		height: 140px;
 		overflow: hidden;
-		border-right: 1px solid #181818;
+		border-right: 1px solid #282828;
 		cursor: none;
 		position: relative;
 		flex-shrink: 0;
@@ -236,6 +236,9 @@
 		flex-direction: column;
 		justify-content: flex-start;
 		min-width: 0;
+		position: sticky;
+		top: 60px;
+		align-self: flex-start;
 	}
 	.p-num { margin-bottom: 14px; }
 	.p-title {
@@ -313,9 +316,9 @@
 	@media (max-width: 1024px) {
 		.pg-header { padding: 48px 20px 36px; }
 		.proj-row { grid-template-columns: 1fr; }
-		.proj-row.rev .proj-media { order: 0; border-left: none; border-right: none; border-bottom: 1px solid #181818; }
+		.proj-row.rev .proj-media { order: 0; border-left: none; border-right: none; border-bottom: 1px solid #282828; }
 		.proj-row.rev .proj-body { order: 0; }
-		.proj-media { border-right: none; border-bottom: 1px solid #181818; }
+		.proj-media { border-right: none; border-bottom: 1px solid #282828; }
 		.proj-body { padding: 28px 20px; min-height: unset; }
 	}
 </style>

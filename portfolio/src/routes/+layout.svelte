@@ -149,7 +149,7 @@
 		top: 0;
 		z-index: 100;
 		background: rgba(10, 10, 10, 0.96);
-		border-bottom: 1px solid #181818;
+		border-bottom: 1px solid #282828;
 		transition: transform 0.35s ease, opacity 0.35s ease;
 		backdrop-filter: blur(8px);
 		-webkit-backdrop-filter: blur(8px);
@@ -202,7 +202,7 @@
 
 	.loc {
 		font-size: 11px;
-		color: #555;
+		color: #888;
 		letter-spacing: 0.06em;
 	}
 
@@ -242,8 +242,8 @@
 		right: 0;
 		width: 280px;
 		height: 100vh;
-		background: #0d0d0d;
-		border-left: 1px solid #181818;
+		background: #0f0f0f;
+		border-left: 1px solid #282828;
 		z-index: 300;
 		display: flex;
 		flex-direction: column;
@@ -253,11 +253,11 @@
 
 	.mobile-link {
 		font-size: 13px;
-		color: #777;
+		color: #999;
 		letter-spacing: 0.1em;
 		text-transform: uppercase;
 		padding: 14px 0;
-		border-bottom: 1px solid #141414;
+		border-bottom: 1px solid #1e1e1e;
 		transition: color 0.15s;
 	}
 
@@ -275,7 +275,7 @@
 		justify-content: space-between;
 		align-items: center;
 		padding: 20px 40px;
-		border-top: 1px solid #141414;
+		border-top: 1px solid #1e1e1e;
 		background: #080808;
 		max-width: 100%;
 	}
@@ -293,7 +293,7 @@
 
 	.foot-links a {
 		font-size: 10px;
-		color: #444;
+		color: #777;
 		letter-spacing: 0.1em;
 		text-transform: uppercase;
 		transition: color 0.15s;

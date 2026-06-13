@@ -153,7 +153,7 @@
 <style>
 	.pg-header {
 		padding: 64px 40px 48px;
-		border-bottom: 1px solid #181818;
+		border-bottom: 1px solid #282828;
 		display: flex;
 		justify-content: space-between;
 		align-items: flex-end;
@@ -176,24 +176,24 @@
 	.hero-row {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		border-bottom: 1px solid #181818;
+		border-bottom: 1px solid #282828;
 	}
 
 	.hero-info {
 		padding: 48px 40px;
-		border-right: 1px solid #181818;
+		border-right: 1px solid #282828;
 		display: flex;
 		flex-direction: column;
 		gap: 32px;
 	}
 
-	.meta-rows { border-top: 1px solid #181818; }
+	.meta-rows { border-top: 1px solid #282828; }
 	.meta-row {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		padding: 13px 0;
-		border-bottom: 1px solid #141414;
+		border-bottom: 1px solid #1e1e1e;
 		gap: 16px;
 	}
 	.meta-key { flex-shrink: 0; }
@@ -244,15 +244,15 @@
 		justify-content: space-between;
 		align-items: center;
 		padding: 20px 40px;
-		border-bottom: 1px solid #181818;
+		border-bottom: 1px solid #282828;
 	}
 
 	.gallery-grid {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 		gap: 1px;
-		background: #141414;
-		border-bottom: 1px solid #181818;
+		background: #1e1e1e;
+		border-bottom: 1px solid #282828;
 	}
 
 	.gallery-cell {
@@ -350,7 +350,7 @@
 		.pg-header { padding: 48px 20px 36px; flex-direction: column; align-items: flex-start; gap: 24px; }
 		.ph-right { text-align: left; }
 		.hero-row { grid-template-columns: 1fr; }
-		.hero-info { border-right: none; border-bottom: 1px solid #181818; padding: 36px 20px; }
+		.hero-info { border-right: none; border-bottom: 1px solid #282828; padding: 36px 20px; }
 		.gallery-grid { grid-template-columns: repeat(2, 1fr); }
 		.gallery-cell.wide { grid-column: span 2; }
 		.gallery-header { padding: 16px 20px; }

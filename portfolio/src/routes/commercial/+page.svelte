@@ -237,7 +237,7 @@
 <style>
 	.pg-header {
 		padding: 64px 40px 48px;
-		border-bottom: 1px solid #181818;
+		border-bottom: 1px solid #282828;
 		display: flex;
 		justify-content: space-between;
 		align-items: flex-end;
@@ -251,24 +251,24 @@
 		line-height: 1.0;
 	}
 	.ph-right { text-align: right; }
-	.ph-meta { font-size: 13px; color: #777; line-height: 2; }
+	.ph-meta { font-size: 13px; color: #999; line-height: 2; }
 
 	/* ── Row layout ─────────────────────────────────── */
 	.proj-row {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		border-bottom: 1px solid #181818;
+		border-bottom: 1px solid #282828;
 	}
 	.proj-row.rev .proj-media {
 		order: 2;
-		border-left: 1px solid #181818;
+		border-left: 1px solid #282828;
 		border-right: none;
 	}
 	.proj-row.rev .proj-body { order: 1; }
 
 	/* ── Media column ───────────────────────────────── */
 	.proj-media {
-		border-right: 1px solid #181818;
+		border-right: 1px solid #282828;
 		background: #0a0a0a;
 		display: flex;
 		flex-direction: column;
@@ -323,7 +323,7 @@
 	/* Thumbnail strip */
 	.thumb-strip {
 		display: flex;
-		border-top: 1px solid #181818;
+		border-top: 1px solid #282828;
 		overflow-x: auto;
 		scrollbar-width: none;
 	}
@@ -332,7 +332,7 @@
 		flex: 0 0 180px;
 		height: 140px;
 		overflow: hidden;
-		border-right: 1px solid #181818;
+		border-right: 1px solid #282828;
 		cursor: none;
 		position: relative;
 		flex-shrink: 0;
@@ -368,13 +368,16 @@
 		flex-direction: column;
 		justify-content: flex-start;
 		min-width: 0;
+		position: sticky;
+		top: 60px;
+		align-self: flex-start;
 	}
 	.p-num { margin-bottom: 8px; }
 	.p-client {
 		font-size: 11px;
 		letter-spacing: 0.12em;
 		text-transform: uppercase;
-		color: #555;
+		color: #888;
 		margin-bottom: 10px;
 	}
 	.p-title {
@@ -473,10 +476,10 @@
 			order: 0;
 			border-left: none;
 			border-right: none;
-			border-bottom: 1px solid #181818;
+			border-bottom: 1px solid #282828;
 		}
 		.proj-row.rev .proj-body { order: 0; }
-		.proj-media { border-right: none; border-bottom: 1px solid #181818; }
+		.proj-media { border-right: none; border-bottom: 1px solid #282828; }
 		.proj-body { padding: 28px 20px; }
 	}
 </style>

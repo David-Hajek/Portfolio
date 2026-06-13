@@ -110,7 +110,7 @@
 
 	.col-left {
 		padding: 60px 40px;
-		border-right: 1px solid #181818;
+		border-right: 1px solid #282828;
 	}
 	.col-right { padding: 60px 40px; }
 
@@ -146,14 +146,14 @@
 
 	.a-rows {
 		margin-top: 32px;
-		border-top: 1px solid #181818;
+		border-top: 1px solid #282828;
 	}
 	.a-row {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		padding: 12px 0;
-		border-bottom: 1px solid #141414;
+		border-bottom: 1px solid #1e1e1e;
 		gap: 16px;
 	}
 	.a-key { flex-shrink: 0; }
@@ -172,21 +172,21 @@
 		text-transform: uppercase;
 		padding: 9px 14px;
 		border: 1px solid #1e1e1e;
-		color: #777;
+		color: #999;
 		transition: border-color 0.15s, color 0.15s;
 	}
-	.soc-btn:hover { border-color: #555; color: #ccc; }
+	.soc-btn:hover { border-color: #888; color: #ccc; }
 
-	.ww-list { border-top: 1px solid #181818; }
+	.ww-list { border-top: 1px solid #282828; }
 	.ww-row {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		padding: 14px 0;
-		border-bottom: 1px solid #141414;
+		border-bottom: 1px solid #1e1e1e;
 	}
 	.ww-name { font-size: 13px; color: #aaa; }
-	.ww-arr { font-size: 13px; color: #444; }
+	.ww-arr { font-size: 13px; color: #777; }
 
 	.skill-block { margin-top: 40px; }
 	.pill-row {
@@ -198,7 +198,7 @@
 
 	@media (max-width: 1024px) {
 		.about-grid { grid-template-columns: 1fr; }
-		.col-left { border-right: none; border-bottom: 1px solid #181818; padding: 48px 20px; }
+		.col-left { border-right: none; border-bottom: 1px solid #282828; padding: 48px 20px; }
 		.col-right { padding: 48px 20px; }
 		.a-bio { max-width: 100%; }
 	}

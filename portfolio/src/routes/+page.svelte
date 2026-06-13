@@ -78,12 +78,12 @@
 
 <div class="clients">
 	<span class="sec-label clients-label">Clients</span>
-	<div class="client-names">
-		<span>Apparently</span>
-		<span>Krystof Jezek</span>
-		<span>Yoimira</span>
-		<span>Devomi</span>
-		<span>Dykast</span>
+	<div class="client-logos">
+		<img src="/images/apparently-logo.png" alt="Apparently Studios" />
+		<img src="/images/krystof-logo.png" alt="Krystof Jezek" />
+		<img src="/images/mira-logo.png" alt="Yoimira Entertainment" />
+		<img src="/images/devomi-logo.png" alt="Devomi" />
+		<img src="/images/dyky-logo.png" alt="Dykast" />
 	</div>
 </div>
 
@@ -178,7 +178,7 @@
 	}
 
 	.hero {
-		border-bottom: 1px solid #181818;
+		border-bottom: 1px solid #282828;
 		padding: 80px 40px 64px;
 	}
 	.hero-inner {
@@ -239,24 +239,24 @@
 		transition: border-color 0.2s;
 	}
 	.btn-secondary:hover {
-		border-color: #444;
+		border-color: #777;
 	}
 
 	.work-section {
-		border-bottom: 1px solid #181818;
+		border-bottom: 1px solid #282828;
 	}
 	.work-header {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		padding: 20px 40px;
-		border-bottom: 1px solid #181818;
+		border-bottom: 1px solid #282828;
 	}
 	.work-grid {
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr;
 		gap: 1px;
-		background: #181818;
+		background: #282828;
 	}
 	.work-cell {
 		background: #0a0a0a;
@@ -309,7 +309,7 @@
 
 	.clients {
 		padding: 28px 40px;
-		border-bottom: 1px solid #181818;
+		border-bottom: 1px solid #282828;
 		display: flex;
 		align-items: center;
 		gap: 44px;
@@ -317,14 +317,27 @@
 	.clients-label {
 		white-space: nowrap;
 	}
-	.client-names {
+	.client-logos {
 		display: flex;
-		gap: 36px;
+		align-items: center;
+		gap: 44px;
 		flex-wrap: wrap;
 	}
+	.client-logos img {
+		height: 40px;
+		width: auto;
+		opacity: 0.35;
+		filter: grayscale(1) brightness(2);
+		transition: opacity 0.2s;
+		display: block;
+	}
+	.client-logos img:hover {
+		opacity: 0.7;
+	}
+	/* keep dead rule from old selector to avoid breaking responsive block below */
 	.client-names span {
 		font-size: 11px;
-		color: #444;
+		color: #999;
 		letter-spacing: 0.12em;
 		text-transform: uppercase;
 	}
@@ -332,13 +345,13 @@
 	.split {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		border-bottom: 1px solid #181818;
+		border-bottom: 1px solid #282828;
 	}
 	.split-col {
 		padding: 52px 40px;
 	}
 	.split-col:first-child {
-		border-right: 1px solid #181818;
+		border-right: 1px solid #282828;
 	}
 	.split-title {
 		font-size: clamp(22px, 2.5vw, 30px);
@@ -362,7 +375,7 @@
 
 	.tcard {
 		background: #111;
-		border: 1px solid #181818;
+		border: 1px solid #282828;
 		padding: 24px;
 		margin-bottom: 10px;
 	}
@@ -394,11 +407,11 @@
 	.nav-sections {
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr;
-		border-bottom: 1px solid #181818;
+		border-bottom: 1px solid #282828;
 	}
 	.ns {
 		padding: 44px 40px;
-		border-right: 1px solid #181818;
+		border-right: 1px solid #282828;
 		display: flex;
 		flex-direction: column;
 		transition: background 0.15s;
@@ -420,13 +433,13 @@
 	}
 	.ns-desc {
 		font-size: 12px;
-		color: #777;
+		color: #999;
 		line-height: 1.6;
 	}
 	.ns-arr {
 		margin-top: 24px;
 		font-size: 18px;
-		color: #444;
+		color: #777;
 		transition:
 			color 0.15s,
 			transform 0.15s;
@@ -455,7 +468,7 @@
 		}
 		.ns {
 			border-right: none;
-			border-bottom: 1px solid #181818;
+			border-bottom: 1px solid #282828;
 		}
 		.ns:last-child {
 			border-bottom: none;
@@ -481,8 +494,11 @@
 			align-items: flex-start;
 			gap: 12px;
 		}
-		.client-names {
-			gap: 16px;
+		.client-logos {
+			gap: 24px;
+		}
+		.client-logos img {
+			height: 22px;
 		}
 		.split {
 			grid-template-columns: 1fr;
@@ -492,7 +508,7 @@
 		}
 		.split-col:first-child {
 			border-right: none;
-			border-bottom: 1px solid #181818;
+			border-bottom: 1px solid #282828;
 		}
 		.ns {
 			padding: 32px 20px;
