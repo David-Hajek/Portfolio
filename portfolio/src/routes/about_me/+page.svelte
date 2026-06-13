@@ -139,7 +139,7 @@
 	}
 	.a-bio {
 		font-size: 13px;
-		color: #666;
+		color: #aaa;
 		line-height: 1.85;
 		max-width: 360px;
 	}
@@ -157,7 +157,7 @@
 		gap: 16px;
 	}
 	.a-key { flex-shrink: 0; }
-	.a-val { font-size: 12px; color: #666; text-align: right; }
+	.a-val { font-size: 12px; color: #aaa; text-align: right; }
 	.status { color: #3a7a3a !important; }
 
 	.soc-row {
@@ -172,10 +172,10 @@
 		text-transform: uppercase;
 		padding: 9px 14px;
 		border: 1px solid #1e1e1e;
-		color: #444;
+		color: #777;
 		transition: border-color 0.15s, color 0.15s;
 	}
-	.soc-btn:hover { border-color: #444; color: #aaa; }
+	.soc-btn:hover { border-color: #555; color: #ccc; }
 
 	.ww-list { border-top: 1px solid #181818; }
 	.ww-row {
@@ -185,8 +185,8 @@
 		padding: 14px 0;
 		border-bottom: 1px solid #141414;
 	}
-	.ww-name { font-size: 13px; color: #666; }
-	.ww-arr { font-size: 13px; color: #222; }
+	.ww-name { font-size: 13px; color: #aaa; }
+	.ww-arr { font-size: 13px; color: #444; }
 
 	.skill-block { margin-top: 40px; }
 	.pill-row {

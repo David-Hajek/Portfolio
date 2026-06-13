@@ -165,14 +165,14 @@
 
 	.c-email {
 		font-size: 14px;
-		color: #666;
+		color: #aaa;
 		margin-bottom: 32px;
 		padding-bottom: 28px;
 		border-bottom: 1px solid #181818;
 		transition: color 0.15s;
 		display: block;
 	}
-	.c-email:hover { color: #aaa; }
+	.c-email:hover { color: #f0f0f0; }
 
 	.info-rows { flex: 1; }
 	.info-row {
@@ -184,7 +184,7 @@
 		gap: 16px;
 	}
 	.info-key { flex-shrink: 0; }
-	.info-val { font-size: 12px; color: #555; text-align: right; }
+	.info-val { font-size: 12px; color: #aaa; text-align: right; }
 	.status { color: #3a7a3a !important; }
 
 	.soc-row {
@@ -199,10 +199,10 @@
 		text-transform: uppercase;
 		padding: 9px 14px;
 		border: 1px solid #1e1e1e;
-		color: #444;
+		color: #777;
 		transition: border-color 0.15s, color 0.15s;
 	}
-	.soc-btn:hover { border-color: #444; color: #aaa; }
+	.soc-btn:hover { border-color: #555; color: #ccc; }
 
 	.field { margin-bottom: 18px; }
 	.f-label { display: block; margin-bottom: 8px; }
@@ -274,7 +274,7 @@
 		color: #f0f0f0;
 		margin-bottom: 10px;
 	}
-	.success-body { font-size: 13px; color: #666; line-height: 1.7; }
+	.success-body { font-size: 13px; color: #aaa; line-height: 1.7; }
 
 	@media (max-width: 1024px) {
 		.contact-grid { grid-template-columns: 1fr; }

@@ -1,711 +1,363 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import { fade, fly } from 'svelte/transition';
-	import { reveal } from 'svelte-reveal';
-	import ImageShader from '$lib/ImageShader.svelte';
-	import { base } from '$app/paths';
-	let showScrollIndicator = true;
-	let scrollY = 0;
+	let lightboxSrc = '';
+	let lightboxAlt = '';
+	let lightboxOpen = false;
 
-	// Handle scroll to hide the arrow indicator
-	function handleScroll() {
-		scrollY = window.scrollY;
-		showScrollIndicator = scrollY < 100;
+	function openLightbox(src: string, alt: string) {
+		lightboxSrc = src;
+		lightboxAlt = alt;
+		lightboxOpen = true;
+		if (typeof document !== 'undefined') document.body.style.overflow = 'hidden';
 	}
 
-	// Media items for the grid
+	function closeLightbox() {
+		lightboxOpen = false;
+		if (typeof document !== 'undefined') document.body.style.overflow = '';
+	}
+
+	function handleKey(e: KeyboardEvent) {
+		if (e.key === 'Escape') closeLightbox();
+	}
+
 	const mediaItems = [
 		{
 			type: 'image',
 			src: '/images/projects/wrap/static.webp',
-			alt: 'Final Render 1',
-			caption: 'Final Garment Render',
-			landscape: false,
-			square: false
+			alt: 'Final Garment Render',
+			caption: 'Final Garment Render'
 		},
-
 		{
 			type: 'image',
 			src: '/images/projects/wrap/box.webp',
-			alt: 'Final Render 2',
-			caption: 'Model showcase',
-			landscape: false,
-			square: true
+			alt: 'Model showcase',
+			caption: 'Model Showcase'
 		},
-
 		{
 			type: 'image',
 			src: '/images/projects/wrap/bts2.webp',
-			alt: 'Final Render 2',
-			caption: 'Model showcase',
-			landscape: false,
-			square: false
+			alt: 'Behind the scenes',
+			caption: 'Behind the Scenes'
 		},
 		{
 			type: 'image',
 			src: '/images/projects/wrap/runbts.gif',
-			alt: 'Final Render 2',
-			caption: 'Crowd Simulation Demo',
-			landscape: false,
-			square: true
+			alt: 'Crowd Simulation Demo',
+			caption: 'Crowd Simulation'
 		},
 		{
 			type: 'video',
 			src: '/images/projects/wrap/bts.mp4',
 			poster: '/images/projects/wrap/poster.webp',
-			caption: 'Garment Simulation Demo',
-			landscape: true,
-			square: false
+			alt: 'Garment Simulation Demo',
+			caption: 'Garment Simulation Demo'
 		}
 	];
-
-	// Project information
-	const project = {
-		title: 'The Mag Wrap 2025',
-		subtitle: 'Garment & Crowd Simulations',
-		description:
-			"I had the opportunity to contribute to The Mag Wrap 2025 under the direction of Krystof Jezek. My role focused on developing realistic garment simulations and implementing crowd dynamics. You can watch the final series <a href='https://www.youtube.com/watch?v=bCpYQCTLIRs&t' target='_blank' rel='noopener noreferrer' style='color: #50aaf1; text-decoration: none; border-bottom: 1px solid #50aaf1;'>here</a>.",
-		client: 'THE MAG\nWorked under: Krystof Jezek',
-		duration: '6 weeks',
-		year: '2025',
-		role: 'Simulation Developer'
-	};
-
-	onMount(() => {
-		console.log('Visualization Project Page Loaded');
-
-		// Add scroll event listener
-		window.addEventListener('scroll', handleScroll);
-
-		// Clean up event listener on component destruction
-		return () => {
-			window.removeEventListener('scroll', handleScroll);
-		};
-	});
 </script>
 
-<!-- Hero Section -->
-<div class="project-page dark-section">
-	<div id="glass-landing"></div>
-	<div class="hero-container">
-		<div class="hero-content">
-			<div class="hero-text">
-				<div use:reveal={{ preset: 'slide', delay: 0, threshold: 0.01 }}>
-					<h4 class="project-category">SIMULATION DEVELOPMENT</h4>
-					<h1 class="project-title">{project.title}</h1>
-				</div>
+<svelte:head>
+	<title>The Mag Wrap 2025 — David Hajek</title>
+</svelte:head>
 
-				<div class="project-subtitle" use:reveal={{ preset: 'slide', delay: 300 }}>
-					{project.subtitle}
-				</div>
+<svelte:window on:keydown={handleKey} />
 
-				<div class="project-intro" use:reveal={{ preset: 'slide', delay: 500 }}>
-					<p>{@html project.description}</p>
-				</div>
-
-				<div class="project-meta" use:reveal={{ preset: 'slide', delay: 700 }}>
-					<div class="meta-item">
-						<span class="meta-label">Client</span>
-						<span class="meta-value">{project.client}</span>
-					</div>
-					<div class="meta-item">
-						<span class="meta-label">Duration</span>
-						<span class="meta-value">{project.duration}</span>
-					</div>
-					<div class="meta-item">
-						<span class="meta-label">Year</span>
-						<span class="meta-value">{project.year}</span>
-					</div>
-					<div class="meta-item">
-						<span class="meta-label">Role</span>
-						<span class="meta-value">{project.role}</span>
-					</div>
-				</div>
-			</div>
-
-				<div class="hero-visual">
-				<div class="video-container">
-					<video
-						src={`${base}/images/vidz/magwrap.mp4`}
-						class="hero-video"
-						autoplay
-						muted
-						loop
-						playsinline
-					></video>
-				</div>
-			</div>
-		</div>
+<div class="pg-header">
+	<div class="ph-left">
+		<p class="sec-label ph-idx">Commercial · 2025</p>
+		<h1 class="ph-title">The Mag<br />Wrap 2025</h1>
 	</div>
-
-	<!-- Animated scroll indicator -->
-	{#if showScrollIndicator}
-		<div class="scroll-indicator" transition:fade={{ duration: 400 }}>
-			<div class="scroll-arrow">
-				<svg
-					width="40"
-					height="40"
-					viewBox="0 0 24 24"
-					fill="none"
-					xmlns="http://www.w3.org/2000/svg"
-				>
-					<path
-						d="M12 5V19M12 19L19 12M12 19L5 12"
-						stroke="currentColor"
-						stroke-width="2"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-					/>
-				</svg>
-			</div>
-			<span class="scroll-text">Scroll Down</span>
-		</div>
-	{/if}
-</div>
-
-<!-- Media Grid Section -->
-<div class="project-page">
-	<div id="glass-landing-bottom"></div>
-	<div class="media-container">
-		<div class="media-content">
-			<h2 class="section-title">Project Gallery</h2>
-			<div class="accent-bar"></div>
-
-			<div class="media-grid">
-				<!-- Grid items will be populated with videos and renders -->
-				{#each mediaItems as item, i}
-					<div class="media-item" class:landscape={item.landscape} class:square={item.square}>
-						{#if item.type === 'video'}
-							<div class="video-wrapper">
-								<video
-									src={`${base}${item.src}`}
-									autoplay
-									muted
-									loop
-									playsinline
-									preload="metadata"
-									poster={`${base}${item.poster}`}
-									style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"
-								></video>
-							</div>
-						{:else}
-							<img src={`${base}${item.src}`} alt={item.alt} loading="lazy" />
-						{/if}
-						{#if item.caption}
-							<p class="media-caption">{item.caption}</p>
-						{/if}
-					</div>
-				{/each}
-			</div>
-		</div>
+	<div class="ph-right">
+		<p class="ph-meta">Garment & Crowd Simulation<br />Client: The Mag / Krystof Jezek<br />Duration: 6 weeks</p>
 	</div>
 </div>
+
+<div class="hero-row">
+	<div class="hero-info">
+		<div class="meta-rows">
+			<div class="meta-row">
+				<span class="sec-label meta-key">Role</span>
+				<span class="meta-val">Simulation Developer</span>
+			</div>
+			<div class="meta-row">
+				<span class="sec-label meta-key">Software</span>
+				<span class="meta-val">Blender · Houdini</span>
+			</div>
+			<div class="meta-row">
+				<span class="sec-label meta-key">Year</span>
+				<span class="meta-val">2025</span>
+			</div>
+			<div class="meta-row">
+				<span class="sec-label meta-key">Director</span>
+				<span class="meta-val">Krystof Jezek</span>
+			</div>
+		</div>
+		<p class="proj-desc">
+			I had the opportunity to contribute to The Mag Wrap 2025 under the direction of Krystof Jezek. My role focused on developing realistic garment simulations and implementing crowd dynamics for the series.
+		</p>
+		<a
+			href="https://www.youtube.com/watch?v=bCpYQCTLIRs&t"
+			target="_blank"
+			rel="noopener"
+			class="watch-cta"
+		>Watch the full series</a>
+	</div>
+	<div class="hero-video">
+		<video
+			src="/images/vidz/magwrap.mp4"
+			autoplay
+			muted
+			loop
+			playsinline
+		></video>
+	</div>
+</div>
+
+<div class="gallery-header">
+	<span class="sec-label">Project gallery</span>
+	<span class="sec-label gallery-count">{mediaItems.length} items</span>
+</div>
+
+<div class="gallery-grid">
+	{#each mediaItems as item, i}
+		<div
+			class="gallery-cell"
+			class:wide={item.type === 'video'}
+			role={item.type === 'image' ? 'button' : undefined}
+			tabindex={item.type === 'image' ? 0 : undefined}
+			on:click={() => item.type === 'image' && openLightbox(item.src, item.alt)}
+			on:keydown={(e) => item.type === 'image' && e.key === 'Enter' && openLightbox(item.src, item.alt)}
+		>
+			{#if item.type === 'video'}
+				<video src={item.src} poster={item.poster} autoplay muted loop playsinline></video>
+			{:else}
+				<img src={item.src} alt={item.alt} loading="lazy" />
+				<div class="cell-expand">↗</div>
+			{/if}
+			{#if item.caption}
+				<div class="cell-caption">{item.caption}</div>
+			{/if}
+		</div>
+	{/each}
+</div>
+
+{#if lightboxOpen}
+	<!-- svelte-ignore a11y-click-events-have-key-events -->
+	<div class="lightbox" on:click={closeLightbox} role="dialog" aria-modal="true">
+		<!-- svelte-ignore a11y-click-events-have-key-events -->
+		<div class="lb-inner" on:click|stopPropagation>
+			<img src={lightboxSrc} alt={lightboxAlt} />
+			<button class="lb-close" on:click={closeLightbox} aria-label="Close">×</button>
+		</div>
+	</div>
+{/if}
 
 <style>
-	/* Base styles with CSS variables inherited from main site */
-	:root {
-		--text-primary: #ffffff;
-		--text-secondary: #e0e0e0;
-		--bg-glass: rgba(69, 72, 80, 0.5);
-		--bg-glassWhite: rgba(255, 255, 255, 0.733);
-		--glass-blur: 12px;
-		--glass-border: rgba(255, 255, 255, 0.1);
-		--glass-shadow: rgba(0, 0, 0, 0.2);
-		--accent-color: aliceblue;
-		--transition-speed: 0.3s;
-		--spacing-unit: clamp(0.5rem, 1vw, 1.5rem);
-		--max-width-glass: 1447px;
-		--scroll-indicator-color: rgba(255, 255, 255, 0.8);
+	.pg-header {
+		padding: 64px 40px 48px;
+		border-bottom: 1px solid #181818;
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+	}
+	.ph-idx { margin-bottom: 14px; }
+	.ph-title {
+		font-size: clamp(38px, 5vw, 52px);
+		font-weight: 600;
+		letter-spacing: -0.04em;
+		color: #f0f0f0;
+		line-height: 1.0;
+	}
+	.ph-right { text-align: right; }
+	.ph-meta {
+		font-size: 13px;
+		color: #777;
+		line-height: 2;
 	}
 
-	/* Global transitions for smooth interactions */
-	* {
-		transition:
-			transform var(--transition-speed) ease,
-			opacity var(--transition-speed) ease,
-			background-color var(--transition-speed) ease,
-			box-shadow var(--transition-speed) ease,
-			filter var(--transition-speed) ease;
+	.hero-row {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		border-bottom: 1px solid #181818;
 	}
 
-	/* Project page container */
-	.project-page {
-		width: 100%;
-		min-height: 93vh;
-		position: relative;
-		padding: var(--spacing-unit);
-	}
-
-	p {
-		text-align: left;
-	}
-
-	/* Glass effects (reused from main site) */
-	#glass-landing {
-		z-index: -5;
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		left: 0;
-		top: 0;
-		background: rgb(2, 0, 36);
-		background: linear-gradient(
-			180deg,
-			rgba(2, 0, 36, 0.1) 0%,
-			rgba(45, 45, 69, 0.35) 42%,
-			rgba(107, 127, 240, 0.5) 100%
-		);
-		backdrop-filter: blur(var(--glass-blur)) saturate(190%);
-		box-shadow: 0 8px 32px 0 var(--glass-shadow);
-	}
-	#glass-landing-bottom {
-		z-index: -5;
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		left: 0;
-		top: 0;
-		background: rgb(2, 0, 36);
-		background: linear-gradient(
-			0deg,
-			rgba(2, 0, 36, 0) 0%,
-			rgba(45, 45, 69, 0.3113620448179272) 42%,
-			rgba(107, 127, 240, 0.44861694677871145) 100%
-		);
-		backdrop-filter: blur(var(--glass-blur)) saturate(180%);
-		box-shadow: 0 8px 32px 0 var(--glass-shadow);
-	}
-
-	/* Dark section styling */
-	.dark-section {
-		position: relative;
-		color: var(--text-primary);
-		background-color: rgba(255, 255, 255, 0.01);
-		overflow: hidden;
-	}
-
-	/* Scroll indicator styling */
-	.scroll-indicator {
-		position: absolute;
-		bottom: 5rem;
-		left: 50%;
-		transform: translateX(-50%);
+	.hero-info {
+		padding: 48px 40px;
+		border-right: 1px solid #181818;
 		display: flex;
 		flex-direction: column;
-		align-items: center;
-		color: var(--scroll-indicator-color);
-		z-index: 10;
+		gap: 32px;
 	}
 
-	.scroll-arrow {
-		animation: float 2s ease-in-out infinite;
-		padding: 10px;
-		margin-bottom: 0.5rem;
+	.meta-rows { border-top: 1px solid #181818; }
+	.meta-row {
 		display: flex;
-		justify-content: center;
+		justify-content: space-between;
 		align-items: center;
-		transition: all 0.4s ease;
+		padding: 13px 0;
+		border-bottom: 1px solid #141414;
+		gap: 16px;
+	}
+	.meta-key { flex-shrink: 0; }
+	.meta-val { font-size: 12px; color: #aaa; text-align: right; }
+
+	.proj-desc {
+		font-size: 13px;
+		color: #aaa;
+		line-height: 1.85;
 	}
 
-	.scroll-text {
-		font-size: 0.875rem;
-		font-weight: 500;
-		letter-spacing: 1px;
-		opacity: 0.8;
+	.watch-cta {
+		display: inline-flex;
+		align-items: center;
+		gap: 12px;
+		font-size: 10px;
+		letter-spacing: 0.14em;
 		text-transform: uppercase;
+		color: #666;
+		transition: color 0.15s;
+		width: fit-content;
 	}
-
-	@keyframes float {
-		0%,
-		100% {
-			transform: translateY(0);
-		}
-		50% {
-			transform: translateY(-15px);
-		}
+	.watch-cta::after {
+		content: '';
+		display: inline-block;
+		width: 28px;
+		height: 1px;
+		background: currentColor;
+		transition: width 0.2s;
 	}
-
-	/* Accent bar (consistent with main site) */
-	.accent-bar {
-		height: 4px;
-		background: linear-gradient(90deg, #ffffff 0%, rgba(156, 156, 156, 0.5) 100%);
-		border-radius: 4px;
-		margin: 1.5rem 1.5rem 2.5rem; /* Added horizontal padding to match grid */
-		width: calc(100% - 3rem); /* Adjust width to account for padding */
-	}
-
-	/* Container and content layouts */
-	.hero-container,
-	.media-container {
-		width: 100%;
-		display: flex;
-		justify-content: center;
-		min-height: 10vh;
-	}
-
-	.hero-content {
-		width: 100%;
-		max-width: 90vw;
-		margin: 0 auto;
-		padding: 0 3rem;
-		position: relative;
-		z-index: 1;
-	}
-
-	.media-content {
-		width: 100%;
-		max-width: 1600px; /* Match grid max-width */
-		margin: 0 auto;
-		padding: 0;
-	}
-
-	/* Hero section styling */
-	.hero-content {
-		display: grid;
-		grid-template-columns: 0.7fr 1.3fr; /* Give even more space to video */
-		gap: 8rem;
-		align-items: center;
-		padding-top: 2rem;
-	}
-
-	.hero-text {
-		position: relative;
-		z-index: 2;
-		max-width: 90%;
-	}
-
-	.project-category {
-		font-size: 1rem;
-		font-weight: 600;
-		letter-spacing: 2px;
-		color: var(--text-secondary);
-		margin-bottom: 1rem;
-		mix-blend-mode: difference;
-	}
-
-	.project-title {
-		font-size: clamp(2.5rem, 5vw, 4rem);
-		font-weight: 800;
-		line-height: 1.1;
-		margin-bottom: 1rem;
-		letter-spacing: -0.02em;
-		color: var(--text-primary);
-		mix-blend-mode: difference;
-	}
-
-	.project-subtitle {
-		font-size: clamp(1.5rem, 2.5vw, 2rem);
-		font-weight: 600;
-		color: var(--text-secondary);
-		margin-bottom: 2rem;
-		mix-blend-mode: difference;
-		text-align: left;
-	}
-
-	.project-intro {
-		font-size: clamp(1rem, 1.5vw, 1.2rem);
-		line-height: 1.6;
-		margin-bottom: 2.5rem;
-		color: var(--text-secondary);
-		max-width: 90%;
-		mix-blend-mode: difference;
-	}
-
-	/* Project meta information styling */
-	.project-meta {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: 1.5rem 2rem;
-		margin-top: 2rem;
-		mix-blend-mode: difference;
-		background: rgba(255, 255, 255, 0.05);
-		border-radius: 12px;
-		padding: 1.5rem;
-		backdrop-filter: blur(8px);
-		border: 1px solid rgba(255, 255, 255, 0.1);
-		box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-	}
-
-	.meta-item {
-		display: flex;
-		flex-direction: column;
-	}
-
-	.meta-label {
-		text-align: left;
-		font-size: 0.875rem;
-		font-weight: 600;
-		text-transform: uppercase;
-		letter-spacing: 1px;
-		margin-bottom: 0.5rem;
-		color: var(--text-secondary);
-		opacity: 0.8;
-	}
-
-	.meta-value {
-		text-align: left;
-		font-size: 1rem;
-		font-weight: 500;
-		color: var(--text-primary);
-		white-space: pre-line;
-	}
-
-	.hero-visual {
-		position: relative;
-		z-index: 1;
-		width: 100%;
-		box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-		transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-	}
-
-	.hero-visual:hover {
-		transform: translateY(-10px);
-	}
-
-	.video-container {
-		position: relative;
-		padding-top: 56.25%; /* 16:9 aspect ratio */
-		width: 100%;
-		border-radius: 16px;
-		overflow: hidden;
-		transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-	}
-
-	.video-container:hover {
-		transform: perspective(2000px) rotateY(0deg) translateZ(50px);
-	}
+	.watch-cta:hover { color: #f0f0f0; }
+	.watch-cta:hover::after { width: 44px; }
 
 	.hero-video {
-		position: absolute;
-		top: 0;
-		left: 0;
+		background: #080808;
+		overflow: hidden;
+	}
+	.hero-video video {
 		width: 100%;
 		height: 100%;
-		border: none;
 		object-fit: cover;
-		box-shadow: 0 40px 40px rgba(0, 0, 0, 0.6);
+		opacity: 0.85;
+		display: block;
 	}
 
-	/* Section title styling (consistent across sections) */
-	.section-title {
-		font-size: clamp(2rem, 4vw, 3rem);
-		font-weight: 700;
-		margin-bottom: 1rem;
-		letter-spacing: -0.02em;
-		padding: 0 1.5rem; /* Match grid gap */
-	}
-
-	/* Media grid styling */
-	.media-grid {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr); /* Changed from 2 to 3 columns */
-		gap: 1.5rem;
-		max-width: 1600px; /* Match media-content max-width */
-		margin: 0 auto;
-	}
-
-	.media-item {
-		position: relative;
-		border-radius: 12px;
-		overflow: hidden;
-		background: rgba(255, 255, 255, 0.03);
-		box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-		transition: all 0.4s cubic-bezier(0.2, 0, 0.2, 1);
-		border: 1px solid rgba(255, 255, 255, 0.05);
-	}
-
-	.media-item:hover {
-		transform: translateY(-8px);
-		box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-	}
-
-	.media-item.square {
-		height: 100%;
-		grid-column: span 2;
-		grid-row: span 1;
+	.gallery-header {
 		display: flex;
-		flex-direction: column;
-		border-radius: 12px;
-		overflow: hidden;
-		background: rgba(255, 255, 255, 0.03);
-		box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-	}
-	.media-item.square img {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		aspect-ratio: 16/9;
-	}
-	.media-item.landscape {
-		grid-column: span 3; /* Span 2 instead of full width */
-		max-height: none; /* Remove height restriction to allow proper aspect ratio */
-		object-fit: cover;
+		justify-content: space-between;
+		align-items: center;
+		padding: 20px 40px;
+		border-bottom: 1px solid #181818;
 	}
 
-	.video-wrapper {
+	.gallery-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1px;
+		background: #141414;
+		border-bottom: 1px solid #181818;
+	}
+
+	.gallery-cell {
+		background: #0a0a0a;
 		position: relative;
-		padding-top: 56.25%; /* 16:9 aspect ratio */
-		width: 100%;
-		background: #050505;
-		border-radius: 12px;
 		overflow: hidden;
+		cursor: none;
+	}
+	.gallery-cell.wide {
+		grid-column: span 3;
+		cursor: default;
 	}
 
-	.media-item img {
-		aspect-ratio: 2/3; /* change later if need be */
+	.gallery-cell img {
 		width: 100%;
-		height: auto;
+		aspect-ratio: 4/3;
+		object-fit: cover;
+		opacity: 0.8;
+		transition: opacity 0.3s, transform 0.4s ease;
+		display: block;
+	}
+	.gallery-cell:not(.wide):hover img { opacity: 1; transform: scale(1.03); }
+
+	.gallery-cell video {
+		width: 100%;
+		aspect-ratio: 16/9;
 		object-fit: cover;
 		display: block;
-		transform: scale(1);
-		transition: transform 0.8s cubic-bezier(0.2, 0, 0.2, 1);
-		filter: brightness(0.95);
 	}
 
-	.media-item:hover img {
-		transform: scale(1.05);
-		filter: brightness(1.05);
+	.cell-expand {
+		position: absolute;
+		top: 12px;
+		right: 14px;
+		font-size: 13px;
+		color: #444;
+		transition: color 0.15s;
+		pointer-events: none;
 	}
+	.gallery-cell:hover .cell-expand { color: #ccc; }
 
-	.media-item.landscape img {
-		aspect-ratio: 16/9;
+	.cell-caption {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		padding: 10px 14px;
+		font-size: 10px;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: #555;
+		background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
+		opacity: 0;
+		transition: opacity 0.2s;
 	}
+	.gallery-cell:hover .cell-caption { opacity: 1; }
 
-	.media-caption {
-		padding: 1.5rem;
-		font-size: 1rem;
-		color: var(--text-secondary);
-		background: rgba(0, 0, 0, 0.7);
-		backdrop-filter: blur(10px);
-		margin: 0;
-		border-top: 1px solid rgba(255, 255, 255, 0.07);
-		letter-spacing: 0.02em;
+	/* Lightbox */
+	.lightbox {
+		position: fixed;
+		inset: 0;
+		background: rgba(0, 0, 0, 0.94);
+		z-index: 500;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 24px;
 	}
-
-	/* Update container padding for more space */
-	.media-container {
-		padding: 2rem 0;
+	.lb-inner {
+		position: relative;
+		max-width: 90vw;
+		max-height: 90vh;
 	}
-
-	/* Adjust spacing for better vertical rhythm */
-	.section-title {
-		margin-bottom: 2rem;
+	.lb-inner img {
+		max-width: 100%;
+		max-height: 90vh;
+		object-fit: contain;
 	}
-
-	/* This is overridden by the main .accent-bar definition above */
-
-	/* Make items stack on smaller screens but maintain large size */
-	/* Updated media queries for responsive grid */
-	@media (max-width: 1800px) {
-		.media-grid {
-			grid-template-columns: repeat(3, 1fr);
-			gap: 1.5rem;
-		}
+	.lb-close {
+		position: absolute;
+		top: -40px;
+		right: -8px;
+		background: none;
+		border: none;
+		color: #aaa;
+		font-size: 28px;
+		line-height: 1;
+		padding: 4px 8px;
+		transition: color 0.15s;
+		cursor: none;
 	}
-
-	@media (max-width: 1400px) {
-		.media-grid {
-			grid-template-columns: repeat(2, 1fr);
-			gap: 1.25rem;
-		}
-
-		.media-content {
-			padding: 0 2rem;
-		}
-	}
+	.lb-close:hover { color: #fff; }
 
 	@media (max-width: 1024px) {
-		.section-title,
-		.accent-bar {
-			padding: 0 1rem;
-		}
-		.accent-bar {
-			width: calc(100% - 2rem);
-			margin: 1.5rem 1rem 2.5rem;
-		}
-		.media-grid {
-			grid-template-columns: 1fr;
-			gap: 2rem;
-		}
-
-		.media-item.landscape {
-			grid-column: auto;
-		}
-
-		.media-item {
-			max-width: 100%;
-		}
-
-		.media-container {
-			padding: 6rem 0;
-		}
+		.pg-header { padding: 48px 20px 36px; flex-direction: column; align-items: flex-start; gap: 24px; }
+		.ph-right { text-align: left; }
+		.hero-row { grid-template-columns: 1fr; }
+		.hero-info { border-right: none; border-bottom: 1px solid #181818; padding: 36px 20px; }
+		.gallery-grid { grid-template-columns: repeat(2, 1fr); }
+		.gallery-cell.wide { grid-column: span 2; }
+		.gallery-header { padding: 16px 20px; }
 	}
 
 	@media (max-width: 640px) {
-		.media-grid {
-			gap: 1.25rem;
-		}
-
-		.media-caption {
-			padding: 1rem;
-			font-size: 0.9rem;
-		}
-	}
-
-	/* Responsive design breakpoints */
-	@media (max-width: 1800px) {
-		.hero-content {
-			max-width: 2200px;
-			grid-template-columns: 0.8fr 1.2fr;
-			gap: 6rem;
-		}
-	}
-
-	@media (max-width: 1400px) {
-		.hero-content {
-			padding: 0 2rem;
-			grid-template-columns: 0.9fr 1.1fr;
-			gap: 4rem;
-		}
-
-		.video-container {
-			width: 100%;
-			margin-left: 0;
-		}
-		.project-meta {
-			grid-template-columns: repeat(2, 1fr);
-		}
-	}
-
-	@media (max-width: 1024px) {
-		.hero-content {
-			grid-template-columns: 1fr;
-			gap: 4rem;
-		}
-
-		.hero-text {
-			order: 0;
-		}
-
-		.hero-visual {
-			order: 1;
-		}
-
-		.hero-text {
-			max-width: 100%;
-		}
-
-		.video-container {
-			transform: none;
-		}
-
-		.video-container:hover {
-			transform: translateY(-10px);
-		}
-
-		.hero-container {
-			padding: 6rem 0;
-			min-height: auto;
-		}
+		.gallery-grid { grid-template-columns: 1fr; }
+		.gallery-cell.wide { grid-column: span 1; }
 	}
 </style>

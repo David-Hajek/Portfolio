@@ -4,9 +4,9 @@
   --border: #181818;
   --border-mid: #222222;
   --text-primary: #f0f0f0;
-  --text-secondary: #666666;
-  --text-muted: #404040;
-  --text-label: #383838;
+  --text-secondary: #aaaaaa;
+  --text-muted: #666666;
+  --text-label: #666666;
   --green: #3a7a3a;
   --font: -apple-system, 'Helvetica Neue', Arial, sans-serif;
 }
@@ -59,10 +59,10 @@ button { font-family: var(--font); cursor: none; }
 }
 
 .tag {
-  font-size: 10px;
-  letter-spacing: .08em;
+  font-size: 12px;
+  letter-spacing: .05em;
   text-transform: uppercase;
-  padding: 5px 10px;
+  padding: 6px 12px;
   border: 1px solid var(--border-mid);
   color: var(--text-muted);
   display: inline-block;

@@ -179,13 +179,13 @@
 
 	.nav-link {
 		font-size: 11px;
-		color: #404040;
+		color: #666;
 		letter-spacing: 0.1em;
 		text-transform: uppercase;
 		transition: color 0.15s;
 	}
 
-	.nav-link:hover { color: #aaa; }
+	.nav-link:hover { color: #ccc; }
 	.nav-link.active { color: #f0f0f0; }
 
 	.nav-meta {
@@ -197,7 +197,7 @@
 
 	.loc {
 		font-size: 11px;
-		color: #383838;
+		color: #555;
 		letter-spacing: 0.06em;
 	}
 
@@ -248,7 +248,7 @@
 
 	.mobile-link {
 		font-size: 13px;
-		color: #555;
+		color: #777;
 		letter-spacing: 0.1em;
 		text-transform: uppercase;
 		padding: 14px 0;
@@ -288,13 +288,13 @@
 
 	.foot-links a {
 		font-size: 10px;
-		color: #2a2a2a;
+		color: #444;
 		letter-spacing: 0.1em;
 		text-transform: uppercase;
 		transition: color 0.15s;
 	}
 
-	.foot-links a:hover { color: #555; }
+	.foot-links a:hover { color: #888; }
 
 	main {
 		min-height: 80vh;

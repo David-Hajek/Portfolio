@@ -200,7 +200,7 @@
 	}
 	.hero-desc {
 		font-size: 13px;
-		color: #666;
+		color: #aaa;
 		line-height: 1.8;
 		max-width: 300px;
 	}
@@ -280,7 +280,7 @@
 		color: #f0f0f0;
 		margin-bottom: 4px;
 	}
-	.wo-sub { font-size: 11px; color: #555; letter-spacing: 0.08em; }
+	.wo-sub { font-size: 11px; color: #888; letter-spacing: 0.08em; }
 
 	.clients {
 		padding: 28px 40px;
@@ -297,7 +297,7 @@
 	}
 	.client-names span {
 		font-size: 11px;
-		color: #2e2e2e;
+		color: #444;
 		letter-spacing: 0.12em;
 		text-transform: uppercase;
 	}
@@ -317,7 +317,7 @@
 		letter-spacing: -0.02em;
 		margin-bottom: 16px;
 	}
-	.split-body { font-size: 13px; color: #666; line-height: 1.8; }
+	.split-body { font-size: 13px; color: #aaa; line-height: 1.8; }
 	.tags-row {
 		display: flex;
 		flex-wrap: wrap;
@@ -334,14 +334,14 @@
 	.tcard:last-child { margin-bottom: 0; }
 	.tquote {
 		font-size: 13px;
-		color: #666;
+		color: #aaa;
 		line-height: 1.8;
 		font-style: italic;
 		margin-bottom: 18px;
 	}
 	.tauthor { display: flex; flex-direction: column; gap: 3px; }
-	.tname { font-size: 12px; color: #888; font-weight: 500; }
-	.trole { font-size: 11px; color: #383838; }
+	.tname { font-size: 12px; color: #ccc; font-weight: 500; }
+	.trole { font-size: 11px; color: #666; }
 
 	.nav-sections {
 		display: grid;
@@ -364,14 +364,14 @@
 		color: #f0f0f0;
 		margin-bottom: 8px;
 	}
-	.ns-desc { font-size: 12px; color: #444; line-height: 1.6; }
+	.ns-desc { font-size: 12px; color: #777; line-height: 1.6; }
 	.ns-arr {
 		margin-top: 24px;
 		font-size: 18px;
-		color: #282828;
+		color: #444;
 		transition: color 0.15s, transform 0.15s;
 	}
-	.ns:hover .ns-arr { color: #666; transform: translateX(4px); }
+	.ns:hover .ns-arr { color: #aaa; transform: translateX(4px); }
 
 	@media (max-width: 1024px) {
 		.hero-inner { grid-template-columns: 1fr; gap: 36px; }
