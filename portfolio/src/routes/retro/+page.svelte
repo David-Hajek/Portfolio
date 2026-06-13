@@ -1,527 +1,176 @@
 <script lang="ts">
-    import { onMount } from 'svelte';
-    import { fade, scale } from 'svelte/transition';
-    import { cubicOut } from 'svelte/easing';
-    import { reveal } from 'svelte-reveal';
-    import { base } from '$app/paths';
-    interface Project {
-        id: number;
-        title: string;
-        description: string;
-        images: {
-            url: string;
-            alt: string;
-            width?: string; // Optional width override
-        }[];
-        videoUrl?: string;
-        isRight: boolean;
-    }
-
-    const projects: Project[] = [
-        {
-            id: 1,
-            title: "UNTITLED GAME PROJECT",
-            description: "This was a project I worked on with my friend. I was in charge of creating the PSX models for the game. I was overally very pleased with the visuals for the ingame characters and environments. I created my own pipeline of creating said models with realtive ease later on.",
-            images: [
-                { url: "/images/retro/untitled/bgtest.webp", alt: "Ingame background" },
-                { url: "/images/retro/untitled/tank.webp", alt: "Game character - Tank"},
-                { url: "/images/retro/untitled/rendertest.webp", alt: "Game character - Assasin" },
-                { url: "/images/retro/untitled/preview.webp", alt: "Game preview"},
-                { url: "/images/retro/untitled/concept.webp", alt: "Concept render"},
-            ],
-            videoUrl: "https://www.youtube.com/embed/RJHFx1jc5Oc",
-            isRight: false
-        },
-        {
-            id: 2,
-            title: "UNIVERSITY MODELING PRACTICE",
-            description: "A simple university assignment, I have created, rigged and textured the knight, so that It can be moved within blender and posed. Probably my favorite knight model I have done so far, very happy with how clean he turned out! The background was also a part of the assignment, I wanted to create a somber forest scape, with a towering castle in the back, while also maintaining the depth and atmosphere.",
-            images: [
-                { url: "/images/retro/proj2/gifmaker_me.gif", alt: "Model turnaround" },
-                { url: "/images/retro/proj2/bg.jpg", alt: "Medieval forest background"}
-            ],
-            isRight: true
-        },
-        {
-            id: 3,
-            title: "BACKSTREETS",
-            description: "A personal challenge, where I wanted to learn more software to add to my toolbelt in the future. I at first only wanted to have a quick enviro render, however I then created a character for the scene, and all of a sudden it was animated. I then edited the animations in davinci resolve, and created a pretty artistic piece in the end :) ",
-            images: [
-                { url: "/images/retro/to-add/main.webp", alt: "Closeup render PSX" },
-                { url: "/images/retro/to-add/background.webp", alt: "Wide shot of backstreets, PSX"}
-            ],
-            videoUrl: "https://www.youtube.com/embed/ECQ7oTGyaNY",
-            isRight: false
-        },
-        {
-            id: 4,
-            title: "UYUU - Stream Background/Model",
-            description: "A friend of mine wanted to have a sort of intermission background for his streams, and I really wanted to model something in the psx style, so I took it upon myself to create the 3D model of his avatar, aswell as the render of the intermission stage. I was pretty happy with how both turned out! It was a very fun project for me",
-            images: [
-                { url: "/images/retro/uyuy/uyuu-main.webp", alt: "Background art" },
-                { url: "/images/retro/uyuy/ujuj-stream.webp", alt: "Background art, livestream screenshot" },
-                { url: "/images/retro/uyuy/uyuu-model.webp", alt: "Raw Vtuber model" }
-            ],
-            isRight: true
-        }
-    ];
-
-    let sections: HTMLElement[] = [];
-    let currentSection = 0;
-    let modalImage: { url: string; alt: string; } | null = null;
-    let isModalOpen = false;
-
-    function openModal(image: { url: string; alt: string; }) {
-        modalImage = image;
-        isModalOpen = true;
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal() {
-        isModalOpen = false;
-        document.body.style.overflow = '';
-    }
-
-    function handleKeydown(event: KeyboardEvent) {
-        if (event.key === 'Escape' && isModalOpen) {
-            closeModal();
-        }
-    }
-
-    onMount(() => {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const index = sections.indexOf(entry.target as HTMLElement);
-                    if (index !== -1) {
-                        currentSection = index;
-                    }
-                }
-            });
-        }, {
-            threshold: 0.5,
-            rootMargin: '-50% 0px -50% 0px'
-        });
-
-        sections.forEach(section => {
-            observer.observe(section);
-        });
-
-        return () => {
-            sections.forEach(section => {
-                observer.unobserve(section);
-            });
-        };
-    });
+	const projects = [
+		{
+			num: '01',
+			title: 'Untitled Game Project',
+			desc: 'PSX-style character and environment models built with a friend for an indie game. Developed a full reusable pipeline for low-poly assets — characters, environments, and in-game props — that made iteration fast.',
+			tags: ['PSX', 'Game Art', 'Pipeline', 'Blender'],
+			img: '/images/retro/untitled/bgtest.webp',
+			alt: 'Untitled game project background',
+			video: 'https://www.youtube.com/embed/RJHFx1jc5Oc'
+		},
+		{
+			num: '02',
+			title: 'University Modeling Practice',
+			desc: 'Rigged and textured knight created for a university assignment. Accompanied by a somber medieval forest environment with a towering castle in the background — built to atmosphere over realism.',
+			tags: ['Blender', 'Rigging', 'Environment', 'Low-poly'],
+			img: '/images/retro/proj2/bg.jpg',
+			alt: 'Medieval forest environment',
+			video: null
+		},
+		{
+			num: '03',
+			title: 'Backstreets',
+			desc: 'Started as a quick PSX environment render. A character appeared, then it got animated, then edited in DaVinci Resolve. What was meant to be a quick test became a fully realised short piece.',
+			tags: ['PSX', 'Animation', 'DaVinci Resolve'],
+			img: '/images/retro/to-add/main.webp',
+			alt: 'Backstreets PSX closeup render',
+			video: 'https://www.youtube.com/embed/ECQ7oTGyaNY'
+		},
+		{
+			num: '04',
+			title: 'UYUU — Stream Background',
+			desc: "PSX-style 3D avatar model and intermission stage designed for a friend's live streams. Both the model and the environment came together into something cohesive and characterful.",
+			tags: ['PSX', 'Character', 'Vtuber', 'Environment'],
+			img: '/images/retro/uyuy/uyuu-main.webp',
+			alt: 'UYUU stream background',
+			video: null
+		}
+	];
 </script>
 
-<div class="retro-container" in:fade={{ duration: 300, delay: 300 }}>
-  <div class="content-section ">
-    <h1 class="retro-title" >RETRO VAULT</h1>
-    <h1 class="retro-title" style="font-size: small; opacity: 0.5"> My personal guilty pleasure</h1>
-    <div class="retro-bar"></div>
-  </div>
+<svelte:head>
+	<title>Retro — David Hajek</title>
+</svelte:head>
 
-<div class="projects-container">
-    {#each projects as project, i}
-        <section 
-            class="project-section" 
-            class:right={project.isRight}
-            bind:this={sections[i]}>
-            <div class="content-column images">
-                {#if project.videoUrl}
-                        <div class="video-wrapper">
-                            <iframe
-                                src={project.videoUrl}
-                                title={project.title}
-                                frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen
-                            ></iframe>
-                        </div>
-                    {/if}
-                {#each project.images as image}
-                    <div 
-                        class="image-wrapper" 
-                        style="width: {image.width || '100%'}"
-                        on:click={() => openModal(image)}
-                        on:keydown={(e) => e.key === 'Enter' && openModal(image)}
-                        role="button"
-                        tabindex="0"
-                    >
-                        <img 
-                            src={`${base}${image.url}`} 
-                            alt={image.alt}
-                            loading="lazy"
-                        />
-                        <div class="image-overlay">
-                            <span class="expand-icon">+</span>
-                        </div>
-                    </div>
-                {/each}
-            </div>
-            <div class="content-column text">
-                <div class="text-content" class:active={currentSection === i}>
-                    <h2>{project.title}</h2>
-                    <p>{project.description}</p>
-                </div>
-            </div>
-        </section>
-    {/each}
+<div class="pg-header">
+	<div class="ph-left">
+		<p class="sec-label ph-idx">03 — Retro</p>
+		<h1 class="ph-title">PSX Era<br />Work</h1>
+	</div>
+	<div class="ph-right">
+		<p class="sec-label ph-meta">4 projects<br />Low-poly · Game art<br />PSX aesthetic</p>
+	</div>
 </div>
 
+{#each projects as project, i}
+	<div class="proj-row" class:rev={i % 2 !== 0}>
+		<div class="proj-img">
+			{#if project.img}
+				<img src={project.img} alt={project.alt} />
+			{/if}
+		</div>
+		<div class="proj-body">
+			<div>
+				<p class="sec-label p-num">{project.num}</p>
+				<h2 class="p-title">{project.title}</h2>
+				<p class="p-desc">{project.desc}</p>
+				<div class="p-tags">
+					{#each project.tags as tag}
+						<span class="tag">{tag}</span>
+					{/each}
+				</div>
+			</div>
+			{#if project.video}
+				<a href={project.video} target="_blank" rel="noopener" class="p-cta">Watch on YouTube</a>
+			{/if}
+		</div>
+	</div>
+{/each}
 
-
-{#if isModalOpen && modalImage}
-    <div 
-        class="modal-overlay" 
-        on:click={closeModal}
-        transition:fade={{ duration: 200 }}
-    >
-        <div 
-            class="modal-content"
-            transition:scale={{ duration: 300, easing: cubicOut }}
-            on:click|stopPropagation
-        >
-            <img src={`${base}${modalImage.url}`} alt={modalImage.alt} />
-            <button class="close-button" on:click={closeModal}>×</button>
-        </div>
-    </div>
-{/if}
-
-
-</div>
 <style>
-  :global(body) {
-    background: #1f1f1f;
-    background-image: 
-      linear-gradient(rgba(16, 16, 32, 0.5) 2px, transparent 2px),
-      linear-gradient(90deg, rgba(16, 16, 32, 0.5) 2px, transparent 2px);
-    background-size: 40px 40px;
-    background-attachment: fixed;
-  }
-  .expand-icon {
-        color: white;
-        mix-blend-mode: difference;
-        font-size: 2rem;
-        transform: translateY(20px);
-        transition: transform 0.3s ease;
-    }
-  .retro-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 20px;
-    position: relative;
-  }
+	.pg-header {
+		padding: 64px 40px 48px;
+		border-bottom: 1px solid #181818;
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+	}
+	.ph-idx { margin-bottom: 14px; }
+	.ph-title {
+		font-size: clamp(38px, 5vw, 52px);
+		font-weight: 600;
+		letter-spacing: -0.04em;
+		color: #f0f0f0;
+		line-height: 1.0;
+	}
+	.ph-right { text-align: right; }
+	.ph-meta { line-height: 2.2; }
 
-  .content-section {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
+	.proj-row {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		border-bottom: 1px solid #181818;
+	}
+	.proj-row.rev .proj-img { order: 2; border-left: 1px solid #181818; border-right: none; }
+	.proj-row.rev .proj-body { order: 1; }
 
-  .retro-title {
-    margin-top: 1rem;
-    font-family: 'Press Start 2P', cursive;
-    font-size: clamp(1.5rem, 3vw, 2.5rem);
-    color: #e8e8e8;
-    text-align: center;
-    margin-bottom: 1.5rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-shadow: 
-      0 0 10px rgba(114, 167, 255, 0.8),
-      0 0 20px rgba(114, 167, 255, 0.5);
-    position: relative;
-  }
+	.proj-img {
+		border-right: 1px solid #181818;
+		aspect-ratio: 16/9;
+		overflow: hidden;
+		background: #0d0d0d;
+	}
+	.proj-img img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		opacity: 0.75;
+		transition: opacity 0.3s;
+	}
+	.proj-row:hover .proj-img img { opacity: 1; }
 
-  .retro-title::before {
-    content: '';
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 120%;
-    height: 1px;
-    background: linear-gradient(90deg, 
-      transparent, 
-      rgba(114, 167, 255, 0.5), 
-      rgba(114, 167, 255, 0.8),
-      rgba(114, 167, 255, 0.5), 
-      transparent);
-  }
+	.proj-body {
+		padding: 40px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		min-height: 240px;
+	}
+	.p-num { margin-bottom: 14px; }
+	.p-title {
+		font-size: 20px;
+		font-weight: 500;
+		color: #f0f0f0;
+		margin-bottom: 12px;
+		letter-spacing: -0.01em;
+		line-height: 1.25;
+	}
+	.p-desc { font-size: 13px; color: #666; line-height: 1.8; }
+	.p-tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 6px;
+		margin-top: 18px;
+	}
+	.p-cta {
+		display: inline-flex;
+		align-items: center;
+		gap: 12px;
+		margin-top: 24px;
+		font-size: 10px;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		color: #383838;
+		transition: color 0.15s;
+	}
+	.p-cta::after {
+		content: '';
+		display: inline-block;
+		width: 28px;
+		height: 1px;
+		background: currentColor;
+		transition: width 0.2s;
+	}
+	.p-cta:hover { color: #f0f0f0; }
+	.p-cta:hover::after { width: 44px; }
 
-  .retro-bar {
-    height: 4px;
-    background: linear-gradient(90deg,
-      transparent,
-      rgba(114, 167, 255, 0.8),
-      transparent);
-    width: 100%;
-    margin: 2rem auto;
-    max-width: 800px;
-    position: relative;
-  }
-
-  .project-section {
-    display: flex;
-    min-height: 100vh;
-    position: relative;
-    gap: 40px;
-    margin-bottom: 100px;
-    position: relative;
-  }
-
-  .project-section::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(
-      rgba(16, 16, 32, 0.1) 50%,
-      rgba(16, 16, 32, 0) 50%
-    );
-    background-size: 4px 4px;
-    pointer-events: none;
-    z-index: 2;
-  }
-
-  .project-section.right {
-    flex-direction: row-reverse;
-  }
-
-  .content-column {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .content-column.text {
-    position: sticky;
-    top: 8vh;
-    align-self: flex-start;
-    height: fit-content;
-  }
-
-  .content-column.images {
-    gap: 40px;
-  }
-
-  .image-wrapper {
-    margin: 0 auto;
-    border-radius: 4px;
-    overflow: hidden;
-    background: rgba(255, 255, 255, 0.05);
-    position: relative;
-    cursor: pointer;
-    border: 1px solid rgba(114, 167, 255, 0.3);
-    box-shadow: 0 0 20px rgba(114, 167, 255, 0.2);
-  }
-
-  .image-wrapper::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(
-      rgba(16, 16, 32, 0.1) 50%,
-      rgba(16, 16, 32, 0) 50%
-    );
-    background-size: 4px 4px;
-    pointer-events: none;
-    z-index: 1;
-  }
-
-  .image-wrapper img {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.4s ease;
-    filter: brightness(0.9) contrast(1.1);
-  }
-
-  .text-content {
-    padding: 40px;
-    background: rgba(16, 16, 32, 0.7);
-    border: 1px solid rgba(114, 167, 255, 0.3);
-    border-radius: 4px;
-    box-shadow: 0 0 20px rgba(114, 167, 255, 0.2);
-    transform: translateY(20px);
-    transition: all 0.5s ease;
-    opacity: 1;
-  }
-
-  .text-content.active {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  h2 {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 1.8rem;
-    color: #e8e8e8;
-    margin-bottom: 20px;
-    text-shadow: 
-      0 0 10px rgba(114, 167, 255, 0.8),
-      0 0 20px rgba(114, 167, 255, 0.5);
-  }
-
-  p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    color: #a0a0a0;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-  }
-
-  .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(16, 16, 32, 0.95);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-    padding: 20px;
-  }
-
-  .modal-content {
-    position: relative;
-    max-width: 90vw;
-    max-height: 90vh;
-    border: 1px solid rgba(114, 167, 255, 0.3);
-    border-radius: 4px;
-    padding: 10px;
-    background: rgba(16, 16, 32, 0.8);
-    box-shadow: 0 0 30px rgba(114, 167, 255, 0.3);
-  }
-
-  .modal-content img {
-    max-width: 100%;
-    max-height: 90vh;
-    object-fit: contain;
-    border-radius: 4px;
-    filter: brightness(0.9) contrast(1.1);
-  }
-
-  .close-button {
-    position: absolute;
-    top: -40px;
-    right: -40px;
-    background: rgba(16, 16, 32, 0.8);
-    border: 2px solid rgba(114, 167, 255, 0.5);
-    color: #e8e8e8;
-    font-size: 2rem;
-    cursor: pointer;
-    padding: 10px 20px;
-    border-radius: 4px;
-    transition: all 0.2s ease;
-    text-shadow: 0 0 10px rgba(114, 167, 255, 0.8);
-  }
-
-  .close-button:hover {
-    background: rgba(114, 167, 255, 0.2);
-    transform: scale(1.1);
-  }
- p{
-    text-align: left;
- }
- .image-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0, 0, 0, 0.123);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
-    
- .image-wrapper:hover img {
-        transform: scale(1.05);
-    }
-
-    .image-wrapper:hover .image-overlay {
-        opacity: 1;
-    }
-    .image-wrapper:hover .expand-icon {
-        transform: translateY(0);
-    }
- .video-wrapper {
-        position: relative;
-        width: 100%;
-        padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-        margin-bottom: 40px;
-        border-radius: 12px;
-        overflow: hidden;
-        background: rgba(255, 255, 255, 0.05);
-        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-    }
-
-    .video-wrapper iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: none;
-    }
-  @media (max-width: 768px) {
-    .retro-container {
-      padding: 4rem 1rem;
-    }
-
-    .retro-title {
-      font-size: clamp(1.2rem, 2vw, 1.8rem);
-    }
-
-    .project-section {
-      flex-direction: column;
-      gap: 20px;
-      margin-bottom: 60px;
-    }
-
-    .project-section.right {
-      flex-direction: column;
-    }
-
-    .content-column.text {
-      position: static;
-    }
-
-    .text-content {
-      padding: 20px;
-      transform: none;
-      opacity: 1;
-    }
-
-    h2 {
-      font-size: 1.4rem;
-    }
-
-    .image-wrapper {
-      width: 100% !important;
-    }
-
-    .modal-content {
-      max-width: 95vw;
-    }
-
-    .close-button {
-      top: -40px;
-      right: 0;
-    }
-    p{
-            font-size: 14px;
-            
-        }
-  }
-  </style>
+	@media (max-width: 1024px) {
+		.pg-header { padding: 48px 20px 36px; }
+		.proj-row { grid-template-columns: 1fr; }
+		.proj-row.rev .proj-img { order: 0; border-left: none; border-right: none; border-bottom: 1px solid #181818; }
+		.proj-row.rev .proj-body { order: 0; }
+		.proj-img { border-right: none; border-bottom: 1px solid #181818; aspect-ratio: 16/7; }
+		.proj-body { padding: 28px 20px; min-height: unset; }
+	}
+</style>

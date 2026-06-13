@@ -1,290 +1,205 @@
-<script>
-    import { onMount } from 'svelte';
-    import { reveal } from 'svelte-reveal';
-    import BlackHoleShader from '$lib/BlackHoleShader.svelte';
-    import { base } from '$app/paths';
-    onMount(() =>{
-        console.log("Contacts loaded");
-    });
+<svelte:head>
+	<title>About — David Hajek</title>
+</svelte:head>
 
-</script>
-  
+<div class="about-grid">
+	<div class="col-left">
+		<div class="avatar">
+			<img src="/images/face.gif" alt="David Hajek" />
+		</div>
+		<p class="sec-label col-lbl">About me</p>
+		<h1 class="a-name">David<br />Hájek</h1>
+		<p class="a-bio">
+			Self-taught 3D artist from the Czech Republic, currently pursuing a bachelor's degree in
+			Ireland. Deeply passionate about storytelling through visuals — immersive scenes, expressive
+			characters, and work that genuinely connects with the viewer.
+		</p>
+		<div class="a-rows">
+			<div class="a-row">
+				<span class="a-key sec-label">Location</span>
+				<span class="a-val">Czech Republic, near Prague</span>
+			</div>
+			<div class="a-row">
+				<span class="a-key sec-label">Education</span>
+				<span class="a-val">Bachelor's degree, Ireland</span>
+			</div>
+			<div class="a-row">
+				<span class="a-key sec-label">Speciality</span>
+				<span class="a-val">3D Art · VFX · Simulation</span>
+			</div>
+			<div class="a-row">
+				<span class="a-key sec-label">Status</span>
+				<span class="a-val status">Open to work</span>
+			</div>
+		</div>
+		<div class="soc-row">
+			<a href="https://www.linkedin.com/in/david-h%C3%A1jek-98901b292/" target="_blank" rel="noopener" class="soc-btn">LinkedIn</a>
+			<a href="https://www.artstation.com/naden" target="_blank" rel="noopener" class="soc-btn">ArtStation</a>
+			<a href="https://mhaace.itch.io/" target="_blank" rel="noopener" class="soc-btn">Itch.io</a>
+			<a href="https://www.instagram.com/dejvid.hajek/" target="_blank" rel="noopener" class="soc-btn">Instagram</a>
+		</div>
+	</div>
 
-<div class="container glassmorphism">
-    <div class="left-side" use:reveal={{ preset: "slide", y: 50, x: 0 }}>
-        <img src="{base}/images/face.gif" alt="profile photo" class="profile"/>
-        <h1 class="contacts">SOCIAL/S</h1>
-        <p class="contacts"><a href="mailto:david.mhaace@gmail.com" >david.mhaace@gmail.com</a></p>
-        <nav class="contacts2">
-            <ul>
-                <a href="https://www.linkedin.com/in/david-h%C3%A1jek-98901b292/">
-                    <li><img src="{base}/images/linkedin.png" alt="linkedin" class="images"></li>
-                </a>
-                <a href="https://www.artstation.com/naden">
-                    <li><img src="{base}/images/artstation.png" alt="artstation" class="images"></li>
-                </a>
-                <a href="https://mhaace.itch.io/">
-                    <li><img src="{base}/images/itch.png" alt="itch.io" class="images"></li>
-                </a>
-                <a href="https://www.instagram.com/dejvid.hajek/?hl=en">
-                    <li><img src="{base}/images/instagram.png" alt="instagram" class="images"></li>
-                </a>
-            </ul>
-        </nav>
-    </div>
+	<div class="col-right">
+		<p class="sec-label col-lbl">Worked with</p>
+		<div class="ww-list">
+			<div class="ww-row">
+				<span class="ww-name">Krystof Jezek</span>
+				<span class="ww-arr">→</span>
+			</div>
+			<div class="ww-row">
+				<span class="ww-name">Apparently Studios</span>
+				<span class="ww-arr">→</span>
+			</div>
+			<div class="ww-row">
+				<span class="ww-name">Mira Lumière / Yoimira Entertainment</span>
+				<span class="ww-arr">→</span>
+			</div>
+			<div class="ww-row">
+				<span class="ww-name">Dyky</span>
+				<span class="ww-arr">→</span>
+			</div>
+			<div class="ww-row">
+				<span class="ww-name">Devomi</span>
+				<span class="ww-arr">→</span>
+			</div>
+		</div>
 
-    <div class="right-side " use:reveal={{ preset: "slide", y: 50, x: 0, delay: 500 }}>
-        <h1 class="about">ABOUT</h1>
-        <p>David Hájek is a self-taught 3D artist from the Czech Republic, currently pursuing a bachelor's degree in Ireland. 
-        With a deep passion for storytelling through visuals, he focuses on crafting immersive scenes, and expressive characters that connect with the viewer.</p>
-        <h1 class="workedwith">WORKED WITH</h1>
-        <p class="workedwithtext">KRYSTOF JEZEK, APPARENTLY STUDIOS, 
-            MIRA LUMIÈRE, DYKY, DEVOMI</p>
-    </div>
+		<div class="skill-block">
+			<p class="sec-label col-lbl">Skills</p>
+			<div class="pill-row">
+				<span class="tag">3D Modeling</span>
+				<span class="tag">Texturing</span>
+				<span class="tag">Simulations</span>
+				<span class="tag">Animation</span>
+				<span class="tag">UV Mapping</span>
+				<span class="tag">Rendering</span>
+				<span class="tag">Lighting</span>
+				<span class="tag">Sculpting</span>
+				<span class="tag">Geometry Nodes</span>
+				<span class="tag">Rigging</span>
+			</div>
+		</div>
+
+		<div class="skill-block">
+			<p class="sec-label col-lbl">Tools</p>
+			<div class="pill-row">
+				<span class="tag">Blender</span>
+				<span class="tag">Houdini</span>
+				<span class="tag">ZBrush</span>
+				<span class="tag">Substance Painter</span>
+				<span class="tag">Substance Designer</span>
+				<span class="tag">3DCoat</span>
+				<span class="tag">Photoshop</span>
+				<span class="tag">Illustrator</span>
+				<span class="tag">After Effects</span>
+				<span class="tag">DaVinci Resolve</span>
+				<span class="tag">Figma</span>
+				<span class="tag">Svelte</span>
+			</div>
+		</div>
+	</div>
 </div>
-<BlackHoleShader></BlackHoleShader>
+
 <style>
-    .glassmorphism {
-        backdrop-filter: blur(16px) saturate(180%);
-        background: linear-gradient(135deg, rgba(17, 25, 40, 0.75), rgba(17, 25, 40, 0.95));
-        border-radius: 2.5rem;
-        border: 1px solid rgba(255, 255, 255, 0.125);
-        padding: 4rem;
-        box-shadow: 
-            0 8px 32px 0 rgba(0, 0, 0, 0.37),
-            inset 0 0 32px rgba(255, 255, 255, 0.05);
-        margin: 3rem auto;
-        max-width: 1200px;
-        position: relative;
-        overflow: hidden;
-    }
+	.about-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		min-height: 80vh;
+	}
 
-    .glassmorphism::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 200%;
-        height: 100%;
-        background: linear-gradient(
-            90deg,
-            transparent,
-            rgba(255, 255, 255, 0.05),
-            transparent
-        );
-        transition: 0.5s;
-    }
+	.col-left {
+		padding: 60px 40px;
+		border-right: 1px solid #181818;
+	}
+	.col-right { padding: 60px 40px; }
 
-    .glassmorphism:hover::before {
-        left: 100%;
-    }
+	.avatar {
+		width: 72px;
+		height: 72px;
+		border: 1px solid #1e1e1e;
+		overflow: hidden;
+		margin-bottom: 28px;
+	}
+	.avatar img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
 
-    .about {
-        font-size: clamp(2rem, 5vw, 2.5rem);
-        margin-bottom: 2rem;
-        font-weight: 800;
-        letter-spacing: 0.15em;
-        background: linear-gradient(45deg, #ffffff, #4a9eff);
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-        position: relative;
-    }
+	.col-lbl { margin-bottom: 16px; }
 
-    .about::after {
-        content: '';
-        position: absolute;
-        bottom: -10px;
-        left: 0;
-        width: 60px;
-        height: 4px;
-        background: linear-gradient(90deg, #4a9eff, transparent);
-        border-radius: 2px;
-    }
+	.a-name {
+		font-size: clamp(36px, 4vw, 46px);
+		font-weight: 600;
+		letter-spacing: -0.04em;
+		color: #f0f0f0;
+		line-height: 1.05;
+		margin-bottom: 22px;
+	}
+	.a-bio {
+		font-size: 13px;
+		color: #666;
+		line-height: 1.85;
+		max-width: 360px;
+	}
 
-    .workedwith {
-        font-size: clamp(1.5rem, 4vw, 2rem);
-        margin-top: 3rem;
-        margin-bottom: 1.5rem;
-        font-weight: 700;
-        letter-spacing: 0.12em;
-        color: #ffffff;
-        position: relative;
-    }
+	.a-rows {
+		margin-top: 32px;
+		border-top: 1px solid #181818;
+	}
+	.a-row {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 12px 0;
+		border-bottom: 1px solid #141414;
+		gap: 16px;
+	}
+	.a-key { flex-shrink: 0; }
+	.a-val { font-size: 12px; color: #666; text-align: right; }
+	.status { color: #3a7a3a !important; }
 
-    .workedwith::after {
-        content: '';
-        position: absolute;
-        bottom: -8px;
-        left: 0;
-        width: 40px;
-        height: 3px;
-        background: linear-gradient(90deg, #4a9eff, transparent);
-        border-radius: 2px;
-    }
+	.soc-row {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+		margin-top: 28px;
+	}
+	.soc-btn {
+		font-size: 10px;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		padding: 9px 14px;
+		border: 1px solid #1e1e1e;
+		color: #444;
+		transition: border-color 0.15s, color 0.15s;
+	}
+	.soc-btn:hover { border-color: #444; color: #aaa; }
 
-    h1 { 
-        color: #ffffff;
-        margin: 0;
-        padding: 0;
-    }
+	.ww-list { border-top: 1px solid #181818; }
+	.ww-row {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 14px 0;
+		border-bottom: 1px solid #141414;
+	}
+	.ww-name { font-size: 13px; color: #666; }
+	.ww-arr { font-size: 13px; color: #222; }
 
-    p {
-        font-size: clamp(1rem, 2vw, 1.2rem);
-        line-height: 1.8;
-        color: rgba(255, 255, 255, 0.9);
-        margin: 0;
-        padding: 0;
-        transition: color 0.3s ease;
-    }
+	.skill-block { margin-top: 40px; }
+	.pill-row {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 6px;
+		margin-top: 4px;
+	}
 
-    .workedwithtext {
-        font-weight: 500;
-        letter-spacing: 0.05em;
-    }
-
-    a {
-        color: #4a9eff;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        position: relative;
-    }
-
-    a::after {
-        content: '';
-        position: absolute;
-        width: 100%;
-        height: 2px;
-        bottom: -2px;
-        left: 0;
-        background-color: #4a9eff;
-        transform: scaleX(0);
-        transform-origin: bottom right;
-        transition: transform 0.3s ease;
-    }
-
-    a:hover::after {
-        transform: scaleX(1);
-        transform-origin: bottom left;
-    }
-
-    a:hover {
-        color: #66b2ff;
-        text-shadow: 0 0 12px rgba(102, 178, 255, 0.7);
-    }
-
-    .profile {
-        border-radius: 1.5rem;
-        width: 100%;
-        max-width: 300px;
-        box-shadow: 
-            0 8px 32px 0 rgba(0, 0, 0, 0.37),
-            0 0 0 1px rgba(255, 255, 255, 0.1);
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transform: translateX(-6%);
-    }
-
-    .profile:hover {
-        transform: scale(1.03) translateY(-5px);
-        box-shadow: 
-            0 12px 40px 0 rgba(0, 0, 0, 0.5),
-            0 0 0 1px rgba(255, 255, 255, 0.2);
-    }
-
-    .contacts {
-        text-align: left;
-        margin-top: 1.5rem;
-    }
-
-    .right-side {
-        font-kerning: auto;
-        text-align: left;
-        max-width: 60ch;
-        line-height: 1.6;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-    }
-
-    .container {
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        gap: 4rem;
-        align-items: start;
-    }
-
-    .contacts2 {
-        margin-top: 2rem;
-    }
-
-    .contacts2 ul {
-        padding: 0;
-        margin: 0;
-        display: flex;
-        gap: 2rem;
-    }
-
-    li {
-        list-style: none;
-        display: inline-block;
-    }
-
-    .images {
-        height: 40px;
-        width: 40px;
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        filter: brightness(0.9) contrast(1.1);
-    }
-
-    .images:hover {
-        transform: translateY(-8px) scale(1.1);
-        filter: brightness(1.2) contrast(1.2);
-    }
-
-    @media (max-width: 768px) {
-        .container {
-            grid-template-columns: 1fr;
-            gap: 3rem;
-        }
-
-        .right-side {
-            transform: none;
-        }
-
-        .about, .workedwith {
-            transform: none;
-        }
-
-        .glassmorphism {
-            margin: 1.5rem;
-            padding: 2rem;
-            border-radius: 2rem;
-        }
-
-        .contacts2 ul {
-            justify-content: center;
-        }
-
-        .profile {
-            margin: 0 auto;
-            display: block;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .glassmorphism {
-            margin: 1rem;
-            padding: 1.5rem;
-            border-radius: 1.5rem;
-        }
-
-        .contacts2 ul {
-            gap: 1.5rem;
-        }
-
-        .images {
-            height: 35px;
-            width: 35px;
-        }
-    }
+	@media (max-width: 1024px) {
+		.about-grid { grid-template-columns: 1fr; }
+		.col-left { border-right: none; border-bottom: 1px solid #181818; padding: 48px 20px; }
+		.col-right { padding: 48px 20px; }
+		.a-bio { max-width: 100%; }
+	}
 </style>
-

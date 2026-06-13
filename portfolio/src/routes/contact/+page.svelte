@@ -1,323 +1,284 @@
 <script>
-// Contact form data
-let contactName = '';
-let contactEmail = '';
-let contactMessage = '';
-let formSubmitted = false;
-let formError = '';
-import { reveal } from 'svelte-reveal';
-// Handle contact form submission
-function handleContactSubmit() {
-  // Form validation
-  if (!contactName || !contactEmail || !contactMessage) {
-    formError = 'Please fill out all fields';
-    return;
-  }
-  
-  // Email validation
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(contactEmail)) {
-    formError = 'Please enter a valid email address';
-    return;
-  }
-  
-  // Clear any previous errors
-  formError = '';
-  
-  // Handle form submission - This would typically send data to a server
-  console.log('Form submitted:', { contactName, contactEmail, contactMessage });
-  formSubmitted = true;
-  
-  // Reset form after delay
-  setTimeout(() => {
-    contactName = '';
-    contactEmail = '';
-    contactMessage = '';
-    formSubmitted = false;
-  }, 5000);
-}
+	let name = '';
+	let email = '';
+	let subject = '';
+	let message = '';
+	let submitted = false;
+	let error = '';
+
+	function handleSubmit() {
+		if (!name || !email || !message) {
+			error = 'Please fill in all required fields.';
+			return;
+		}
+		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+		if (!emailRegex.test(email)) {
+			error = 'Please enter a valid email address.';
+			return;
+		}
+		error = '';
+		submitted = true;
+		setTimeout(() => {
+			submitted = false;
+			name = '';
+			email = '';
+			subject = '';
+			message = '';
+		}, 5000);
+	}
 </script>
- <!-- Contact Form Section -->
- <div class="contact-section">
-    <div id="glass-contact"></div>
-    <div class="contact-container">
-      <div class="contact-content" use:reveal={{ preset: "slide", delay: 300 }}>
-        <h1 class="contact-title" >Get in Touch</h1>
-        <div class="accent-bar contact-accent"></div>
-        
-        <div class="contact-description">
-          <p>Have a project in mind or want to discuss a collaboration? I'd love to hear from you!</p>
-        </div>
-        
-        <div class="contact-form-wrapper">
-          {#if formSubmitted}
-            <div class="success-message">
-              <h3>Thank you for your message!</h3>
-              <p>I'll get back to you as soon as possible.</p>
-            </div>
-          {:else}
-            <form  action="https://api.web3forms.com/submit" method="POST" class="contact-form">
-              {#if formError}
-                <div class="error-message">
-                  <p>{formError}</p>
-                </div>
-              {/if}
-              <input type="hidden" name="access_key" value="f137eaa0-a7d6-46b3-8abb-3e3d55cd79da">
-              <div class="form-group">
-                <label for="contactName">Name</label>
-                <input 
-                  type="text" 
-                  name="name"
-                  id="contactName" 
-                  bind:value={contactName} 
-                  placeholder="Your name"
-                  required
-                />
-              </div>
-              
-              <div class="form-group">
-                <label for="contactEmail">Email</label>
-                <input 
-                  type="email" 
-                  name="email" 
-                  id="contactEmail"
-                  bind:value={contactEmail} 
-                  placeholder="Your email address"
-                  required
-                />
-              </div>
-              
-              <div class="form-group">
-                <label for="contactMessage">Message</label>
-                <textarea 
-                  name="message"
-                  id="contactMessage" 
-                  bind:value={contactMessage} 
-                  placeholder="Tell me about your project or inquiry"
-                  rows="5"
-                  required
-                ></textarea>
-              </div>
-              <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-              <button type="submit" class="submit-btn">Send Message</button>
-            </form>
-          {/if}
-        </div>
-      </div>
-    </div>
-  </div>
-  <style>
-     @media (max-width: 480px) {
-    .contact-section {
-      min-height: auto;
-      padding: 1rem;
-    }
 
-    .contact-container {
-      padding: 0;
-    }
+<svelte:head>
+	<title>Contact — David Hajek</title>
+</svelte:head>
 
-    .form-group label {
-      font-size: 0.9rem;
-    }
+<div class="contact-grid">
+	<div class="col-left">
+		<p class="sec-label col-lbl">Get in touch</p>
+		<h1 class="c-head">Let's work<br />together.</h1>
+		<a href="mailto:david.mhaace@gmail.com" class="c-email">david.mhaace@gmail.com</a>
 
-    .submit-btn {
-      width: 100%;
-      padding: 0.8rem;
-    }
-  }
+		<div class="info-rows">
+			<div class="info-row">
+				<span class="info-key sec-label">Location</span>
+				<span class="info-val">Czech Republic · Near Prague</span>
+			</div>
+			<div class="info-row">
+				<span class="info-key sec-label">Availability</span>
+				<span class="info-val status">Open to work ●</span>
+			</div>
+			<div class="info-row">
+				<span class="info-key sec-label">Response time</span>
+				<span class="info-val">Usually within 24 hours</span>
+			</div>
+			<div class="info-row">
+				<span class="info-key sec-label">Preferred contact</span>
+				<span class="info-val">Email or LinkedIn</span>
+			</div>
+		</div>
 
-   /* Contact Section Styles */
-   .contact-section {
-    width: 100%;
-    min-height: 91vh;
-    position: relative;
-    padding: 2rem;
-    background: linear-gradient(135deg, rgba(2, 19, 31, 0.76), rgba(3, 31, 17, 0.575));
-  }
+		<div class="soc-row">
+			<a href="https://www.linkedin.com/in/david-h%C3%A1jek-98901b292/" target="_blank" rel="noopener" class="soc-btn">LinkedIn</a>
+			<a href="https://www.artstation.com/naden" target="_blank" rel="noopener" class="soc-btn">ArtStation</a>
+			<a href="https://www.instagram.com/dejvid.hajek/" target="_blank" rel="noopener" class="soc-btn">Instagram</a>
+		</div>
+	</div>
 
-  #glass-contact {
-    z-index: -5;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    background: rgba(40, 145, 231, 0.1);
-    backdrop-filter: blur(var(--glass-blur));
-    -webkit-backdrop-filter: blur(var(--glass-blur));
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-  }
+	<div class="col-right">
+		<p class="sec-label col-lbl">Send a message</p>
 
-  .contact-container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0rem 0.5rem;
-  }
+		{#if submitted}
+			<div class="success">
+				<p class="success-title">Message sent.</p>
+				<p class="success-body">Thanks for reaching out — I'll get back to you as soon as possible.</p>
+			</div>
+		{:else}
+			<form
+				action="https://api.web3forms.com/submit"
+				method="POST"
+				on:submit|preventDefault={handleSubmit}
+			>
+				<input type="hidden" name="access_key" value="f137eaa0-a7d6-46b3-8abb-3e3d55cd79da" />
 
-  .contact-content {
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-  }
+				{#if error}
+					<p class="form-error">{error}</p>
+				{/if}
 
-  .contact-title {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 700;
-    color: var(--text-primary);
-    margin-bottom: 1rem;
-    text-align: left;
-    justify-content: left;
-  }
-  .accent-bar.contact-accent {
-    width: 100%;
-    height: 6px;
-    margin: 0 0 3rem 0;
-    background: linear-gradient(90deg, #4a90e2 0%, #67b26f 100%);
-    border-radius: 3px;
-  }
+				<div class="field">
+					<label class="f-label sec-label" for="name">Name *</label>
+					<input
+						id="name"
+						name="name"
+						type="text"
+						class="f-input"
+						placeholder="Your name"
+						bind:value={name}
+						required
+					/>
+				</div>
+				<div class="field">
+					<label class="f-label sec-label" for="email">Email *</label>
+					<input
+						id="email"
+						name="email"
+						type="email"
+						class="f-input"
+						placeholder="your@email.com"
+						bind:value={email}
+						required
+					/>
+				</div>
+				<div class="field">
+					<label class="f-label sec-label" for="subject">Subject</label>
+					<input
+						id="subject"
+						name="subject"
+						type="text"
+						class="f-input"
+						placeholder="What's this about?"
+						bind:value={subject}
+					/>
+				</div>
+				<div class="field">
+					<label class="f-label sec-label" for="message">Message *</label>
+					<textarea
+						id="message"
+						name="message"
+						class="f-textarea"
+						placeholder="Tell me about your project — scope, timeline, budget..."
+						bind:value={message}
+						required
+					></textarea>
+				</div>
 
-  .contact-description {
-    text-align: left;
-    max-width: 700px;
-    margin-bottom: 3rem;
-  }
+				<button type="submit" class="f-submit">Send message</button>
+			</form>
+		{/if}
+	</div>
+</div>
 
-  .contact-description p {
-    font-size: clamp(1.1rem, 1.8vw, 1.3rem);
-    color: var(--text-secondary);
-    line-height: 1.6;
-  }
+<style>
+	.contact-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		min-height: 80vh;
+	}
 
-  .contact-form-wrapper {
-    width: 100%;
-    max-width: 100%;
-    background: rgba(115, 199, 233, 0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 15px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-    padding: 2.5rem;
-  }
+	.col-left {
+		padding: 60px 40px;
+		border-right: 1px solid #181818;
+		display: flex;
+		flex-direction: column;
+	}
+	.col-right { padding: 60px 40px; }
 
-  .contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
+	.col-lbl { margin-bottom: 20px; }
 
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
+	.c-head {
+		font-size: clamp(36px, 4vw, 46px);
+		font-weight: 600;
+		letter-spacing: -0.04em;
+		color: #f0f0f0;
+		line-height: 1.05;
+		margin-bottom: 28px;
+	}
 
-  .form-group label {
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--text-primary);
-  }
+	.c-email {
+		font-size: 14px;
+		color: #666;
+		margin-bottom: 32px;
+		padding-bottom: 28px;
+		border-bottom: 1px solid #181818;
+		transition: color 0.15s;
+		display: block;
+	}
+	.c-email:hover { color: #aaa; }
 
-  .form-group input,
-  .form-group textarea {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 8px;
-    color: var(--text-primary);
-    font-size: 1rem;
-    transition: all 0.3s ease;
-  }
+	.info-rows { flex: 1; }
+	.info-row {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 13px 0;
+		border-bottom: 1px solid #141414;
+		gap: 16px;
+	}
+	.info-key { flex-shrink: 0; }
+	.info-val { font-size: 12px; color: #555; text-align: right; }
+	.status { color: #3a7a3a !important; }
 
-  .form-group input:focus,
-  .form-group textarea:focus {
-    outline: none;
-    border-color: rgba(255, 255, 255, 0.5);
-    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
-  }
+	.soc-row {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+		margin-top: 32px;
+	}
+	.soc-btn {
+		font-size: 10px;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		padding: 9px 14px;
+		border: 1px solid #1e1e1e;
+		color: #444;
+		transition: border-color 0.15s, color 0.15s;
+	}
+	.soc-btn:hover { border-color: #444; color: #aaa; }
 
-  .form-group textarea {
-    resize: vertical;
-    min-height: 120px;
-  }
+	.field { margin-bottom: 18px; }
+	.f-label { display: block; margin-bottom: 8px; }
+	.f-input {
+		width: 100%;
+		background: #111;
+		border: 1px solid #1e1e1e;
+		border-top: 1px solid #252525;
+		padding: 13px 15px;
+		font-size: 13px;
+		color: #ccc;
+		font-family: inherit;
+		outline: none;
+		transition: border-color 0.15s;
+	}
+	.f-input::placeholder { color: #2a2a2a; }
+	.f-input:focus { border-color: #333; }
+	.f-textarea {
+		width: 100%;
+		background: #111;
+		border: 1px solid #1e1e1e;
+		border-top: 1px solid #252525;
+		padding: 13px 15px;
+		font-size: 13px;
+		color: #ccc;
+		font-family: inherit;
+		height: 140px;
+		resize: vertical;
+		outline: none;
+		transition: border-color 0.15s;
+	}
+	.f-textarea::placeholder { color: #2a2a2a; }
+	.f-textarea:focus { border-color: #333; }
 
-  .submit-btn {
-    padding: 1rem 2rem;
-    background: linear-gradient(45deg, #4a90e2, #67b26f);
-    border: none;
-    border-radius: 12px;
-    color: white;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-top: 1rem;
-    position: relative;
-    overflow: hidden;
-  }
+	.f-submit {
+		width: 100%;
+		padding: 15px;
+		background: #e8e8e8;
+		color: #0a0a0a;
+		border: none;
+		font-size: 11px;
+		font-weight: 500;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		font-family: inherit;
+		cursor: none;
+		transition: background 0.2s;
+		margin-top: 4px;
+	}
+	.f-submit:hover { background: #fff; }
 
-  .submit-btn:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      120deg,
-      transparent,
-      rgba(255, 255, 255, 0.2),
-      transparent
-    );
-    transition: all 0.6s;
-  }
+	.form-error {
+		font-size: 12px;
+		color: #884444;
+		margin-bottom: 16px;
+		padding: 12px;
+		border: 1px solid #441c1c;
+		background: #1a0e0e;
+	}
 
-  .submit-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  }
+	.success {
+		padding: 32px;
+		border: 1px solid #181818;
+		background: #111;
+	}
+	.success-title {
+		font-size: 18px;
+		font-weight: 500;
+		color: #f0f0f0;
+		margin-bottom: 10px;
+	}
+	.success-body { font-size: 13px; color: #666; line-height: 1.7; }
 
-  .submit-btn:hover:before {
-    left: 100%;
-  }
-
-  .submit-btn:active {
-    transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  }
-
-  .success-message {
-    text-align: center;
-    padding: 3rem 2rem;
-  }
-
-  .success-message h3 {
-    font-size: 1.8rem;
-    color: var(--text-primary);
-    margin-bottom: 1rem;
-  }
-
-  .success-message p {
-    font-size: 1.2rem;
-    color: var(--text-secondary);
-  }
-
-  .error-message {
-    background: rgba(255, 59, 48, 0.2);
-    border-radius: 8px;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    border: 1px solid rgba(255, 59, 48, 0.3);
-  }
-
-  .error-message p {
-    color: var(--text-primary);
-    font-size: 1rem;
-    margin: 0;
-    text-align: center;
-  }
-
-  </style>
+	@media (max-width: 1024px) {
+		.contact-grid { grid-template-columns: 1fr; }
+		.col-left { border-right: none; border-bottom: 1px solid #181818; padding: 48px 20px; }
+		.col-right { padding: 48px 20px; }
+	}
+</style>
